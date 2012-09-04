@@ -1,0 +1,2 @@
+class Donator < Contributor
+end
