@@ -1,0 +1,10 @@
+zh-CN:
+  signup:
+    title: "注册寸心公益"
+    name: "昵称"
+    email: "我的邮箱"
+    password: "创建密码"
+    password_confirmation: "重复密码"
+    submit: "马上注册"
+    link: "注册"
+

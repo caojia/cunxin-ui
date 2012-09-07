@@ -1,0 +1,7 @@
+<%- if controller_name != 'sessions' %>
+  <%= link_to t("signin.link"), new_session_path(resource_name) %><br />
+<% end -%>
+
+<%= link_to t("signup.link"), signup_path %><br />
+
+<%= link_to t("signin.connect_with_sina"), sina_path(:action => :connect) %>

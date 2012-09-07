@@ -1,0 +1,20 @@
+<h2><%= t("signup.title") %></h2>
+
+<%= form_for(@user, :as => "user", :url => users_path(@user)) do |f| %>
+  <%= (hidden_field_tag :sina_id, @sina_user_id) if @sina_user_id %>
+  <div><%= f.label :name, t("signup.name") %><br />
+    <%= f.text_field :name %></div>
+
+  <div><%= f.label :email, t("signup.email") %><br />
+    <%= f.email_field :email, :auto_focus => true %></div>
+
+  <div><%= f.label :password, t("signup.password") %><br />
+    <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation, t("signup.password_confirmation") %><br />
+    <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit t("signup.submit") %></div>
+<% end %>
+
+<%= render :partial => "devise/shared/links", :locals => {:resource_name => "user"} %>
