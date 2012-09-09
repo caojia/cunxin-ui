@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
@@ -27,6 +27,12 @@ class User < ActiveRecord::Base
       end
     end
     result
+  end
+
+  # NOTE: overwite the default confirmable's method,
+  # we don't need the email is always confirmed
+  def active_for_authentication?
+    true
   end
 
 end

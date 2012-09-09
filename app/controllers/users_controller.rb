@@ -18,6 +18,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # NOTE: we only use devise for login/logout in controller
+  # 
   def create
     @user = User.new(params[:user])
     
@@ -40,6 +42,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       @user.clean_up_passwords
+      #TODO: show error messages
       render :action => :new
     end
 

@@ -1,0 +1,6 @@
+<p><%= @resource.name %>, 您好!</p>
+
+<p>您可以通过一下链接认证您的邮箱:</p>
+
+<%- url = confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) -%>
+<p><%= link_to url, url %></p>

@@ -3,11 +3,12 @@ CunxinUi::Application.routes.draw do
     root :to => 'home#index'
   end
   root :to => "home#index"
-  devise_for :users, :only => :sessions
+
+  devise_for :users, :only => [:sessions, :passwords, :confirmations]
 
   # users
   get "users/new", :to => "users#new", :as => :signup
-  resources :users, :only => [:show, :index, :create]
+  resources :users, :only => [:index, :create, :show]
 
   get "sina/:action", :controller => "sina", :as => :sina
 

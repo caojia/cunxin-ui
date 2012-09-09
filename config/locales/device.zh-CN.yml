@@ -26,13 +26,13 @@ zh-CN:
       signed_in: '登录成功.'
       signed_out: '退出成功.'
     passwords:
-      send_instructions: '稍后你将收到帐号激活的电子邮件'
+      send_instructions: '稍后你将收到重置密码的电子邮件'
       updated: '您的密码已修改成功，您现在已登录.'
       updated_not_active: '您的密码已修改成功.'
       send_paranoid_instructions: '如果您的邮箱存在于我们的数据库中，您将收到一封找回密码的邮件.'
     confirmations:
-      send_instructions: '稍后你将收到帐号激活的电子邮件'
-      confirmed: '您的帐号已经激活，您现在已登录.'
+      send_instructions: '稍后你将收到邮箱认证的电子邮件'
+      confirmed: '恭喜您，您的邮箱已经认证成功。'
       send_paranoid_instructions: '如果您的邮箱存在于我们的数据库中，您将收到一封激活账号的邮件.'
     registrations:
       signed_up: '欢迎您！您已注册成功.'

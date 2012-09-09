@@ -1,0 +1,9 @@
+<h2><%= t("forgot_password.title") %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <div><%= f.label :email, t("forgot_password.email") %><br />
+    <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.submit t("forgot_password.submit") %></div>
+<% end %>
+
