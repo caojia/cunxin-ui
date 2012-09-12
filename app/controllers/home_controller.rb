@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
+    @carousels = Carousel.find(:all, :order => "position ASC", :include => :project)
+    @charities = Charity.find(:all, :order => "name ASC")
   end
 end

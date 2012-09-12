@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
 */
 
 .content {
@@ -27,3 +26,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@import "sprites"; /*sprites*/
+@import "bootstrap_and_overrides";
+@import "home";
+@import "head-carousel";

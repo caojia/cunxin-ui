@@ -1,4 +1,29 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<div id="head-carousel" class="carousel slide head-carousel">
+  <!-- Carousel Items -->
+  <div class="carousel-inner">
+    <% @carousels.each_with_index do |carousel, i| %>
+      <div class="item <%= i == 0 ? 'active' : '' %>">
+        <%= image_tag carousel.project.thumbnail_large %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#head-carousel" %>
+  <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#head-carousel" %>
+</div>
+
+<div id="charities" class="section container">
+  <h2 class="section-head"><%= t("home.charity_title") %></h2>
+  <div id="charities-carousel" class="carousel slide col3-carousel">
+    <% first = true %>
+    <div class="carousel-inner">
+      <% @charities.in_groups_of(3, false) do |group| %>
+        <% group.each do |charity| %>
+          <div class="item <%= first ? 'active' : '' %>">
+            <%= image_tag charity.thumbnail_large %>
+          </div>
+        <% end %>
+        <% first = false %>
+      <% end %>
+    </div>
+  </div>
+</div>
