@@ -11,25 +11,6 @@
   <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#head-carousel" %>
 </div>
 
-<div id="charities" class="section container">
-  <h2 class="section-head"><%= t("home.charity_title") %></h2>
-  <div id="charities-carousel" class="carousel slide col3-carousel">
-    <% first = true %>
-    <div class="carousel-inner">
-      <% @charities.in_groups_of(3, false) do |group| %>
-        <div class="row item <%= first ? 'active' : '' %>">
-          <% group.each do |charity| %>
-            <div class="span4">
-              <%= image_tag charity.thumbnail_small %>
-            </div>
-          <% end %>
-        </div>
-        <% first = false %>
-      <% end %>
-    </div>
-    <% if @charities.length > 3 %>
-      <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#charities-carousel" %>
-      <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#charities-carousel" %>
-    <% end %>
-  </div>
-</div>
+<%= render :partial => "col3_carousel", :locals => {:items => @charities, :key => "charity"} %>
+<%= render :partial => "col3_carousel", :locals => {:items => @donators, :key => "donator"} %>
+<%= render :partial => "col3_carousel", :locals => {:items => @consults, :key => "consult"} %>
