@@ -12,4 +12,7 @@ CunxinUi::Application.routes.draw do
 
   get "sina/:action", :controller => "sina", :as => :sina
 
+  # project
+  get "project/:action/:id", :controller => "project"
+
 end
