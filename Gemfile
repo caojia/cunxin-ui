@@ -22,3 +22,4 @@ gem "rolify", ">= 3.2.0"
 gem 'weibo_2', :git => "https://github.com/simsicon/weibo_2.git"
 gem 'mysql2'
 gem 'rails-i18n', :git => "https://github.com/svenfuchs/rails-i18n.git"
+gem 'therubyracer'
