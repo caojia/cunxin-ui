@@ -4,7 +4,7 @@
 
 $ = jQuery
 _headCarousel = "#head-carousel"
-interval = 2000
+interval = 4000
 
 $ ->
   $(_headCarousel).carousel interval: interval
