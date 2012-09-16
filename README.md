@@ -1,7 +1,7 @@
 This is UI/Front End repo for Cunxin Project
 
 # Setup on CentOS
-* yum install mysql55-server gcc make zlib-devel openssl-devel libxml2-devel libxslt-devel mysql55-devel sqlite-devel -y 
+* yum install mysql55-server gcc make zlib-devel openssl-devel libxml2-devel libxslt-devel mysql55-devel sqlite-devel gcc-c++ -y 
 * yum localinstall --nogpgcheck http://nodejs.tchol.org/repocfg/amzn1/nodejs-stable-release.noarch.rpm && yum install nodejs
 * install rvm (curl -L https://get.rvm.io | bash -s stable --ruby) && echo 'source /home/deploy/.rvm/scripts/rvm' >> ~/.bashrc)
 * git clone https://github.com/willamette/cunxin-ui.git
