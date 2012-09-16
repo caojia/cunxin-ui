@@ -3,4 +3,6 @@ class Photo < ActiveRecord::Base
   attr_protected :id
 
   validates_presence_of :link, :thumbnail
+
+  has_many :project_photos;
 end

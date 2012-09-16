@@ -1,6 +1,8 @@
 <% key_s = key.pluralize %>
 <div id="<%= key_s %>" class="section container">
-  <h2 class="section-head"><%= t("home.%s_title" % key) %></h2>
+  <% unless no_title ||= false %>
+    <h2 class="section-head"><%= t("home.%s_title" % key) %></h2>
+  <% end %>
   <div id="<%= key_s %>-carousel" class="carousel slide col3-carousel">
     <% first = true %>
     <div class="carousel-inner">

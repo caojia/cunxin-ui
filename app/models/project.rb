@@ -12,5 +12,5 @@ class Project < ActiveRecord::Base
   belongs_to :charity
 
   has_many :project_photos
-  has_many :photos, :through => :project_photos
+  has_many :photos, :through => :project_photos, :order => 'position ASC'
 end

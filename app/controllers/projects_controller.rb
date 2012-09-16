@@ -1,9 +1,10 @@
 class ProjectsController < ApplicationController
   def index
-    @users = User.all
+    @projects = Project.all
   end
 
   def show
-    @project = Project.find(params[:id], :include => :users)
+    @project = Project.find(params[:id], :include => [ :users, :photos] )
+    @photos = @project.photos;
   end
 end
