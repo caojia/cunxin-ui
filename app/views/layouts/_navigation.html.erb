@@ -1,26 +1,31 @@
 <%= link_to t("home.name"), root_path, :class => 'brand' %>
-<ul class="nav pull-right">
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to t("signout.link"), destroy_user_session_path, :method=>'delete' %>        
-    </li>
-  <% else %>
-    <li>
-    <%= link_to t("signin.link"), "#", :class => "signin-modal-link", "data-target" => "#signin-modal" %>  
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%#= link_to 'Edit account', edit_user_registration_path %>
-    </li>
-    <% if current_user.has_role? :admin %>
-      <li>
-      <%= link_to 'Admin', users_path %>
-      </li>
-    <% end %>
-  <% else %>
-    <li>
+<ul class="nav pull-right" id="login-nav">
+  <li class='anonymous'>
+    <%= link_to t("signin.link"), "#", :class => "signin-modal-link", "data-target" => "#signin-modal" %>
+  </li>
+
+  <li class='anonymous'>
     <%= link_to t("signup.link"), signup_path %>
-    </li>
-  <% end %>
+  </li>
+
+  <li class='anonymous sina-login'>
+    <%= link_to sina_connect_path do %>
+      <%= image_tag "sina24.png" %>
+    <% end %>
+  </li>
+
+  <li class="loggedin hidden user-thumb">
+    <span>
+      <img class="hidden"></img>
+    </span>
+  </li>
+
+  <li class='loggedin hidden user-name'>
+    <%= link_to "", "#" %>
+  </li>
+
+  <li class='loggedin hidden user-logout'>
+  <%= link_to t("signout.link"), destroy_user_session_path, :method => :delete %>
+  </li>
+
 </ul>

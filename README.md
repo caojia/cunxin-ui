@@ -14,3 +14,7 @@ This is UI/Front End repo for Cunxin Project
 
 # Add transparent mask for each thumbnail
 * convert 2.jpeg -adaptive-resize 320x240! -channel RGBA -fill "rgba(0,0,0,0.5)" -draw "rectangle 0,210,320,240" 2_1.jpeg
+
+# TOOD
+## Signin
+* handle the case when signin fails

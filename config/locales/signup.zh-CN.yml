@@ -7,4 +7,9 @@ zh-CN:
     password_confirmation: "重复密码"
     submit: "马上注册"
     link: "注册"
+    agree_pp: "我已阅读并同意使用条款"
+
+    complete:
+      title: "完成您的账户"
+      submit: "完成"
 

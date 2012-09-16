@@ -1,20 +1,64 @@
-<h2><%= t("signup.title") %></h2>
+<div class="container">
+  <div class="span6">
+    <%= form_for(@user, :as => "user", :url => users_path(@user), :html => {:class => "form-horizontal", :id => "signup-form"}) do |f| %>
+      <h2 class="controls">
+        <%= t("signup.%stitle" % (@is_complete ? "complete" : "")) %>
+      </h2>
 
-<%= form_for(@user, :as => "user", :url => users_path(@user)) do |f| %>
-  <%= (hidden_field_tag :sina_id, @sina_user_id) if @sina_user_id %>
-  <div><%= f.label :name, t("signup.name") %><br />
-    <%= f.text_field :name %></div>
+      <%= (hidden_field_tag :sina_id, @sina_user_id) if @sina_user_id %>
+      <div class="control-group" id="signup-email-field">
+        <%= f.label :email, t("signup.email"), :class => "control-label" %>
+        <div class="controls">
+          <%= f.email_field :email, :auto_focus => true %>
+          <span class="help-inline"></span>
+        </div>
+      </div>
 
-  <div><%= f.label :email, t("signup.email") %><br />
-    <%= f.email_field :email, :auto_focus => true %></div>
+      <div class="control-group" id="signup-password-field">
+        <%= f.label :password, t("signup.password"), :class => "control-label" %>
+        <div class="controls">
+          <%= f.password_field :password %>
+          <span class="help-inline"></span>
+        </div>
+      </div>
 
-  <div><%= f.label :password, t("signup.password") %><br />
-    <%= f.password_field :password %></div>
+      <div class="control-group" id="signup-password-confirmation-field">
+        <%= f.label :password_confirmation, t("signup.password_confirmation"), :class => "control-label" %>
+        <div class="controls">
+          <%= f.password_field :password_confirmation %>
+          <span class="help-inline"></span>
+        </div>
+      </div>
 
-  <div><%= f.label :password_confirmation, t("signup.password_confirmation") %><br />
-    <%= f.password_field :password_confirmation %></div>
+      <div class="control-group" id="signup-name-field">
+        <%= f.label :name, t("signup.name"), :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :name %>
+          <span class="help-inline"></span>
+        </div>
+      </div>
 
-  <div><%= f.submit t("signup.submit") %></div>
-<% end %>
+      <div class="control-group" id="signup-agree_pp-field">
+        <div class="controls">
+          <label class="checkbox">
+            <%= f.check_box :agree_pp %>
+            <%= t("signup.agree_pp") %>
+            <span class="help-inline"></span>
+          </label>
+        </div>
+      </div>
 
-<%= render :partial => "devise/shared/links", :locals => {:resource_name => "user"} %>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit t("signup.%ssubmit" % (@is_complete ? "complete" : "")), :class => "btn btn-primary" %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+  <%= javascript_tag do %>
+    $($("#signup-form").showSignupErrors(<%= @user.errors.to_json.html_safe %>, "signup"));
+  <% end %>
+
+</div>
+
