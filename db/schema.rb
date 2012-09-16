@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916021232) do
+ActiveRecord::Schema.define(:version => 20120916111332) do
 
   create_table "carousels", :force => true do |t|
     t.integer  "project_id"
@@ -71,12 +71,12 @@ ActiveRecord::Schema.define(:version => 20120916021232) do
   add_index "oauth_users", ["user_id", "oauth_uid"], :name => "index_oauth_users_on_user_id_and_oauth_uid"
 
   create_table "photos", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
     t.text     "description"
-    t.string   "thumbnail"
+    t.string   "thumbnail_small"
     t.string   "link"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "profiles", :force => true do |t|
