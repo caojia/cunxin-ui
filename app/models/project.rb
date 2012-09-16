@@ -10,4 +10,7 @@ class Project < ActiveRecord::Base
   has_many :users, :through => :user_projects
 
   belongs_to :charity
+
+  has_many :project_photos
+  has_many :photos, :through => :project_photos
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120907154311) do
+ActiveRecord::Schema.define(:version => 20120916021232) do
 
   create_table "carousels", :force => true do |t|
     t.integer  "project_id"
@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(:version => 20120907154311) do
   add_index "oauth_users", ["oauth_uid", "type"], :name => "index_oauth_users_on_oauth_uid_and_type", :unique => true
   add_index "oauth_users", ["user_id", "oauth_uid"], :name => "index_oauth_users_on_user_id_and_oauth_uid"
 
+  create_table "photos", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "thumbnail"
+    t.string   "link"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.text     "address"
@@ -79,6 +88,17 @@ ActiveRecord::Schema.define(:version => 20120907154311) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "project_photos", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "photo_id"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "project_photos", ["photo_id"], :name => "index_project_photos_on_photo_id"
+  add_index "project_photos", ["project_id"], :name => "index_project_photos_on_project_id"
 
   create_table "projects", :force => true do |t|
     t.string   "canonical_name"
