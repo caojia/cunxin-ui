@@ -1,8 +1,14 @@
+$col3_carousel_height: 240px;
+$head_carousel_width: 1280px;
+$head_carousel_height: 530px;
+$arrow_height: sprites-sprite-height("left-arrow");
+
 .head-carousel {
   width: 100%;
-  max-width: 1280px;
-  height: 530px;
+  max-width: $head_carousel_width;
+  height: $head_carousel_height;
   overflow: hidden;
+  margin-bottom: 0;
 
   .item {
     width: 100%;
@@ -13,7 +19,7 @@
   }
 
   .carousel-control {
-    top: 220px;
+    top: ($head_carousel_height - $arrow_height) / 2;
   }
 }
 
@@ -24,6 +30,7 @@
   left: auto;
   right: auto;
   border: none;
+  margin-top: 0;
 }
 a.carousel-control-left {
   @include sprites-sprite("left-arrow");
@@ -47,16 +54,35 @@ a.carousel-control-right {
 }
 
 .col3-carousel {
+  height: $col3_carousel_height;
   .item {
     [class*="span"] {
-      max-height: 240px;
+      text-align: center;
+      max-height: $col3_carousel_height;
+      *height: $col3_carousel_height;
+      position: relative;
       img {
-        max-height: 240px;
+        max-height: $col3_carousel_height;
+        *height: $col3_carousel_height;
+      }
+      .caption {
+        color: white;
+        position: absolute;
+        line-height: 30px;
+        vertical-align: middle;
+        bottom: 0;
+        left: 20px;
       }
     }
   }
 
   .carousel-control {
-    top: 120px;
+    top: ($col3_carousel_height - $arrow_height)/2;
+  }
+  .carousel-control-left {
+    left: -40px;
+  }
+  .carousel-control-right {
+    right: -40px;
   }
 }

@@ -10,6 +10,11 @@
   <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#head-carousel" %>
   <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#head-carousel" %>
 </div>
+<div id="head-summary" class="head-summary">
+  <div class="container">
+    <%= t("home.summary", @summary).html_safe %>
+  </div>
+</div>
 
 <%= render :partial => "col3_carousel", :locals => {:items => @charities, :key => "charity"} %>
 <%= render :partial => "col3_carousel", :locals => {:items => @donators, :key => "donator"} %>
