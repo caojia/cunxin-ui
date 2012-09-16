@@ -3,7 +3,9 @@
   <div class="carousel-inner">
     <% @carousels.each_with_index do |carousel, i| %>
       <div class="item <%= i == 0 ? 'active' : '' %>">
-        <%= image_tag carousel.project.thumbnail_large %>
+        <%= link_to project_path(carousel.project.id) do %>
+          <%= image_tag carousel.project.thumbnail_large %>
+        <% end %>
       </div>
     <% end %>
   </div>
