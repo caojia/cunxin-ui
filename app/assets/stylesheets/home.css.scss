@@ -10,13 +10,30 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   color: #666;
 
   .container {
-    font-size: 18px;
+    font-size: 16px;
     line-height: $head_summary_height;
     vertical-align: middle;
   }
 
   .highlight {
-    color: #4bf;
-    font-size: 20px;
+    color: #00A708;
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+  .head-carousel-control-button {
+    line-height: $head_summary_height + 2px;
+    text-align: center;
+    .carousel-control-button {
+      display: inline-block;
+      margin-right: 10px;
+      width: sprites-sprite-width("carousel-button");
+      height: sprites-sprite-height("carousel-button");
+      @include sprites-sprite("carousel-button");
+
+      &.active {
+        @include sprites-sprite("carousel-button-hover");
+      }
+    }
   }
 }

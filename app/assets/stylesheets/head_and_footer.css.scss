@@ -1,0 +1,8 @@
+.cunxin-nav-bar {
+  @include sprites-sprite("head-bg");
+  background-repeat: repeat-x;
+
+  .navbar-inner {
+    background: none;
+  }
+}

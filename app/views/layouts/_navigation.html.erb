@@ -1,4 +1,6 @@
-<%= link_to t("home.name"), root_path, :class => 'brand' %>
+<%= link_to root_path, :class => 'brand' do %>
+  <%= image_tag "logo-trans.png" %>
+<% end %>
 <ul class="nav pull-right" id="login-nav">
   <li class='anonymous'>
     <%= link_to t("signin.link"), "#", :class => "signin-modal-link", "data-target" => "#signin-modal" %>

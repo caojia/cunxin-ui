@@ -11,6 +11,13 @@
  *= require_self
 */
 
+@import "sprites"; /*sprites*/
+@import "bootstrap_and_overrides";
+@import "signin";
+@import "home";
+@import "carousel";
+@import "head_and_footer";
+
 .content {
   background-color: #eee;
   padding: 20px;
@@ -31,8 +38,12 @@ body {
   display: none;
 }
 
-@import "sprites"; /*sprites*/
-@import "bootstrap_and_overrides";
-@import "signin";
-@import "home";
-@import "carousel";
+.navbar .brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.relative {
+  position: relative;
+}
+

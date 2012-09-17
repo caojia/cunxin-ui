@@ -12,9 +12,18 @@
   <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#head-carousel" %>
   <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#head-carousel" %>
 </div>
-<div id="head-summary" class="head-summary">
+<div id="head-summary" class="head-summary relative">
   <div class="container">
-    <%= t("home.summary", @summary).html_safe %>
+    <div class="span8">
+      <%= t("home.summary", @summary).html_safe %>
+    </div>
+    <div class="span3">
+      <div id="head-carousel-control-button" class="head-carousel-control-button">
+        <% @carousels.each_with_index do |carousel, i| %>
+          <%= link_to "", "#", :class => "carousel-control-button #{i==0 ? 'active' : ''}", "data-carousel-index" => i %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

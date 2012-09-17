@@ -1,14 +1,19 @@
+$banner-height: 60px;
 .nav .user-thumb span {
-  line-height: 38px;
+  line-height: $banner-height - 2px;
   img {
     border: 1px solid #444;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
+}
+.navbar .nav > li > a {
+  padding-top: ($banner-height - 20px)/2;
+  padding-bottom: ($banner-height - 20px)/2;
 }
 .nav li.sina-login {
   a {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: ($banner-height - 24px)/2;
+    padding-bottom: ($banner-height - 24px)/2;
   }
 }

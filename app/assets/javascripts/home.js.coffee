@@ -4,8 +4,20 @@
 
 $ = jQuery
 _headCarousel = "#head-carousel"
+_headCarouselButton = "#head-carousel-control-button .carousel-control-button"
 interval = 4000
 
 $ ->
-  $(_headCarousel).carousel interval: interval
+  _carousel = $(_headCarousel).
+    carousel(interval: interval).
+    on("slid", () -> 
+      i = $(this).find(".active").index(".item") + 1
+      console.log(i)
+      $(_headCarouselButton + ".active").toggleClass("active")
+      $(_headCarouselButton + ":nth-child("+i+")").toggleClass("active"))
+
+  $(_headCarouselButton).click( ->
+    i = $(this).data("carousel-index")
+    _carousel.carousel(i)
+    return false)
 
