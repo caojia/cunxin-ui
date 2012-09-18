@@ -17,4 +17,8 @@ CunxinUi::Application.routes.draw do
   # project
   resources :projects, :only => [:show]
 
+  # profile
+  get "profile", :to => "profile#index", :as => :profile
+  get "profile/projects", :to => "profile#projects", :as => :projects_profile
+
 end

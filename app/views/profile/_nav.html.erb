@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs">
+  <% @profile_tabs.each do |tab| %>
+    <li class="<%= tab[:class] %>">
+      <%= link_to t("profile.tab.%s" % tab[:name]), tab[:link] %>
+    </li>
+  <% end %>
+</ul>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title><%= content_for?(:title) ? yield(:title) : t("home.title") %></title>
+    <title><%= content_for?(:title) ? yield(:title) : t("app.name") %></title>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -23,6 +23,6 @@
       <%= yield %>
       <%= render :partial => "shared/signin_modal" %>
     </div> <!--! end of #main -->
-    <%= render 'layouts/footer' %>
+    <%#= render 'layouts/footer' %>
   </body>
 </html>

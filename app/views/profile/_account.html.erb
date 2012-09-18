@@ -1,0 +1,87 @@
+<div id="profile-info" class="section">
+  <%= form_for(@user.profile, :as => "profile", :url => users_path(@user), :html => {:class => "form-horizontal editable", :id => "profile-form"}) do |f| %>
+    <legend><%= "地址信息" %></legend>
+    <% Profile::FIELDS.each do |field| %>
+      <div class="control-group" id='profile-<%= field %>-field'>
+        <%= f.label field, t("profile.field.%s" % field), :class => "control-label" %>
+        <div class="controls">
+          <%= content_tag :span, @user.profile.send(field), :class => "field-content" %>
+          <%= f.text_field field, :auto_focus => true, :class => "field-input editing" %>
+          <span class="help-inline editing"></span>
+        </div>
+      </div>
+    <% end %>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit t("profile.submit"), :class => "editing btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div id="account-info" class="section">
+  <legend><%= "账户信息" %></legend>
+  <%= form_for(@user, :as => "user", :url => users_path(@user), :html => {:class => "form-horizontal editable", :id => "email-form"}) do |f| %>
+    <div class="control-group" id='account-email-field'>
+      <%= f.label :email, t("profile.account.email"), :class => "control-label" %>
+      <div class="controls">
+        <%= content_tag :span, @user.email, :class => "field-content" %>
+        <%= f.email_field :email, :auto_focus => true, :class => "field-input editing" %>
+        <span class="help-inline editing"></span>
+      </div>
+    </div>
+    <div class="control-group editing">
+      <div class="controls">
+        <%= f.submit t("profile.submit"), :class => "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_for(@user, :as => "user", :url => users_path(@user), :html => {:class => "form-horizontal editable", :id => "name-form"}) do |f| %>
+    <div class="control-group" id='account-name-field'>
+      <%= f.label :name, t("profile.account.name"), :class => "control-label" %>
+      <div class="controls">
+        <%= content_tag :span, @user.name, :class => "field-content" %>
+        <%= f.text_field :name, :auto_focus => true, :class => "field-input editing" %>
+        <span class="help-inline editing"></span>
+      </div>
+    </div>
+    <div class="control-group editing">
+      <div class="controls">
+        <%= f.submit t("profile.submit"), :class => "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_for(@user, :as => "user", :url => users_path(@user), :html => {:class => "form-horizontal editable", :id => "password-form"}) do |f| %>
+    <div class="control-group" id='account-old_password-field'>
+      <%= f.label :password, t("profile.account.old_password"), :class => "control-label" %>
+      <div class="controls">
+        <%= content_tag :span, "**********", :class => "field-content" %>
+        <%= f.password_field :password, :auto_focus => true, :class => "field-input editing" %>
+        <span class="help-inline editing"></span>
+      </div>
+    </div>
+
+    <div class="control-group editing" id='account-password-field'>
+      <%= f.label :password, t("profile.account.password"), :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password, :auto_focus => true, :class => "field-input editing" %>
+        <span class="help-inline editing"></span>
+      </div>
+    </div>
+
+    <div class="control-group editing" id='account-password_confirmation-field'>
+      <%= f.label :password_confirmation, t("profile.account.password_confirmation"), :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation, :auto_focus => true, :class => "field-input editing" %>
+        <span class="help-inline editing"></span>
+      </div>
+    </div>
+    <div class="control-group editing">
+      <div class="controls">
+        <%= f.submit t("profile.submit"), :class => "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
