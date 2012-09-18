@@ -18,6 +18,71 @@ Carousel.create(
   :position => 1
 )
 
+photo = Photo.create(
+  :name => "爱心召集：照片1",
+  :description => "bla bla...",
+  :thumbnail_small => "/charities/1.jpeg",
+  :link => "/projects/1.jpg"
+)
+
+ProjectPhoto.create(
+  :project => project,
+  :photo => photo,
+  :position => 0
+)
+
+photo = Photo.create(
+  :name => "爱心召集：照片2",
+  :description => "bla bla...",
+  :thumbnail_small => "/charities/1.jpeg",
+  :link => "/projects/1.jpg"
+)
+
+ProjectPhoto.create(
+  :project => project,
+  :photo => photo,
+  :position => 1
+)
+
+photo = Photo.create(
+  :name => "爱心召集：照片3",
+  :description => "bla bla...",
+  :thumbnail_small => "/charities/1.jpeg",
+  :link => "/projects/1.jpg"
+)
+
+ProjectPhoto.create(
+  :project => project,
+  :photo => photo,
+  :position => 2
+)
+
+photo = Photo.create(
+  :name => "爱心召集：照片4",
+  :description => "bla bla...",
+  :thumbnail_small => "/charities/1.jpeg",
+  :link => "/projects/1.jpg"
+)
+
+ProjectPhoto.create(
+  :project => project,
+  :photo => photo,
+  :position => 3
+)
+
+photo = Photo.create(
+  :name => "爱心召集：照片5",
+  :description => "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla...",
+  :thumbnail_small => "/charities/2.jpeg",
+  :link => "/projects/1.jpg"
+)
+
+ProjectPhoto.create(
+  :project => project,
+  :photo => photo,
+  :position => 4
+)
+
 project = Project.create(
   :canonical_name => "project2", 
   :headline => "【爱心衣橱】紧急为云南地震灾区小学生筹集新衣项目款",
@@ -33,6 +98,39 @@ project = Project.create(
 Carousel.create(
   :project_id => project.id,
   :position => 2
+)
+
+# Same photo for two project
+ProjectPhoto.create(
+  :project => project,
+  :photo => photo,
+  :position => 2
+)
+
+photo = Photo.create(
+  :name => "爱心衣橱：照片1",
+  :description => "bla bla",
+  :thumbnail_small => "/charities/1.jpeg",
+  :link => "/projects/2.jpg"
+)
+
+ProjectPhoto.create(
+  :project => project,
+  :photo => photo,
+  :position => 0
+)
+
+photo = Photo.create(
+  :name => "爱心衣橱：照片2",
+  :description => "bla bla bla...",
+  :thumbnail_small => "/charities/2.jpeg",
+  :link => "/projects/2.jpg"
+)
+
+ProjectPhoto.create(
+  :project => project,
+  :photo => photo,
+  :position => 1
 )
 
 charity = Charity.create(
