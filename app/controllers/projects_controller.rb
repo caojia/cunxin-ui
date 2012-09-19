@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id], :include => [ :users, :photos] )
+    @project = Project.find(params[:id], :include => [:charity, :users, :photos] )
     @photos = @project.photos;
   end
 end

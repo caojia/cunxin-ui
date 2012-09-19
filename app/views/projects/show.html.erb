@@ -1,31 +1,64 @@
 <div id="head-carousel" class="carousel head-carousel">
   <!-- Carousel Items -->
   <div class="carousel-inner">
-    <%= image_tag @project.thumbnail_large %>
-    <div class="carousel-description">
-      <div>
-        <a href='javascript:void(0)'>
-          <img src='donate' />
-        </a>
-        <a href='javascript:void(0)'>
-          <img src='follow' />
-        </a>
+    <div class="active item">
+      <%= image_tag @project.thumbnail_large %>
+      <div class="carousel-caption">
+        <div class="head-desc-container">
+          <div class="desc-left">
+            <div class="desc-content">
+              <%= content_tag :span, t("projects.progress")%>
+            </div>
+            <div class="desc-content">
+              <%= content_tag :span, t("projects.location")%>
+              <%= content_tag :span, @project.location%>
+            </div>
+            <div class="desc-content">
+              <%= content_tag :span, t("projects.published_at")%>
+              <%= content_tag :span, @project.published_at %>
+            </div>
+            <div class="desc-content">
+              <%= content_tag :span, t("projects.target")%>
+              <%= content_tag :span, @project.target %>
+            </div>
+            <div class="desc-content">
+              <%= content_tag :span, t("projects.target_amount")%>
+              <%= content_tag :span, @project.target_amount %>
+            </div>
+            <div class="desc-content">
+              <%= content_tag :span, t("projects.charity")%>
+              <%= content_tag :span, @project.charity.name rescue "" %>
+            </div>
+          </div>
+          <div class="desc-right">
+            <div class="noticed"> <%= t("projects.has_noticed", :count => 123132) %> </div>
+            <div class="buttons">
+              <a href="javascript:void(0)">
+                <img src="donate" />
+              </a>
+              <a href="javascript:void(0)">
+                <img src="follow" />
+              </a>
+            </div>
+          </div>
+          <div style="clear: both"> </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <div>
-  <div class='container'>
-    <div class='detail'>
+  <div class="container">
+    <div class="detail">
       <h1> <%= @project.headline %> </h1>
-      <div class='description'> <%= @project.description %> </div>
+      <div class="description"> <%= @project.description %> </div>
     </div>
   </div>
 </div>
 
 <%= render :partial => "home/col3_carousel", :locals => {:items => @photos, :key => "photo", :no_title => true} %>
 
-<div class='comments'>
+<div class="comments">
 
 </div>

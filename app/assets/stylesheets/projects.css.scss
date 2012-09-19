@@ -1,0 +1,39 @@
+.head-desc-container {
+  margin: 12px 45px 25px;
+  font-size: 17px;
+
+  .desc-left {
+    float: left;
+    .desc-content {
+      vertical-align: middle;
+      margin-top: 13px;
+    }
+  }
+
+  .desc-right {
+    float: right;
+    .noticed {
+      margin-top: 50px;
+      font-size: 13px;
+      color: #BBBBBB;
+    }
+  }
+
+  .profile-content {
+    margin-top: -20px;
+    border-top: transparent;
+  }
+
+  .field-content {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 5px;
+  }
+
+  .form-horizontal {
+    margin-bottom: 0px;
+    .control-group {
+      margin-bottom: 5px;
+    }
+  }
+}

@@ -10,16 +10,27 @@ $arrow_height: sprites-sprite-height("left-arrow");
   overflow: hidden;
   margin-bottom: 0;
 
-  .item {
+  .carousel-inner {
     width: 100%;
-    img {
+    height: 100%;
+    .item {
       width: 100%;
       height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
   .carousel-control {
     top: ($head_carousel_height - $arrow_height) / 2;
+  }
+}
+
+.carousel .carousel-caption{
+  div, span {
+    color: white;
   }
 }
 
