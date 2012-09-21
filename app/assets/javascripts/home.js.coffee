@@ -12,7 +12,6 @@ $ ->
     carousel(interval: interval).
     on("slid", () -> 
       i = $(this).find(".active").index(".item") + 1
-      console.log(i)
       $(_headCarouselButton + ".active").toggleClass("active")
       $(_headCarouselButton + ":nth-child("+i+")").toggleClass("active"))
 

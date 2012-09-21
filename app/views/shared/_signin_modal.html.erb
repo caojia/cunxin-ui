@@ -5,7 +5,12 @@
   </div>
 
   <div class="modal-body">
-    <%= form_for(nil, :as => :user, :url => session_path(:user), :html => {:class => "form-horizontal"}) do |f| %>
+    <%= form_for(nil, :as => :user, :url => session_path(:user), :remote => true, :html => {:class => "form-horizontal", :id => "signin-form"}) do |f| %>
+
+      <div class="alert alert-error hide">
+        <%= content_tag :div, "", :class => "message" %>
+      </div>
+
       <div class="control-group">
         <%= f.label :email, I18n.t("signin.email"), :class => "control-label" %>
         <div class="controls">
