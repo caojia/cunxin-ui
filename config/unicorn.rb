@@ -1,6 +1,6 @@
 env = ENV["RAILS_ENV"]
-app_path = "/u/apps/draper/current"
-shared_path = "/u/apps/draper/shared"
+app_path = "/u/apps/cunxin-ui/current"
+shared_path = "/u/apps/cunxin-ui/shared"
 unicorn_pid = "#{app_path}/tmp/pids/unicorn.pid"
 
 user 'deploy'
