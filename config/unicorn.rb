@@ -1,0 +1,19 @@
+env = ENV["RAILS_ENV"]
+app_path = "/u/apps/draper/current"
+shared_path = "/u/apps/draper/shared"
+unicorn_pid = "#{app_path}/tmp/pids/unicorn.pid"
+
+user 'deploy'
+working_directory app_path
+pid unicorn_pid
+stderr_path "#{shared_path}/log/unicorn.log"
+stdout_path "#{shared_path}/log/unicorn.log"
+
+listen 2012
+worker_processes 2
+timeout 30
+preload_app true
+
+before_exec do |server|
+    ENV["BUNDLE_GEMFILE"] = "#{app_path}/Gemfile"
+end

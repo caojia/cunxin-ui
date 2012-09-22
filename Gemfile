@@ -25,4 +25,5 @@ gem 'rails-i18n', :git => "https://github.com/svenfuchs/rails-i18n.git"
 gem 'therubyracer'
 
 gem "capistrano", :group => :development
-gem 'rvm-capistrano', :group => :development
+gem "rvm-capistrano", :group => :development
+gem "unicorn"
