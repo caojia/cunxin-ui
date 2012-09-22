@@ -16,3 +16,5 @@
 
 # Ignore .swp
 *.swp
+*.DS_Store
+0sprites

@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   validates :agree_pp, :acceptance => true, :on => :create
   validates_presence_of :name
+  validates_uniqueness_of :name
 
   after_create :create_profile
 
@@ -31,12 +32,6 @@ class User < ActiveRecord::Base
       end
     end
     result
-  end
-
-  # NOTE: overwite the default confirmable's method,
-  # we don't need the email is always confirmed
-  def active_for_authentication?
-    true
   end
 
 end

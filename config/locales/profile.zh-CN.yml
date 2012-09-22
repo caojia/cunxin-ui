@@ -13,9 +13,10 @@ zh-CN:
     account:
       email: "我的邮箱："
       name: "昵称："
-      old_password: "当前密码："
+      current_password: "当前密码："
       password: "设置新密码："
       password_confirmation: "重复新密码："
 
     submit: "更新"
+    cancel: "取消"
       

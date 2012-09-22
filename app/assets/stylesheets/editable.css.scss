@@ -2,10 +2,39 @@
   .editing {
     display: none;
   }
+
+  .editable-icon {
+    display: none;
+  }
+
+  .editable-icon-container:hover {
+    .editable-icon {
+      display: inline-block;
+    }
+  }
+}
+
+.editable-icon-20 {
+  @include sprites-sprite("edit-icon-20");
+  width: sprites-sprite-width("edit-icon-20");
+  height: sprites-sprite-height("edit-icon-20");
+  margin-left: 3px;
+}
+
+.editable-icon-13 {
+  @include sprites-sprite("edit-icon-13");
+  width: sprites-sprite-width("edit-icon-13");
+  height: sprites-sprite-height("edit-icon-13");
+  margin-left: 3px;
+  position: relative;
+  top: 3px;
 }
 
 .editable-in-editing {
   .field-content {
+    display: none;
+  }
+  .editable-icon {
     display: none;
   }
 }
