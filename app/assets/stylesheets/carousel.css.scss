@@ -1,4 +1,6 @@
 $col3_carousel_height: 240px;
+$col4_carousel_height: 150px;
+$col4_carousel_width: 224px;
 $head_carousel_width: 1280px;
 $head_carousel_height: 480px;
 $arrow_height: sprites-sprite-height("left-arrow");
@@ -89,6 +91,41 @@ a.carousel-control-right {
 
   .carousel-control {
     top: ($col3_carousel_height - $arrow_height)/2;
+  }
+  .carousel-control-left {
+    left: -40px;
+  }
+  .carousel-control-right {
+    right: -40px;
+  }
+}
+
+.col4-carousel {
+  height: $col4_carousel_height;
+  .item {
+    [class*="span"] {
+      text-align: center;
+      max-height: $col4_carousel_height;
+      *height: $col4_carousel_height;
+      position: relative;
+      img {
+        max-height: $col4_carousel_height;
+        *height: $col4_carousel_height;
+        width: $col4_carousel_width;
+      }
+      .caption {
+        color: white;
+        position: absolute;
+        line-height: 30px;
+        vertical-align: middle;
+        bottom: 0;
+        left: 20px;
+      }
+    }
+  }
+
+  .carousel-control {
+    top: ($col4_carousel_height - $arrow_height)/2;
   }
   .carousel-control-left {
     left: -40px;

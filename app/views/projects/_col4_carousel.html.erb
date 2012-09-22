@@ -1,0 +1,30 @@
+<% key_s = key.pluralize %>
+<div id="<%= key_s %>" class="section container">
+  <% unless no_title ||= false %>
+    <h2 class="section-head"><%= t("project.%s_title" % key) %></h2>
+  <% end %>
+  <div id="<%= key_s %>-carousel" class="carousel slide col4-carousel">
+    <% first = true %>
+    <div class="carousel-inner">
+      <% items.in_groups_of(4, false) do |group| %>
+        <div class="row item <%= first ? 'active' : '' %>">
+          <% group.each do |item| %>
+            <div class="span3">
+              <%= link_to "#" do %>
+                <%= image_tag item.thumbnail_small %>
+                <div class="caption">
+                  <%= item.name %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <% first = false %>
+      <% end %>
+    </div>
+    <% if items.length > 4 %>
+      <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#%s-carousel" % key_s %>
+      <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#%s-carousel" % key_s %>
+    <% end %>
+  </div>
+</div>

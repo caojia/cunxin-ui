@@ -8,3 +8,6 @@ zh-CN:
     target_amount: "目标金额:"
     charity: "发起慈善机构:"
     has_noticed: "已有%{count}人关注"
+    donate: "捐 助"
+    notice: "关 注"
+

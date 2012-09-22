@@ -13,4 +13,8 @@ class Project < ActiveRecord::Base
 
   has_many :project_photos
   has_many :photos, :through => :project_photos, :order => 'position ASC'
+
+  def count_noticed_users
+    return @noticed_users_count ||= UserProject.count(:id, :conditions => { :project_id => id, :is_deleted => [false, nil] } );
+  end
 end
