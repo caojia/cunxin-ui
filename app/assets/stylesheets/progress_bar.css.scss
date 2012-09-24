@@ -1,0 +1,26 @@
+.progress {
+  height: 15px;
+  display: inline-block;
+  border: 1px solid #e4b186;
+  background: white;
+
+  .bar {
+    margin-top: -1px;
+    margin-left: -1px;
+    height: 100%;
+    @include sprites-sprite("progress-bar-bg");
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    display: inline-block;
+  }
+
+  .progress-text-container {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: black;
+  }
+}

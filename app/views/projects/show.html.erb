@@ -9,6 +9,12 @@
               <div class="desc-left">
                 <div class="desc-content">
                   <%= content_tag :span, t("projects.progress")%>
+                  <div class='progress' style="margin-left: 10px; width: 400px; position: absolute;">
+                    <div class='bar' style="width: 35%;"> </div>
+                    <div class='progress-text-container' >
+                      35%
+                    </div>
+                  </div>
                 </div>
                 <div class="desc-content">
                   <%= content_tag :span, t("projects.location")%>
@@ -50,7 +56,7 @@
 <div>
   <div class="container">
     <%= content_tag :h1, @project.headline %>
-    <%= content_tag :div, @project.description, :class => 'descriptoin' %>
+    <%= content_tag :div, @project.description, :class => 'description' %>
   </div>
 </div>
 
