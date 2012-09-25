@@ -24,6 +24,10 @@
   margin: 20px auto;
 }
 
+ul {
+  list-style-type: none;
+}
+
 @import "sprites"; /*sprites*/
 @import "bootstrap_and_overrides";
 @import "signin";

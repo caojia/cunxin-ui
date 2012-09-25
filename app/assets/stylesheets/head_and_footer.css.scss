@@ -6,3 +6,57 @@
     background: none;
   }
 }
+
+.content-footer-divider {
+  height: 4px;
+  background: #33bafe;
+}
+
+#footer {
+  @include sprites-sprite("footer-bg");
+  background-repeat: repeat-x;
+  height: 295px;
+
+  ul {
+    margin: 0;
+    border: 0;
+  }
+
+  li {
+    margin-bottom: 11px;
+  }
+
+  div, span, a {
+    color: #999999;
+    font-size: 13px;
+  }
+
+  a {
+    text-decoration: none;
+    &:hover, &:focus {
+      color: white;
+    }
+  }
+
+  h5 {
+    color: white;
+  }
+
+  .footer-links {
+    margin-top: 12px;
+    height: 213px;
+  }
+
+  .footer-divider {
+    background: #333333;
+    height: 1px;
+  }
+
+  .copyright-container {
+    margin-top: 17px;
+    width: 540px;
+    .copyright {
+      font-size: 12px;
+    }
+  }
+}

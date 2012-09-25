@@ -1,25 +1,26 @@
+<div class='content-footer-divider'> </div>
 <div id='footer' class='footer'>
-  <div class='container'>
+  <div class='footer-inner container'>
     <div class='footer-links'>
-      <span class='span3' style='height: 300px'> 
-        <div class=''> <%= t("footer.home") %> </div>
+      <span class='span3' > 
+        <h5> <%= t("footer.home") %> </h5>
         <ul>
           <li> <%= link_to t("footer.media"), "/media" %> </li>
           <li> <%= link_to t("footer.help"), "/help" %> </li>
         </ul>
       </span>
-      <span class='span3' style='height: 300px'> 
-        <div class=''> <%= t("footer.charities") %> </div>
+      <span class='span4' > 
+        <h5> <%= t("footer.charities") %> </h5>
         <ul>
         </ul>
       </span>
-      <span class='span3' style='height: 300px'> 
-        <div class=''> <%= t("footer.contributors") %> </div>
+      <span class='span3' > 
+        <h5> <%= t("footer.contributors") %> </h5>
         <ul>
         </ul>
       </span>
-      <span class='span2' style='height: 300px'> 
-        <div class=''> <%= t("footer.about_us") %> </div>
+      <span class='span1' > 
+        <h5> <%= t("footer.about_us") %> </h5>
         <ul>
           <li> <%= link_to t("footer.introduction"), "/introduction" %> </li>
           <li> <%= link_to t("footer.team"), "/team" %> </li>
@@ -28,11 +29,11 @@
           <li> <%= link_to t("footer.usage"), "/usage" %> </li>
         </ul>
       </span>
-      <div class='clear-fix'>
     </div>
-    <div class='divider'> </div>
-    <div class='container'>
-      <span> <%= t("footer.copyright") %> </span>
+    <div class='footer-divider'> </div>
+    <div class='copyright-container container'>
+      <%= content_tag :span, t("footer.copyright"), :class => 'copyright' %>
+      <%= link_to(image_tag("kexin_logo.jpg", :border => 0), "#") %>
     </div>
   </div>
 </div>
