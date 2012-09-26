@@ -10,4 +10,5 @@ zh-CN:
     has_noticed: "已有%{count}人关注"
     donate: "捐 助"
     notice: "关 注"
+    donated_users: "捐助网友"
 

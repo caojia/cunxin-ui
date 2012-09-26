@@ -86,3 +86,24 @@ h1 {
 }
 
 
+.donated-users {
+  margin-bottom: 30px;
+  li {
+    float: left;
+    margin-right: 22px;
+
+    .user-thumb-photo {
+      img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    .user-thumb-name {
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+}
+
+

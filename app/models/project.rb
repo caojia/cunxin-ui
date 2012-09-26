@@ -17,4 +17,9 @@ class Project < ActiveRecord::Base
   def count_noticed_users
     return @noticed_users_count ||= UserProject.count(:id, :conditions => { :project_id => id, :is_deleted => [false, nil] } );
   end
+
+  def donated_users
+    # Hack
+    return User.find(:all);
+  end
 end
