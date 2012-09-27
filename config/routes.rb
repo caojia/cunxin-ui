@@ -24,4 +24,7 @@ CunxinUi::Application.routes.draw do
   put "profile/:action", :controller => "profile", :as => :update_user_fields
   get "profile/projects", :to => "profile#projects", :as => :projects_profile
 
+  # charity
+  resources :charities, :only => [:show]
+
 end

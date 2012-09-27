@@ -1,0 +1,16 @@
+<div class='masterhead'>
+  <div class='container'>
+    <div id="head-carousel" class="carousel head-carousel">
+      <div class="carousel-inner">
+        <div class="active item">
+          <%= image_tag @charity.thumbnail_large %>
+          <div class="carousel-caption">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => "col4_carousel", :locals => {:items => @charity.projects, :key => "project", :no_title => true} %>
+
