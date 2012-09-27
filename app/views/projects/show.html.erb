@@ -38,10 +38,14 @@
                 </div>
               </div>
               <div class="desc-right">
-                <div class="noticed"> <%= t("projects.has_noticed", :count => @project.count_noticed_users) %> </div>
+                <div class="noticed">
+                  <%= t("projects.has_noticed_before") %>
+                  <%= content_tag :span, @project.count_noticed_users, :class => 'num' %>
+                  <%= t("projects.has_noticed_after") %>
+                </div>
                 <div class="buttons">
-                  <div class='donate button'> <%= t("projects.donate") %></div>
-                  <div class='notice button'> <%= t("projects.notice") %></div>
+                  <%= link_to t("projects.donate"), "#", :class => "donate button" %>
+                  <%= link_to t("projects.notice"), "#", :class => "notice button" %>
                 </div>
               </div>
               <div style="clear: both"> </div>

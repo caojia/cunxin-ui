@@ -7,8 +7,10 @@ zh-CN:
     target: "求助对象:"
     target_amount: "目标金额:"
     charity: "发起慈善机构:"
-    has_noticed: "已有%{count}人关注"
+    has_noticed_before: "已有"
+    has_noticed_after: "人关注"
     donate: "捐 助"
     notice: "关 注"
     donated_users: "捐助网友"
+    notice_thanks: "感谢您关注该项目！"
 
