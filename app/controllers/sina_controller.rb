@@ -1,11 +1,11 @@
 class SinaController < ApplicationController
+  include SinaClient
   def connect
-    client = WeiboOAuth2::Client.new
-    redirect_to client.authorize_url
+    redirect_to @sina_client.authorize_url
   end
 
   def callback
-    client = WeiboOAuth2::Client.new
+    client = @sina_client
     begin
       access_token = client.auth_code.get_token(params[:code].to_s)
       # 1. if it is a already connected account, login directly

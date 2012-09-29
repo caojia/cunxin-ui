@@ -13,7 +13,6 @@ class Devise::SessionsController < DeviseController
 
   # POST /resource/sign_in
   def create
-    p "hahahaha"
     resource = warden.authenticate!(auth_options)
     #set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in_with_cookie(resource_name, resource)

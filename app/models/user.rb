@@ -34,4 +34,9 @@ class User < ActiveRecord::Base
     result
   end
 
+  def following_project? project
+    !user_projects.find(:first, :conditions => {
+      :project_id => Project === project ? project.id : project }).nil?
+  end
+
 end

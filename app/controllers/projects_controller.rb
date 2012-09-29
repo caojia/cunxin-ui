@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+  include SinaClient
+  before_filter :authenticate_user!, :only => [:follow, :unfollow]
+
   def index
     @projects = Project.all
   end
