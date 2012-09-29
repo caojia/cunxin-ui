@@ -27,6 +27,6 @@
   </div>
 </div>
 
-<%= render :partial => "col3_carousel", :locals => {:items => @charities, :key => "charity"} %>
-<%= render :partial => "col3_carousel", :locals => {:items => @donators, :key => "donator"} %>
-<%= render :partial => "col3_carousel", :locals => {:items => @consults, :key => "consult"} %>
+<%= render :partial => "col3_carousel", :locals => {:items => @charities, :key => "charity", :gen_link_for_item => lambda {|item| charity_path(item.id) } } %>
+<%= render :partial => "col3_carousel", :locals => {:items => @donators, :key => "donator", :gen_link_for_item => lambda {|item| contributor_path(item.id) } } %>
+<%= render :partial => "col3_carousel", :locals => {:items => @consults, :key => "consult", :gen_link_for_item => lambda {|item| contributor_path(item.id) } } %>

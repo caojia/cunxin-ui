@@ -35,13 +35,10 @@
                 <div class="desc-content">
                   <%= content_tag :span, t("projects.charity")%>
                   <%= content_tag :span, @project.charity.name rescue "" %>
-                </div>
-              </div>
+                </div> </div>
               <div class="desc-right">
                 <div class="noticed">
-                  <%= t("projects.has_noticed_before") %>
-                  <%= content_tag :span, @project.count_noticed_users, :class => 'num' %>
-                  <%= t("projects.has_noticed_after") %>
+                  <%= t("projects.has_noticed", :count => @project.count_noticed_users).html_safe %>
                 </div>
                 <div class="buttons">
                   <%= link_to t("projects.donate"), "#", :class => "donate button" %>

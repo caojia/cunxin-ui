@@ -1,21 +1,27 @@
-<div class='masterhead'>
-  <div class='container'>
-    <div id="head-carousel" class="carousel head-carousel">
-      <div class="carousel-inner">
-        <div class="active item">
-          <%= image_tag @charity.thumbnail_large %>
-          <div class="carousel-caption">
+<div class='show-charity-content'>
+  <div class='masterhead'>
+    <div class='container'>
+      <div id="head-carousel" class="carousel head-carousel">
+        <div class="carousel-inner">
+          <div class="active item">
+            <%= image_tag @charity.thumbnail_large %>
+            <div class="carousel-caption">
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div>
-  <%= content_tag :span, t("charities.projects_count", :projects_count => @charity.projects.size) %>
-  <%= content_tag :span, t("charities.total_donated", :total_donated => @total_donated) %>
-</div>
+  <div>
+    <div class='container'>
+      <div class='charity-status'>
+        <%= content_tag :span, t("charities.projects_count", :projects_count => @charity.projects.size) %>
+        <%= content_tag :span, t("charities.total_donated", :total_donated => @total_donated) %>
+      </div>
+    </div>
+  </div>
 
-<%= render :partial => "col4_carousel", :locals => {:items => @charity.projects, :key => "project", :no_title => true} %>
+  <%= render :partial => "col4_carousel", :locals => {:items => @charity.projects, :key => "project"} %>
+</div>
 
