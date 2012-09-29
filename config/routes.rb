@@ -27,4 +27,7 @@ CunxinUi::Application.routes.draw do
   # charity
   resources :charities, :only => [:show]
 
+  # contributer
+  resources :contributors, :only => [:show]
+
 end

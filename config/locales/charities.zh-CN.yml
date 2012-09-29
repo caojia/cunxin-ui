@@ -1,0 +1,4 @@
+zh-CN:
+  charities:
+    projects_count: "该慈善机构项目数%{projects_count}个"
+    total_donated: "累计捐款%{total_donated}元"

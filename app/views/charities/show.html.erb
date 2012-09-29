@@ -12,5 +12,10 @@
   </div>
 </div>
 
+<div>
+  <%= content_tag :span, t("charities.projects_count", :projects_count => @charity.projects.size) %>
+  <%= content_tag :span, t("charities.total_donated", :total_donated => @total_donated) %>
+</div>
+
 <%= render :partial => "col4_carousel", :locals => {:items => @charity.projects, :key => "project", :no_title => true} %>
 
