@@ -1,18 +1,16 @@
-<div class='container'>
-  <div id="head-carousel" class="carousel slide head-carousel">
-    <!-- Carousel Items -->
-    <div class="carousel-inner">
-      <% @carousels.each_with_index do |carousel, i| %>
-        <div class="item <%= i == 0 ? 'active' : '' %>">
-          <%= link_to project_path(carousel.project.id) do %>
-            <%= image_tag carousel.project.thumbnail_large %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#head-carousel" %>
-    <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#head-carousel" %>
+<div id="head-carousel" class="carousel slide head-carousel">
+  <!-- Carousel Items -->
+  <div class="carousel-inner">
+    <% @carousels.each_with_index do |carousel, i| %>
+      <div class="item <%= i == 0 ? 'active' : '' %>">
+        <%= link_to project_path(carousel.project.id) do %>
+          <%= image_tag carousel.project.thumbnail_large %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+  <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#head-carousel" %>
+  <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#head-carousel" %>
 </div>
 <div id="head-summary" class="head-summary relative">
   <div class="container">
