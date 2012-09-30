@@ -1,7 +1,7 @@
 $col3_carousel_height: 240px;
 $col4_carousel_height: 150px;
 $col4_carousel_width: 224px;
-$head_carousel_width: 1280px;
+$head_carousel_width: 1440px;
 $head_carousel_height: 480px;
 $arrow_height: sprites-sprite-height("left-arrow");
 
@@ -11,6 +11,8 @@ $arrow_height: sprites-sprite-height("left-arrow");
   height: $head_carousel_height;
   overflow: hidden;
   margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
 
   .carousel-inner {
     width: 100%;
