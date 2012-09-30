@@ -12,13 +12,18 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-static-top cunxin-nav-bar">
-      <div class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/navigation' %>
+    <div class="nav-bar-wrapper">
+      <div class="navbar navbar-inverse navbar-static-top cunxin-nav-bar">
+        <div class="navbar-inner">
+          <div class="container">
+            <%= render 'layouts/navigation' %>
+          </div>
         </div>
       </div>
+      <div class="navbar-shadow">
+      </div>
     </div>
+
     <div id="main" role="main">
       <%= yield %>
       <%= render :partial => "shared/signin_modal" %>
