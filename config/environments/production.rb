@@ -80,6 +80,7 @@ CunxinUi::Application.configure do
   }
 
 
+  WeiboOAuth2::Config.redirect_uri = "http://cunxin.org/sina/callback"
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
