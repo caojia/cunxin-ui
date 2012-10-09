@@ -1,3 +1,4 @@
+<% gen_link_for_item ||= lambda { |item| "#" } %>
 <% key_s = key.pluralize %>
 <div id="<%= key_s %>" class="section container">
   <% unless no_title ||= false %>
@@ -10,7 +11,7 @@
         <div class="row item <%= first ? 'active' : '' %>">
           <% group.each do |item| %>
             <div class="span3">
-              <%= link_to "#" do %>
+              <%= link_to gen_link_for_item.call(item) do %>
                 <%= image_tag item.thumbnail_small %>
                 <div class="caption">
                   <%= item.name %>

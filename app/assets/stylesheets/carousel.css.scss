@@ -3,6 +3,8 @@ $col4_carousel_height: 150px;
 $col4_carousel_width: 224px;
 $head_carousel_width: 1440px;
 $head_carousel_height: 480px;
+$head_description_height: 300px;
+$head_description_width: 150px;
 $arrow_height: sprites-sprite-height("left-arrow");
 
 .head-carousel {
@@ -36,6 +38,22 @@ $arrow_height: sprites-sprite-height("left-arrow");
   div, span {
     color: white;
   }
+}
+
+.carousel-description {
+  div, span, h3 {
+    color: #cccccc;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  width: $head_description_width;
+  height: $head_description_height;
+  top: ($head_carousel_height - $head_description_height) / 2 - 15px;
+  left: 100px;
+  padding: 15px;
+  position: absolute;
+  background: none repeat scroll 0 0 rgba(0,0,0,0.75);
 }
 
 .carousel-control {

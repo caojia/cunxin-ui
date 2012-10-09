@@ -5,7 +5,9 @@
         <div class="carousel-inner">
           <div class="active item">
             <%= image_tag @charity.thumbnail_large %>
-            <div class="carousel-caption">
+            <div class="carousel-description">
+              <%= content_tag :h3, t("charities.introduction") %>
+              <%= content_tag :div, @charity.short_description %>
             </div>
           </div>
         </div>
@@ -22,6 +24,6 @@
     </div>
   </div>
 
-  <%= render :partial => "col4_carousel", :locals => {:items => @charity.projects, :key => "project"} %>
+  <%= render :partial => "col4_carousel", :locals => {:items => @charity.projects, :key => "project", :gen_link_for_item => lambda { |item| project_path(item) } } %>
 </div>
 

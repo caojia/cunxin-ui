@@ -4,7 +4,9 @@
       <div class="carousel-inner">
         <div class="active item">
           <%= image_tag @contributor.thumbnail_large %>
-          <div class="carousel-caption">
+          <div class="carousel-description">
+            <%= content_tag :h3, t("contributors.introduction") %>
+            <%= content_tag :div, @contributor.short_description %>
           </div>
         </div>
       </div>
