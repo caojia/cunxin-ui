@@ -18,7 +18,7 @@ role :db,  "ec2-50-112-16-118.us-west-2.compute.amazonaws.com", :primary => true
 set :keep_releases,  3
 set :deploy_via, :remote_cache
 set :user, :deploy
-set :branch, :master
+set :branch, :develop
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
 

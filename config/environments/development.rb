@@ -51,4 +51,6 @@ CunxinUi::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  WeiboOAuth2::Config.redirect_uri = "http://127.0.0.1:3000/sina/callback"
 end

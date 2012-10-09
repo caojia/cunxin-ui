@@ -3,7 +3,7 @@
     <div class="bordered-content">
       <%= form_for(@user, :as => "user", :url => users_path(@user), :html => {:class => "form-horizontal", :id => "signup-form"}) do |f| %>
         <h2 class="controls">
-          <%= t("signup.%stitle" % (@is_complete ? "complete" : "")) %>
+          <%= t("signup.%stitle" % (@is_complete ? "complete." : "")) %>
         </h2>
 
         <%= (hidden_field_tag :sina_id, @sina_user_id) if @sina_user_id %>
@@ -51,7 +51,7 @@
 
         <div class="control-group">
           <div class="controls">
-            <%= f.submit t("signup.%ssubmit" % (@is_complete ? "complete" : "")), :class => "btn btn-primary" %>
+            <%= f.submit t("signup.%ssubmit" % (@is_complete ? "complete." : "")), :class => "btn btn-primary" %>
           </div>
         </div>
 
