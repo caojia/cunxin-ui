@@ -7,19 +7,25 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :canonical_name
 
   has_many :user_projects
-  has_many :users, :through => :user_projects
+  has_many :followed_users, :through => :user_projects, :source => :user
 
   belongs_to :charity
 
   has_many :project_photos
   has_many :photos, :through => :project_photos, :order => 'position ASC'
 
-  def count_noticed_users
-    return @noticed_users_count ||= UserProject.count(:id, :conditions => { :project_id => id, :is_deleted => [false, nil] } );
-  end
-
   def donated_users
     # Hack
-    return User.find(:all);
+    return User.find(:all)
   end
+
+  def donated_amount
+    # TODO: use payment api
+    @donated_amount ||= 10000
+  end
+
+  def donated_percentage
+    @donated_percentage ||= (donated_amount.to_f / target_amount * 100).round
+  end
+
 end

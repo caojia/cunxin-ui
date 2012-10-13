@@ -7,9 +7,11 @@ zh-CN:
     target: "求助对象:"
     target_amount: "目标金额:"
     charity: "发起慈善机构:"
-    has_noticed: "已有<span class='num'>%{count}</span>人关注"
+    has_followed: "已有<span class='num'>%{count}</span>人关注"
     donate: "捐 助"
-    notice: "关 注"
+    follow: "关 注"
     donated_users: "捐助网友"
-    notice_thanks: "感谢您关注该项目！"
+    follow_thanks: "感谢您关注该项目！"
+
+    sina_follow_message: "我正在关注寸心网的“%{project_name}” - %{url}"
 

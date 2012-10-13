@@ -10,39 +10,43 @@
                 <div class="desc-content">
                   <%= content_tag :span, t("projects.progress")%>
                   <div class='progress' style="margin-left: 10px; width: 400px; position: absolute;">
-                    <div class='bar' style="width: 35%;"> </div>
+                    <div class='bar' style="width: <%= @project.donated_percentage %>%;"> </div>
                     <div class='progress-text-container' >
-                      35%
+                      <%= @project.donated_percentage %>%
                     </div>
                   </div>
                 </div>
                 <div class="desc-content">
                   <%= content_tag :span, t("projects.location")%>
                   <%= content_tag :span, @project.location%>
-                </div>
-                <div class="desc-content">
-                  <%= content_tag :span, t("projects.published_at")%>
-                  <%= content_tag :span, @project.published_at %>
-                </div>
+                  <span class="separator" />
+                  <%= content_tag :span, t("projects.charity")%>
+                  <%= content_tag :span, @project.charity.name rescue "" %>
+                </div> 
                 <div class="desc-content">
                   <%= content_tag :span, t("projects.target")%>
                   <%= content_tag :span, @project.target %>
+                  <span class="separator" />
+                  <%= content_tag :span, t("projects.published_at")%>
+                  <%= content_tag :span, l(@project.start_date.to_date) %>
                 </div>
                 <div class="desc-content">
                   <%= content_tag :span, t("projects.target_amount")%>
                   <%= content_tag :span, @project.target_amount %>
                 </div>
-                <div class="desc-content">
-                  <%= content_tag :span, t("projects.charity")%>
-                  <%= content_tag :span, @project.charity.name rescue "" %>
-                </div> </div>
+              </div>
               <div class="desc-right">
-                <div class="noticed">
-                  <%= t("projects.has_noticed", :count => @project.count_noticed_users).html_safe %>
+                <div class="followed" id="followed-count-container">
+                  <%= image_tag "sina-logo-24.png", :class => "sina-logo" %>
+                  <%= t("projects.has_followed", :count => @project.followed_users.count).html_safe %>
                 </div>
                 <div class="buttons">
                   <%= link_to t("projects.donate"), "#", :class => "donate button" %>
-                  <%= link_to t("projects.notice"), "#", :class => "notice button" %>
+                  <%= link_to t("projects.follow"), follow_path(:id => @project.id), 
+                        :method => :post,
+                        :remote => true, 
+                        :id => "project-follow",
+                        :class => "follow button" %>
                 </div>
               </div>
               <div style="clear: both"> </div>

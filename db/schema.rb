@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916111332) do
+ActiveRecord::Schema.define(:version => 20121013071220) do
 
   create_table "carousels", :force => true do |t|
     t.integer  "project_id"
@@ -149,10 +149,10 @@ ActiveRecord::Schema.define(:version => 20120916111332) do
     t.integer  "user_id"
     t.integer  "project_id"
     t.datetime "followed_at"
-    t.integer  "is_deleted"
+    t.boolean  "is_deleted",  :default => false
     t.datetime "deleted_at"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "user_projects", ["project_id"], :name => "index_user_projects_on_project_id"

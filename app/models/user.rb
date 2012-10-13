@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  DEFAULT_THUMBNAIL_URL = "/users/men.png"
+
   attr_accessor :agree_pp
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :thumbnail, :thumbnail_updated_at, :agree_pp
@@ -34,9 +36,25 @@ class User < ActiveRecord::Base
     result
   end
 
-  def following_project? project
-    !user_projects.find(:first, :conditions => {
-      :project_id => Project === project ? project.id : project }).nil?
+  def follow project, &block
+    uq = user_projects.find(:first, :conditions => { :project_id => project.id })
+    if uq.nil?
+      uq = user_projects.build(:project_id => project.id)
+    end
+    if uq.new_record? || uq.is_deleted
+      uq.is_deleted = false
+      uq.followed_at = Time.now.utc
+      yield(self) if block_given?
+    end
+    uq.save
+  end
+
+  def sina_connected?
+    !sina_oauth_user.nil?
+  end
+
+  def thumbnail_url
+    thumbnail.blank? ? DEFAULT_THUMBNAIL_URL : thumbnail
   end
 
 end

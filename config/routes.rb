@@ -16,7 +16,7 @@ CunxinUi::Application.routes.draw do
 
   # project
   resources :projects, :only => [:show]
-  post "projects/notice", :to => "projects#notice", :as => :notice
+  post "projects/follow/:id", :to => "projects#follow", :as => :follow
 
   # profile
   get "profile", :to => "profile#index", :as => :profile

@@ -1,5 +1,5 @@
 <div class='user-thumb-photo'>
-  <%= image_tag user.thumbnail %>
+  <%= image_tag user.thumbnail_url, :title => user.name, :alt => user.name %>
 </div>
 <div class='user-thumb-name'>
   <%= content_tag :span, user.name %>

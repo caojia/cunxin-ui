@@ -3,7 +3,7 @@
 }
 
 .head-desc-container {
-  margin: 12px 45px 25px;
+  margin: 0px 45px 0px;
   font-size: 15px;
 
   .desc-left {
@@ -12,15 +12,26 @@
       vertical-align: middle;
       margin-top: 13px;
     }
+    .separator {
+      padding: 0 20px;
+    }
   }
 
   .desc-right {
     margin-top: 50px;
     float: right;
-    .noticed {
+    .followed {
       text-align: right;
       font-size: 13px;
       color: #BBBBBB;
+
+      img.sina-logo {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+      }
     }
 
     .buttons {
@@ -48,9 +59,9 @@
           }
         }
 
-        &.notice {
+        &.follow {
           @include sprites-sprite('notice-button');
-          &:hover {
+          &:hover, &.loading {
             @include sprites-sprite('notice-button-hover');
           }
         }
@@ -96,8 +107,8 @@ h1 {
 
     .user-thumb-photo {
       img {
-        width: 64px;
-        height: 64px;
+        width: 50px;
+        height: 50px;
       }
     }
 
