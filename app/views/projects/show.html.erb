@@ -41,7 +41,7 @@
                   <%= t("projects.has_followed", :count => @project.followed_users.count).html_safe %>
                 </div>
                 <div class="buttons">
-                  <%= link_to t("projects.donate"), "#", :class => "donate button" %>
+                  <%= link_to t("projects.donate"), donate_path(:project_id => @project.id), :class => "donate button" %>
                   <%= link_to t("projects.follow"), follow_path(:id => @project.id), 
                         :method => :post,
                         :remote => true, 

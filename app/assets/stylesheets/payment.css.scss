@@ -2,16 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-ul#payment-select>li {
-  float:left;
-  position: relative;
+ul#donate-amount-select {
+  margin-bottom: 30px;
 
-  div.payment-log {
-    display:inline-block;
+  >li {
+    float: left;
+    margin-left: 5px;
+
+    label.amount-text {
+      cursor: pointer;
+      display: inline-block;
+    }
   }
-  &.select {
+}
+
+ul#payment-select {
+  margin-bottom: 30px;
+
+  >li {
+    float:left;
+    position: relative;
+
     div.payment-logo {
-      border: 2px solid #FF6600;
+      display: inline-block;
+      border: 1px solid #aaaaaa;
+      padding: 1px;
+
+      img {
+        width: 180px;
+        height: 50px;
+        cursor: pointer;
+      }
+    }
+    &.select {
+      div.payment-logo {
+        border: 2px solid #FF6600;
+        padding: 0px;
+      }
     }
   }
 }
