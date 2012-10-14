@@ -1,0 +1,13 @@
+zh-CN:
+  payment:
+    select_donate_amount: "选择捐助金额"
+    select_payment: "选择支付方式"
+    pay: "登陆网银支付"
+    donate_amount_1: "一元"
+    donate_amount_5: "五元"
+    donate_amount_10: "十元"
+    donate_amount_20: "二十元"
+    donate_amount_50: "五十元"
+    donate_amount_100: "一百元"
+    donate_amount_other: "其他..."
+

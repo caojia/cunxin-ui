@@ -1,3 +1,18 @@
 // Place all the styles related to the payment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul#payment-select>li {
+  float:left;
+  position: relative;
+
+  div.payment-log {
+    display:inline-block;
+  }
+  &.select {
+    div.payment-logo {
+      border: 2px solid #FF6600;
+    }
+  }
+}
+

@@ -1,0 +1,33 @@
+<%= content_tag :h1, @project.headline %>
+<%= form_tag( {:action => "pay"}, :method => :post, :id => 'donate-form', :target => :blank) do %>
+  <div>
+    <%= content_tag :h2, t("payment.select_donate_amount") %>
+    <ul id='donate-amount-select' >
+      <% [1,5,10,20,50,100].each do |v| %>
+        <li>
+          <%= radio_button_tag :donate_amount, v %>
+          <%= content_tag :span, t("payment.donate_amount_"+v.to_s) %>
+        </li>
+      <% end %>
+      <li>
+        <%= radio_button_tag :donate_amount, "other" %>
+        <%= content_tag :span, t("payment.donate_amount_other") %>
+        <%= text_field_tag :input_amount, "Input other donate amount here...", :disabled => true %>
+      </li>
+    </ul>
+    <%= content_tag :h2, t("payment.select_payment") %>
+    <ul id='payment-select' >
+      <% @payment_target.each do |h| %>
+        <li>
+          <%= radio_button_tag :payment_method, h[:name] %>
+          <div class='payment-logo'>
+            <%= image_tag h[:img_url] %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div style="clear: both;">
+  </div>
+  <%= hidden_field_tag :project_id, @project.id %>
+  <div><%= submit_tag t("payment.pay"), :id => 'pay-submit' %></div>
+<% end %>

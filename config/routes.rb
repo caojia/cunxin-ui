@@ -30,4 +30,9 @@ CunxinUi::Application.routes.draw do
   # contributer
   resources :contributors, :only => [:show]
 
+  # payment
+  get "payment/donate", :to => "payment#donate"
+  get "payment/success", :to => "payment#success"
+  post "payment/pay", :to => "payment#pay"
+
 end
