@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013071220) do
+ActiveRecord::Schema.define(:version => 20121015152817) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "payment_method"
+    t.string   "target_account"
+    t.integer  "charity_id"
+    t.integer  "project_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "carousels", :force => true do |t|
     t.integer  "project_id"
@@ -69,6 +78,19 @@ ActiveRecord::Schema.define(:version => 20121013071220) do
 
   add_index "oauth_users", ["oauth_uid", "type"], :name => "index_oauth_users_on_oauth_uid_and_type", :unique => true
   add_index "oauth_users", ["user_id", "oauth_uid"], :name => "index_oauth_users_on_user_id_and_oauth_uid"
+
+  create_table "payments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "payment_method"
+    t.string   "target_account"
+    t.integer  "amount"
+    t.string   "currency_type"
+    t.string   "order_id"
+    t.string   "status"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "photos", :force => true do |t|
     t.string   "name"
