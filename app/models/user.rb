@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :thumbnail, :thumbnail_updated_at, :agree_pp
 
   has_many :user_projects
-  has_many :followed_projects, :through => :user_projects
+  has_many :followed_projects, :through => :user_projects, :conditions => ["user_projects.is_deleted = ?", false], :source => :project
   has_one :sina_oauth_user
   has_one :profile
 
@@ -47,6 +47,15 @@ class User < ActiveRecord::Base
       yield(self) if block_given?
     end
     uq.save
+  end
+
+  def unfollow project
+    uq = user_projects.find(:first, :conditions => { :project_id => project.id, :is_deleted => false})
+    if uq
+      uq.is_deleted = true
+      uq.deleted_at = Time.now.utc
+      uq.save
+    end
   end
 
   def sina_connected?

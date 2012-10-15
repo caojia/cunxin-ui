@@ -1,0 +1,37 @@
+<h3><%= t("profile.tab.projects") %></h3>
+<% if @projects.empty? %>
+  <div class="text-info"><%= t("profile.projects.not_following") %></div>
+<% else %>
+  <table class="table table-striped followed-projects">
+    <tr>
+      <th colspan=2><%= t("profile.projects.header.project") %></th>
+      <th><%= t("profile.projects.header.status") %></th>
+      <th><%= t("profile.projects.header.operation") %></th>
+    </tr>
+    <% @projects.each do |project| %>
+      <tr class="project">
+        <td class='td20'>
+          <%= link_to project_path(project) do %>
+            <%= image_tag project.thumbnail_small, :class => "project-thumb-small" %>
+          <% end %>
+        </td>
+        <td class='td40'>
+          <%= link_to project.headline, project_path(project) %>
+        </td>
+        <td class='td15'>
+          <%= t("profile.projects.following") %>
+        </td>
+        <td class='td25'>
+          <div>
+            <%= link_to t("profile.projects.donate"), donate_path(:project_id => project.id), :class => "btn btn-success" %>
+            <%= link_to t("profile.projects.unfollow"), 
+                  unfollow_path(project), 
+                  :class => "btn btn-small unfollow-project", 
+                  :remote => true, 
+                  :method => :post %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

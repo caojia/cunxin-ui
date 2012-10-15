@@ -24,10 +24,14 @@ class ProjectsController < ApplicationController
           if token.validated?
             # TODO: upload the image too?
             logger.info "updating sina weibo status"
-            sina_client.statuses.update(
-              t("projects.sina_follow_message", 
-                :project_name => project.headline,
-                :url => project_path(project, :only_path => false)))
+            begin
+              sina_client.statuses.update(
+                t("projects.sina_follow_message", 
+                  :project_name => project.headline,
+                  :url => project_path(project, :only_path => false)))
+            rescue
+              logger.error $!
+            end
           end
         end
       end
@@ -36,5 +40,14 @@ class ProjectsController < ApplicationController
     render :json => {
       :info => t('projects.follow_thanks'),
       :total_followed => total_followed }.to_json
+  end
+
+  def unfollow
+    project = Project.find(params[:id].to_i)
+    if !project.blank?
+      current_user.unfollow(project)
+    end
+    render :json => {
+      :success => true }.to_json
   end
 end

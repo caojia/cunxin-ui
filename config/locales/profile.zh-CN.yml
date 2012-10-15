@@ -19,4 +19,14 @@ zh-CN:
 
     submit: "更新"
     cancel: "取消"
+
+    projects:
+      not_following: "我还未关注任何项目"
+      header:
+        project: "项目"
+        status: "状态"
+        operation: "操作"
+      following: "关注中"
+      unfollow: "取消关注"
+      donate: "捐赠"
       

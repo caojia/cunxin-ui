@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :canonical_name
 
   has_many :user_projects
-  has_many :followed_users, :through => :user_projects, :source => :user
+  has_many :followed_users, :through => :user_projects, :source => :user, :conditions => ["user_projects.is_deleted = ?", false]
 
   belongs_to :charity
 

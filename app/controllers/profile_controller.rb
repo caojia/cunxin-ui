@@ -11,6 +11,9 @@ class ProfileController < ApplicationController
   def projects
     @profile_tabs_hash["projects"][:class] = "active"
     @partial = "projects"
+
+    # TODO: pagination
+    @projects = current_user.followed_projects 
     render :action => :index
   end
 
