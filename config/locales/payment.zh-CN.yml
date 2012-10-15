@@ -10,4 +10,7 @@ zh-CN:
     donate_amount_50: "五十元"
     donate_amount_100: "一百元"
     donate_amount_other: "其他..."
-
+    pay_popup_title: "支付"
+    pay_confirm_message: "请您在新打开的网上银行页面进行支付"
+    pay_succeed: "支付成功"
+    pay_failed: "支付失败"

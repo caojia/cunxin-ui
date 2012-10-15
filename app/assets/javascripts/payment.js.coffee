@@ -18,6 +18,7 @@ paySubmit = (event) ->
   if f.find("input[name='payment_method']:checked").size() == 0
     alert("请选择支付方式")
     return false
+  $('#pay-confirm-modal').modal('show')
   true
 
 checkDonateAmount = (event) ->
@@ -57,4 +58,3 @@ $ ->
 
 $ ->
   $(formSelector).submit(paySubmit)
-
