@@ -23,7 +23,7 @@ loginCallback = (id, name, thumb) ->
   if thumb
     $(".loggedin.user-thumb img", nav).attr("src", thumb).toggleClass("hidden")
   if name
-    $(".loggedin.user-name a", nav).html(escape(name))
+    $(".loggedin.user-name a", nav).text(name)
 
   $(".loggedin, .anonymous", nav).toggleClass("hidden")
 
