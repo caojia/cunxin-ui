@@ -1,0 +1,6 @@
+require 'billing/alipay/helper.rb'
+require 'billing/alipay/notify.rb'
+require 'billing/alipay/return.rb'
+require 'billing/paypal/helper.rb'
+require 'billing/paypal/notify.rb'
+require 'billing/paypal/return.rb'

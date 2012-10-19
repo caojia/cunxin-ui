@@ -143,6 +143,22 @@ charity = Charity.create(
   short_description: "charity 2",
   published_at: Time.now.utc)
 
+account = Account.create( {
+  :payment_method => 'Alipay',
+  :target_account => 'ABCDEFGHIJKLMN',
+  :charity => charity,
+  :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
+  :email => 'cunxin@cunxin.org'
+})
+
+account = Account.create( {
+  :payment_method => 'Paypal',
+  :target_account => 'P',
+  :charity => charity,
+  :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+  :email => 'cunxin@cunxin.org'
+})
+
 
 charity = Charity.create(
   canonical_name: "charity2",
@@ -156,6 +172,21 @@ charity = Charity.create(
   published_at: Time.now.utc
 )
 
+account = Account.create( {
+  :payment_method => 'Alipay',
+  :target_account => 'Alipay2',
+  :charity_id => charity,
+  :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
+  :email => 'cunxin@cunxin.org'
+})
+
+account = Account.create( {
+  :payment_method => 'Paypal',
+  :target_account => 'PpppBBB',
+  :charity_id => charity,
+  :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+  :email => 'cunxin@cunxin.org'
+})
 
 charity = Charity.create(
   canonical_name: "charity3",
@@ -168,6 +199,22 @@ charity = Charity.create(
   published_at: Time.now.utc
 )
 
+account = Account.create( {
+  :payment_method => 'Alipay',
+  :target_account => 'Alipay3',
+  :charity_id => charity,
+  :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
+  :email => 'cunxin@cunxin.org'
+})
+
+account = Account.create( {
+  :payment_method => 'Paypal',
+  :target_account => 'Pppp3',
+  :charity_id => charity,
+  :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+  :email => 'cunxin@cunxin.org'
+})
+
 charity = Charity.create(
   canonical_name: "charity4",
   name: "chartity 4",
@@ -179,6 +226,22 @@ charity = Charity.create(
   short_description: "charity 4",
   published_at: Time.now.utc
 )
+
+account = Account.create( {
+  :payment_method => 'Alipay',
+  :target_account => 'Alipay4',
+  :charity_id => charity,
+  :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
+  :email => 'cunxin@cunxin.org'
+})
+
+account = Account.create( {
+  :payment_method => 'Paypal',
+  :target_account => 'Pppp4',
+  :charity_id => charity,
+  :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+  :email => 'cunxin@cunxin.org'
+})
 
 consult = Consult.create(
   canonical_name: "consult1",
@@ -267,4 +330,3 @@ donator = Donator.create(
   short_description: "bla bla bla...",
   published_at: Time.now.utc
 )
-

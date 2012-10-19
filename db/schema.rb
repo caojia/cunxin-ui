@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015152817) do
+ActiveRecord::Schema.define(:version => 20121022175110) do
 
   create_table "accounts", :force => true do |t|
     t.string   "payment_method"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(:version => 20121015152817) do
     t.integer  "project_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "verify_type"
+    t.string   "key"
+    t.string   "email"
   end
 
   create_table "carousels", :force => true do |t|
@@ -79,17 +82,28 @@ ActiveRecord::Schema.define(:version => 20121015152817) do
   add_index "oauth_users", ["oauth_uid", "type"], :name => "index_oauth_users_on_oauth_uid_and_type", :unique => true
   add_index "oauth_users", ["user_id", "oauth_uid"], :name => "index_oauth_users_on_user_id_and_oauth_uid"
 
+  create_table "pay_fu_transactions", :force => true do |t|
+    t.string   "type"
+    t.string   "transaction_id"
+    t.string   "transaction_type"
+    t.string   "payment_status"
+    t.datetime "payment_date"
+    t.integer  "gross"
+    t.string   "raw_post"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "payments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.integer  "payment_method"
-    t.string   "target_account"
-    t.integer  "amount"
+    t.decimal  "amount",        :precision => 32, :scale => 4, :null => false
     t.string   "currency_type"
     t.string   "order_id"
     t.string   "status"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.integer  "account_id",                                   :null => false
   end
 
   create_table "photos", :force => true do |t|
