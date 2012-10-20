@@ -2,38 +2,20 @@
 <div id='footer' class='footer'>
   <div class='footer-inner container'>
     <div class='footer-links'>
-      <span class='span3' > 
-        <h5> <%= t("footer.home") %> </h5>
-        <ul>
-          <li> <%= link_to t("footer.media"), "/media" %> </li>
-          <li> <%= link_to t("footer.help"), "/help" %> </li>
-        </ul>
-      </span>
-      <span class='span4' > 
-        <h5> <%= t("footer.charities") %> </h5>
-        <ul>
-        </ul>
-      </span>
-      <span class='span3' > 
-        <h5> <%= t("footer.contributors") %> </h5>
-        <ul>
-        </ul>
-      </span>
-      <span class='span1' > 
-        <h5> <%= t("footer.about_us") %> </h5>
-        <ul>
-          <li> <%= link_to t("footer.introduction"), "/introduction" %> </li>
-          <li> <%= link_to t("footer.team"), "/team" %> </li>
-          <li> <%= link_to t("footer.contact"), "/contact" %> </li>
-          <li> <%= link_to t("footer.blog"), "/blog" %> </li>
-          <li> <%= link_to t("footer.usage"), "/usage" %> </li>
-        </ul>
-      </span>
+      <span> <%= link_to t("footer.introduction"), "/introduction" %> </span>
+      <span class="separator"></span>
+      <span> <%= link_to t("footer.team"), "/team" %> </span>
+      <span class="separator"></span>
+      <span> <%= link_to t("footer.contact"), "/contact" %> </span>
+      <span class="separator"></span>
+      <span> <%= link_to t("footer.blog"), "/blog" %> </span>
+      <span class="separator"></span>
+      <span> <%= link_to t("footer.usage"), "/usage" %> </span>
     </div>
     <div class='footer-divider'> </div>
     <div class='copyright-container container'>
       <%= content_tag :span, t("footer.copyright"), :class => 'copyright' %>
-      <%= link_to(image_tag("kexin_logo.jpg", :border => 0), "#") %>
+      <%#= link_to(image_tag("kexin_logo.jpg", :border => 0), "#") %>
     </div>
   </div>
 </div>

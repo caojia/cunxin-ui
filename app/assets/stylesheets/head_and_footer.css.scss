@@ -23,23 +23,14 @@
 }
 
 .content-footer-divider {
-  height: 4px;
+  height: 2px;
   background: #33bafe;
 }
 
 #footer {
   @include sprites-sprite("footer-bg");
   background-repeat: repeat-x;
-  height: 295px;
-
-  ul {
-    margin: 0;
-    border: 0;
-  }
-
-  li {
-    margin-bottom: 11px;
-  }
+  padding-bottom: 10px;
 
   div, span, a {
     color: #999999;
@@ -59,7 +50,10 @@
 
   .footer-links {
     margin-top: 12px;
-    height: 213px;
+    text-align: center;
+    .separator {
+      padding: 0 10px;
+    }
   }
 
   .footer-divider {
@@ -68,8 +62,8 @@
   }
 
   .copyright-container {
-    margin-top: 17px;
-    width: 540px;
+    margin-top: 10px;
+    text-align: center;
     .copyright {
       font-size: 12px;
     }

@@ -17,3 +17,16 @@ $banner-height: 60px;
     padding-bottom: ($banner-height - 24px)/2;
   }
 }
+
+input[type=submit].signin-button, input[type=submit].signup-button {
+  @include sprites-sprite("signin");
+  width: sprites-sprite-width("signin");
+  height: sprites-sprite-height("signin");
+  color: #eeffff;
+  border: none;
+  line-height: 26px;
+
+  &:hover {
+    @include sprites-sprite("signin-hover");
+  }
+}

@@ -8,6 +8,7 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   width: 100%;
   background-repeat: repeat-x;
   color: #666;
+  margin-bottom: 20px;
 
   .container {
     font-size: 16px;
@@ -22,7 +23,7 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   }
 
   .head-carousel-control-button {
-    line-height: $head_summary_height + 2px;
+    line-height: $head_summary_height + 6px;
     text-align: center;
     .carousel-control-button {
       display: inline-block;

@@ -1,4 +1,5 @@
 $col3_carousel_height: 240px;
+$col4_carousel_border: 2px;
 $col4_carousel_height: 150px;
 $col4_carousel_width: 224px;
 $head_carousel_width: 1440px;
@@ -129,14 +130,15 @@ a.carousel-control-right {
       *height: $col4_carousel_height;
       position: relative;
       img {
-        max-height: $col4_carousel_height;
-        *height: $col4_carousel_height;
-        width: $col4_carousel_width;
+        max-height: $col4_carousel_height - $col4_carousel_border * 2;
+        *height: $col4_carousel_height - $col4_carousel_border * 2;
+        width: $col4_carousel_width - $col4_carousel_border * 2;
+        border: $col4_carousel_border solid #ccc;
       }
       .caption {
         color: white;
         position: absolute;
-        line-height: 30px;
+        line-height: 24px;
         vertical-align: middle;
         bottom: 0;
         left: 20px;
