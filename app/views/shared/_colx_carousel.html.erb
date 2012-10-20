@@ -2,15 +2,15 @@
 <% key_s = key.pluralize %>
 <div id="<%= key_s %>" class="section container">
   <% unless no_title ||= false %>
-    <h2 class="section-head"><%= t("home.%s_title" % key) %></h2>
+    <h2 class="section-head"><%= t("%s.%s_title" % [path, key]) %></h2>
   <% end %>
-  <div id="<%= key_s %>-carousel" class="carousel slide col3-carousel">
+  <div id="<%= key_s %>-carousel" class="carousel slide col<%= items_per_col %>-carousel">
     <% first = true %>
     <div class="carousel-inner">
-      <% items.in_groups_of(3, false) do |group| %>
+      <% items.in_groups_of(items_per_col, false) do |group| %>
         <div class="row item <%= first ? 'active' : '' %>">
           <% group.each do |item| %>
-            <div class="span4">
+            <div class="<%= klass_for_col(items_per_col) %>">
               <%= link_to gen_link_for_item.call(item) do %>
                 <%= image_tag item.thumbnail_small %>
                 <div class="caption">
@@ -23,7 +23,7 @@
         <% first = false %>
       <% end %>
     </div>
-    <% if items.length > 3 %>
+    <% if items.length > items_per_col %>
       <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#%s-carousel" % key_s %>
       <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#%s-carousel" % key_s %>
     <% end %>

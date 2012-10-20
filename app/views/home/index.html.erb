@@ -27,6 +27,21 @@
   </div>
 </div>
 
-<%= render :partial => "col3_carousel", :locals => {:items => @charities, :key => "charity", :gen_link_for_item => lambda {|item| charity_path(item.id) } } %>
-<%= render :partial => "col3_carousel", :locals => {:items => @donators, :key => "donator", :gen_link_for_item => lambda {|item| contributor_path(item.id) } } %>
-<%= render :partial => "col3_carousel", :locals => {:items => @consults, :key => "consult", :gen_link_for_item => lambda {|item| contributor_path(item.id) } } %>
+<%= render :partial => "shared/colx_carousel", :locals => {
+      :items => @charities, 
+      :key => "charity", 
+      :path => "home",
+      :items_per_col => 4,
+      :gen_link_for_item => lambda {|item| charity_path(item.id) } } %>
+<%= render :partial => "shared/colx_carousel", :locals => {
+      :items => @donators, 
+      :key => "donator", 
+      :path => "home",
+      :items_per_col => 4,
+      :gen_link_for_item => lambda {|item| contributor_path(item.id) } } %>
+<%= render :partial => "shared/colx_carousel", :locals => {
+      :items => @consults, 
+      :key => "consult", 
+      :path => "home",
+      :items_per_col => 4,
+      :gen_link_for_item => lambda {|item| contributor_path(item.id) } } %>

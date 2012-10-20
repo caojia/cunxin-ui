@@ -65,7 +65,12 @@
   </div>
 </div>
 
-<%= render :partial => "col4_carousel", :locals => {:items => @photos, :key => "photo", :no_title => true} %>
+<%= render :partial => "shared/colx_carousel", :locals => {
+      :items => @photos, 
+      :path => "projects",
+      :key => "photo", 
+      :no_title => true,
+      :items_per_col => 4 } %>
 
 <div class="comments"> </div>
 
