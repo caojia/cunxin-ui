@@ -3,8 +3,9 @@
     <div id="head-carousel" class="carousel head-carousel">
       <div class="carousel-inner">
         <div class="active item">
-          <%= image_tag @project.thumbnail_large %>
+          <%= image_tag @project.thumbnail_large, :alt => @project.headline %>
           <div class="carousel-caption">
+            <div class="mask"></div>
             <div class="head-desc-container">
               <div class="desc-left">
                 <div class="desc-content">

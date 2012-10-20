@@ -4,7 +4,7 @@
     <% @carousels.each_with_index do |carousel, i| %>
       <div class="item <%= i == 0 ? 'active' : '' %>">
         <%= link_to project_path(carousel.project.id) do %>
-          <%= image_tag carousel.project.thumbnail_large %>
+          <%= image_tag carousel.project.thumbnail_large, :alt => carousel.project.headline %>
         <% end %>
         <div class="head-carousel-float-content">
           <div class="mask">

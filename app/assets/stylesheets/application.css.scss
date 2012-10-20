@@ -59,3 +59,14 @@ ul {
 @import "payment";
 @import "buttons";
 
+.section .section-head {
+  color: #666;
+}
+
+.mask {
+  @include opacity(0.4);
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+}
