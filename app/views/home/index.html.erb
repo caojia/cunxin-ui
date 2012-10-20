@@ -6,6 +6,19 @@
         <%= link_to project_path(carousel.project.id) do %>
           <%= image_tag carousel.project.thumbnail_large %>
         <% end %>
+        <div class="head-carousel-float-content">
+          <div class="mask">
+          </div>
+          <div class="text-content">
+            <div class="headline">
+              <%= carousel.project.headline %>
+            </div>
+            <div class="description">
+              <%= carousel.project.description %>
+            </div>
+          </div>
+          <%= link_to t("home.view_project"), project_path(carousel.project), :class => "more-info-button" %>
+        </div>
       </div>
     <% end %>
   </div>

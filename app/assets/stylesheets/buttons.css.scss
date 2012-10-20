@@ -1,0 +1,31 @@
+input[type=submit].signin-button, input[type=submit].signup-button {
+  @include sprites-sprite("signin");
+  width: sprites-sprite-width("signin");
+  height: sprites-sprite-height("signin");
+  color: #eeffff;
+  border: none;
+  line-height: 26px;
+
+  &:hover {
+    @include sprites-sprite("signin-hover");
+  }
+}
+
+.more-info-button {
+  display: inline-block;
+  @include sprites-sprite('notice-button');
+  width: sprites-sprite-width("notice-button");
+  height: sprites-sprite-height("notice-button");
+  line-height: sprites-sprite-height("notice-button");
+  font-size: 24px;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover, &.loading {
+    @include sprites-sprite('notice-button-hover');
+    color: white;
+    text-decoration: none;
+  }
+}

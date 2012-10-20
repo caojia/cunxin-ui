@@ -8,3 +8,4 @@ zh-CN:
       合作慈善机构<span class='highlight'>%{charities_count}</span>家，
       参与人数<span class='highlight'>%{people_count}</span>，
       项目数<span class='highlight'>%{projects_count}</span>"
+    view_project: "查 看"
