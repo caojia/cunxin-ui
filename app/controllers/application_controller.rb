@@ -6,6 +6,24 @@ class ApplicationController < ActionController::Base
 
   before_filter :reset_sina_user_from_session
 
+  def auth_error_callback
+    clear_user_cookie
+    if request.xhr?
+      render :json => {:error => t("devise.failure.unauthenticated")}, :status => 401
+    else
+      redirect_to root_path
+    end
+  end
+
+  def signin_error_callback
+    clear_user_cookie
+    if request.xhr?
+      render :json => {:error => flash[:alert]}, :status => 401
+    else
+      redirect_to root_path
+    end
+  end
+
   protected
     def sina_token_validation access_token, expires_at
       client = WeiboOAuth2::Client.new
@@ -63,11 +81,22 @@ class ApplicationController < ActionController::Base
 
     def sign_out_with_cookie *args
       sign_out_without_cookie(*args)
+      clear_user_cookie
+    end
+    alias_method_chain :sign_out, :cookie
+
+    def clear_user_cookie
       cookies.delete :_cunxin_id
       cookies.delete :_cunxin_name
       cookies.delete :_cunxin_thumb
     end
-    alias_method_chain :sign_out, :cookie
+
+    def authenticate_user_with_recall! opts={}
+      opts[:recall] ||= "application#auth_error_callback"
+      authenticate_user_without_recall!(opts)
+    end
+    alias :authenticate_user_without_recall! :authenticate_user! 
+    alias :authenticate_user! :authenticate_user_with_recall!
 
 end
 

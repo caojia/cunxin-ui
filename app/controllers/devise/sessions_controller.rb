@@ -36,10 +36,6 @@ class Devise::SessionsController < DeviseController
     end
   end
 
-  def create_error
-    render :json => {:error => flash[:alert]}, :status => 401
-  end
-
   protected
 
   def serialize_options(resource)
@@ -50,6 +46,6 @@ class Devise::SessionsController < DeviseController
   end
 
   def auth_options
-    { :scope => resource_name, :recall => "#{controller_path}#create_error" }
+    { :scope => resource_name, :recall => "application#signin_error_callback" }
   end
 end

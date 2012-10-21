@@ -10,7 +10,7 @@ _cookieMap =
 _signinForm = "#signin-form"
 _signinModal = "#signin-modal"
 _signinText = ".signin-required-text"
-_signinError = ".sigin-error-message"
+_signinError = ".signin-error-message"
 
 # check login
 checkLogin = (login_cb, logout_cb) ->
