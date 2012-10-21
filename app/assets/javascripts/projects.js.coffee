@@ -11,7 +11,11 @@ _callbacks =
     if _currentNode.hasClass("loading")
       return false
     else
-      _currentNode.addClass("loading")
+      _loggedIn = false
+      $.requireLogin(() -> 
+        _loggedIn = true
+        _currentNode.addClass("loading"))
+      return _loggedIn
 
   "success": (event, resp) ->
     showInfo(resp.info)

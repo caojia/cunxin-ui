@@ -9,6 +9,8 @@ _cookieMap =
 
 _signinForm = "#signin-form"
 _signinModal = "#signin-modal"
+_signinText = ".signin-required-text"
+_signinError = ".sigin-error-message"
 
 # check login
 checkLogin = (login_cb, logout_cb) ->
@@ -27,13 +29,22 @@ loginCallback = (id, name, thumb) ->
 
   $(".loggedin, .anonymous", nav).toggleClass("hidden")
 
+showLoginModal = (withText) ->
+  _textNode = $(_signinModal).find(_signinText)
+  if withText
+    _textNode.show()
+  $(_signinModal).one("hide", () -> _textNode.hide()).modal('show')
+
+$.requireLogin = requireLogin = (cb) ->
+  checkLogin(cb, () -> showLoginModal(true))
+
 
 # login form callback
 class SigninForm
   constructor: (_signinModal, _siginForm, _opts) -> 
     @signinModal = $(_signinModal)
     @signinForm = $(_signinForm)
-    @errorNode = $(".alert", @signinForm)
+    @errorNode = $(_signinError, @signinForm)
 
     @defaultOptions =
       beforeSend: () =>

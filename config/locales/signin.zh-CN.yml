@@ -7,3 +7,6 @@ zh-CN:
     submit: "登录寸心"
     link: "登录"
     connect_with_sina: "使用新浪账号登录"
+
+    login_required: "操作前请先登录"
+    signup_link: "注册寸心"

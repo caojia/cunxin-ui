@@ -70,3 +70,12 @@ ul {
   background-color: black;
   position: absolute;
 }
+
+.gray-link {
+  color: #999;
+  font-size: 13px;
+  &:hover {
+    color: #58c;
+    text-decoration: none;
+  }
+}

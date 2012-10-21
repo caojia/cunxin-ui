@@ -7,7 +7,11 @@
   <div class="modal-body">
     <%= form_for(nil, :as => :user, :url => session_path(:user), :remote => true, :html => {:class => "form-horizontal", :id => "signin-form"}) do |f| %>
 
-      <div class="alert alert-error hide">
+      <div class="alert alert-warn hide signin-required-text">
+        <%= content_tag :div, t("signin.login_required"), :class => "message" %>
+      </div>
+
+      <div class="alert alert-error hide signin-error-message">
         <%= content_tag :div, "", :class => "message" %>
       </div>
 
@@ -32,7 +36,13 @@
             <%= f.label :remember_me, I18n.t("signin.remember_me") %>
           </label>
           <%= f.submit I18n.t("signin.submit"), :class => "signin-button" %>
-          <%= link_to t("forgot_password.link"), new_password_path(:user) %>
+          <%= link_to sina_connect_path do %>
+            <%= image_tag "sina24.png" %>
+          <% end %>
+          <div>
+            <%= link_to t("forgot_password.link"), new_password_path(:user), :class => "gray-link" %>
+            <%= link_to t("signin.signup_link"), signup_path, :class => "gray-link" %>
+          </div>
         </div>
       </div>
     <% end %> 
