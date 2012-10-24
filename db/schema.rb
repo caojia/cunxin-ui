@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022175110) do
+ActiveRecord::Schema.define(:version => 20121023152142) do
 
   create_table "accounts", :force => true do |t|
     t.string   "payment_method"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(:version => 20121022175110) do
     t.string   "key"
     t.string   "email"
   end
+
+  add_index "accounts", ["charity_id"], :name => "index_accounts_on_charity_id"
+  add_index "accounts", ["project_id"], :name => "index_accounts_on_project_id"
 
   create_table "carousels", :force => true do |t|
     t.integer  "project_id"
@@ -105,6 +108,11 @@ ActiveRecord::Schema.define(:version => 20121022175110) do
     t.datetime "updated_at",                                   :null => false
     t.integer  "account_id",                                   :null => false
   end
+
+  add_index "payments", ["account_id"], :name => "index_payments_on_account_id"
+  add_index "payments", ["order_id"], :name => "index_payments_on_order_id", :unique => true
+  add_index "payments", ["project_id"], :name => "index_payments_on_project_id"
+  add_index "payments", ["user_id"], :name => "index_payments_on_user_id"
 
   create_table "photos", :force => true do |t|
     t.string   "name"

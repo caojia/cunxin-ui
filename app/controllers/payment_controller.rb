@@ -46,7 +46,7 @@ class PaymentController < ApplicationController
     payment.account = account
     payment.amount = donate_amount
     payment.currency_type = 'RMB'
-    payment.order_id = 1313123123 # Random
+    payment.order_id = "%s%07d" % [ Time.now.strftime("%y%m%d%H%M%S"), SecureRandom.random_number(10000000) ]
     payment.status = 'new'
 
     payment.save
