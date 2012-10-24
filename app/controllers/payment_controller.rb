@@ -23,14 +23,19 @@ class PaymentController < ApplicationController
   end
 
   def notify
-    parse_notification(params)
+    p "raw_post"
+    p request.raw_post
+    case params[:payment_type].downcase
+    when 'alipay'
+      alipay_notify
+    end
   end
-
 
   protected
 
-  def parse_notification params
-
+  def alipay_notify
+    notify = Billing::Alipay::Notify.new(request.raw_post)
+    render :text => 'success'
   end
 
   def find_account project, payment_method
@@ -67,7 +72,7 @@ class PaymentController < ApplicationController
       :subject => payment.project.headline,
       :body => payment.project.headline,
       :return_url => "http://cunxin.org/payment/return/" + payment.account.payment_method,
-      :notify_url => "http://cunxin.org/payment/notify" + payment.account.payment_method,
+      :notify_url => "http://cunxin.org/payment/notify/" + payment.account.payment_method,
       :verify_type => payment.account.verify_type,
       :key => payment.account.key,
     }
