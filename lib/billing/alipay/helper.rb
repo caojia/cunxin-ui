@@ -21,7 +21,7 @@ module Billing
           :notify_url => options[:notify_url],
           :"_input_charset" => 'utf-8',
           :service => "create_direct_pay_by_user",
-          :payment_type => "1",
+          :payment_type => "4",
           :subject => options[:subject]
         }
         params[:body] = options[:body] if options[:body]

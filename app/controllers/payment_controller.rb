@@ -23,8 +23,6 @@ class PaymentController < ApplicationController
   end
 
   def notify
-    p "raw_post"
-    p request.raw_post
     case params[:payment_type].downcase
     when 'alipay'
       alipay_notify
@@ -34,7 +32,21 @@ class PaymentController < ApplicationController
   protected
 
   def alipay_notify
-    notify = Billing::Alipay::Notify.new(request.raw_post)
+    Notification.create(:payment_method => 'alipay', :detail => request.raw_post)
+
+    ali_notify = Billing::Alipay::Notify.new(request.raw_post)
+    payment = Payment.find(:first, :conditions=>{:order_id => ali_notify.out_trade_no} )
+
+    if payment
+      case ali_notify.trade_status
+      when 'TRADE_FINISHED'
+        payment.status = 'finish'
+      when 'WAIT_BUYER_PAY'
+        payment.status = 'pending'
+      end
+      payment.save
+    end
+
     render :text => 'success'
   end
 

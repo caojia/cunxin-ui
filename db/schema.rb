@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023152142) do
+ActiveRecord::Schema.define(:version => 20121025142039) do
 
   create_table "accounts", :force => true do |t|
     t.string   "payment_method"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(:version => 20121023152142) do
 
   add_index "contributors", ["canonical_name"], :name => "index_contributors_on_canonical_name"
   add_index "contributors", ["published"], :name => "index_contributors_on_published"
+
+  create_table "notifications", :force => true do |t|
+    t.string   "payment_method"
+    t.text     "detail"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "oauth_users", :force => true do |t|
     t.integer  "user_id"
