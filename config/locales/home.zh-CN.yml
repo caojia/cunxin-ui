@@ -4,8 +4,9 @@ zh-CN:
     consult_title: "志愿团"
     donator_title: "捐助机构"
     summary: 
-      "累计捐款额<span class='highlight'>%{amount}</span>元，
-      合作慈善机构<span class='highlight'>%{charities_count}</span>家，
-      参与人数<span class='highlight'>%{people_count}</span>，
-      项目数<span class='highlight'>%{projects_count}</span>"
+      text:
+        amount: "累计捐款额"
+        charities_count: "合作慈善机构"
+        people_count: "参与人数"
+        projects_count: "项目数"
     view_project: "查 看"

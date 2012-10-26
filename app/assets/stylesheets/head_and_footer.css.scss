@@ -1,25 +1,28 @@
+$nav-bar-height: sprites-sprite-height("header-bg-58");
 .nav-bar-wrapper {
   position: relative;
 
   .cunxin-nav-bar {
-    @include sprites-sprite("head-bg");
+    @include sprites-sprite("header-bg-58");
     background-repeat: repeat-x;
+    height: $nav-bar-height;
+    border-bottom: 1px solid #404243;
 
     .navbar-inner {
       background: none;
       border: 0;
     }
+
+    .divider {
+      height: $nav-bar-height + 1;
+      background-repeat: repeat-y;
+      width: 2px;
+      margin: 0 10px;
+      background-image: image-url("header-divider.gif");
+    }
+
   }
 
-  .navbar-shadow {
-    @include sprites-sprite("head-shadow");
-    background-repeat: repeat-x;
-    height: 16px;
-    width: 100%;
-    position: absolute;
-    bottom: -16px;
-    z-index: 1;
-  }
 }
 
 .content-footer-divider {

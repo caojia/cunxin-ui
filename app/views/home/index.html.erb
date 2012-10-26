@@ -6,18 +6,13 @@
         <%= link_to project_path(carousel.project.id) do %>
           <%= image_tag carousel.project.thumbnail_large, :alt => carousel.project.headline %>
         <% end %>
-        <div class="head-carousel-float-content">
-          <div class="mask">
-          </div>
+        <div class="container head-carousel-float-content">
           <div class="text-content">
             <div class="headline">
               <%= carousel.project.headline %>
             </div>
-            <div class="description">
-              <%= carousel.project.description %>
-            </div>
           </div>
-          <%= link_to t("home.view_project"), project_path(carousel.project), :class => "more-info-button" %>
+          <%= link_to t("home.view_project"), project_path(carousel.project), :class => "view-project-button blue-button" %>
         </div>
       </div>
     <% end %>
@@ -25,16 +20,56 @@
   <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#head-carousel" %>
   <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#head-carousel" %>
 </div>
+
+<!--
 <div id="head-summary" class="head-summary relative">
   <div class="container">
     <div class="span8">
-      <%= t("home.summary", @summary).html_safe %>
+      <%#= t("home.summary", @summary).html_safe %>
     </div>
     <div class="span3">
       <div id="head-carousel-control-button" class="head-carousel-control-button">
         <% @carousels.each_with_index do |carousel, i| %>
-          <%= link_to "", "#", :class => "carousel-control-button #{i==0 ? 'active' : ''}", "data-carousel-index" => i %>
+          <%#= link_to "", "#", :class => "carousel-control-button #{i==0 ? 'active' : ''}", "data-carousel-index" => i %>
         <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+<div id="head-summary" class="head-summary-tall relative">
+  <div class="container summary-container">
+    <div class="summary-item first">
+      <div class="num">
+        <%= number_with_delimiter(@summary[:projects_count], :delimiter => ',') %>
+      </div>
+      <div class="text">
+        <%= t("home.summary.text.projects_count") %>
+      </div>
+    </div>
+    <div class="summary-item larger">
+      <div class="num">
+        <%= number_with_delimiter(@summary[:amount], :delimiter => ',') %>
+      </div>
+      <div class="text">
+        <%= t("home.summary.text.amount") %>
+      </div>
+    </div>
+    <div class="summary-item larger">
+      <div class="num">
+        <%= number_with_delimiter(@summary[:people_count], :delimiter => ',') %>
+      </div>
+      <div class="text">
+        <%= t("home.summary.text.people_count") %>
+      </div>
+    </div>
+    <div class="summary-item last">
+      <div class="num">
+        <%= number_with_delimiter(@summary[:charities_count], :delimiter => ',') %>
+      </div>
+      <div class="text">
+        <%= t("home.summary.text.charities_count") %>
       </div>
     </div>
   </div>
@@ -46,15 +81,3 @@
       :path => "home",
       :items_per_col => 4,
       :gen_link_for_item => lambda {|item| charity_path(item.id) } } %>
-<%= render :partial => "shared/colx_carousel", :locals => {
-      :items => @donators, 
-      :key => "donator", 
-      :path => "home",
-      :items_per_col => 4,
-      :gen_link_for_item => lambda {|item| contributor_path(item.id) } } %>
-<%= render :partial => "shared/colx_carousel", :locals => {
-      :items => @consults, 
-      :key => "consult", 
-      :path => "home",
-      :items_per_col => 4,
-      :gen_link_for_item => lambda {|item| contributor_path(item.id) } } %>

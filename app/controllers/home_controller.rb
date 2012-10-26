@@ -4,12 +4,6 @@ class HomeController < ApplicationController
     @charities = Charity.find(:all, 
                               :order => "id ASC", 
                               :conditions => ["published = ?", true])
-    @consults = Consult.find(:all,
-                             :order => "id ASC",
-                             :conditions => ["published = ?", true])
-    @donators = Donator.find(:all,
-                             :order => "id ASC",
-                             :conditions => ["published = ?", true])
 
     @summary = {
       :amount => 223101,

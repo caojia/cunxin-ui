@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <!--
+    $buttonParams = array(  "cmd"           => "_xclick",
+    "business"      => DEFAULT_EMAIL_ADDRESS,
+    "cert_id"       => DEFAULT_CERT_ID,
+    "charset"       => "UTF-8",
+    "item_name"     => htmlspecialchars($_POST["item_name"]),
+    "item_number"   => htmlspecialchars($_POST["item_number"]),
+    "amount"        => htmlspecialchars($_POST["amount"]),
+    "currency_code" => htmlspecialchars($_POST["currency_code"]),
+    "return"        => htmlspecialchars($_POST["returnURL"]),
+    "cancel_return" => htmlspecialchars($_POST["cancelURL"]),
+    "notify_url"    => htmlspecialchars($_POST["notifyURL"]),
+    "custom"        => "PayPal EWP Sample");
+    -->
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+  <input type="hidden" name="cmd" value="_xclick" />
+  <input type="hidden" name="business" value="191973242@qq.com" />
+  <input type="hidden" name="charset" value="UTF-8" />
+  amount: <input type="text" name="amount" value="100" />
+  <input type="hidden" name="currency_code" value="HKD" />
+  <input type="hidden" name="item_name" value="1234" />
+  <input type="hidden" name="item_number" value="1" />
+  <input type="text" name="return" value="http://localhost:3000/paypal/success" />
+  <input type="submit" name="submit" value="submit" />
+  <!--
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="SSVJBJ9HATFUG">
+<table>
+<tr><td><input type="hidden" name="on0" value="金额">金额</td></tr><tr><td><select name="os0">
+    <option value="10">10 $ 10.00 HKD</option>
+    <option value="20">20 $ 20.00 HKD</option>
+    <option value="30">30 $ 30.00 HKD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="HKD">
+<input type="image" src="https://www.paypalobjects.com/zh_XC/C2/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal——最安全便捷的在线支付方式！">
+<input type="hidden" name="charset" value="utf-8" />
+<img alt="" border="0" src="https://www.paypalobjects.com/zh_XC/i/scr/pixel.gif" width="1" height="1">
+-->
+</form>
+  </body>
+</html>
