@@ -2,6 +2,14 @@ module Billing
   module AliPay
     class Helper
       attr_accessor :fields
+      @@bank_name_match = {
+      'icbc' => 'ICBCBTC',
+      'ccb' => 'CCB',
+      'cmb' => 'CMB',
+      'bcom' => 'BOCB2C',
+      'abc' => 'ABC',
+      'gdb' => 'GDB'
+      }
 
       def initialize(options={})
         self.fields = sign_params( query_params(options), options[:key] )
@@ -26,6 +34,10 @@ module Billing
         }
         params[:body] = options[:body] if options[:body]
         params[:return_url] = options[:return_url] if options[:return_url]
+        if options[:bank]
+          params[:paymethod] = 'bankPay'
+          params[:defaultbank] = @@bank_name_match[options[:bank]]
+        end
         params = params.each_with_object({}) do |p, h|
           h[p[0]] = CGI.escape(p[1].to_s)
         end

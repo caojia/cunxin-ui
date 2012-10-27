@@ -18,6 +18,21 @@
         <div style="clear: both;"> </div>
       </ul>
       <div style="clear: both;"> </div>
+
+      <%= content_tag :h2, t("payment.select_payment") %>
+      <ul id='payment-select' >
+        <% @payment_bank.each do |h| %>
+          <li class='span3'>
+            <%= radio_button_tag :payment_method, h[:name] %>
+            <div class='payment-logo'>
+              <%= image_tag h[:img_url] %>
+            </div>
+          </li>
+        <% end %>
+        <div style="clear: both;"> </div>
+      </ul>
+      <div style="clear: both;"> </div>
+
       <%= content_tag :h2, t("payment.select_payment") %>
       <ul id='payment-select' >
         <% @payment_target.each do |h| %>

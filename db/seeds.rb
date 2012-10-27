@@ -144,7 +144,7 @@ charity = Charity.create(
   published_at: Time.now.utc)
 
 account = Account.create( {
-  :payment_method => 'Alipay',
+  :payment_method => 'alipay',
   :target_account => 'ABCDEFGHIJKLMN',
   :charity => charity,
   :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
@@ -152,7 +152,7 @@ account = Account.create( {
 })
 
 account = Account.create( {
-  :payment_method => 'Paypal',
+  :payment_method => 'paypal',
   :target_account => 'P',
   :charity => charity,
   :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
@@ -173,15 +173,15 @@ charity = Charity.create(
 )
 
 account = Account.create( {
-  :payment_method => 'Alipay',
-  :target_account => 'Alipay2',
+  :payment_method => 'alipay',
+  :target_account => 'alipay2',
   :charity_id => charity,
   :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
   :email => 'cunxin@cunxin.org'
 })
 
 account = Account.create( {
-  :payment_method => 'Paypal',
+  :payment_method => 'paypal',
   :target_account => 'PpppBBB',
   :charity_id => charity,
   :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
@@ -200,15 +200,15 @@ charity = Charity.create(
 )
 
 account = Account.create( {
-  :payment_method => 'Alipay',
-  :target_account => 'Alipay3',
+  :payment_method => 'alipay',
+  :target_account => 'alipay3',
   :charity_id => charity,
   :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
   :email => 'cunxin@cunxin.org'
 })
 
 account = Account.create( {
-  :payment_method => 'Paypal',
+  :payment_method => 'paypal',
   :target_account => 'Pppp3',
   :charity_id => charity,
   :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
@@ -228,15 +228,15 @@ charity = Charity.create(
 )
 
 account = Account.create( {
-  :payment_method => 'Alipay',
-  :target_account => 'Alipay4',
+  :payment_method => 'alipay',
+  :target_account => 'alipay4',
   :charity_id => charity,
   :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
   :email => 'cunxin@cunxin.org'
 })
 
 account = Account.create( {
-  :payment_method => 'Paypal',
+  :payment_method => 'paypal',
   :target_account => 'Pppp4',
   :charity_id => charity,
   :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',

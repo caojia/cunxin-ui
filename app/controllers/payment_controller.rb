@@ -1,10 +1,21 @@
 class PaymentController < ApplicationController
-  def donate
-    @project = Project.find(params[:project_id] || 1)
-    @payment_target = [
-      {:name => "Alipay", :img_url => "/payment/alipay.gif" },
-      {:name => "Paypal", :img_url => "/payment/paypalcn.gif"}
+  @@payment_bank = [
+      {:name => 'icbc', :img_url => "/payment/icbc.png"},
+      {:name => 'ccb', :img_url => "/payment/ccb.png"},
+      {:name => 'cmb', :img_url => "/payment/cmb.png"},
+      {:name => 'bcom', :img_url => "/payment/bcom.png"},
+      {:name => 'abc', :img_url => "/payment/abc.png"},
+      {:name => 'gdb', :img_url => "/payment/gdb.png"}
     ]
+
+  @@payment_target = [
+    {:name => "alipay", :img_url => "/payment/alipay.gif"}
+  ]
+
+  def donate
+    @payment_bank = @@payment_bank
+    @payment_target = @@payment_target
+    @project = Project.find(params[:project_id])
   end
 
   def pay
@@ -15,7 +26,7 @@ class PaymentController < ApplicationController
     @account = find_account(@project, @payment_method)
     @payment = generate_payment(@project, @account, @donate_amount)
 
-    @pay = generate_payment_params(@payment)
+    @pay = generate_payment_params(@payment, @payment_method)
   end
 
   def success
@@ -51,14 +62,20 @@ class PaymentController < ApplicationController
   end
 
   def find_account project, payment_method
-    return Account.find(
-      :first, :conditions => { :charity_id => project.charity_id, :payment_method => payment_method })
+    # Bank
+    if @@payment_bank.find { |h| h[:name] == payment_method }
+      return Account.find(
+        :first, :conditions => { :charity_id => project.charity_id, :payment_method => "alipay" })
+    else
+      return Account.find(
+        :first, :conditions => { :charity_id => project.charity_id, :payment_method => payment_method })
+    end
   end
 
   def generate_payment project, account, donate_amount, options = {}
     payment = Payment.new()
 
-    payment.user_id = getUserId
+    payment.user = current_user
     payment.project = project
     payment.account = account
     payment.amount = donate_amount
@@ -74,7 +91,7 @@ class PaymentController < ApplicationController
     1
   end
 
-  def generate_payment_params payment
+  def generate_payment_params payment, payment_method
     options = {
       :account => payment.account.target_account,
       :amount => payment.amount,
@@ -89,10 +106,13 @@ class PaymentController < ApplicationController
       :key => payment.account.key,
     }
 
+    #Bank
+    options[:bank] = payment_method if @@payment_bank.find{|h| h[:name] == payment_method }
+
     case payment.account.payment_method
-    when 'Alipay'
+    when 'alipay'
       get_alipay_helper(options)
-    when 'Paypal'
+    when 'paypal'
       get_paypal_helper(options)
     end
   end

@@ -22,6 +22,7 @@ ul#payment-select {
   >li {
     float:left;
     position: relative;
+    margin-bottom: 20px;
 
     div.payment-logo {
       display: inline-block;
@@ -29,8 +30,8 @@ ul#payment-select {
       padding: 1px;
 
       img {
-        width: 180px;
-        height: 50px;
+        width: 147px;
+        height: 37px;
         cursor: pointer;
       }
     }
