@@ -1,54 +1,65 @@
-<div class='container' >
+<div class='container payment-page' >
   <%= content_tag :h1, @project.headline %>
-  <%= form_tag( {:action => "pay"}, :method => :post, :id => 'donate-form', :target => :blank) do %>
-    <div>
-      <%= content_tag :h2, t("payment.select_donate_amount") %>
-      <ul id='donate-amount-select' class='span8' >
-        <% [1,5,10,20,50,100].each do |v| %>
-          <li class='span2'>
-            <%= radio_button_tag :donate_amount, v %>
-            <%= label_tag "payment.donate_amount_"+v.to_s, t("payment.donate_amount_"+v.to_s), :class => "amount-text" %>
-          </li>
-        <% end %>
-        <li class='span4'>
-          <%= radio_button_tag :donate_amount, "other" %>
-          <%= label_tag "payment.donate_amount_other", t("payment.donate_amount_other"), :class => "amount-text" %>
-          <%= text_field_tag :input_amount, "", :disabled => true %>
-        </li>
-        <div style="clear: both;"> </div>
-      </ul>
-      <div style="clear: both;"> </div>
+  <div class='page-left'>
+    <%= form_tag( {:action => "pay"}, :method => :post, :id => 'donate-form', :target => :blank) do %>
+      <div>
+        <%= content_tag :h2, t("payment.select_donate_amount") %>
+        <div class='selector-wrapper'>
+          <ul id='donate-amount-select' >
+            <% [10,20,50,100].each do |v| %>
+              <li>
+                <%= radio_button_tag :donate_amount, v %>
+                <%= label_tag "payment.donate_amount_" + v.to_s, "¥" + v.to_s, :class => "amount-text" %>
+              </li>
+            <% end %>
+            <li>
+              <%= radio_button_tag :donate_amount, "other" %>
+              <%= label_tag "payment.donate_amount_other", t("payment.donate_amount_other"), :class => "amount-text" %>
+              <span class=''>¥</span>
+              <%= text_field_tag :input_amount, "", :disabled => true %>
+            </li>
+            <div style="clear: both;"> </div>
+          </ul>
+          <div style="clear: both;"> </div>
+        </div>
 
-      <%= content_tag :h2, t("payment.select_payment") %>
-      <ul id='payment-select' >
-        <% @payment_bank.each do |h| %>
-          <li class='span3'>
-            <%= radio_button_tag :payment_method, h[:name] %>
-            <div class='payment-logo'>
-              <%= image_tag h[:img_url] %>
-            </div>
-          </li>
-        <% end %>
-        <div style="clear: both;"> </div>
-      </ul>
-      <div style="clear: both;"> </div>
-
-      <%= content_tag :h2, t("payment.select_payment") %>
-      <ul id='payment-select' >
-        <% @payment_target.each do |h| %>
-          <li class='span3'>
-            <%= radio_button_tag :payment_method, h[:name] %>
-            <div class='payment-logo'>
-              <%= image_tag h[:img_url] %>
-            </div>
-          </li>
-        <% end %>
-        <div style="clear: both;"> </div>
-      </ul>
-      <div style="clear: both;"> </div>
-    </div>
-    <%= hidden_field_tag :project_id, @project.id %>
-    <div><%= submit_tag t("payment.pay"), :id => 'pay-submit', :class => "btn btn-primary" %></div>
-  <% end %>
+        <%= content_tag :h2, t("payment.select_payment") %>
+        <div class='selector-wrapper'>
+          <%= content_tag :h3, t("payment.payment_bank") %>
+          <ul id='payment-select' >
+            <% @payment_bank.each do |h| %>
+              <li class=''>
+                <%= radio_button_tag :payment_method, h[:name] %>
+                <div class='payment-logo'>
+                  <%= image_tag h[:img_url] %>
+                </div>
+              </li>
+            <% end %>
+            <div style="clear: both;"> </div>
+          </ul>
+          <div style="clear: both;"> </div>
+          <%= content_tag :h3, t("payment.payment_platform") %>
+          <ul id='payment-select' >
+            <% @payment_target.each do |h| %>
+              <li class=''>
+                <%= radio_button_tag :payment_method, h[:name] %>
+                <div class='payment-logo'>
+                  <%= image_tag h[:img_url] %>
+                </div>
+              </li>
+            <% end %>
+            <div style="clear: both;"> </div>
+          </ul>
+          <div style="clear: both;"> </div>
+        </div>
+      </div>
+      <%= hidden_field_tag :project_id, @project.id %>
+      <div><%= submit_tag t("payment.pay"), :id => 'pay-submit', :class => "btn btn-primary" %></div>
+    <% end %>
+  </div>
+  <div class='page-right'>
+    <%= render :partial => 'donate_project_desc' %>
+  </div>
+  <div style="clear: both;"> </div>
 </div>
 <%= render :partial=>'pay_confirm_popup' %>

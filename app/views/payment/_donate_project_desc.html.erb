@@ -1,0 +1,27 @@
+<div class='project-desc-wrapper' >
+  <div class='project-thumbnail'>
+    <%= link_to project_path(@project), :title => @project.headline do %>
+      <%= image_tag @project.thumbnail_small, :alt => @project.headline %>
+      <%= @project.headline %>
+    <% end %>
+  </div>
+
+  <div class='project-charity'>
+    <%= content_tag :span, @project.charity.name %>
+  </div>
+
+  <div class='project-progress' >
+    <%= content_tag :span, t("payment.progress") %>
+    <span class='progress' style="margin-left: 10px; width: 180px; position: relative;">
+      <div class='bar' style="width: <%= @project.donated_percentage %>%;">
+        <div class='progress-text-container' >
+          <%= @project.donated_percentage %>%
+        </div>
+      </div>
+    </span>
+  </div>
+
+  <%= content_tag :div, @project.description, :class=>'project-desc' %>
+
+  <div style="clear: both;"> </div>
+</div>

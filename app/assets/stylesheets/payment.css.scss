@@ -2,45 +2,131 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-ul#donate-amount-select {
-  margin-bottom: 30px;
+div.payment-page {
+  padding-top: $nav-bar-height;
 
-  >li {
+  div.page-left {
     float: left;
-    margin-left: 5px;
-
-    label.amount-text {
-      cursor: pointer;
-      display: inline-block;
-    }
+    width: 700px;
   }
-}
 
-ul#payment-select {
-  margin-bottom: 30px;
+  div.page-right {
+    float: right;
+    width: 300px;
+  }
 
-  >li {
-    float:left;
-    position: relative;
+  h2 {
+    font-size: 15px;
+    line-height: 20px;
+    color: $gray;
+  }
+
+  h3 {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: normal;
+    color: $gray;
+  }
+
+  div.selector-wrapper {
+    border: 1px solid #aaa;
+    padding: 10px;
     margin-bottom: 20px;
+    border-radius: 4px;
+  }
 
-    div.payment-logo {
-      display: inline-block;
-      border: 1px solid #aaaaaa;
-      padding: 1px;
+  div.project-desc-wrapper {
+    border: 1px solid #aaa;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 11px;
+
+    div.project-thumbnail {
+      margin-bottom: 5px;
 
       img {
-        width: 147px;
-        height: 37px;
-        cursor: pointer;
+        margin-bottom: 5px;
+      }
+
+      a {
+        font-size: 16px;
+        color: #1E5DA7;
+      }
+
+      a:hover {
+        color: #97A9F8 ;
+        text-decoration: none;
       }
     }
-    &.select {
+
+    div.project-charity {
+      margin-bottom: 5px;
+    }
+
+    div.project-progress {
+      .progress {
+        top: 3px;
+        div.progress-text-container {
+          line-height: 15px;
+        }
+      }
+      margin-bottom: 5px;
+    }
+
+    div.project-desc {
+      color: $gray;
+    }
+
+  }
+
+  ul#donate-amount-select {
+    margin-bottom: 5px;
+    >li {
+      float: left;
+      margin-right: 30px;
+      min-width: 169px;
+      height: 30px;
+      line-height: 30px;
+
+      input {
+        margin: 0 0;
+      }
+
+      label.amount-text {
+        cursor: pointer;
+        display: inline-block;
+      }
+    }
+  }
+
+  ul#payment-select {
+    >li {
+      float:left;
+      position: relative;
+      margin-bottom: 20px;
+      margin-right: 30px;
+
+      input {
+        margin: 0 0;
+      }
+
       div.payment-logo {
-        border: 2px solid #FF6600;
-        padding: 0px;
+        display: inline-block;
+        border: 1px solid #aaaaaa;
+        padding: 1px;
+
+        img {
+          width: 147px;
+          height: 37px;
+          cursor: pointer;
+        }
+      }
+      &.select {
+        div.payment-logo {
+          border: 2px solid #FF6600;
+          padding: 0px;
+        }
       }
     }
   }
 }
-
