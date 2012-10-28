@@ -60,6 +60,13 @@ ul {
   font-style: normal;
 }
 
+$white: #EEEEEE;
+$lightGreen: #C1DA65;
+$darkGreen: #C2CB61;
+$lightBlue: #47A9F8;
+$darkBlue: #2E9DF7;
+$gray: #888888;
+
 @import "sprites"; /*sprites*/
 @import "bootstrap_and_overrides";
 @import "signin";
@@ -75,15 +82,31 @@ ul {
 @import "buttons";
 
 .section .section-head {
-  color: #666;
+  color: $gray;
+  font-weight: normal;
 }
 
 .mask {
-  @include opacity(0.4);
   width: 100%;
   height: 100%;
   background-color: black;
   position: absolute;
+}
+
+.opacity0 {
+  @include opacity(0.0);
+}
+.opacity1 {
+  @include opacity(0.1);
+}
+.opacity2 {
+  @include opacity(0.2);
+}
+.opacity4 {
+  @include opacity(0.4);
+}
+.opacity8 {
+  @include opacity(0.9);
 }
 
 .gray-link {

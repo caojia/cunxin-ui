@@ -7,11 +7,6 @@
           <%= image_tag carousel.project.thumbnail_large, :alt => carousel.project.headline %>
         <% end %>
         <div class="container head-carousel-float-content">
-          <div class="text-content">
-            <div class="headline">
-              <%= carousel.project.headline %>
-            </div>
-          </div>
           <%= link_to t("home.view_project"), project_path(carousel.project), :class => "view-project-button blue-button" %>
         </div>
       </div>
@@ -21,22 +16,9 @@
   <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#head-carousel" %>
 </div>
 
-<!--
-<div id="head-summary" class="head-summary relative">
-  <div class="container">
-    <div class="span8">
-      <%#= t("home.summary", @summary).html_safe %>
-    </div>
-    <div class="span3">
-      <div id="head-carousel-control-button" class="head-carousel-control-button">
-        <% @carousels.each_with_index do |carousel, i| %>
-          <%#= link_to "", "#", :class => "carousel-control-button #{i==0 ? 'active' : ''}", "data-carousel-index" => i %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+<div class="slogon container">
+  <div><%= t("home.slogon") %></div>
 </div>
--->
 
 <div id="head-summary" class="head-summary-tall relative">
   <div class="container summary-container">
@@ -72,6 +54,21 @@
         <%= t("home.summary.text.charities_count") %>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="cunxin-detail container-fluid container">
+  <div class="row-fluid">
+    <% 0.upto(2).each do |i| %>
+      <div class="span4">
+        <div class="title">
+          <%= t("home.details")[i]["title"] %>
+        </div>
+        <div class="description">
+          <%= t("home.details")[i]["description"].html_safe %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 

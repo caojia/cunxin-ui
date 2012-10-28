@@ -1,24 +1,46 @@
-$nav-bar-height: sprites-sprite-height("header-bg-58");
+$nav-bar-height: 48px;
+$banner-height: $nav-bar-height;
+$logo-height: 40px;
 .nav-bar-wrapper {
   position: relative;
 
   .cunxin-nav-bar {
-    @include sprites-sprite("header-bg-58");
+    background: none;
     background-repeat: repeat-x;
     height: $nav-bar-height;
-    border-bottom: 1px solid #404243;
 
     .navbar-inner {
       background: none;
       border: 0;
+      @include box-shadow(none);
+      .nav > li > a {
+        padding-top: ($banner-height - 20px)/2;
+        padding-bottom: ($banner-height - 20px)/2;
+        color: $white;
+        &:hover {
+          color: $lightGreen;
+        }
+      }
     }
 
-    .divider {
-      height: $nav-bar-height + 1;
-      background-repeat: repeat-y;
-      width: 2px;
-      margin: 0 10px;
-      background-image: image-url("header-divider.gif");
+    .brand {
+      padding: ($banner-height - $logo-height)/2 0;
+    }
+
+    .nav .user-thumb span {
+      line-height: $banner-height - 2px;
+      img {
+        border: 1px solid #444;
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    .nav li.sina-login {
+      a {
+        padding-top: ($banner-height - 24px)/2;
+        padding-bottom: ($banner-height - 24px)/2;
+      }
     }
 
   }
@@ -31,24 +53,19 @@ $nav-bar-height: sprites-sprite-height("header-bg-58");
 }
 
 #footer {
-  @include sprites-sprite("footer-bg");
-  background-repeat: repeat-x;
   padding-bottom: 10px;
+  background-color: #303030;
 
   div, span, a {
-    color: #999999;
+    color: $gray;
     font-size: 13px;
   }
 
   a {
     text-decoration: none;
     &:hover, &:focus {
-      color: white;
+      color: $white;
     }
-  }
-
-  h5 {
-    color: white;
   }
 
   .footer-links {
