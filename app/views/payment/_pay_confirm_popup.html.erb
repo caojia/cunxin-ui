@@ -9,7 +9,7 @@
   </div>
 
   <div class="modal-footer">
-    <%= link_to t("payment.pay_succeed"), '#', :id => "pay-succeed", :class => "btn btn-primary" %>
-    <%= link_to t("payment.pay_failed"), '#', :id => "pay-failed", :class => "btn btn-primary" %>
+    <%= link_to t("payment.pay_succeed"), { :controller => 'payment', :action => 'success'} , { :id => "pay-succeed", :class => "btn btn-primary" } %>
+    <%= link_to t("payment.pay_failed"), {:controller => 'payment', :action => 'fail'},  { :id => "pay-failed", :class => "btn btn-primary" } %>
   </div>
 </div>

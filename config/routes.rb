@@ -34,6 +34,7 @@ CunxinUi::Application.routes.draw do
   # payment
   get "payment/donate", :to => "payment#donate", :as => :donate
   get "payment/success", :to => "payment#success"
+  get "payment/fail", :to => "payment#fail"
   post "payment/pay", :to => "payment#pay"
   get "payment/notify/:payment_type", :to => "payment#notify"
   post "payment/notify/:payment_type", :to => "payment#notify"

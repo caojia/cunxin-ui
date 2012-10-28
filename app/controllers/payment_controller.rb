@@ -33,6 +33,10 @@ class PaymentController < ApplicationController
 
   end
 
+  def fail
+
+  end
+
   def notify
     case params[:payment_type].downcase
     when 'alipay'
