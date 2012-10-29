@@ -26,4 +26,4 @@ class NavBar
     $(window).on("scroll", this.update).on("resize", this.update)
 
 $ -> 
-  (new NavBar($(_navbar), $(_masthead))).bindEvents()
+  (new NavBar($(_navbar), $(_masthead))).bindEvents().update()
