@@ -15,7 +15,7 @@ class PaymentController < ApplicationController
   def donate
     @payment_bank = @@payment_bank
     @payment_target = @@payment_target
-    @project = Project.find(params[:project_id])
+    @project = Project.find(params[:project_id], :include => [:charity] )
   end
 
   def pay
