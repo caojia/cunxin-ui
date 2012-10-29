@@ -1,6 +1,6 @@
 $col3_carousel_height: 240px;
 $col4_carousel_border: 2px;
-$col4_carousel_height: 150px;
+$col4_carousel_height: 130px;
 $col4_carousel_width: 224px;
 $head_carousel_width: 1440px;
 $head_carousel_height: 450px;
@@ -149,12 +149,10 @@ a.carousel-control-right {
   .item {
     [class*="span"] {
       text-align: center;
-      max-height: $col4_carousel_height;
-      *height: $col4_carousel_height;
+      height: $col4_carousel_height;
       position: relative;
       img {
-        max-height: $col4_carousel_height - $col4_carousel_border * 2;
-        *height: $col4_carousel_height - $col4_carousel_border * 2;
+        height: $col4_carousel_height - $col4_carousel_border * 2;
         width: $col4_carousel_width - $col4_carousel_border * 2;
         border: $col4_carousel_border solid #ccc;
       }

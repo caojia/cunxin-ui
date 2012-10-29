@@ -14,6 +14,9 @@ class Project < ActiveRecord::Base
   has_many :project_photos
   has_many :photos, :through => :project_photos, :order => 'position ASC'
 
+  has_one :primary_project_photo, :class_name => "ProjectPhoto", :conditions => ["is_primary = ?", true]
+  has_one :primary_photo, :through => :primary_project_photo, :source => :photo
+
   def donated_users
     # Hack
     return User.find(:all)
@@ -26,6 +29,14 @@ class Project < ActiveRecord::Base
 
   def donated_percentage
     @donated_percentage ||= (donated_amount.to_f / target_amount * 100).round
+  end
+
+  def thumbnail_large
+    primary_photo.thumbnail_large rescue nil
+  end
+
+  def thumbnail_small
+    primary_photo.thumbnail_small rescue nil
   end
 
 end

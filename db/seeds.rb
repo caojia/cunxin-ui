@@ -1,13 +1,14 @@
 # encoding: UTF-8
 #
 
+Project.delete_all
+Carousel.delete_all
+
 project = Project.create(
   :canonical_name => "project1", 
   :headline => "爱心召集：给苏州12岁白血病女孩微微再一次生命！",
   :description => "她叫小薇薇,12岁,去年被查出白血病.为了给她看病,薇薇妈说能借的都借了,6岁弟弟为她用拼音写求助信乞讨,奶奶为她瞒着家人捡垃圾筹医药费...她说她想上学,想去苏州乐园,还想和同学一起去秋游...于是微博网友用爱心PS带她去了好多地方,可她的病还需要花很多很多钱,你愿意再给她一次生命希望吗？",
   :location => "苏州",
-  :thumbnail_small => "/projects/1.jpg",
-  :thumbnail_large => "/projects/1.jpg",
   :start_date => "2012-09-08 00:00:00",
   :donators_count => 1000,
   :target_amount => 50000
@@ -21,13 +22,15 @@ Carousel.create(
 photo = Photo.create(
   :name => "爱心召集：照片1",
   :description => "bla bla...",
-  :thumbnail_small => "/charities/1.jpeg",
+  :thumbnail_small => "/projects/1.jpg",
+  :thumbnail_large => "/projects/1.jpg",
   :link => "/projects/1.jpg"
 )
 
 ProjectPhoto.create(
   :project => project,
   :photo => photo,
+  :is_primary => true,
   :position => 0
 )
 
@@ -88,8 +91,6 @@ project = Project.create(
   :headline => "【爱心衣橱】紧急为云南地震灾区小学生筹集新衣项目款",
   :description => "2012年9月7日11时19分，云南省昭通市彝良县发生里氏5.7级地震。截至9月9日11时，地震已造成81人死亡，821人受伤，20.1万人紧急转移安置。",
   :location => "云南",
-  :thumbnail_small => "/projects/2.jpg",
-  :thumbnail_large => "/projects/2.jpg",
   :start_date => "2012-09-01 00:00:00",
   :donators_count => 1000,
   :target_amount => 50000
@@ -110,13 +111,15 @@ ProjectPhoto.create(
 photo = Photo.create(
   :name => "爱心衣橱：照片1",
   :description => "bla bla",
-  :thumbnail_small => "/charities/1.jpeg",
+  :thumbnail_small => "/projects/2.jpg",
+  :thumbnail_large => "/projects/2.jpg",
   :link => "/projects/2.jpg"
 )
 
 ProjectPhoto.create(
   :project => project,
   :photo => photo,
+  :is_primary => true,
   :position => 0
 )
 

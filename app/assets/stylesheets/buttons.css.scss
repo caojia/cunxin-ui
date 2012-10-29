@@ -36,7 +36,7 @@ input[type=submit].signin-button, input[type=submit].signup-button {
 }
 
 .green-button {
-  @include button($darkGreen, $darkGreen * 1.1, $darkGreen * 0.8);
+  @include button($darkGreen, $darkGreen * 1.05, $darkGreen * 0.8);
 }
 
 .small-button {

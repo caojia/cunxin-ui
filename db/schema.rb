@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025142039) do
+ActiveRecord::Schema.define(:version => 20121029162012) do
 
   create_table "accounts", :force => true do |t|
     t.string   "payment_method"
@@ -92,18 +92,6 @@ ActiveRecord::Schema.define(:version => 20121025142039) do
   add_index "oauth_users", ["oauth_uid", "type"], :name => "index_oauth_users_on_oauth_uid_and_type", :unique => true
   add_index "oauth_users", ["user_id", "oauth_uid"], :name => "index_oauth_users_on_user_id_and_oauth_uid"
 
-  create_table "pay_fu_transactions", :force => true do |t|
-    t.string   "type"
-    t.string   "transaction_id"
-    t.string   "transaction_type"
-    t.string   "payment_status"
-    t.datetime "payment_date"
-    t.integer  "gross"
-    t.string   "raw_post"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
   create_table "payments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
@@ -126,8 +114,9 @@ ActiveRecord::Schema.define(:version => 20121025142039) do
     t.text     "description"
     t.string   "thumbnail_small"
     t.string   "link"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.string   "thumbnail_large", :default => "thumbnail_small"
   end
 
   create_table "profiles", :force => true do |t|
@@ -144,8 +133,9 @@ ActiveRecord::Schema.define(:version => 20121025142039) do
     t.integer  "project_id"
     t.integer  "photo_id"
     t.integer  "position"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "is_primary", :default => false
   end
 
   add_index "project_photos", ["photo_id"], :name => "index_project_photos_on_photo_id"
@@ -156,8 +146,6 @@ ActiveRecord::Schema.define(:version => 20121025142039) do
     t.string   "headline"
     t.text     "short_description"
     t.text     "description"
-    t.string   "thumbnail_large"
-    t.string   "thumbnail_small"
     t.integer  "charity_id"
     t.string   "location"
     t.string   "target"
