@@ -55,21 +55,13 @@ $arrow_height: sprites-sprite-height("left-arrow");
     .view-project-button {
       position: absolute;
       bottom: 30px;
-      right: 200px;
+      right: 50px;
       display: none;
     }
   }
   &:hover .view-project-button {
     display: block;
   }
-}
-
-.carousel-caption{
-  div, span {
-    color: white;
-  }
-  background: none;
-  padding: 0;
 }
 
 .carousel-description {

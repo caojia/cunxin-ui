@@ -1,0 +1,59 @@
+<div class="project-info">
+  <div class="mask opacity2"></div>
+  <table class="project-info-content">
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.progress"), :class => "col1" %>
+      <td class="col2">
+        <div class='progress'>
+          <div class='bar' style="width: <%= @project.donated_percentage %>%;"> </div>
+          <div class='progress-text-container' >
+            <%= @project.donated_percentage %>%
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.location"), :class => "col1" %>
+      <%= content_tag :td, @project.location, :class => "col2" %>
+    </tr>
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.charity"), :class => "col1" %>
+      <%= content_tag :td, (@project.charity.name rescue ""), :class => "col2" %>
+    </tr> 
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.target"), :class => "col1" %>
+      <%= content_tag :td, @project.target, :class => "col2" %>
+    </tr>
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.published_at"), :class => "col1" %>
+      <%= content_tag :td, l(@project.start_date.to_date), :class => "col2" %>
+    </tr>
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.target_amount"), :class => "col1" %>
+      <%= content_tag :td, "￥" + number_with_delimiter(@project.target_amount, :delimiter => ","), :class => "col2" %>
+    </tr>
+
+    <tr class="button-content">
+      <td class="col1" colspan=2>
+        <div class="followed" id="followed-count-container">
+          <%= t("projects.has_followed", :count => @project.followed_users.count).html_safe %>
+        </div>
+        <div class="buttons">
+          <%= link_to t("projects.donate"), donate_path(:project_id => @project.id), :class => "blue-button donate-button small-button" %>
+          <%= link_to t("projects.follow"), follow_path(:id => @project.id), 
+                :method => :post,
+                :remote => true, 
+                :id => "project-follow",
+                :class => "green-button donate-button small-button" %>
+        </div>
+      </td>
+    </tr>
+
+  </table>
+</div>

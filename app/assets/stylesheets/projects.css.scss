@@ -1,68 +1,45 @@
-.head-desc-container {
-  padding: 10px 55px 10px;
-  font-size: 15px;
-  position: relative;
+$project-info-width: 280px;
+.project-info-container {
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  right: 100px;
+  width: $project-info-width;
+  .project-info {
+    padding-top: $nav-bar-height;
+  }
+}
+.project-info-content {
+  color: $white;
+  margin: 10px 20px;
+  font-size: 14px;
+  position: absolute;
+  bottom: 10px;
 
-  .desc-left {
-    float: left;
-    .desc-content {
-      vertical-align: middle;
-      margin-top: 13px;
-    }
-    .separator {
-      padding: 0 20px;
+  .progress {
+    font-size: 12px;
+    width: 150px;
+    margin-bottom: 0px;
+    position: relative;
+  }
+
+  .desc-content td {
+    vertical-align: middle;
+    padding-top: 13px;
+    &.col1 {
+      padding-right: 10px;
+      text-align: right;
     }
   }
 
-  .desc-right {
-    margin-top: 50px;
-    float: right;
-    .followed {
+  .button-content td {
+    vertical-align: middle;
+    padding-top: 13px;
+    &.col1 {
       text-align: right;
-      font-size: 13px;
-      color: #ddd;
-
-      img.sina-logo {
-        width: 24px;
-        height: 24px;
-        vertical-align: middle;
-        position: relative;
-        top: -2px;
-      }
     }
-
     .buttons {
-      margin-top: 9px;
-      .button {
-        margin-left: 24px;
-        width: 175px;
-        height: 50px;
-        line-height: 50px;
-        font-size: 24px;
-        vertical-align: middle;
-        text-align: center;
-        display: inline-block;
-        color: white;
-        text-decoration: none;
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        &.donate {
-          @include sprites-sprite('donate-button');
-          &:hover {
-            @include sprites-sprite('donate-button-hover');
-          }
-        }
-
-        &.follow {
-          @include sprites-sprite('notice-button');
-          &:hover, &.loading {
-            @include sprites-sprite('notice-button-hover');
-          }
-        }
-      }
+      margin-top: 10px;
     }
   }
 
@@ -85,14 +62,15 @@
   }
 }
 
-h1 {
-  font-size: 20px;
-  margin: 13px 0;
+.project-carousel {
+  margin-top: 20px;
 }
 
 .description {
   font-size: 13px;
   margin-bottom: 32px;
+  color: $gray;
+  text-indent: 2em;
 }
 
 

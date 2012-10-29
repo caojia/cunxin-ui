@@ -1,12 +1,11 @@
 zh-CN:
   projects:
     progress: "项目进度:"
-    charity: "发起慈善机构:"
-    location: "所在地:"
+    charity: "发起机构:"
+    location: "发起城市:"
     published_at: "求助时间:"
     target: "求助对象:"
     target_amount: "目标金额:"
-    charity: "发起慈善机构:"
     has_followed: "已有<span class='num'>%{count}</span>人关注"
     donate: "捐 助"
     follow: "关 注"
