@@ -1,8 +1,17 @@
 <div id="head-carousel" class="carousel slide head-carousel">
   <!-- Carousel Items -->
   <div class="carousel-inner">
+    <div class="item active">
+      <%= image_tag "home-desc.jpg" %>
+    </div>
+    <div class="item">
+      <%= image_tag "version1.jpg" %>
+    </div>
+    <div class="item">
+      <%= image_tag "version3.jpg" %>
+    </div>
     <% @carousels.each_with_index do |carousel, i| %>
-      <div class="item <%= i == 0 ? 'active' : '' %>">
+      <div class="item">
         <%= link_to project_path(carousel.project.id) do %>
           <%= image_tag carousel.project.thumbnail_large, :alt => carousel.project.headline %>
         <% end %>
