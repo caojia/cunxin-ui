@@ -15,8 +15,7 @@ class NavBar
 
   update: () =>
     _scrollHeight = $(window).scrollTop()
-    _height = @masthead.height() - @navbar.height()
-    console.log(@masthead.height(), @navbar.height(), _height)
+    _height = (@masthead.height() || 0) - @navbar.height()
     if _height >= _scrollHeight
       this.hideBG()
     else
