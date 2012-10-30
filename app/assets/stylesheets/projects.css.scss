@@ -1,12 +1,24 @@
 $project-info-width: 280px;
-.project-info-container {
+.project-description-content {
+  background-color: white;
+  background-image: none;
+  border-top: 1px solid #ccc;
+}
+.project-info-container-positioner {
   position: absolute;
   height: 100%;
+  left: 50%;
   top: 0px;
-  right: 100px;
-  width: $project-info-width;
-  .project-info {
-    padding-top: $nav-bar-height;
+
+  .project-info-container {
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    right: - $container-width / 2;
+    width: $project-info-width;
+    .project-info {
+      padding-top: $nav-bar-height;
+    }
   }
 }
 .project-info-content {
@@ -69,13 +81,18 @@ $project-info-width: 280px;
 .description {
   font-size: 13px;
   margin-bottom: 32px;
-  color: $gray;
-  text-indent: 2em;
+  text-align: justify;
+  .title-image {
+    margin: 0 10px 0 0;
+  }
 }
 
 
 .donated-users {
   margin-bottom: 30px;
+  ul {
+    margin-left: 2px;
+  }
   li {
     float: left;
     margin-right: 22px;

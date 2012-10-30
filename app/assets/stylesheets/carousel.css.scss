@@ -2,6 +2,9 @@ $col3_carousel_height: 240px;
 $col4_carousel_border: 2px;
 $col4_carousel_height: 130px;
 $col4_carousel_width: 224px;
+$col5_carousel_width: 188px;
+$col5_carousel_height: 110px;
+$col5_carousel_border: 2px;
 $head_carousel_width: 1440px;
 $head_carousel_height: 450px;
 $head_description_height: 300px;
@@ -144,17 +147,18 @@ a.carousel-control-right {
   }
 }
 
-.col4-carousel {
-  height: $col4_carousel_height;
+@mixin colx-carousel($colx_carousel_height, $colx_carousel_width, $colx_carousel_border)
+{
+  height: $colx_carousel_height;
   .item {
     [class*="span"] {
       text-align: center;
-      height: $col4_carousel_height;
+      height: $colx_carousel_height;
       position: relative;
       img {
-        height: $col4_carousel_height - $col4_carousel_border * 2;
-        width: $col4_carousel_width - $col4_carousel_border * 2;
-        border: $col4_carousel_border solid #ccc;
+        height: $colx_carousel_height - $colx_carousel_border * 2;
+        width: $colx_carousel_width - $colx_carousel_border * 2;
+        border: $colx_carousel_border solid #ccc;
       }
       .caption {
         color: white;
@@ -168,7 +172,7 @@ a.carousel-control-right {
   }
 
   .carousel-control {
-    top: ($col4_carousel_height - $arrow_height)/2;
+    top: ($colx_carousel_height - $arrow_height)/2;
   }
   .carousel-control-left {
     left: -40px;
@@ -176,4 +180,11 @@ a.carousel-control-right {
   .carousel-control-right {
     right: -40px;
   }
+}
+
+.col4-carousel {
+  @include colx-carousel($col4_carousel_height, $col4_carousel_width, $col4_carousel_border);
+}
+.col5-carousel {
+  @include colx-carousel($col5_carousel_height, $col5_carousel_width, $col5_carousel_border);
 }

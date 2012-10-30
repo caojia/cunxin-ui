@@ -14,3 +14,5 @@ zh-CN:
 
     sina_follow_message: "我正在关注寸心网的“%{project_name}” - %{url}"
 
+    other_projects_title: "您可能感兴趣的项目"
+

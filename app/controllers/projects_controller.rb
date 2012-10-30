@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id], :include => [:charity, :photos] )
     @photos = @project.photos;
     @donated_users = @project.donated_users;
+    @projects = Project.find(:all).reject {|proj| proj == @project}
   end
 
   def follow

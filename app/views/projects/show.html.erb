@@ -4,8 +4,10 @@
       <%= image_tag @project.thumbnail_large, :alt => @project.headline %>
     </div>
   </div>
-  <div class="project-info-container">
-    <%= render :partial => "info" %>
+  <div class="project-info-container-positioner">
+    <div class="project-info-container">
+      <%= render :partial => "info" %>
+    </div>
   </div>
 </div>
 
@@ -15,25 +17,42 @@
         :path => "projects",
         :key => "photo", 
         :no_title => true,
-        :items_per_col => 4 } %>
+        :show_caption => false,
+        :items_per_col => 5 } %>
 </div>
 
-<div class="container container-fluid">
-  <div class="row-fluid">
-    <div class="span8">
-      <%= content_tag :h2, @project.headline %>
-      <%= content_tag :div, @project.description, :class => 'description' %>
-    </div>
-
-    <% unless @donated_users.blank? %>
-      <div class='donated-users span4'>
-        <%= content_tag :h2, t('projects.donated_users') %>
-        <ul>
-          <% @donated_users.each do |user| %>
-            <li> <%= render :partial => "user_thumb", :locals => { :user => user } %> </li>
-          <% end %>
-        </ul>
+<div class="content project-description-content">
+  <div class="container container-fluid">
+    <div class="row-fluid">
+      <div class="span7">
+        <%#= content_tag :h2, @project.headline %>
+        <%= content_tag :div, :class => 'description' do %>
+          <%= image_tag "/projects/1-title.jpg", :class => "title-image", :align => "left" %>
+          <%= @project.description.html_safe %>
+        <% end %>
       </div>
-    <% end %>
+
+      <% unless @donated_users.blank? %>
+        <div class='donated-users span4 offset1'>
+          <%= content_tag :h2, t('projects.donated_users') %>
+          <ul>
+            <% @donated_users.each do |user| %>
+              <li> <%= render :partial => "user_thumb", :locals => { :user => user } %> </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
+
+<div class="container project-list-carousel">
+  <%= render :partial => "shared/colx_carousel", :locals => {
+        :items => @projects, 
+        :path => "projects",
+        :key => "other_projects", 
+        :no_title => false,
+        :show_caption => false,
+        :items_per_col => 5,
+        :gen_link_for_item => lambda {|item| project_path(item) }} %>
 </div>

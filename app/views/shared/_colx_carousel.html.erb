@@ -4,7 +4,7 @@
   <% unless no_title ||= false %>
     <h4 class="section-head"><%= t("%s.%s_title" % [path, key]) %></h4>
   <% end %>
-  <div id="<%= key_s %>-carousel" class="carousel slide col<%= items_per_col %>-carousel">
+  <div id="<%= key_s %>-carousel" class="carousel slide col<%= items_per_col %>-carousel row-fluid">
     <% first = true %>
     <div class="carousel-inner">
       <% items.in_groups_of(items_per_col, false) do |group| %>
@@ -13,9 +13,11 @@
             <div class="<%= klass_for_col(items_per_col) %>">
               <%= link_to gen_link_for_item.call(item) do %>
                 <%= image_tag item.thumbnail_small %>
-                <div class="caption">
-                  <%= item.name %>
-                </div>
+                <% if show_caption %>
+                  <div class="caption">
+                    <%= item.name %>
+                  </div>
+                <% end %>
               <% end %>
             </div>
           <% end %>

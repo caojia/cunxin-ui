@@ -67,6 +67,8 @@ $lightBlue: #47A9F8;
 $darkBlue: #2E9DF7;
 $gray: #888888;
 
+$container-width: 1002px;
+
 @import "sprites"; /*sprites*/
 @import "bootstrap_and_overrides";
 @import "signin";
@@ -105,8 +107,11 @@ $gray: #888888;
 .opacity4 {
   @include opacity(0.4);
 }
+.opacity5 {
+  @include opacity(0.5);
+}
 .opacity8 {
-  @include opacity(0.9);
+  @include opacity(0.8);
 }
 
 .gray-link {

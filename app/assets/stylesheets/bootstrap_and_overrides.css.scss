@@ -25,6 +25,7 @@ body {
 .navbar .brand {
   padding-top: 0;
   padding-bottom: 0;
+  margin-left: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,7 +34,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-  font-size: 20px;
-  line-height: 1.3em;
+  font-size: 18px;
+  line-height: 1.5em;
+  margin-top: 0;
 }
 
+$span2_4_margin_left: 1.7964071856287425%;
+$span2_4_width: (100% - (4 * $span2_4_margin_left)) / 5;
+.row-fluid {
+  .span2_4 {
+    width: $span2_4_width;
+  }
+}
