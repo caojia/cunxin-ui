@@ -3,8 +3,21 @@
 
 Project.delete_all
 Carousel.delete_all
+Charity.delete_all
+Account.delete_all
+
+charity = Charity.create(
+  canonical_name: "charity1",
+  name: "壹基金",
+  thumbnail_large: "/charities/1.jpeg",
+  thumbnail_small: "/charities/1.jpeg",
+  published: true,
+  description: "chartity 1",
+  short_description: "charity 2",
+  published_at: Time.now.utc)
 
 project = Project.create(
+  :charity => charity,
   :canonical_name => "project1", 
   :headline => "爱心召集：给苏州12岁白血病女孩微微再一次生命！",
   :description => "她叫小薇薇,12岁,去年被查出白血病.为了给她看病,薇薇妈说能借的都借了,6岁弟弟为她用拼音写求助信乞讨,奶奶为她瞒着家人捡垃圾筹医药费...她说她想上学,想去苏州乐园,还想和同学一起去秋游...于是微博网友用爱心PS带她去了好多地方,可她的病还需要花很多很多钱,你愿意再给她一次生命希望吗？",
@@ -86,7 +99,20 @@ ProjectPhoto.create(
   :position => 4
 )
 
+charity = Charity.create(
+  canonical_name: "charity2",
+  name: "免费午餐",
+  thumbnail_large: "/charities/2.jpeg",
+  thumbnail_small: "/charities/2.jpeg",
+  published: true,
+  description: "chartity 2",
+  short_description: "charity 2",
+  total_amount: 1000000,
+  published_at: Time.now.utc
+)
+
 project = Project.create(
+  :charity => charity,
   :canonical_name => "project2", 
   :headline => "【爱心衣橱】紧急为云南地震灾区小学生筹集新衣项目款",
   :description => "2012年9月7日11时19分，云南省昭通市彝良县发生里氏5.7级地震。截至9月9日11时，地震已造成81人死亡，821人受伤，20.1万人紧急转移安置。",
@@ -136,16 +162,6 @@ ProjectPhoto.create(
   :position => 1
 )
 
-charity = Charity.create(
-  canonical_name: "charity1",
-  name: "壹基金",
-  thumbnail_large: "/charities/1.jpeg",
-  thumbnail_small: "/charities/1.jpeg",
-  published: true,
-  description: "chartity 1",
-  short_description: "charity 2",
-  published_at: Time.now.utc)
-
 account = Account.create( {
   :payment_method => 'alipay',
   :target_account => 'ABCDEFGHIJKLMN',
@@ -161,19 +177,6 @@ account = Account.create( {
   :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
   :email => 'cunxin@cunxin.org'
 })
-
-
-charity = Charity.create(
-  canonical_name: "charity2",
-  name: "免费午餐",
-  thumbnail_large: "/charities/2.jpeg",
-  thumbnail_small: "/charities/2.jpeg",
-  published: true,
-  description: "chartity 2",
-  short_description: "charity 2",
-  total_amount: 1000000,
-  published_at: Time.now.utc
-)
 
 account = Account.create( {
   :payment_method => 'alipay',

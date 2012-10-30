@@ -8,7 +8,17 @@ module Billing
       'cmb' => 'CMB',
       'bcom' => 'BOCB2C',
       'abc' => 'ABC',
-      'gdb' => 'GDB'
+      'gdb' => 'GDB',
+      'cib' => 'CIB',
+      'post' => 'POSTGC',
+      'citic' => 'CITIC',
+      'spdb' => 'SPDB',
+      'boc' => 'BOCB2C',
+      'sdb' => 'SDB',
+      'cmbc' => 'CMBC',
+      'bob' => 'BJBANK',
+      'pab' => 'SPABANK',
+      'hzb' => 'HZCBB2C'
       }
 
       def initialize(options={})

@@ -12,7 +12,11 @@ div.payment-page {
 
   div.page-right {
     float: right;
-    width: 300px;
+    width: 250px;
+  }
+
+  h1 {
+    font-size: 25px;
   }
 
   h2 {
@@ -39,7 +43,7 @@ div.payment-page {
     border: 1px solid #aaa;
     padding: 15px;
     border-radius: 4px;
-    margin-top: 11px;
+    margin-top: 40px;
 
     div.project-thumbnail {
       margin-bottom: 5px;
@@ -91,6 +95,11 @@ div.payment-page {
 
       input {
         margin: 0 0;
+      }
+
+      input#input_amount {
+        width: 155px;
+        height: 13px;
       }
 
       label.amount-text {

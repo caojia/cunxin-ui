@@ -5,7 +5,18 @@ class PaymentController < ApplicationController
       {:name => 'cmb', :img_url => "/payment/cmb.png"},
       {:name => 'bcom', :img_url => "/payment/bcom.png"},
       {:name => 'abc', :img_url => "/payment/abc.png"},
-      {:name => 'gdb', :img_url => "/payment/gdb.png"}
+      {:name => 'gdb', :img_url => "/payment/gdb.png"},
+      {:name => 'cib', :img_url => "/payment/cib.png"},
+      {:name => 'ceb', :img_url => "/payment/ceb.png"},
+      {:name => 'post', :img_url => "/payment/post.png"},
+      {:name => 'citic', :img_url => "/payment/citic.png"},
+      {:name => 'spdb', :img_url => "/payment/spdb.png"},
+      {:name => 'boc', :img_url => "/payment/boc.png"},
+      {:name => 'sdb', :img_url => "/payment/sdb.png"},
+      {:name => 'cmbc', :img_url => "/payment/cmbc.png"},
+      {:name => 'bob', :img_url => "/payment/bob.png"},
+      {:name => 'pab', :img_url => "/payment/pab.png"},
+      {:name => 'hzb', :img_url => "/payment/hzb.png"}
     ]
 
   @@payment_target = [
