@@ -104,6 +104,9 @@ $container-width: 1002px;
 .opacity2 {
   @include opacity(0.2);
 }
+.opacity3 {
+  @include opacity(0.3);
+}
 .opacity4 {
   @include opacity(0.4);
 }

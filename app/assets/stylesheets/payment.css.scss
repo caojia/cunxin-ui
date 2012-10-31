@@ -17,6 +17,7 @@ div.payment-page {
 
   h1 {
     font-size: 25px;
+    color: $darkBlue;
   }
 
   h2 {
@@ -46,8 +47,6 @@ div.payment-page {
     margin-top: 29px;
 
     div.project-thumbnail {
-      margin-bottom: 5px;
-
       img {
         margin-bottom: 5px;
       }
@@ -63,8 +62,12 @@ div.payment-page {
       }
     }
 
-    div.project-charity {
-      margin-bottom: 5px;
+    .desc-content {
+      padding-top: 5px;
+      .col1 {
+        padding-right: 5px;
+        text-align: right;
+      }
     }
 
     div.project-progress {
@@ -133,7 +136,7 @@ div.payment-page {
       }
       &.select {
         div.payment-logo {
-          border: 2px solid #FF6600;
+          border: 2px solid $darkBlue;
           padding: 0px;
         }
       }

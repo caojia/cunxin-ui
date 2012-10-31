@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030170858) do
+ActiveRecord::Schema.define(:version => 20121031152248) do
 
   create_table "accounts", :force => true do |t|
     t.string   "payment_method"
@@ -95,13 +95,14 @@ ActiveRecord::Schema.define(:version => 20121030170858) do
   create_table "payments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.decimal  "amount",        :precision => 32, :scale => 4, :null => false
+    t.decimal  "amount",                :precision => 32, :scale => 4, :null => false
     t.string   "currency_type"
     t.string   "order_id"
     t.string   "status"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
-    t.integer  "account_id",                                   :null => false
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
+    t.integer  "account_id",                                           :null => false
+    t.string   "select_payment_method"
   end
 
   add_index "payments", ["account_id"], :name => "index_payments_on_account_id"

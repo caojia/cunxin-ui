@@ -8,7 +8,7 @@
           <ul id='donate-amount-select' >
             <% [10,20,50,100].each do |v| %>
               <li>
-                <%= radio_button_tag :donate_amount, v %>
+                <%= radio_button_tag :donate_amount, v, @default_amount == v %>
                 <%= label_tag "payment.donate_amount_" + v.to_s, "¥" + v.to_s, :class => "amount-text" %>
               </li>
             <% end %>
@@ -27,9 +27,9 @@
         <div class='selector-wrapper'>
           <%= content_tag :h3, t("payment.payment_bank") %>
           <ul id='payment-select' >
-            <% @payment_bank.each do |h| %>
-              <li class=''>
-                <%= radio_button_tag :payment_method, h[:name] %>
+            <% @payment_target.find_all{|h| h[:category] == :bank }.each do |h| %>
+              <li class=<%= @default_payment == h[:name] ? "select" : "" %> >
+                <%= radio_button_tag :payment_method, h[:name], @default_payment == h[:name] %>
                 <div class='payment-logo'>
                   <%= image_tag h[:img_url] %>
                 </div>
@@ -40,9 +40,9 @@
           <div style="clear: both;"> </div>
           <%= content_tag :h3, t("payment.payment_platform") %>
           <ul id='payment-select' >
-            <% @payment_target.each do |h| %>
-              <li class=''>
-                <%= radio_button_tag :payment_method, h[:name] %>
+            <% @payment_target.find_all{|h| h[:category] == :platform }.each do |h| %>
+              <li class=<%= @default_payment == h[:name] ? "select" : "" %> >
+                <%= radio_button_tag :payment_method, h[:name] , @default_payment == h[:name] %>
                 <div class='payment-logo'>
                   <%= image_tag h[:img_url] %>
                 </div>

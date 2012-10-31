@@ -6,25 +6,37 @@
     <% end %>
   </div>
 
-  <div class='project-charity'>
-    <%= content_tag :span, @project.charity.name %>
+  <div class='desc-content'>
+    <%= content_tag :span, t('payment.charity'), :class => 'col1' %>
+    <%= content_tag :span, @project.charity.name, :class => 'col2' %>
   </div>
 
-  <div class='project-progress' >
-    <%= content_tag :span, t("payment.progress") %>
-    <span class='progress-wrapper'>
-      <span class='progress' style="margin-left: 10px; width: 140px">
-        <div class='bar' style="width: <%= @project.donated_percentage %>%;">
+  <div class='desc-content'>
+    <%= content_tag :span, t('payment.target_amount'), :class => 'col1' %>
+    <%= content_tag :span, "￥" + number_with_delimiter(@project.target_amount, :delimiter => ","), :class=> 'col2' %>
+  </div>
+
+  <div class='desc-content project-progress' >
+    <%= content_tag :span, t("payment.progress"), :class=>'col1' %>
+    <span class='col2'>
+      <span class='progress-wrapper'>
+        <span class='progress bar-striped active' style="width: 140px">
+          <div class='bar' style="width: <%= @project.donated_percentage %>%;">
+          </div>
+          <div class='bar bar-success user-bar' style='width: 0;' >
+          </div>
           <div class='progress-text-container' >
             <%= @project.donated_percentage %>%
           </div>
-        </div>
+        </span>
       </span>
     </span>
   </div>
 
   <% # TODO: use short_description %>
-  <%= content_tag :div, truncate(@project.description, :length => 250, :omission => '...'), :class=>'project-desc' %>
+  <div class='desc-content'>
+    <%= content_tag :div, truncate(@project.description, :length => 250, :omission => '...'), :class=>'project-desc' %>
+  </div>
 
   <div style="clear: both;"> </div>
 </div>

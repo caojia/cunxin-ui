@@ -10,4 +10,6 @@ zh-CN:
     pay_confirm_message: "请您在新打开的网上银行页面进行支付"
     pay_succeed: "支付成功"
     pay_failed: "支付失败"
-    progress: "项目进度"
+    progress: "项目进度:"
+    target_amount: "目标金额:"
+    charity: "慈善机构:"

@@ -1,32 +1,44 @@
 class PaymentController < ApplicationController
-  @@payment_bank = [
-      {:name => 'icbc', :img_url => "/payment/icbc.png"},
-      {:name => 'ccb', :img_url => "/payment/ccb.png"},
-      {:name => 'cmb', :img_url => "/payment/cmb.png"},
-      {:name => 'bcom', :img_url => "/payment/bcom.png"},
-      {:name => 'abc', :img_url => "/payment/abc.png"},
-      {:name => 'gdb', :img_url => "/payment/gdb.png"},
-      {:name => 'cib', :img_url => "/payment/cib.png"},
-      {:name => 'ceb', :img_url => "/payment/ceb.png"},
-      {:name => 'post', :img_url => "/payment/post.png"},
-      {:name => 'citic', :img_url => "/payment/citic.png"},
-      {:name => 'spdb', :img_url => "/payment/spdb.png"},
-      {:name => 'boc', :img_url => "/payment/boc.png"},
-      {:name => 'sdb', :img_url => "/payment/sdb.png"},
-      {:name => 'cmbc', :img_url => "/payment/cmbc.png"},
-      {:name => 'bob', :img_url => "/payment/bob.png"},
-      {:name => 'pab', :img_url => "/payment/pab.png"},
-      {:name => 'hzb', :img_url => "/payment/hzb.png"}
+  @@payment_target = [
+      {:name => 'icbc', :img_url => "/payment/icbc.png", :category => :bank},
+      {:name => 'ccb', :img_url => "/payment/ccb.png", :category => :bank},
+      {:name => 'cmb', :img_url => "/payment/cmb.png", :category => :bank},
+      {:name => 'bcom', :img_url => "/payment/bcom.png", :category => :bank},
+      {:name => 'abc', :img_url => "/payment/abc.png", :category => :bank},
+      {:name => 'gdb', :img_url => "/payment/gdb.png", :category => :bank},
+      {:name => 'cib', :img_url => "/payment/cib.png", :category => :bank},
+      {:name => 'ceb', :img_url => "/payment/ceb.png", :category => :bank},
+      {:name => 'post', :img_url => "/payment/post.png", :category => :bank},
+      {:name => 'citic', :img_url => "/payment/citic.png", :category => :bank},
+      {:name => 'spdb', :img_url => "/payment/spdb.png", :category => :bank},
+      {:name => 'boc', :img_url => "/payment/boc.png", :category => :bank},
+      {:name => 'sdb', :img_url => "/payment/sdb.png", :category => :bank},
+      {:name => 'cmbc', :img_url => "/payment/cmbc.png", :category => :bank},
+      {:name => 'bob', :img_url => "/payment/bob.png", :category => :bank},
+      {:name => 'pab', :img_url => "/payment/pab.png", :category => :bank},
+      {:name => 'hzb', :img_url => "/payment/hzb.png", :category => :bank},
+      {:name => "alipay", :img_url => "/payment/alipay.gif", :category => :platform}
     ]
 
-  @@payment_target = [
-    {:name => "alipay", :img_url => "/payment/alipay.gif"}
-  ]
-
   def donate
-    @payment_bank = @@payment_bank
-    @payment_target = @@payment_target
     @project = Project.find(params[:project_id], :include => [:charity] )
+    @default_amount = 10
+    @payment_target = @@payment_target.dup
+
+    last_payment = Payment.find(
+      :first,
+      :include => [:account],
+      :conditions =>{:user_id => current_user.id},
+      :order => 'created_at DESC' )
+
+    unless last_payment.blank?
+      @default_payment = last_payment.select_payment_method
+      checked_payment = @payment_target.find {|h| h[:name] == @default_payment }
+      unless checked_payment.blank?
+        @payment_target.delete_if {|h| h[:name] == @default_payment }
+        @payment_target.unshift(checked_payment)
+      end
+    end
   end
 
   def pay
@@ -35,7 +47,7 @@ class PaymentController < ApplicationController
     @payment_method = params[:payment_method]
 
     @account = find_account(@project, @payment_method)
-    @payment = generate_payment(@project, @account, @donate_amount)
+    @payment = generate_payment(@project, @account, @donate_amount, @payment_method)
 
     @pay = generate_payment_params(@payment, @payment_method)
   end
@@ -78,7 +90,7 @@ class PaymentController < ApplicationController
 
   def find_account project, payment_method
     # Bank
-    if @@payment_bank.find { |h| h[:name] == payment_method }
+    if @@payment_target.find { |h| h[:name] == payment_method && h[:category] == :bank }
       return Account.find(
         :first, :conditions => { :charity_id => project.charity_id, :payment_method => "alipay" })
     else
@@ -87,11 +99,12 @@ class PaymentController < ApplicationController
     end
   end
 
-  def generate_payment project, account, donate_amount, options = {}
+  def generate_payment project, account, donate_amount, select_payment_method, options = {}
     payment = Payment.new()
 
     payment.user = current_user
     payment.project = project
+    payment.select_payment_method = select_payment_method
     payment.account = account
     payment.amount = donate_amount
     payment.currency_type = 'RMB'
@@ -122,7 +135,7 @@ class PaymentController < ApplicationController
     }
 
     #Bank
-    options[:bank] = payment_method if @@payment_bank.find{|h| h[:name] == payment_method }
+    options[:bank] = payment_method if @@payment_target.find{|h| h[:name] == payment_method && h[:category] == :bank }
 
     case payment.account.payment_method
     when 'alipay'
