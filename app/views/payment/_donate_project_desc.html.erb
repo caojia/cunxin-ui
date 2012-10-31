@@ -12,16 +12,19 @@
 
   <div class='project-progress' >
     <%= content_tag :span, t("payment.progress") %>
-    <span class='progress' style="margin-left: 10px; width: 140px; position: relative;">
-      <div class='bar' style="width: <%= @project.donated_percentage %>%;">
-        <div class='progress-text-container' >
-          <%= @project.donated_percentage %>%
+    <span class='progress-wrapper'>
+      <span class='progress' style="margin-left: 10px; width: 140px">
+        <div class='bar' style="width: <%= @project.donated_percentage %>%;">
+          <div class='progress-text-container' >
+            <%= @project.donated_percentage %>%
+          </div>
         </div>
-      </div>
+      </span>
     </span>
   </div>
 
-  <%= content_tag :div, @project.description, :class=>'project-desc' %>
+  <% # TODO: use short_description %>
+  <%= content_tag :div, truncate(@project.description, :length => 250, :omission => '...'), :class=>'project-desc' %>
 
   <div style="clear: both;"> </div>
 </div>

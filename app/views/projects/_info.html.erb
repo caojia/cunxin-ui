@@ -5,10 +5,12 @@
     <tr class="desc-content">
       <%= content_tag :td, t("projects.progress"), :class => "col1" %>
       <td class="col2">
-        <div class='progress'>
-          <div class='bar' style="width: <%= @project.donated_percentage %>%;"> </div>
-          <div class='progress-text-container' >
-            <%= @project.donated_percentage %>%
+        <div class='progress-wrapper' >
+          <div class='progress'>
+            <div class='bar' style="width: <%= @project.donated_percentage %>%;"> </div>
+            <div class='progress-text-container' >
+              <%= @project.donated_percentage %>%
+            </div>
           </div>
         </div>
       </td>

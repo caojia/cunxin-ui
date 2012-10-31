@@ -7,7 +7,7 @@ div.payment-page {
 
   div.page-left {
     float: left;
-    width: 700px;
+    width: 650px;
   }
 
   div.page-right {
@@ -43,7 +43,7 @@ div.payment-page {
     border: 1px solid #aaa;
     padding: 15px;
     border-radius: 4px;
-    margin-top: 40px;
+    margin-top: 29px;
 
     div.project-thumbnail {
       margin-bottom: 5px;
@@ -89,7 +89,7 @@ div.payment-page {
     >li {
       float: left;
       margin-right: 30px;
-      min-width: 169px;
+      min-width: 144px;
       height: 30px;
       line-height: 30px;
 
@@ -98,7 +98,7 @@ div.payment-page {
       }
 
       input#input_amount {
-        width: 155px;
+        width: 128px;
         height: 13px;
       }
 
@@ -113,7 +113,7 @@ div.payment-page {
     >li {
       float:left;
       position: relative;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       margin-right: 30px;
 
       input {
@@ -126,8 +126,8 @@ div.payment-page {
         padding: 1px;
 
         img {
-          width: 147px;
-          height: 37px;
+          width: 123px;
+          height: 30px;
           cursor: pointer;
         }
       }

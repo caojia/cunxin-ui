@@ -1,14 +1,21 @@
-.progress {
-  height: 14px;
+.progress-wrapper {
   display: inline-block;
+  height: 15px;
+  position: relative;
+  top: 2px;
 
-  .progress-text-container {
-    top: 0px;
-    left: 0px;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    color: $gray;
-    line-height: 15px;
+  .progress {
+    display: inline-block;
+    height: 100%;
+
+    .progress-text-container {
+      top: 0px;
+      left: 0px;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      color: $gray;
+      line-height: 15px;
+    }
   }
 }
