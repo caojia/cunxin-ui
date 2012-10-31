@@ -1,4 +1,4 @@
-<% gen_link_for_item ||= lambda { |item| "#" } %>
+<% link_opts_for_item ||= lambda { |item| ["#"] } %>
 <% key_s = key.pluralize %>
 <div id="<%= key_s %>" class="section container">
   <% unless no_title ||= false %>
@@ -11,7 +11,7 @@
         <div class="row-fluid item <%= first ? 'active' : '' %>">
           <% group.each do |item| %>
             <div class="<%= klass_for_col(items_per_col) %>">
-              <%= link_to gen_link_for_item.call(item) do %>
+              <%= link_to *link_opts_for_item.call(item) do %>
                 <%= image_tag item.thumbnail_small %>
                 <% if show_caption %>
                   <div class="caption">

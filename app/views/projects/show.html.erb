@@ -1,6 +1,6 @@
 <div id="head-carousel" class="carousel head-carousel">
   <div class="carousel-inner">
-    <div class="active item">
+    <div class="active item cunxin-thumb-large-container">
       <%= image_tag @project.thumbnail_large, :alt => @project.headline %>
     </div>
   </div>
@@ -18,6 +18,8 @@
         :key => "photo", 
         :no_title => true,
         :show_caption => false,
+        :link_opts_for_item => lambda {|item|
+          ["#", {:class => "cunxin-thumb", "data-cunxin-thumb-large-src" => item.thumbnail_large}] },
         :items_per_col => 5 } %>
 </div>
 

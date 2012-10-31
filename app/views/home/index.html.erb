@@ -4,12 +4,6 @@
     <div class="item active">
       <%= image_tag "home-desc.jpg" %>
     </div>
-    <div class="item">
-      <%= image_tag "version1.jpg" %>
-    </div>
-    <div class="item">
-      <%= image_tag "version3.jpg" %>
-    </div>
     <% @carousels.each_with_index do |carousel, i| %>
       <div class="item">
         <%= link_to project_path(carousel.project.id) do %>
@@ -87,4 +81,4 @@
       :path => "home",
       :items_per_col => 4,
       :show_caption => true,
-      :gen_link_for_item => lambda {|item| charity_path(item.id) } } %>
+      :link_opts_for_item => lambda {|item| [charity_path(item.id)] } } %>

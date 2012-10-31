@@ -59,6 +59,7 @@ photo = Photo.create(
   :name => "爱心召集：照片2",
   :description => "bla bla...",
   :thumbnail_small => "/charities/1.jpeg",
+  :thumbnail_large => "/projects/3.jpg",
   :link => "/projects/1.jpg"
 )
 
@@ -72,6 +73,7 @@ photo = Photo.create(
   :name => "爱心召集：照片3",
   :description => "bla bla...",
   :thumbnail_small => "/charities/1.jpeg",
+  :thumbnail_large => "/projects/4.jpg",
   :link => "/projects/1.jpg"
 )
 
@@ -85,6 +87,7 @@ photo = Photo.create(
   :name => "爱心召集：照片4",
   :description => "bla bla...",
   :thumbnail_small => "/charities/1.jpeg",
+  :thumbnail_large => "/projects/3.jpg",
   :link => "/projects/1.jpg"
 )
 
@@ -98,6 +101,7 @@ photo = Photo.create(
   :name => "爱心召集：照片5",
   :description => "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla...",
   :thumbnail_small => "/charities/2.jpeg",
+  :thumbnail_large => "/projects/4.jpg",
   :link => "/projects/1.jpg"
 )
 
@@ -174,6 +178,7 @@ photo = Photo.create(
   :name => "爱心衣橱：照片2",
   :description => "bla bla bla...",
   :thumbnail_small => "/charities/2.jpeg",
+  :thumbnail_large => "/projects/3.jpg",
   :link => "/projects/2.jpg"
 )
 
