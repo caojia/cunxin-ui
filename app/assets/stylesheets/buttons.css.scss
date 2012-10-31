@@ -1,16 +1,3 @@
-input[type=submit].signin-button, input[type=submit].signup-button {
-  @include sprites-sprite("signin");
-  width: sprites-sprite-width("signin");
-  height: sprites-sprite-height("signin");
-  color: #eeffff;
-  border: none;
-  line-height: 26px;
-
-  &:hover {
-    @include sprites-sprite("signin-hover");
-  }
-}
-
 @mixin button($background-color, $background-hover-color, $border-color)
 {
   display: inline-block;
@@ -43,4 +30,10 @@ input[type=submit].signin-button, input[type=submit].signup-button {
   font-size: 16px;
   padding: 8px 20px;
   @include border-radius(5px);
+}
+
+.super-small-button {
+  font-size: 13px;
+  padding: 2px 15px;
+  @include border-radius(3px);
 }
