@@ -28,8 +28,8 @@ class PaymentController < ApplicationController
     last_payment = Payment.find(
       :first,
       :include => [:account],
-      :conditions =>{:user_id => current_user.id},
-      :order => 'created_at DESC' )
+      :conditions => {:user_id => current_user.id},
+      :order => 'created_at DESC' ) unless current_user.blank?
 
     unless last_payment.blank?
       @default_payment = last_payment.select_payment_method
@@ -42,18 +42,21 @@ class PaymentController < ApplicationController
   end
 
   def pay
+    @order_id = params[:order_id]
     @project = Project.find(params[:project_id])
     @donate_amount = (params[:donate_amount] != 'other') ? params[:donate_amount] : params[:input_amount]
     @payment_method = params[:payment_method]
 
     @account = find_account(@project, @payment_method)
-    @payment = generate_payment(@project, @account, @donate_amount, @payment_method)
+    @payment = generate_payment(@order_id, @project, @account, @donate_amount, @payment_method)
 
     @pay = generate_payment_params(@payment, @payment_method)
   end
 
   def success
-
+    @payment = Payment.find(:first, :conditions => {:order_id => params[:order_id]}, :include => [:project] )
+    @project = @payment.project
+    @projects = Project.find(:all).reject {|proj| proj == @project}
   end
 
   def fail
@@ -99,7 +102,9 @@ class PaymentController < ApplicationController
     end
   end
 
-  def generate_payment project, account, donate_amount, select_payment_method, options = {}
+  def generate_payment order_id, project, account, donate_amount, select_payment_method, options = {}
+    throw 'Duplicated order_id' unless Payment.find(:first, :conditions => {:order_id => order_id}).blank?
+
     payment = Payment.new()
 
     payment.user = current_user
@@ -108,15 +113,12 @@ class PaymentController < ApplicationController
     payment.account = account
     payment.amount = donate_amount
     payment.currency_type = 'RMB'
-    payment.order_id = "%s%07d" % [ Time.now.strftime("%y%m%d%H%M%S"), SecureRandom.random_number(10000000) ]
+    #payment.order_id = "%s%07d" % [ Time.now.strftime("%y%m%d%H%M%S"), SecureRandom.random_number(10000000) ]
+    payment.order_id = order_id
     payment.status = 'new'
 
     payment.save
     payment
-  end
-
-  def getUserId
-    1
   end
 
   def generate_payment_params payment, payment_method

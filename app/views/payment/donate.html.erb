@@ -1,10 +1,11 @@
-<div class='container payment-page' >
+<div class='container no-head-carousel donate-page ' >
   <%= content_tag :h1, @project.headline %>
   <div class='page-left'>
     <%= form_tag( {:action => "pay"}, :method => :post, :id => 'donate-form', :target => :blank) do %>
+      <input name='order_id' type='hidden' id='order_id', val='' />
       <div>
-        <%= content_tag :h2, t("payment.select_donate_amount") %>
         <div class='selector-wrapper'>
+          <%= content_tag :h2, t("payment.select_donate_amount") %>
           <ul id='donate-amount-select' >
             <% [10,20,50,100].each do |v| %>
               <li>
@@ -15,17 +16,17 @@
             <li>
               <%= radio_button_tag :donate_amount, "other" %>
               <%= label_tag "payment.donate_amount_other", t("payment.donate_amount_other"), :class => "amount-text" %>
-              <span class=''>¥</span>
-              <%= text_field_tag :input_amount, "", :disabled => true %>
+              <span class='other-amount-input'>
+                <span>¥</span>
+                <%= text_field_tag :input_amount, "", :disabled => true %>
+              </span>
             </li>
             <div style="clear: both;"> </div>
           </ul>
           <div style="clear: both;"> </div>
-        </div>
 
-        <%= content_tag :h2, t("payment.select_payment") %>
-        <div class='selector-wrapper'>
-          <%= content_tag :h3, t("payment.payment_bank") %>
+          <%= content_tag :h2, t("payment.select_payment") %>
+          <% # content_tag :h3, t("payment.payment_bank") %>
           <ul id='payment-select' >
             <% @payment_target.find_all{|h| h[:category] == :bank }.each do |h| %>
               <li class=<%= @default_payment == h[:name] ? "select" : "" %> >
@@ -38,7 +39,7 @@
             <div style="clear: both;"> </div>
           </ul>
           <div style="clear: both;"> </div>
-          <%= content_tag :h3, t("payment.payment_platform") %>
+          <% # content_tag :h3, t("payment.payment_platform") %>
           <ul id='payment-select' >
             <% @payment_target.find_all{|h| h[:category] == :platform }.each do |h| %>
               <li class=<%= @default_payment == h[:name] ? "select" : "" %> >
@@ -51,10 +52,23 @@
             <div style="clear: both;"> </div>
           </ul>
           <div style="clear: both;"> </div>
+
+          <%= content_tag :h2, t("payment.select_anonymous_donate") %>
+          <ul id='donate-anonymous-check'>
+              <li>
+                <%= check_box_tag :anonymous, 1 %>
+                <%= label_tag "payment.anonymous", t("payment.anonymous_donate") %>
+              </li>
+          </ul>
+
+          <%= hidden_field_tag :project_id, @project.id %>
+          <div class='agree-service'>
+            <%= check_box_tag 'agree_our_service', 'yes', true %>
+            <%= label_tag "payment.agree_our_service", t("payment.agree_our_service") %>
+          </div>
+          <div><%= submit_tag t("payment.pay"), :id => 'pay-submit', :class => "blue-button small-button" %></div>
         </div>
       </div>
-      <%= hidden_field_tag :project_id, @project.id %>
-      <div><%= submit_tag t("payment.pay"), :id => 'pay-submit', :class => "blue-button small-button" %></div>
     <% end %>
   </div>
   <div class='page-right'>

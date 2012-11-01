@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.payment-page {
-  padding-top: $nav-bar-height;
+div.donate-page {
+  padding-bottom: 65px;
 
   div.page-left {
     float: left;
@@ -12,7 +12,7 @@ div.payment-page {
 
   div.page-right {
     float: right;
-    width: 250px;
+    width: 300px;
   }
 
   h1 {
@@ -20,31 +20,42 @@ div.payment-page {
     color: $darkBlue;
   }
 
-  h2 {
-    font-size: 15px;
-    line-height: 20px;
-    color: $gray;
+  label {
+    display: inline-block;
   }
 
-  h3 {
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: normal;
-    color: $gray;
+  input {
+    margin: 0 0;
   }
 
   div.selector-wrapper {
-    border: 1px solid #aaa;
+    border: 1px solid #d4d4d4;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border-radius: 4px;
+    background: white;
+
+    h2 {
+      padding: 8px 16px;
+      font-size: 14px;
+      line-height: 20px;
+      color: #333;
+      background: #D6FFDF;
+    }
+
+    h3 {
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: normal;
+      color: $gray;
+    }
   }
 
   div.project-desc-wrapper {
-    border: 1px solid #aaa;
+    border: 1px solid #d4d4d4;
     padding: 15px;
     border-radius: 4px;
-    margin-top: 29px;
+    background: white;
 
     div.project-thumbnail {
       img {
@@ -92,7 +103,7 @@ div.payment-page {
     >li {
       float: left;
       margin-right: 30px;
-      min-width: 144px;
+      min-width: 45px;
       height: 30px;
       line-height: 30px;
 
@@ -100,9 +111,13 @@ div.payment-page {
         margin: 0 0;
       }
 
-      input#input_amount {
-        width: 128px;
-        height: 13px;
+      span.other-amount-input {
+        display: none;
+
+        input#input_amount {
+          width: 128px;
+          height: 13px;
+        }
       }
 
       label.amount-text {
@@ -118,10 +133,6 @@ div.payment-page {
       position: relative;
       margin-bottom: 15px;
       margin-right: 30px;
-
-      input {
-        margin: 0 0;
-      }
 
       div.payment-logo {
         display: inline-block;
@@ -141,5 +152,43 @@ div.payment-page {
         }
       }
     }
+  }
+
+  ul#donate-anonymous-check {
+    label {
+      cursor: pointer;
+    }
+  }
+
+  div.agree-service {
+    margin-left: 25px;
+  }
+
+  input#pay-submit{
+    margin-left: 25px;
+  }
+
+}
+
+
+div.pay-success-page {
+  div.thank-note {
+    margin-top: 45px;
+    font-size: 30px;
+    line-height: 38px;
+    color: $gray;
+
+    span.headline {
+      color: $darkBlue;
+    }
+
+    span.amount {
+      color: $darkGreen;
+    }
+  }
+
+
+  div.other-projects {
+    margin-top: 300px;
   }
 }

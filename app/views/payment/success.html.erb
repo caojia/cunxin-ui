@@ -1,0 +1,24 @@
+<div class='container no-head-carousel pay-success-page'>
+  <%= content_tag(:div,
+    t('payment.thank_note',
+      :project_title => @project.headline,
+      :amount => "￥" + number_with_delimiter(@payment.amount, :delimiter => ",")).html_safe,
+     :class=>'thank-note') %>
+
+  <div>
+    <%= content_tag :div, t('payment.success_notice'), :class => 'score-notice' %>
+  </div>
+
+  <div class='other-projects'>
+    <div class="container project-list-carousel">
+      <%= render :partial => "shared/colx_carousel", :locals => {
+            :items => @projects,
+            :path => "projects",
+            :key => "other_projects",
+            :no_title => false,
+            :show_caption => false,
+            :items_per_col => 5,
+            :link_opts_for_item => lambda {|item| project_path(item) }} %>
+    </div>
+  </div>
+</div>
