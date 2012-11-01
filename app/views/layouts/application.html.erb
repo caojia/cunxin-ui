@@ -8,6 +8,7 @@
     <meta name="author" content=""/>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=#{WeiboOAuth2::Config.api_key}" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>

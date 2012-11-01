@@ -4,6 +4,9 @@
     <div class="item active">
       <%= image_tag "home-desc.jpg" %>
     </div>
+    <div class="item">
+      <%= image_tag "version4.jpg" %>
+    </div>
     <% @carousels.each_with_index do |carousel, i| %>
       <div class="item">
         <%= link_to project_path(carousel.project.id) do %>
