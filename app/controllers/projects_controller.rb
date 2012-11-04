@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   include SinaClient
-  before_filter :authenticate_user!, :only => [:follow, :unfollow]
+  before_filter :authenticate_user!, :only => [:follow, :unfollow, :check_following]
 
   def index
     @projects = Project.all
@@ -50,5 +50,10 @@ class ProjectsController < ApplicationController
     end
     render :json => {
       :success => true }.to_json
+  end
+
+  def check_following
+    following = current_user.following?(params[:id].to_i)
+    render :json => {:is_following => following}.to_json
   end
 end

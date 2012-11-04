@@ -26,6 +26,20 @@
   @include button($darkGreen, $darkGreen * 1.1, $darkGreen * 0.8);
 }
 
+$darkDarkBlue: $darkBlue * 0.8;
+.dark-blue-button {
+  @include button($darkDarkBlue, $darkDarkBlue, $darkDarkBlue * 0.8);
+}
+
+$darkDarkGreen: #228D00;
+.dark-green-button {
+  @include button($darkDarkGreen, $darkDarkGreen, $darkDarkGreen * 0.8);
+  color: $white * 0.9;
+  &:hover {
+    color: $white * 0.9;
+  }
+}
+
 .small-button {
   font-size: 16px;
   padding: 8px 20px;

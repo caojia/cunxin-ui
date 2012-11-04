@@ -40,6 +40,18 @@ $arrow_height: sprites-sprite-height("left-arrow");
     top: ($head_carousel_height - $arrow_height) / 2;
   }
 
+  .hideable {
+    visibility: hidden;
+    @include opacity(0);
+    @include transition-property(opacity);
+    @include transition-duration(.5s);
+  }
+
+  &:hover .hideable {
+    @include opacity(1);
+    visibility: visible;
+  }
+
   .head-carousel-float-content {
     position: relative;
     .text-content {
@@ -59,11 +71,7 @@ $arrow_height: sprites-sprite-height("left-arrow");
       position: absolute;
       bottom: 30px;
       right: 50px;
-      display: none;
     }
-  }
-  &:hover .view-project-button {
-    display: block;
   }
 }
 
@@ -159,6 +167,8 @@ a.carousel-control-right {
         height: $colx_carousel_height - $colx_carousel_border * 2;
         width: $colx_carousel_width - $colx_carousel_border * 2;
         border: $colx_carousel_border solid #ccc;
+        margin-left: -$colx_carousel_border;
+        margin-right: -$colx_carousel_border;
       }
       .caption {
         color: white;

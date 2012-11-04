@@ -51,8 +51,13 @@
           <%= link_to t("projects.follow"), follow_path(:id => @project.id), 
                 :method => :post,
                 :remote => true, 
+                "data-check-following-url" => check_following_path(:id => @project.id),
                 :id => "project-follow",
-                :class => "green-button donate-button small-button" %>
+                :class => "green-button small-button" %>
+          <%= link_to t("projects.following"), "#",
+                :id => "project-following",
+                :style => "display: none;",
+                :class => "dark-green-button small-button hidden disabled" %>
         </div>
       </td>
     </tr>

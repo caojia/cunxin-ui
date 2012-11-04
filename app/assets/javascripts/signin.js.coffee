@@ -37,6 +37,7 @@ showLoginModal = (withText) ->
 
 $.requireLogin = requireLogin = (cb) ->
   checkLogin(cb, () -> showLoginModal(true))
+$.checkLogin = checkLogin
 
 
 # login form callback

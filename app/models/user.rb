@@ -58,6 +58,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def following? project
+    project_id = Project === project ? project.id : project
+
+    uq = user_projects.find(:first, :conditions => { :project_id => project_id })
+    return uq && !uq.is_deleted
+  end
+
   def sina_connected?
     !sina_oauth_user.nil?
   end

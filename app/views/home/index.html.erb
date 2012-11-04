@@ -13,13 +13,13 @@
           <%= image_tag carousel.project.thumbnail_large, :alt => carousel.project.headline %>
         <% end %>
         <div class="container head-carousel-float-content">
-          <%= link_to t("home.view_project"), project_path(carousel.project), :class => "view-project-button blue-button" %>
+          <%= link_to t("home.donate_project"), donate_path(:project_id => carousel.project.id), :class => "view-project-button blue-button hideable" %>
         </div>
       </div>
     <% end %>
   </div>
-  <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#head-carousel" %>
-  <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#head-carousel" %>
+  <%= link_to "<", "#", :class => "carousel-control-left carousel-control left hideable", "data-slide" => "prev", "data-target" => "#head-carousel" %>
+  <%= link_to ">", "#", :class => "carousel-control-right carousel-control right hideable", "data-slide" => "next", "data-target" => "#head-carousel" %>
 </div>
 
 <div class="slogon container">

@@ -9,6 +9,7 @@ zh-CN:
     has_followed: "已有<span class='num'>%{count}</span>人关注"
     donate: "捐 助"
     follow: "关 注"
+    following: "已关注"
     donated_users: "捐助网友"
     follow_thanks: "感谢您关注该项目！"
 
