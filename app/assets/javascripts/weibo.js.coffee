@@ -22,9 +22,8 @@ class WeiboButton
 class WeiboShareButton extends WeiboButton
   bindWB: (id) =>
     WB2.anyWhere((W) ->
-      W.widget.followButton({
-        'id': id,
-        'nick_name': 'jerrycircle'
+      W.widget.publish({
+        'id': id
       })
     )
 
@@ -33,7 +32,7 @@ class WeiboFollowButton extends WeiboButton
     WB2.anyWhere((W) ->
       W.widget.followButton({
         'id': id,
-        'nick_name': 'jerrycircle'
+        'nick_name': '寸心技术'
       })
     )
 

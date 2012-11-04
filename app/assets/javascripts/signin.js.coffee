@@ -18,7 +18,7 @@ checkLogin = (login_cb, logout_cb) ->
   if id > 0
     login_cb && login_cb(id, $.cookie(_cookieMap.name), $.cookie(_cookieMap.thumb))
   else
-    login_cb && logout_cb()
+    logout_cb && logout_cb()
 
 loginCallback = (id, name, thumb) ->
   nav = $("#login-nav")

@@ -46,10 +46,11 @@ _setFollowingState = (isFollowing) ->
 
 _checkFollowing = () ->
   url = $(_followLink).data(_checkFollowingUrlAttr)
-  $.getJSON(url, (data) ->
-    if data.is_following
-      _setFollowingState(true)
-  )
+  if url
+    $.getJSON(url, (data) ->
+      if data.is_following
+        _setFollowingState(true)
+    )
 
 $ ->
   $(_followLink).
