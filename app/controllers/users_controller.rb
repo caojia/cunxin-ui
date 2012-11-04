@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    return(redirect_to root_path) if current_user
     @user = User.new
     @is_complete = false
     # Process for sina
