@@ -2,7 +2,7 @@ $ = jQuery
 
 _navbar = "#cunxin-nav"
 _mask = ".mask"
-_hiddenOpacityClass = "opacity1"
+_hiddenOpacityClass = "opacity0"
 _showOpacityClass = "opacity3"
 _masthead = "#head-carousel"
 

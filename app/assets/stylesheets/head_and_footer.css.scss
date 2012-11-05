@@ -5,9 +5,9 @@ $logo-height: 40px;
   position: relative;
 
   .cunxin-nav-bar {
-    background: none;
     background-repeat: repeat-x;
     height: $nav-bar-height;
+    @include sprites-sprite("trans-bg-48");
 
     .navbar-inner {
       background: none;
@@ -30,7 +30,6 @@ $logo-height: 40px;
     .nav .user-thumb span {
       line-height: $banner-height - 2px;
       img {
-        border: 1px solid #444;
         width: 36px;
         height: 36px;
       }

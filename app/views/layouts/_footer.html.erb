@@ -1,15 +1,12 @@
 <div id='footer' class='footer'>
   <div class='footer-inner container'>
     <div class='footer-links'>
-      <span> <%= link_to t("footer.introduction"), "/introduction" %> </span>
-      <span class="separator"></span>
-      <span> <%= link_to t("footer.team"), "/team" %> </span>
-      <span class="separator"></span>
-      <span> <%= link_to t("footer.contact"), "/contact" %> </span>
-      <span class="separator"></span>
-      <span> <%= link_to t("footer.blog"), "/blog" %> </span>
-      <span class="separator"></span>
-      <span> <%= link_to t("footer.usage"), "/usage" %> </span>
+      <% t("footer.links").each_with_index do |item, i| -%>
+        <% if i != 0 -%>
+          <span class="separator"></span>
+        <% end -%>
+        <span> <%= link_to item["caption"], item["link"] %> </span>
+      <% end -%>
     </div>
     <div class='copyright-container container'>
       <%= content_tag :span, t("footer.copyright"), :class => 'copyright' %>

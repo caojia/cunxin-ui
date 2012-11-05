@@ -8,7 +8,7 @@
     <meta name="author" content=""/>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=#{WeiboOAuth2::Config.api_key}" %>
+    <%#= javascript_include_tag "http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=#{WeiboOAuth2::Config.api_key}" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
@@ -16,7 +16,7 @@
     <div class="nav-bar-wrapper">
       <div class="navbar navbar-inverse navbar-fixed-top cunxin-nav-bar" id="cunxin-nav">
         <div class="navbar-inner">
-          <div class="mask opacity1"> </div>
+          <div class="mask opacity0"> </div>
           <div class="container">
             <%= render 'layouts/navigation' %>
           </div>

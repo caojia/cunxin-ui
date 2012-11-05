@@ -1,5 +1,16 @@
 zh-CN:
   footer:
+    links:
+      - caption: "关于寸心"
+        link: "/about"
+      - caption: "使用条款"
+        link: "/terms"
+      - caption: "常见问题"
+        link: "/faq"
+      - caption: "联系我们"
+        link: "contact"
+
+
     copyright: "cunxin.org All Rights Reserved 2012 京ICP备20120110号 寸心网版权所有"
     home: "首页"
     media: "媒体报道"
