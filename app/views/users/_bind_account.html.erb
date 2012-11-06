@@ -1,0 +1,39 @@
+<%= form_for(User.new, :as => "user", :url => bind_user_path, :html => {:class => "form-horizontal signup-bind-account", :id => "signup-bind-account"}, :remote => true) do |f| %>
+  <h2 class="controls">
+    &nbsp;
+  </h2>
+
+  <% if @sina_user_id -%>
+    <div class="text-success control-group controls">
+      <%= t("signup.complete.bind_hint") %>
+    </div>
+  <% end -%>
+
+  <%= (hidden_field_tag :sina_id, @sina_user_id) if @sina_user_id %>
+
+  <div class="text-error control-group controls error-message hide">
+  </div>
+
+  <div class="control-group">
+    <%= f.label :email, t("signup.complete.bind.email"), :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :email %>
+      <span class="help-inline"></span>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :email, t("signup.complete.bind.password"), :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password %>
+      <span class="help-inline"></span>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit t("signup.complete.bind.submit"), :class => "signup-button blue-button small-button" %>
+    </div>
+  </div>
+
+<% end %>

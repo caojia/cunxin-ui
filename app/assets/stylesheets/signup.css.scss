@@ -1,0 +1,19 @@
+.login-with-oauth-container {
+  margin-top: 60px;
+  padding: 30px;
+  border-left: 1px solid #ccc;
+}
+
+.with-right-border {
+  border-right: 1px solid #ccc;
+}
+
+.signup-bind-account {
+  padding-left: 20px;
+  .control-label {
+    width: 60px;
+  }
+  .controls {
+    margin-left: 80px;
+  }
+}

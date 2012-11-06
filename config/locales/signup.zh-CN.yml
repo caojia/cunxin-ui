@@ -5,11 +5,24 @@ zh-CN:
     email: "我的邮箱"
     password: "创建密码"
     password_confirmation: "重复密码"
-    submit: "马上注册"
+    submit: "立即注册"
     link: "注册"
-    agree_pp: "我已阅读并同意使用条款"
+    agree_pp: "我已阅读并同意<a href='/terms' target='_blank'>使用条款</a>"
+
+    oauth:
+      hint: "你也可以通过站外账号进行登陆："
 
     complete:
-      title: "完成您的账户"
-      submit: "完成"
+      title: "%{name}，欢迎来到寸心网"
+      hint: "第一次来寸心？请补充资料，完成寸心注册："
+      submit: "立即注册"
 
+      bind_hint: "已经在寸心网注册过？请输入寸心网账号进行绑定："
+      bind: 
+        email: "邮箱"
+        password: "密码"
+        submit: "立即绑定"
+        bind_failure: "绑定失败，请重试"
+        invalid_sina_account: "新浪账号有误，请重新绑定"
+        invalid_cunxin_account: "寸心账号有误，请重新绑定"
+        already_binded: "该寸心账号已绑定新浪微博，请使用其他账号"

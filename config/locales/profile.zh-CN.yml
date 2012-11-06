@@ -29,4 +29,10 @@ zh-CN:
       following: "关注中"
       unfollow: "取消关注"
       donate: "捐赠"
+
+    legend:
+      address: "地址信息"
+      account: "账号信息"
+      bindings: "绑定账号"
       
+

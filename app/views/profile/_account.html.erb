@@ -8,7 +8,7 @@
                 :class => "form-horizontal editable", 
                 :id => "profile-form"}) do |f| %>
     <legend class="editable-icon-container">
-      <%= "地址信息" %>
+      <%= t("profile.legend.address") %>
       <%= link_to "", "#", :class => "editable-icon editable-icon-20" %>
     </legend>
     <% Profile::FIELDS.each do |field| %>
@@ -31,7 +31,7 @@
 </div>
 
 <div id="account-info" class="section">
-  <legend><%= "账户信息" %></legend>
+  <legend><%= t("profile.legend.account") %></legend>
   <%= form_for(@user, 
                :as => "user", 
                :url => update_user_fields_path(:action => :update_email),
@@ -121,5 +121,11 @@
         <%= f.submit t("profile.cancel"), :class => "btn btn-cancel editable-cancel" %>
       </div>
     </div>
+  <% end %>
+</div>
+
+<div id="oauth-bindings" class="section">
+  <%= form_for @user do %>
+    <legend><%= t("profile.legend.bindings") %></legend>
   <% end %>
 </div>

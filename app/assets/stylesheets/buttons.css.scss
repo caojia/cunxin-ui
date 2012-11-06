@@ -51,3 +51,7 @@ $darkDarkGreen: #228D00;
   padding: 2px 15px;
   @include border-radius(3px);
 }
+
+input.signin-button {
+  padding: 4px 20px;
+}

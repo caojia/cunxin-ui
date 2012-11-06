@@ -1,11 +1,43 @@
 class UsersController < ApplicationController
   include Devise::Controllers::Helpers
   #before_filter :authenticate_user!, :except => [:complete, :signup]
-  skip_before_filter :reset_sina_user_from_session, :only => [:new, :create]
+  skip_before_filter :reset_sina_user_from_session, :only => [:new, :create, :bind_account, :bind_account_auth_failure]
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
+  end
+
+  def bind_account
+    @user = User.new
+    sina_user = verified_sina_oauth_user
+
+    if !verified_sina_oauth_user
+      render :json => {:error => t("signup.complete.bind.invalid_sina_account")}.to_json
+    else
+      oauth_in_session = get_oauth_user_from_session("sina")
+      allow_params_authentication!
+      authenticate_user!(:recall => "users#bind_account_auth_failure")
+      if current_user.sina_connected?
+        sign_out
+        set_oauth_user_to_session("sina", oauth_in_session)
+        return render(:json => {:error => t("signup.complete.bind.already_binded")}.to_json)
+      end
+      current_user.thumbnail = sina_user.profile_image_url
+      current_user.thumbnail_updated_at = Time.now.utc
+      @sina_oauth_user = SinaOauthUser.find(Base64.decode64(params[:sina_id]))
+
+      if @user.save_and_set_oauth(@sina_oauth_user)
+        expire_session_data_after_sign_in!
+        reset_oauth_user_from_session("sina")
+        sign_in(@user)
+        return render(:json => {:success => true}.to_json)
+      else
+        sign_out
+        set_oauth_user_to_session("sina", oauth_in_session)
+        return render(:json => {:error => "signup.complete.bind.bind_failure"}.to_json)
+      end
+    end
   end
 
   def new
@@ -34,7 +66,6 @@ class UsersController < ApplicationController
     @sina_user_id = nil
     @sina_oauth_user = nil
     if sina_user
-      logger.info "sina_user"
       @user.thumbnail = sina_user.profile_image_url
       @user.thumbnail_updated_at = Time.now.utc
       @sina_user_id = params[:sina_id]
@@ -58,6 +89,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def bind_account_auth_failure
+    render :json => {:error => t("signup.complete.bind.invalid_cunxin_account")}.to_json
   end
 
   private

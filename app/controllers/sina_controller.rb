@@ -1,7 +1,11 @@
 class SinaController < ApplicationController
   include SinaClient
   def connect
-    redirect_to sina_client.authorize_url
+    if current_user && current_user.sina_connected?
+      redirect_to profile_path
+    else
+      redirect_to sina_client.authorize_url
+    end
   end
 
   def callback
@@ -28,8 +32,18 @@ class SinaController < ApplicationController
           sign_in(user)
           redirect_to root_path
         else
-          set_oauth_user_to_session("sina", {:id => sina_oauth_user.id.to_s, :sina_user => sina_user})
-          redirect_to signup_path(:complete => 1, :sina_id => Base64.encode64(sina_oauth_user.id.to_s))
+          if current_user
+            # bind the current_user
+            if !current_user.sina_connected?
+              current_user.thumbnail = sina_user.profile_image_url
+              current_user.thumbnail_updated_at = Time.now.utc
+              current_user.save_and_set_oauth(sina_oauth_user)
+            end
+            redirect_to profile_path
+          else
+            set_oauth_user_to_session("sina", {:id => sina_oauth_user.id.to_s, :sina_user => sina_user})
+            redirect_to signup_path(:complete => 1, :sina_id => Base64.encode64(sina_oauth_user.id.to_s))
+          end
         end
       end
     rescue

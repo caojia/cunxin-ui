@@ -9,6 +9,7 @@ CunxinUi::Application.routes.draw do
 
   # users
   get "signup", :to => "users#new", :as => :signup
+  post "users/bind", :to => "users#bind_account", :as => :bind_user
   resources :users, :only => [:index, :create, :show]
 
   get "sina/connect", :to => "sina#connect", :as => :sina_connect
