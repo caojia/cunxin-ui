@@ -6,7 +6,7 @@
       <div>
         <div class='selector-wrapper'>
           <%= content_tag :h2, t("payment.select_donate_amount") %>
-          <ul id='donate-amount-select' >
+          <ul class='donate-amount-select' >
             <% [10,20,50,100].each do |v| %>
               <li>
                 <%= radio_button_tag :donate_amount, v, @default_amount == v %>
@@ -27,10 +27,24 @@
 
           <%= content_tag :h2, t("payment.select_payment") %>
           <% # content_tag :h3, t("payment.payment_bank") %>
-          <ul id='payment-select' >
+          <% unless @default_payment.blank?  %>
+            <ul class='payment-select' >
+              <li class="select">
+                <%= radio_button_tag :payment_method, @default_payment[:name], true %>
+                <div class='payment-logo'>
+                  <%= image_tag @default_payment[:img_url] %>
+                </div>
+                <a id='choose-other-method' href='#' >
+                  <%= t("payment.choose_other_method") %>
+                </a>
+              </li>
+            </ul>
+            <div style="clear: both;"> </div>
+          <% end %>
+          <ul class='payment-select <%= @default_payment.blank? ? '' : 'hide' %>' >
             <% @payment_target.find_all{|h| h[:category] == :bank }.each do |h| %>
-              <li class=<%= @default_payment == h[:name] ? "select" : "" %> >
-                <%= radio_button_tag :payment_method, h[:name], @default_payment == h[:name] %>
+              <li>
+                <%= radio_button_tag :payment_method, h[:name] %>
                 <div class='payment-logo'>
                   <%= image_tag h[:img_url] %>
                 </div>
@@ -40,10 +54,10 @@
           </ul>
           <div style="clear: both;"> </div>
           <% # content_tag :h3, t("payment.payment_platform") %>
-          <ul id='payment-select' >
+          <ul class='payment-select <%= @default_payment.blank? ? '' : 'hide' %>' >
             <% @payment_target.find_all{|h| h[:category] == :platform }.each do |h| %>
-              <li class=<%= @default_payment == h[:name] ? "select" : "" %> >
-                <%= radio_button_tag :payment_method, h[:name] , @default_payment == h[:name] %>
+              <li>
+                <%= radio_button_tag :payment_method, h[:name] %>
                 <div class='payment-logo'>
                   <%= image_tag h[:img_url] %>
                 </div>
@@ -54,7 +68,7 @@
           <div style="clear: both;"> </div>
 
           <%= content_tag :h2, t("payment.select_anonymous_donate") %>
-          <ul id='donate-anonymous-check'>
+          <ul class='donate-anonymous-check'>
               <li>
                 <%= check_box_tag :anonymous, 1 %>
                 <%= label_tag "payment.anonymous", t("payment.anonymous_donate") %>

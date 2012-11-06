@@ -32,12 +32,8 @@ class PaymentController < ApplicationController
       :order => 'created_at DESC' ) unless current_user.blank?
 
     unless last_payment.blank?
-      @default_payment = last_payment.select_payment_method
-      checked_payment = @payment_target.find {|h| h[:name] == @default_payment }
-      unless checked_payment.blank?
-        @payment_target.delete_if {|h| h[:name] == @default_payment }
-        @payment_target.unshift(checked_payment)
-      end
+      @default_payment = @payment_target.find {|h| h[:name] == last_payment.select_payment_method }
+      @payment_target.delete_if {|h| h[:name] == @default_payment[:name] } unless @default_payment.blank?
     end
   end
 

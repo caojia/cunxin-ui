@@ -98,7 +98,7 @@ div.donate-page {
 
   }
 
-  ul#donate-amount-select {
+  ul.donate-amount-select {
     margin-bottom: 5px;
     >li {
       float: left;
@@ -127,7 +127,7 @@ div.donate-page {
     }
   }
 
-  ul#payment-select {
+  ul.payment-select {
     >li {
       float:left;
       position: relative;
@@ -152,9 +152,22 @@ div.donate-page {
         }
       }
     }
+
+    a#choose-other-method {
+      padding-left: 20px;
+      font-size: 12px;
+      &:after {
+        display: inline-block;
+        margin-bottom: 2px;
+        content: "";
+        width: 7px;
+        height: 4px;
+        @include sprites-sprite("arrow-unfold")
+      }
+    }
   }
 
-  ul#donate-anonymous-check {
+  ul.donate-anonymous-check {
     label {
       cursor: pointer;
     }

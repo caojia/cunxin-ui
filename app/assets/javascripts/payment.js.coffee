@@ -4,12 +4,14 @@
 
 $ = jQuery
 
-amountRadioSelector = "ul#donate-amount-select input:radio"
-amountTextSelector = "ul#donate-amount-select label.amount-text"
-paymentRadioSelector = "ul#payment-select input:radio"
-paymentLogoSelector = "ul#payment-select div.payment-logo img"
-anonymouseLabelSelector = "ul#donate-anonymous-check label"
+amountRadioSelector = "ul.donate-amount-select input:radio"
+amountTextSelector = "ul.donate-amount-select label.amount-text"
+paymentRadioSelector = "ul.payment-select input:radio"
+paymentLogoSelector = "ul.payment-select div.payment-logo img"
+anonymouseLabelSelector = "ul.donate-anonymous-check label"
 formSelector = "#donate-form"
+chooseOtherMethodSelector = "a#choose-other-method"
+
 
 zeroize = (number, length) ->
   s = String(number)
@@ -54,51 +56,46 @@ checkDonateAmount = (event) ->
   f = $(event.target)
   if f.attr("checked") == "checked" || f.attr("checked") == true
     if f.val() == 'other'
-      $("ul#donate-amount-select span.other-amount-input").show()
-      $("ul#donate-amount-select input[name='input_amount']").val("").prop('disabled', false).focus()
+      $("ul.donate-amount-select span.other-amount-input").show()
+      $("ul.donate-amount-select input[name='input_amount']").val("").prop('disabled', false).focus()
     else
-      $("ul#donate-amount-select span.other-amount-input").hide()
-      $("ul#donate-amount-select input[name='input_amount']").prop('disabled', true)
+      $("ul.donate-amount-select span.other-amount-input").hide()
+      $("ul.donate-amount-select input[name='input_amount']").prop('disabled', true)
   true
 
 checkPayment = (event) ->
   f = $(event.target)
   if f.attr("checked") == "checked" || f.attr("checked") == true
-    $("ul#payment-select>li.select").removeClass("select")
-    f.parents("ul#payment-select>li").addClass("select")
+    $("ul.payment-select>li.select").removeClass("select")
+    f.parents("ul.payment-select>li").addClass("select")
 
 paymentLogoClick = (event) ->
   f = $(event.target)
-  f.parents("ul#payment-select>li").find("input:radio").attr("checked", "checked").change()
+  f.parents("ul.payment-select>li").find("input:radio").attr("checked", "checked").change()
 
 amountTextClick = (event) ->
   f = $(event.target)
-  f.parents("ul#donate-amount-select>li").find("input:radio").attr("checked", "checked").change()
+  f.parents("ul.donate-amount-select>li").find("input:radio").attr("checked", "checked").change()
 
 anonymousTextClick = (event) ->
   f = $(event.target)
-  cb = f.parents("ul#donate-anonymous-check>li").find("input:checkbox")
+  cb = f.parents("ul.donate-anonymous-check>li").find("input:checkbox")
   if cb.attr("checked")
     cb.removeAttr("checked")
   else
     cb.attr("checked", "checked")
 
+chooseOtherMethodClick = (event) ->
+  f = $(event.target)
+  $("ul.payment-select").removeClass("hide")
+  f.hide()
 
 $ ->
   $(amountRadioSelector).change(checkDonateAmount)
-
-$ ->
   $(paymentRadioSelector).change(checkPayment)
-
-$ ->
   $(paymentLogoSelector).click(paymentLogoClick)
-
-$ ->
   $(amountTextSelector).click(amountTextClick)
-
-$ ->
   $(anonymouseLabelSelector).click(anonymousTextClick)
-
-$ ->
   $(formSelector).submit(paySubmit)
+  $(chooseOtherMethodSelector).click(chooseOtherMethodClick)
 
