@@ -1,5 +1,5 @@
 <div id="head-carousel" class="carousel head-carousel">
-  <div class="carousel-inner">
+  <div class="carousel-inner relative">
     <div class="active item cunxin-thumb-large-container">
       <%= image_tag @project.thumbnail_large, :alt => @project.headline %>
     </div>
@@ -26,52 +26,73 @@
 <div class="project-description-content">
   <div class="container container-fluid">
     <div class="row-fluid">
-      <div class="span7">
-        <div>
+      <div class="span8">
+        <%= content_tag :h2, @project.headline, :class => "project-h2" %>
+        <div class="jiathis-button-container">
           <!-- JiaThis Button BEGIN -->
           <div class="jiathis_style">
-              <span class="jiathis_txt">分享到：</span>
-              <a class="jiathis_button_tsina"></a>
-              <a class="jiathis_button_renren"></a>
-              <a class="jiathis_button_kaixin001"></a>
-              <a class="jiathis_button_douban"></a>
-              <a class="jiathis_button_tqq"></a>
-              <a href="http://www.jiathis.com/share?uid=89712" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-              <a class="jiathis_counter_style"></a>
+            <span class="jiathis_txt">分享到：</span>
+            <a class="jiathis_button_tsina"></a>
+            <a class="jiathis_button_renren"></a>
+            <a class="jiathis_button_douban"></a>
+            <a class="jiathis_button_tqq"></a>
+            <a class="jiathis_button_qzone"></a>
+            <a href="http://www.jiathis.com/share?uid=89712" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+            <a class="jiathis_counter_style"></a>
           </div>
-          <script type="text/javascript">var jiathis_config = {data_track_clickback:true};</script>
-          <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=89712" charset="utf-8"></script>
           <!-- JiaThis Button END -->
+          <div class="clearfix"></div>
         </div>
-        <div class="clearfix"></div>
-        <%#= content_tag :h2, @project.headline %>
         <%= content_tag :div, :class => 'description' do %>
-          <%= image_tag "/projects/1-title.jpg", :class => "title-image", :align => "left" %>
           <%= @project.description.html_safe %>
         <% end %>
       </div>
 
-      <% unless @donated_users.blank? %>
-        <div class='donated-users span4 offset1'>
-          <%= content_tag :h2, t('projects.donated_users') %>
-          <ul>
-            <% @donated_users.each do |user| %>
-              <li> <%= render :partial => "user_thumb", :locals => { :user => user } %> </li>
-            <% end %>
-          </ul>
+      <div class="span3 offset1">
+        <div class="section first-section">
+          <%= content_tag :h2, t('projects.section.charity') %>
+          <div>
+            <%= link_to @project.charity.name, @project.charity.link_url, :target => "blank" %>
+          </div>
+          <div>
+            <%= t('projects.section.projects_count_for_charity') %>
+            <%= @project.charity.projects.count %>
+          </div>
         </div>
-      <% end %>
+        <div class="section related-projects-container">
+          <%= content_tag :h2, t("projects.section.related_projects") %>
+          <div>
+            <ul class="related-projects">
+              <% @projects.each do |project| %>
+                <li>
+                  <%= link_to project_path(project) do %>
+                    <%= image_tag project.thumbnail_small %>
+                  <% end %>
+                  <div>
+                    <%= link_to project.headline, project_path(project) %>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="section">
+          <% unless @donated_users.blank? %>
+            <div class='donated-users'>
+              <%= content_tag :h2, t('projects.section.donated_users') %>
+              <ul>
+                <% @donated_users.each do |user| %>
+                  <li> <%= render :partial => "user_thumb", :locals => { :user => user } %> </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 
-<div class="container project-list-carousel">
-  <%= render :partial => "shared/colx_carousel", :locals => {
-        :items => @projects, 
-        :path => "projects",
-        :key => "other_projects", 
-        :no_title => false,
-        :show_caption => false,
-        :items_per_col => 5,
-        :link_opts_for_item => lambda {|item| project_path(item) }} %>
-</div>
+<script type="text/javascript">var jiathis_config = {data_track_clickback:true};</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=89712" charset="utf-8"></script>

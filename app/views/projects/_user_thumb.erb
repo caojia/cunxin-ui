@@ -1,6 +1,13 @@
-<div class='user-thumb-photo'>
+<div class='user-thumb-photo float-left'>
   <%= image_tag user.thumbnail_url, :title => user.name, :alt => user.name %>
 </div>
-<div class='user-thumb-name'>
-  <%= content_tag :span, user.name %>
+<div class='user-thumb-text float-left'>
+  <%= content_tag :div, user.name %>
+  <div>
+    <span><%= t("projects.section.donated_amount_label") %></span>
+    <span><%= t("projects.section.donated_amount", 
+                :amount => number_with_delimiter(10000, :delimiter => ',')) %></span>
+  </div>
 </div>
+<div class="clearfix"></div>
+

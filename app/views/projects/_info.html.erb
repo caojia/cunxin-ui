@@ -17,14 +17,16 @@
     </tr>
 
     <tr class="desc-content">
+      <%= content_tag :td, t("projects.charity"), :class => "col1" %>
+      <%= content_tag :td, 
+            link_to((@project.charity.name rescue ""), @project.charity.link_url, :target => "_blank", :class => "white-link"), 
+            :class => "col2" %>
+    </tr> 
+
+    <tr class="desc-content">
       <%= content_tag :td, t("projects.location"), :class => "col1" %>
       <%= content_tag :td, @project.location, :class => "col2" %>
     </tr>
-
-    <tr class="desc-content">
-      <%= content_tag :td, t("projects.charity"), :class => "col1" %>
-      <%= content_tag :td, (@project.charity.name rescue ""), :class => "col2" %>
-    </tr> 
 
     <tr class="desc-content">
       <%= content_tag :td, t("projects.target"), :class => "col1" %>
