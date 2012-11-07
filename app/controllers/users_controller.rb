@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   include Devise::Controllers::Helpers
   #before_filter :authenticate_user!, :except => [:complete, :signup]
   skip_before_filter :reset_sina_user_from_session, :only => [:new, :create, :bind_account, :bind_account_auth_failure]
+  skip_before_filter :verify_authenticity_token, :only => [:bind_account]
+
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
@@ -27,15 +29,16 @@ class UsersController < ApplicationController
       current_user.thumbnail_updated_at = Time.now.utc
       @sina_oauth_user = SinaOauthUser.find(Base64.decode64(params[:sina_id]))
 
-      if @user.save_and_set_oauth(@sina_oauth_user)
+      logger.info "before save sina oauth"
+      if current_user.save_and_set_oauth(@sina_oauth_user)
         expire_session_data_after_sign_in!
         reset_oauth_user_from_session("sina")
-        sign_in(@user)
+        sign_in(current_user)
         return render(:json => {:success => true}.to_json)
       else
         sign_out
         set_oauth_user_to_session("sina", oauth_in_session)
-        return render(:json => {:error => "signup.complete.bind.bind_failure"}.to_json)
+        return render(:json => {:error => t("signup.complete.bind.bind_failure")}.to_json)
       end
     end
   end

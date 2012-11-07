@@ -127,5 +127,18 @@
 <div id="oauth-bindings" class="section">
   <%= form_for @user do %>
     <legend><%= t("profile.legend.bindings") %></legend>
+    <% if @user.sina_connected? %>
+      <div>
+        <%= t("profile.bindings.sina.is_connected") %>
+        <%= link_to t("profile.bindings.disconnect"), sina_disconnect_path %>
+      </div>
+    <% else %>
+      <div>
+        <%= t("profile.bindings.sina.not_connected") %>
+        <%= link_to sina_connect_path do %>
+          <%= image_tag "sina24.png" %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>

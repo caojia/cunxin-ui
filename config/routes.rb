@@ -13,6 +13,7 @@ CunxinUi::Application.routes.draw do
   resources :users, :only => [:index, :create, :show]
 
   get "sina/connect", :to => "sina#connect", :as => :sina_connect
+  get "sina/disconnect", :to => "sina#disconnect", :as => :sina_disconnect
   get "sina/:action", :controller => "sina", :as => :sina
 
   # project

@@ -1,11 +1,18 @@
 class SinaController < ApplicationController
   include SinaClient
+  before_filter :authenticate_user!, :only => [:disconnect]
+
   def connect
     if current_user && current_user.sina_connected?
       redirect_to profile_path
     else
       redirect_to sina_client.authorize_url
     end
+  end
+
+  def disconnect
+    current_user.sina_disconnect if current_user.sina_connected?
+    redirect_to profile_path
   end
 
   def callback
