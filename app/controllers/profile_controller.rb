@@ -1,4 +1,6 @@
 class ProfileController < ApplicationController
+  PAGE_LIMIT = 10
+
   before_filter :authenticate_user!
   before_filter :prepare_tabs
 
@@ -14,6 +16,25 @@ class ProfileController < ApplicationController
 
     # TODO: pagination
     @projects = current_user.followed_projects 
+    render :action => :index
+  end
+
+  def donations
+    @profile_tabs_hash["donations"][:class] = "active"
+    @partial = "donations"
+    @page = params[:page] ? params[:page].to_i : 1
+
+    @donations_count = Payment.count(
+                             :conditions => {:user_id => current_user.id} # TODO: Remove unfinished
+                        )
+    @max_page = ( @donations_count+PAGE_LIMIT-1) / PAGE_LIMIT
+    @payments = Payment.find(:all,
+                             :conditions => {:user_id => current_user.id}, # TODO: Remove unfinished
+                             :include => [:project],
+                             :order => "created_at DESC",
+                             :limit => PAGE_LIMIT,
+                             :offset => PAGE_LIMIT * (@page-1)
+                            )
     render :action => :index
   end
 
@@ -53,6 +74,8 @@ class ProfileController < ApplicationController
       @profile_tabs = [
         { :name => "projects",
           :link => projects_profile_path },
+        { :name => "donations",
+          :link => donations_profile_path },
         { :name => "account",
           :link => profile_path }
       ]

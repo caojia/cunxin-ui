@@ -1,0 +1,52 @@
+<h3><%= t("profile.tab.donations") %></h3>
+<% if @donations_count == 0 %>
+  <div class="text-info"><%= t("profile.donations.no_donations") %></div>
+<% end %>
+<% unless @payments.empty? %>
+  <table class="table table-striped followed-projects">
+    <tr>
+      <th colspan=2><%= t("profile.donations.header.project") %></th>
+      <th><%= t("profile.donations.header.amount") %></th>
+      <th><%= t("profile.donations.header.time") %></th>
+    </tr>
+    <% @payments.each do |payment| %>
+      <% project = payment.project %>
+      <tr class="project">
+        <td class='td20'>
+          <%= link_to project_path(project) do %>
+            <%= image_tag project.thumbnail_small, :class => "project-thumb-small" %>
+          <% end %>
+        </td>
+        <td class='td40'>
+          <%= link_to project.headline, project_path(project) %>
+        </td>
+        <td class='td15'>
+          <%= "￥" + number_with_delimiter(payment.amount, :delimiter => ",") %>
+        </td>
+        <td class='td25'>
+          <%= payment.created_at.to_formatted_s(:db) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <div class='pagination pagination-right'>
+    <ul>
+      <% if @page != 1 %>
+        <li> <%= link_to "«", {} %>: </li>
+      <% end %>
+      <% ([1, @page-2].max..[@page+2, @max_page].min).each do |page| %>
+        <% if page == @page %>
+          <li class='disabled'>
+            <%= content_tag :span, page %>
+          </li>
+        <% else %>
+          <li> <%= link_to page, {:page => page} %> </li>
+        <% end %>
+      <% end %>
+      <% if @page != @max_page %>
+        <li> <%= link_to "»", {:page => @max_page} %>: </li>
+      <% end %>
+      </li>
+    </ul>
+  </div>
+<% end %>

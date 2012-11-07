@@ -3,6 +3,7 @@ zh-CN:
     tab:
       account: "我的账户"
       projects: "我的项目"
+      donations: "捐助记录"
 
     field:
       address: "地址："
@@ -40,5 +41,11 @@ zh-CN:
         is_connected: "您已经绑定新浪微博账号"
         not_connected: "您尚未绑定新浪微博账号"
       disconnect: "取消绑定"
-      
+
+    donations:
+      no_donations: "我还未捐助任何项目"
+      header:
+        project: "项目"
+        amount: "捐助金额"
+        time: "捐助时间"
 
