@@ -1,12 +1,12 @@
 <div class='container no-head-carousel pay-success-page'>
   <%= content_tag(:div,
-    t('payment.thank_note',
+    t('donation.thank_note',
       :project_title => @project.headline,
       :amount => "￥" + number_with_delimiter(@payment.amount, :delimiter => ",")).html_safe,
      :class=>'thank-note') %>
 
   <div>
-    <%= content_tag :div, t('payment.success_notice'), :class => 'score-notice' %>
+    <%= content_tag :div, t('donation.success_notice'), :class => 'score-notice' %>
   </div>
 
   <div class='other-projects'>

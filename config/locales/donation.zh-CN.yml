@@ -1,5 +1,5 @@
 zh-CN:
-  payment:
+  donation:
     select_donate_amount: "请选择捐助金额"
     select_payment: "请选择支付方式"
     payment_bank: "网银支付："

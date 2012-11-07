@@ -1,4 +1,4 @@
 require 'digest/md5'
 
-module PaymentHelper
+module DonationHelper
 end

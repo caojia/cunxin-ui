@@ -1,4 +1,4 @@
-class PaymentController < ApplicationController
+class DonationController < ApplicationController
   @@payment_target = [
       {:name => 'icbc', :img_url => "/payment/icbc.png", :category => :bank},
       {:name => 'ccb', :img_url => "/payment/ccb.png", :category => :bank},

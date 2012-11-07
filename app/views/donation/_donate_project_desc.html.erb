@@ -7,17 +7,17 @@
   </div>
 
   <div class='desc-content'>
-    <%= content_tag :span, t('payment.charity'), :class => 'col1' %>
+    <%= content_tag :span, t('donation.charity'), :class => 'col1' %>
     <%= content_tag :span, @project.charity.name, :class => 'col2' %>
   </div>
 
   <div class='desc-content'>
-    <%= content_tag :span, t('payment.target_amount'), :class => 'col1' %>
+    <%= content_tag :span, t('donation.target_amount'), :class => 'col1' %>
     <%= content_tag :span, "￥" + number_with_delimiter(@project.target_amount, :delimiter => ","), :class=> 'col2' %>
   </div>
 
   <div class='desc-content project-progress' >
-    <%= content_tag :span, t("payment.progress"), :class=>'col1' %>
+    <%= content_tag :span, t("donation.progress"), :class=>'col1' %>
     <span class='col2'>
       <span class='progress-wrapper'>
         <span class='progress bar-striped active' style="width: 140px">

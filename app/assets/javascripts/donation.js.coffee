@@ -46,7 +46,7 @@ paySubmit = (event) ->
       alert("请选择支付方式")
       return false
     $('#order_id').val(orderId=generateOrderId())
-    $('#pay-succeed').attr('href', '/payment/success?order_id='+orderId)
+    $('#pay-succeed').attr('href', '/donation/success?order_id='+orderId)
     $('#pay-confirm-modal').modal('show')
     true
   else

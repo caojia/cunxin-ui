@@ -34,12 +34,12 @@ CunxinUi::Application.routes.draw do
   # contributer
   resources :contributors, :only => [:show]
 
-  # payment
-  get "payment/donate", :to => "payment#donate", :as => :donate
-  get "payment/success", :to => "payment#success"
-  get "payment/fail", :to => "payment#fail"
-  post "payment/pay", :to => "payment#pay"
-  get "payment/notify/:payment_type", :to => "payment#notify"
-  post "payment/notify/:payment_type", :to => "payment#notify"
+  # donation
+  get "donation/donate", :to => "donation#donate", :as => :donate
+  get "donation/success", :to => "donation#success"
+  get "donation/fail", :to => "donation#fail"
+  post "donation/pay", :to => "donation#pay"
+  get "donation/notify/:payment_type", :to => "donation#notify"
+  post "donation/notify/:payment_type", :to => "donation#notify"
 
 end
