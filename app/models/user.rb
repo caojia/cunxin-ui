@@ -25,7 +25,6 @@ class User < ActiveRecord::Base
 
   def save_and_set_oauth(oauth_user)
     return false if oauth_user && !oauth_user.user_id.blank?
-    logger.info "#{oauth_user}, #{oauth_user.id}, #{oauth_user.user_id}, #{self.id}"
     result = true
     User.transaction do 
       result = self.save && result
