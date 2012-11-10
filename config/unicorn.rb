@@ -11,7 +11,7 @@ stdout_path "#{shared_path}/log/unicorn.log"
 
 listen 2012
 worker_processes 2
-timeout 30
+timeout 60
 preload_app true
 
 before_exec do |server|
