@@ -183,6 +183,23 @@ div.donate-page {
 
 }
 
+div.pay-confirm-modal {
+  div.info {
+    background: url("notice.png") no-repeat;
+    padding-left: 30px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  div.notice {
+    margin-top: 10px;
+  }
+  .modal-footer{
+    a {
+      margin-left: 10px;
+    }
+  }
+}
+
 
 div.pay-success-page {
   div.thank-note {

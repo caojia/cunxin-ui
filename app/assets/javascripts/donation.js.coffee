@@ -11,6 +11,7 @@ paymentLogoSelector = "ul.payment-select div.payment-logo img"
 anonymouseLabelSelector = "ul.donate-anonymous-check label"
 formSelector = "#donate-form"
 chooseOtherMethodSelector = "a#choose-other-method"
+payFailedSelector = "a#pay-failed"
 
 
 zeroize = (number, length) ->
@@ -90,6 +91,10 @@ chooseOtherMethodClick = (event) ->
   $("ul.payment-select").removeClass("hide")
   f.hide()
 
+payFailedClick = (event) ->
+  $('#pay-confirm-modal').modal('hide')
+  false
+
 $ ->
   $(amountRadioSelector).change(checkDonateAmount)
   $(paymentRadioSelector).change(checkPayment)
@@ -98,4 +103,5 @@ $ ->
   $(anonymouseLabelSelector).click(anonymousTextClick)
   $(formSelector).submit(paySubmit)
   $(chooseOtherMethodSelector).click(chooseOtherMethodClick)
+  $(payFailedSelector).click(payFailedClick)
 
