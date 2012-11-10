@@ -18,13 +18,18 @@ class Project < ActiveRecord::Base
   has_one :primary_photo, :through => :primary_project_photo, :source => :photo
 
   def donated_users
-    # Hack
+    # TODO: use real donated users
     return User.find(:all)
+  end
+
+  def finished_payments
+    return Payment.find(:all, :conditions =>{ :project_id => self.id, :status => 'finish' } )
   end
 
   def donated_amount
     # TODO: use payment api
-    @donated_amount ||= 10000
+    #@donated_amount ||= 10000
+    current_amount
   end
 
   def donated_percentage
@@ -39,4 +44,9 @@ class Project < ActiveRecord::Base
     primary_photo.thumbnail_small rescue nil
   end
 
+  def update_project_current_amount
+    self.current_amount = Payment.sum(:amount,
+                                      :conditions =>{ :project_id => self.id, :status => 'finish' } )
+    self.save
+  end
 end

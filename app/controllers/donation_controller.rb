@@ -44,7 +44,7 @@ class DonationController < ApplicationController
     @payment_method = params[:payment_method]
 
     @account = find_account(@project, @payment_method)
-    @payment = generate_payment(@order_id, @project, @account, @donate_amount, @payment_method)
+    @payment = generate_payment(@order_id, @project, @account, @donate_amount, @payment_method, :anonymous => params[:anonymous])
 
     @pay = generate_payment_params(@payment, @payment_method)
   end
@@ -82,9 +82,9 @@ class DonationController < ApplicationController
         payment.status = 'pending'
       end
       payment.save
+      payment.project.update_project_current_amount
+      render :text => 'success'
     end
-
-    render :text => 'success'
   end
 
   def find_account project, payment_method
@@ -112,6 +112,7 @@ class DonationController < ApplicationController
     #payment.order_id = "%s%07d" % [ Time.now.strftime("%y%m%d%H%M%S"), SecureRandom.random_number(10000000) ]
     payment.order_id = order_id
     payment.status = 'new'
+    payment.anonymous = options[:anonymous] == '1'
 
     payment.save
     payment
