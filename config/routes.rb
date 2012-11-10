@@ -43,4 +43,9 @@ CunxinUi::Application.routes.draw do
   get "donation/notify/:payment_type", :to => "donation#notify"
   post "donation/notify/:payment_type", :to => "donation#notify"
 
+  get "terms", :to => "static#terms", :as => :terms
+  get "about", :to => "static#about", :as => :about
+  get "faq", :to => "static#faq", :as => :faq
+  get "contact", :to => "static#contact", :as => :contact
+
 end
