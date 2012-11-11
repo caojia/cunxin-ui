@@ -151,10 +151,16 @@ img.cunxin-thumb-large-place-holder {
 
 .jiathis-button-container {
   margin-bottom: 10px;
+  .jiathis_style_24x24 {
+    .jiathis_txt {
+      font-size: 16px;
+    }
+  }
 }
 
 .project-h2 {
   color: $darkGreen;
+  font-size: 20px;
 }
 
 $related-projects-width: 188px;

@@ -5,7 +5,7 @@ $col4_carousel_width: 224px;
 $col5_carousel_width: 188px;
 $col5_carousel_height: 110px;
 $col5_carousel_border: 2px;
-$head_carousel_width: 1440px;
+$head_carousel_width: 100%;
 $head_carousel_height: 450px;
 $head_description_height: 300px;
 $head_description_width: 150px;
@@ -14,7 +14,8 @@ $arrow_height: sprites-sprite-height("left-arrow");
 .head-carousel {
   width: 100%;
   max-width: $head_carousel_width;
-  height: $head_carousel_height;
+  height: auto;
+  min-height: 100px;
   overflow: hidden;
   margin-bottom: 0;
   margin-left: auto;
@@ -25,13 +26,16 @@ $arrow_height: sprites-sprite-height("left-arrow");
 
   .carousel-inner {
     width: 100%;
-    height: 100%;
+    height: $head_carousel_height;
     .item {
       width: 100%;
-      height: 100%;
+      height: $head_carousel_height;
+      position: absolute;
+      top: 0;
+      left: 0;
       img {
         width: 100%;
-        height: 100%;
+        height: auto;
       }
     }
   }
