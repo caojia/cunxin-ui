@@ -26,7 +26,6 @@
           <div style="clear: both;"> </div>
 
           <%= content_tag :h2, t("donation.select_payment") %>
-          <% # content_tag :h3, t("donation.payment_bank") %>
           <% unless @default_payment.blank?  %>
             <ul class='payment-select' >
               <li class="select">
@@ -41,31 +40,38 @@
             </ul>
             <div style="clear: both;"> </div>
           <% end %>
-          <ul class='payment-select <%= @default_payment.blank? ? '' : 'hide' %>' >
-            <% @payment_target.find_all{|h| h[:category] == :bank }.each do |h| %>
-              <li>
-                <%= radio_button_tag :payment_method, h[:name] %>
-                <div class='payment-logo'>
-                  <%= image_tag h[:img_url] %>
-                </div>
-              </li>
+          <div id='all-donate-method' class='<%= @default_payment.blank? ? '' : 'hide' %>'>
+            <% unless @payment_target.find_all{|h| h[:category] == :bank }.blank? %>
+              <%= content_tag :h3, t("donation.payment_bank") %>
+              <ul class='payment-select' >
+                <% @payment_target.find_all{|h| h[:category] == :bank }.each do |h| %>
+                  <li>
+                    <%= radio_button_tag :payment_method, h[:name] %>
+                    <div class='payment-logo'>
+                      <%= image_tag h[:img_url] %>
+                    </div>
+                  </li>
+                <% end %>
+                <div style="clear: both;"> </div>
+              </ul>
             <% end %>
             <div style="clear: both;"> </div>
-          </ul>
-          <div style="clear: both;"> </div>
-          <% # content_tag :h3, t("donation.payment_platform") %>
-          <ul class='payment-select <%= @default_payment.blank? ? '' : 'hide' %>' >
-            <% @payment_target.find_all{|h| h[:category] == :platform }.each do |h| %>
-              <li>
-                <%= radio_button_tag :payment_method, h[:name] %>
-                <div class='payment-logo'>
-                  <%= image_tag h[:img_url] %>
-                </div>
-              </li>
+            <% unless @payment_target.find_all{|h| h[:category] == :platform }.blank? %>
+              <%= content_tag :h3, t("donation.payment_platform") %>
+              <ul class='payment-select'>
+                <% @payment_target.find_all{|h| h[:category] == :platform }.each do |h| %>
+                  <li>
+                    <%= radio_button_tag :payment_method, h[:name] %>
+                    <div class='payment-logo'>
+                      <%= image_tag h[:img_url] %>
+                    </div>
+                  </li>
+                <% end %>
+                <div style="clear: both;"> </div>
+              </ul>
+              <div style="clear: both;"> </div>
             <% end %>
-            <div style="clear: both;"> </div>
-          </ul>
-          <div style="clear: both;"> </div>
+          </div>
 
           <%= content_tag :h2, t("donation.select_anonymous_donate") %>
           <ul class='donate-anonymous-check'>

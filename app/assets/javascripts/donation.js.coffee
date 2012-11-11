@@ -12,7 +12,7 @@ anonymouseLabelSelector = "ul.donate-anonymous-check label"
 formSelector = "#donate-form"
 chooseOtherMethodSelector = "a#choose-other-method"
 payFailedSelector = "a#pay-failed"
-
+donateAmountInputSelector = "input[name='input_amount']"
 
 zeroize = (number, length) ->
   s = String(number)
@@ -46,6 +46,14 @@ paySubmit = (event) ->
     if f.find("input[name='payment_method']:checked").size() == 0
       alert("请选择支付方式")
       return false
+    if $(f.find("input[name='donate_amount']:checked")[0]).val() == 'other'
+      amount = $(f.find("input[name='input_amount']")[0]).val()
+      if Number(amount) == 0 || Number(amount) == NaN
+        alert("请输入捐助金额")
+        return false
+      if Number(amount) > 10000
+        alert("单次捐助金额最多10,000元")
+        return false
     $('#order_id').val(orderId=generateOrderId())
     $('#pay-succeed').attr('href', '/donation/success?order_id='+orderId)
     $('#pay-confirm-modal').modal('show')
@@ -88,12 +96,17 @@ anonymousTextClick = (event) ->
 
 chooseOtherMethodClick = (event) ->
   f = $(event.target)
-  $("ul.payment-select").removeClass("hide")
+  $("div#all-donate-method").removeClass("hide")
   f.hide()
 
 payFailedClick = (event) ->
   $('#pay-confirm-modal').modal('hide')
   false
+
+donateAmountInputKeyUp = (event) ->
+  f = $(event.target)
+  console.log(f.val())
+  f.val(f.val().replace(/[^0-9]/g,''))
 
 $ ->
   $(amountRadioSelector).change(checkDonateAmount)
@@ -104,4 +117,5 @@ $ ->
   $(formSelector).submit(paySubmit)
   $(chooseOtherMethodSelector).click(chooseOtherMethodClick)
   $(payFailedSelector).click(payFailedClick)
+  $(donateAmountInputSelector).keyup(donateAmountInputKeyUp)
 
