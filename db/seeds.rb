@@ -16,6 +16,22 @@ charity = Charity.create(
   short_description: "charity 2",
   published_at: Time.now.utc)
 
+account = Account.create( {
+  :payment_method => 'alipay',
+  :target_account => 'alipay_charity1',
+  :charity => charity,
+  :key => 'ASDFASDFASASDFSADKFJSALDF',
+  :email => 'cunxin@cunxin.org'
+})
+
+account = Account.create( {
+  :payment_method => 'paypal',
+  :target_account => 'alipay_charity1_pay',
+  :charity => charity,
+  :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAA',
+  :email => 'cunxin@cunxin.org'
+})
+
 project = Project.create(
   :charity => charity,
   :canonical_name => "project1", 
@@ -207,7 +223,7 @@ account = Account.create( {
 account = Account.create( {
   :payment_method => 'alipay',
   :target_account => 'alipay2',
-  :charity_id => charity,
+  :charity => charity,
   :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
   :email => 'cunxin@cunxin.org'
 })
@@ -215,7 +231,7 @@ account = Account.create( {
 account = Account.create( {
   :payment_method => 'paypal',
   :target_account => 'PpppBBB',
-  :charity_id => charity,
+  :charity => charity,
   :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
   :email => 'cunxin@cunxin.org'
 })
@@ -234,7 +250,7 @@ charity = Charity.create(
 account = Account.create( {
   :payment_method => 'alipay',
   :target_account => 'alipay3',
-  :charity_id => charity,
+  :charity => charity,
   :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
   :email => 'cunxin@cunxin.org'
 })
@@ -242,7 +258,7 @@ account = Account.create( {
 account = Account.create( {
   :payment_method => 'paypal',
   :target_account => 'Pppp3',
-  :charity_id => charity,
+  :charity => charity,
   :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
   :email => 'cunxin@cunxin.org'
 })
@@ -262,7 +278,7 @@ charity = Charity.create(
 account = Account.create( {
   :payment_method => 'alipay',
   :target_account => 'alipay4',
-  :charity_id => charity,
+  :charity => charity,
   :key => 'ASDFASDFASASDFSADKFJSALFKAJSDF',
   :email => 'cunxin@cunxin.org'
 })
@@ -270,7 +286,7 @@ account = Account.create( {
 account = Account.create( {
   :payment_method => 'paypal',
   :target_account => 'Pppp4',
-  :charity_id => charity,
+  :charity => charity,
   :key => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
   :email => 'cunxin@cunxin.org'
 })

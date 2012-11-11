@@ -23,7 +23,10 @@ class Project < ActiveRecord::Base
   end
 
   def finished_payments
-    return Payment.find(:all, :conditions =>{ :project_id => self.id, :status => 'finish' } )
+    payments = Payment.find(:all,
+                            :conditions =>{ :project_id => self.id, :status => 'finish' },
+                            :include => [:user] )
+    return payments
   end
 
   def donated_amount

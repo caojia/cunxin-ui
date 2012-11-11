@@ -77,12 +77,12 @@
           </div>
         </div>
         <div class="section">
-          <% unless @donated_users.blank? %>
+          <% unless @payments.blank? %>
             <div class='donated-users'>
               <%= content_tag :h2, t('projects.section.donated_users') %>
               <ul>
-                <% @donated_users.each do |user| %>
-                  <li> <%= render :partial => "user_thumb", :locals => { :user => user } %> </li>
+                <% @payments.each do |payment| %>
+                  <li> <%= render :partial => "user_thumb", :locals => { :payment => payment } %> </li>
                 <% end %>
               </ul>
             </div>
