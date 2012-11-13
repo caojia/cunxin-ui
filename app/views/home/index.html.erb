@@ -2,6 +2,9 @@
   <!-- Carousel Items -->
   <div class="carousel-inner">
     <div class="item active">
+      <div class="container relative">
+        <%= render :partial => "signup_form" %>
+      </div>
       <%= image_tag "home.jpg", "data-image-large" => image_path("home-1600.jpg"), :class => "resizeable" %>
     </div>
     <% @carousels.each_with_index do |carousel, i| %>

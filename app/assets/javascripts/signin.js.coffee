@@ -12,6 +12,8 @@ _signinModal = "#signin-modal"
 _signinText = ".signin-required-text"
 _signinError = ".signin-error-message"
 
+_homeSignupForm = "#home-signup-form"
+
 # check login
 checkLogin = (login_cb, logout_cb) ->
   id = $.cookie(_cookieMap.id)
@@ -28,6 +30,7 @@ loginCallback = (id, name, thumb) ->
     $(".loggedin.user-name a", nav).text(name)
 
   $(".loggedin, .anonymous", nav).toggleClass("hidden")
+  $(_homeSignupForm).hide()
 
 showLoginModal = (withText) ->
   _textNode = $(_signinModal).find(_signinText)

@@ -47,3 +47,6 @@ zh-CN:
         link: "http://www.bigappetite.org/"
         image: "/charities/dawei.gif"
         hover_image: "/charities/dawei-hover.gif"
+
+    signup:
+      title: "免费注册"

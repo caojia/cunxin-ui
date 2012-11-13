@@ -1,0 +1,21 @@
+<div class="floating-signup-form home-signup-form-container" id="home-signup-form">
+  <div class="mask opacity3"> </div>
+  <%= form_for User.new, :as => :user, :html => {:class => "home-signup-form"} do |f| %>
+    <h2><%= t("home.signup.title") %></h2>
+    <div>
+      <%= f.text_field :name, :auto_focus => true, :placeholder => t("signup.name"), :autocomplete => :off %>
+    </div>
+    <div>
+      <%= f.email_field :email, :auto_focus => true, :placeholder => t("signup.email"), :autocomplete => :off %>
+    </div>
+    <div>
+      <%= f.password_field :password, :auto_focus => true, :placeholder => t("signup.password"), :autocomplete => :off %>
+    </div>
+    <div>
+      <%= f.password_field :password_confirmation, :auto_focus => true, :placeholder => t("signup.password_confirmation"), :autocomplete => :off %>
+    </div>
+    <div>
+      <%= submit_tag :submit, :value => t("signup.submit"), :class => "small-button blue-button signup-button" %>
+    </div>
+  <% end %>
+</div>

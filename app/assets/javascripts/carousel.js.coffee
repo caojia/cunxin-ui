@@ -11,7 +11,7 @@ _headCarouselButton = "#head-carousel-control-button .carousel-control-button"
 _headCarouselInner = "#head-carousel .carousel-inner"
 _headCarouselWidth = 1280
 _headCarouselHeight = 450
-_headCarouselControl = "#head-carousel .carousel-control"
+_verticalCentered = "#head-carousel .carousel-control, #head-carousel .home-signup-form-container"
 
 _largeResizeableWidth = 1440
 _resizeableSelector = "img.resizeable"
@@ -23,8 +23,9 @@ class FadeCarousel
     if _length <= 1
       return
     @items.each (i, node) ->
-      $(_items[(_length + i-1) % _length]).data("next-carousel", $(this))
-      $(this).data("prev-carousel", $(_items[(i+1) % _length]))
+      prev = (_length + i - 1) % _length
+      $(_items[prev]).data("next-carousel", $(this))
+      $(this).data("prev-carousel", $(_items[prev]))
 
     @current = $(@items[0])
     @next = $(@items[0]).data("next-carousel")
@@ -81,7 +82,8 @@ class FixedRatio
     height = width * @height / @width
     @element.height(height)
 
-    @verticalCenteredElement.css("top", (height - @verticalCenteredElement.height())/2)
+    @verticalCenteredElement.each (i, node) ->
+      $(this).css("top", (height - $(this).height())/2)
 
 class ResizeableImage
   constructor: (@element, @thd = _largeResizeableWidth) ->
@@ -113,5 +115,5 @@ $ ->
   $(col4Carousel).carousel "pause"
 
   _carousel = new FadeCarousel($(_headCarousel), true, _interval)
-  new FixedRatio($(_headCarouselInner), _headCarouselWidth, _headCarouselHeight, $(_headCarouselControl))
+  new FixedRatio($(_headCarouselInner), _headCarouselWidth, _headCarouselHeight, $(_verticalCentered))
   $(_resizeableSelector).each (i, node) -> new ResizeableImage($(this))
