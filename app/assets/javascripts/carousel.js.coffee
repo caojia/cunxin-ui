@@ -16,6 +16,8 @@ _verticalCentered = "#head-carousel .carousel-control, #head-carousel .home-sign
 _largeResizeableWidth = 1440
 _resizeableSelector = "img.resizeable"
 
+_homeInputBox = "#home-signup-form input"
+
 class FadeCarousel
   constructor: (@element, @autostart, @interval) ->
     _items = @items = @element.find(_itemSelector)
@@ -115,5 +117,9 @@ $ ->
   $(col4Carousel).carousel "pause"
 
   _carousel = new FadeCarousel($(_headCarousel), true, _interval)
+  $(_homeInputBox).on("keydown", () ->
+    _carousel.pause()
+    _carousel.start()
+  )
   new FixedRatio($(_headCarouselInner), _headCarouselWidth, _headCarouselHeight, $(_verticalCentered))
   $(_resizeableSelector).each (i, node) -> new ResizeableImage($(this))
