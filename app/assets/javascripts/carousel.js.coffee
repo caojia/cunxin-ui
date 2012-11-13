@@ -16,12 +16,14 @@ _headCarouselControl = "#head-carousel .carousel-control"
 class FadeCarousel
   constructor: (@element, @autostart, @interval) ->
     _items = @items = @element.find(_itemSelector)
+    _length = @items.length
+    if _length <= 1
+      return
     @items.each (i, node) ->
       if (i > 0)
         $(_items[i-1]).data("next-carousel", $(this))
-      $(this).data("prev-carousel", $(_items[i+1 % _items.length]))
+      $(this).data("prev-carousel", $(_items[i+1 % _length]))
 
-    _length = @items.length
     $(@items[_length-1]).data("next-carousel", $(@items[0]))
 
     @current = $(@items[0])
