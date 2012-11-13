@@ -97,3 +97,17 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
     }
   }
 }
+
+.cunxin-charities-container {
+  padding: 20px 0 30px;
+  border-top: 1px solid #ccc;
+  background-color: #ddd;
+  @include box-shadow(1px 0px 2px rgba(0, 0, 0, 0.4));
+}
+
+.charity_link {
+  padding-right: 5px;
+  img {
+    border-bottom: 1px solid #ccc;
+  }
+}

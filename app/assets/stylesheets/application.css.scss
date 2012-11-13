@@ -141,3 +141,22 @@ a.white-link {
     color: $darkGreen;
   }
 }
+
+.hoverable-image-container {
+  text-decoration: none;
+  .hoverable-image-normal {
+    display: inline-block;
+  }
+  .hoverable-image-hover {
+    display: none;
+  }
+  &:hover {
+    text-decoration: none;
+    .hoverable-image-normal {
+      display: none;
+    }
+    .hoverable-image-hover {
+      display: inline-block;
+    }
+  }
+}

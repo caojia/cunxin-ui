@@ -13,6 +13,9 @@ _headCarouselWidth = 1280
 _headCarouselHeight = 450
 _headCarouselControl = "#head-carousel .carousel-control"
 
+_largeResizeableWidth = 1440
+_resizeableSelector = "img.resizeable"
+
 class FadeCarousel
   constructor: (@element, @autostart, @interval) ->
     _items = @items = @element.find(_itemSelector)
@@ -20,11 +23,8 @@ class FadeCarousel
     if _length <= 1
       return
     @items.each (i, node) ->
-      if (i > 0)
-        $(_items[i-1]).data("next-carousel", $(this))
-      $(this).data("prev-carousel", $(_items[i+1 % _length]))
-
-    $(@items[_length-1]).data("next-carousel", $(@items[0]))
+      $(_items[(_length + i-1) % _length]).data("next-carousel", $(this))
+      $(this).data("prev-carousel", $(_items[(i+1) % _length]))
 
     @current = $(@items[0])
     @next = $(@items[0]).data("next-carousel")
@@ -83,9 +83,35 @@ class FixedRatio
 
     @verticalCenteredElement.css("top", (height - @verticalCenteredElement.height())/2)
 
+class ResizeableImage
+  constructor: (@element, @thd = _largeResizeableWidth) ->
+    @smallSrc = @element.attr("src")
+    @largeSrc = @element.data("image-large")
+    if @largeSrc
+      @current = "small"
+      @resize()
+
+  resize: () =>
+    width = $(document).width()
+    if (width >= @thd) 
+      @switchToLarge()
+    else
+      @switchToSmall()
+
+  switchToSmall: () =>
+    if (@current != "small")
+      @element.attr("src", @smallSrc)
+      @current = "small"
+
+  switchToLarge: () =>
+    if (@current != "large")
+      @element.attr("src", @largeSrc)
+      @current = "large"
+
 $ -> 
   $(col3Carousel).carousel "pause"
   $(col4Carousel).carousel "pause"
 
   _carousel = new FadeCarousel($(_headCarousel), true, _interval)
   new FixedRatio($(_headCarouselInner), _headCarouselWidth, _headCarouselHeight, $(_headCarouselControl))
+  $(_resizeableSelector).each (i, node) -> new ResizeableImage($(this))
