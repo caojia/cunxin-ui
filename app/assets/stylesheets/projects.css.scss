@@ -3,6 +3,7 @@ $project-info-width: 280px;
   background-color: white;
   background-image: none;
   border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   padding-top: 50px;
 
   .section {
@@ -32,6 +33,27 @@ $project-info-width: 280px;
     }
   }
 }
+
+.project-desc-info {
+  background: #ddd;
+  border-radius: 2px;
+  padding: 10px 15px;
+  font-size: 15px;
+  line-height: 31px;
+  border: solid 1px #aaa;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 4px rgba(0,0,0,.15);
+
+  .desc-content td {
+    vertical-align: middle;
+    &.col1 {
+      padding-right: 10px;
+      text-align: right;
+    }
+  }
+
+}
+
 .project-info-content {
   color: $white;
   margin: 10px 20px;
@@ -89,9 +111,13 @@ $project-info-width: 280px;
 }
 
 .description {
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 0.5px;
+  margin-top: 20px;
   margin-bottom: 32px;
   text-align: justify;
+  text-justify: auto;
   text-indent: 2em;
   .title-image {
     margin: 0 10px 0 0;

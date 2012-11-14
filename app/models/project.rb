@@ -24,7 +24,7 @@ class Project < ActiveRecord::Base
 
   def finished_payments
     payments = Payment.find(:all,
-                            :conditions =>{ :project_id => self.id, :status => 'finish' },
+                            :conditions =>{ :project_id => self.id },
                             :include => [:user] )
     return payments
   end

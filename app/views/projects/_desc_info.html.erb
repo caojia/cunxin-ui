@@ -1,0 +1,31 @@
+<div class="project-desc-info">
+  <table class="project-desc-info-content">
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.desc_info.charity"), :class => "col1" %>
+      <%= content_tag :td, 
+            link_to((@project.charity.name rescue ""), @project.charity.link_url, :target => "_blank", :class => "white-link"), 
+            :class => "col2" %>
+    </tr> 
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.desc_info.target"), :class => "col1" %>
+      <%= content_tag :td, @project.target, :class => "col2" %>
+    </tr>
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.desc_info.published_at"), :class => "col1" %>
+      <%= content_tag :td, l(@project.start_date.to_date), :class => "col2" %>
+    </tr>
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.desc_info.target_amount"), :class => "col1" %>
+      <%= content_tag :td, "￥" + number_with_delimiter(@project.target_amount, :delimiter => ","), :class => "col2" %>
+    </tr>
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("projects.desc_info.status"), :class => "col1" %>
+      <%= content_tag :td, "", :class => "col2" %>
+    </tr>
+  </table>
+</div>

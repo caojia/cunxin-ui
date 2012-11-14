@@ -43,6 +43,9 @@
           <!-- JiaThis Button END -->
           <div class="clearfix"></div>
         </div>
+
+        <%= render :partial => "desc_info" %>
+
         <%= content_tag :div, :class => 'description' do %>
           <%= @project.description.html_safe %>
         <% end %>
@@ -50,33 +53,6 @@
 
       <div class="span3 offset1">
         <div class="section first-section">
-          <%= content_tag :h2, t('projects.section.charity') %>
-          <div>
-            <%= link_to @project.charity.name, @project.charity.link_url, :target => "blank" %>
-          </div>
-          <div>
-            <%= t('projects.section.projects_count_for_charity') %>
-            <%= @project.charity.projects.count %>
-          </div>
-        </div>
-        <div class="section related-projects-container">
-          <%= content_tag :h2, t("projects.section.related_projects") %>
-          <div>
-            <ul class="related-projects">
-              <% @projects.each do |project| %>
-                <li>
-                  <%= link_to project_path(project) do %>
-                    <%= image_tag project.thumbnail_small %>
-                  <% end %>
-                  <div>
-                    <%= link_to project.headline, project_path(project) %>
-                  </div>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-        <div class="section">
           <% unless @payments.blank? %>
             <div class='donated-users'>
               <%= content_tag :h2, t('projects.section.donated_users') %>
@@ -92,6 +68,17 @@
 
     </div>
   </div>
+</div>
+
+<div class="container project-carousel">
+  <%= render :partial => "shared/colx_carousel", :locals => {
+        :items => @projects,
+        :path => "projects",
+        :key => "other_projects",
+        :no_title => false,
+        :show_caption => false,
+        :link_opts_for_item => lambda {|item| project_path(item) },
+        :items_per_col => 5 } %>
 </div>
 
 <script type="text/javascript">var jiathis_config = {data_track_clickback:true};</script>

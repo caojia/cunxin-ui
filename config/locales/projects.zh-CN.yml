@@ -1,16 +1,23 @@
 zh-CN:
   projects:
-    progress: "项目进度:"
-    charity: "发起机构:"
-    location: "所在城市:"
-    published_at: "求助时间:"
-    target: "受捐对象:"
-    target_amount: "目标金额:"
-    has_followed: "已有<span class='num'>%{count}</span>人关注"
-    donate: "捐 助"
-    follow: "关 注"
-    following: "已关注"
-    follow_thanks: "感谢您关注该项目！"
+    info:
+      progress: "项目进度："
+      has_followed: "已有<span class='num'>%{count}</span>人关注"
+      donate: "捐 助"
+      follow: "关 注"
+      following: "已关注"
+      follow_thanks: "感谢您关注该项目！"
+      current_amount: "已获捐助："
+      countdown: "剩余时间："
+
+    desc_info:
+      charity: "公益组织："
+      location: "所在城市："
+      published_at: "发起时间："
+      target: "受捐对象："
+      target_amount: "目标金额："
+      status: "项目状态："
+
 
     sina_follow_message: "我正在关注寸心网的“%{project_name}” - %{url}"
 
@@ -18,7 +25,7 @@ zh-CN:
 
     section:
       charity: "发起公益组织"
-      donated_users: "捐助网友"
+      donated_users: "最新捐助"
       projects_count_for_charity: "发起项目数："
       related_projects: "您可能感兴趣的项目"
 
