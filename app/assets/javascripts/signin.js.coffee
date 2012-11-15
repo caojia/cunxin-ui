@@ -29,7 +29,7 @@ loginCallback = (id, name, thumb) ->
   if name
     $(".loggedin.user-name a", nav).text(name)
 
-  $(".loggedin, .anonymous", nav).toggleClass("hidden")
+  $(".loggedin, .anonymous").toggleClass("hidden")
   $(_homeSignupForm).hide()
 
 showLoginModal = (withText) ->
