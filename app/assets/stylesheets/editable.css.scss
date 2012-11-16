@@ -4,7 +4,7 @@
   }
 
   .editable-icon {
-    display: none;
+    display: inline-block;
   }
 
   .editable-icon-container:hover {
@@ -19,6 +19,9 @@
   width: sprites-sprite-width("edit-icon-20");
   height: sprites-sprite-height("edit-icon-20");
   margin-left: 3px;
+  &:hover {
+    @include sprites-sprite("edit-icon-20-hover");
+  }
 }
 
 .editable-icon-13 {
@@ -28,6 +31,9 @@
   margin-left: 3px;
   position: relative;
   top: 3px;
+  &:hover {
+    @include sprites-sprite("edit-icon-13-hover");
+  }
 }
 
 .editable-in-editing {

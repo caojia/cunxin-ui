@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  DEFAULT_THUMBNAIL_URL = "/users/men.png"
+  DEFAULT_THUMBNAIL_URL = "/images/users/bee-%s.gif"
 
   attr_accessor :agree_pp
   # Setup accessible (or protected) attributes for your model
@@ -74,8 +74,8 @@ class User < ActiveRecord::Base
     sina_oauth_user.save
   end
 
-  def thumbnail_url
-    thumbnail.blank? ? DEFAULT_THUMBNAIL_URL : thumbnail
+  def thumbnail_url size="36x36"
+    thumbnail.blank? ? (DEFAULT_THUMBNAIL_URL % size) : thumbnail
   end
 
 end

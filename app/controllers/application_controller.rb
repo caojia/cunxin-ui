@@ -71,7 +71,7 @@ class ApplicationController < ActionController::Base
         :value => user.name, 
         :expires => remember_expires_at }
       cookies[:_cunxin_thumb] = {
-        :value => user.thumbnail,
+        :value => user.thumbnail_url,
         :expires => remember_expires_at }
       cookies[:_cunxin_id] = {
         :value => user.id,

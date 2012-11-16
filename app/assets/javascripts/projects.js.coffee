@@ -59,8 +59,7 @@ $ ->
     on("ajax:error", _callbacks.error).
     on("ajax:complete", _callbacks.complete)
   $.checkLogin(_checkFollowing)
-  console.log(CountdownClock)
-  countdown = new CountdownClock($("#countdown-timer"), targetDate)
-  countdown.start()
-  console.log(targetDate)
+  if "undefined" != (typeof targetDate)
+    countdown = new CountdownClock($("#countdown-timer"), targetDate)
+    countdown.start()
 
