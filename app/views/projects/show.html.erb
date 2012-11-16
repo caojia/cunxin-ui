@@ -32,7 +32,10 @@
           <!-- JiaThis Button BEGIN -->
           <div class="jiathis_style_24x24">
             <span class="jiathis_txt">分享到：</span>
-            <a class="jiathis_button_tsina"></a>
+            <%= link_to "#", :remote => true, :class => "loggedin hidden" do %>
+              <%= image_tag "sina-logo-s24.png", :class => "jiathis_txt jticon", :style => "padding-right: 4px;" %>
+            <% end %>
+            <a class="jiathis_button_tsina anonymous"></a>
             <a class="jiathis_button_renren"></a>
             <a class="jiathis_button_douban"></a>
             <a class="jiathis_button_tqq"></a>
@@ -81,6 +84,22 @@
         :items_per_col => 5 } %>
 </div>
 
-<script type="text/javascript">var jiathis_config = {data_track_clickback:true};</script>
+<script type="text/javascript" >
+var jiathis_config={
+    data_track_clickback:true,
+    url: document.location.href,
+    siteNum: 10,
+    sm:"kaixin001,renren,tsohu,t163,douban,tieba,msn,qq,youdao,qingsina",
+    summary: <%= @project.headline.to_json.html_safe %>,
+    title:"#寸心公益#",
+    ralateuid:{
+        "tsina":"2989934492"
+    },
+    appkey:{
+        "tsina": <%= WeiboOAuth2::Config.api_key.to_json.html_safe %>
+    },
+    hideMore:false
+}
+</script>
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=89712" charset="utf-8"></script>
 <script type="text/javascript">var targetDate = new Date( <%= (Time.parse("2012-12-30").to_f*1000).floor %>);</script>

@@ -59,4 +59,7 @@ class SinaController < ApplicationController
     end
   end
 
+  def retweet
+  end
+
 end
