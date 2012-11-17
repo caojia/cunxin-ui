@@ -1,4 +1,4 @@
-$project-info-width: 280px;
+$project-info-width: 300px;
 .project-description-content {
   background-color: white;
   background-image: none;
@@ -76,12 +76,34 @@ $project-info-width: 280px;
     }
   }
 
-  .button-content td {
+  .desc-content {
+    padding-top: 15px;
+    h2 {
+      font-size: 25px;
+      color: #ccc;
+    }
+    .desc-title {
+      font-size: 14px;
+      line-height: 20px;
+      color: #ccc;
+    }
+    .countdown {
+      span {
+        font-size: 14px;
+      }
+    }
+    .desc-detail {
+      font-size: 30px;
+      line-height: 30px;
+      color: #eee;
+
+    }
+  }
+
+  .button-content {
     vertical-align: middle;
     padding-top: 13px;
-    &.col1 {
-      text-align: right;
-    }
+    text-align: right;
     .buttons {
       margin-top: 10px;
     }

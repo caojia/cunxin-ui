@@ -61,5 +61,5 @@ $ ->
   $.checkLogin(_checkFollowing)
   if "undefined" != (typeof targetDate)
     countdown = new CountdownClock($("#countdown-timer"), targetDate)
+    countdown.updateText()
     countdown.start()
-

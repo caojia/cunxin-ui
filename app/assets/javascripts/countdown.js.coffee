@@ -2,8 +2,6 @@ $=jQuery
 
 class CountdownClock
   constructor: (@element, @target_time) ->
-    console.log(@element)
-    console.log(@target_time)
 
   updateText: ()->
     timeDiff = Math.max(@target_time - $.now(), 0)
@@ -11,8 +9,9 @@ class CountdownClock
     minutes = Math.floor(timeDiff / (1000*60)) % 60
     hours = Math.floor(timeDiff / (1000*60*60)) % 24
     days = Math.floor(timeDiff / (1000*60*60*24))
-    text = days + "天" + hours + "小时" + minutes + "分" + seconds + "秒"
-    @element.text(text)
+    text = days + "<span>天</span>" +
+      hours + "<span>小时</span>" + minutes + "<span>分</span>" + seconds + "<span>秒</span>"
+    @element.html(text)
 
   start: () ->
     self = this

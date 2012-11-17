@@ -105,7 +105,6 @@ payFailedClick = (event) ->
 
 donateAmountInputKeyUp = (event) ->
   f = $(event.target)
-  console.log(f.val())
   f.val(f.val().replace(/[^0-9]/g,''))
 
 $ ->
