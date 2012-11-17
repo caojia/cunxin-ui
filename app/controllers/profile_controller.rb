@@ -45,15 +45,6 @@ class ProfileController < ApplicationController
     end
   end
 
-  # update user fields
-  def update_email
-    user = current_user
-    user.email = params[:user][:email]
-    json_response_for_update(user, [:email]) do
-      user.save
-    end
-  end
-
   def update_name
     user = current_user
     user.name = params[:user][:name]
@@ -77,7 +68,9 @@ class ProfileController < ApplicationController
         { :name => "donations",
           :link => donations_profile_path },
         { :name => "account",
-          :link => profile_path }
+          :link => profile_path },
+        { :name => "awards",
+          :link => awards_profile_path }
       ]
       @profile_tabs_hash = {}
       @profile_tabs.each do |t| 

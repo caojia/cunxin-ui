@@ -115,21 +115,16 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
 .home-signup-form-container {
   position: absolute;
   right: 0;
-  width: 300px;
-  height: 240px;
-  padding: 20px 0;
+  width: 270px;
+  padding: 20px 0 0;
   color: white;
-
-  .mask {
-    @include border-radius(3px);
-  }
 
   .home-signup-form {
     position: relative;
     text-align: center;
     margin-bottom: 0;
     h2 {
-      font-size: 20px;
+      font-size: 18px;
       margin: 10px auto;
       color: white;
     }
@@ -137,7 +132,11 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
     .signup-button {
       padding: 6px;
       width: 222px;
-      @include border-radius(3px);
+      @include border-radius(5px);
+    }
+
+    input {
+      @include border-radius(5px);
     }
   }
 

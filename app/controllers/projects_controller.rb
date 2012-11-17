@@ -7,8 +7,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id], :include => [:charity, :photos] )
-    @photos = @project.photos;
+    @project = Project.find(params[:id], :include => [:charity, :photos])
+    @photos = @project.photos
     @payments = @project.finished_payments
     @projects = Project.find(:all, :limit => 5).reject {|proj| proj == @project}
   end

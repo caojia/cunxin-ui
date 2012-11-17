@@ -1,15 +1,12 @@
 class HomeController < ApplicationController
   def index
     @carousels = Carousel.find(:all, :order => "position ASC", :include => :project)
-    @charities = Charity.find(:all, 
-                              :order => "id ASC", 
-                              :conditions => ["published = ?", true])
 
     @summary = {
-      :amount => 223101,
-      :charities_count => 21,
-      :people_count => 23110,
-      :projects_count => 40
+      :amount => Payment.sum(:amount, :conditions => {:status => Payment::STATUS_FINISH}).to_i,
+      :charities_count => t("home.charity_links").length,
+      :people_count => User.count,
+      :projects_count => Project.count(:conditions => {:published => true})
     }
   end
 end

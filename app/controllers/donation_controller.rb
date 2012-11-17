@@ -77,9 +77,9 @@ class DonationController < ApplicationController
     if payment
       case ali_notify.trade_status
       when 'TRADE_FINISHED'
-        payment.status = 'finish'
+        payment.status = Payment::STATUS_FINISH
       when 'WAIT_BUYER_PAY'
-        payment.status = 'pending'
+        payment.status = Payment::STATUS_PENDING
       end
       payment.save
       payment.project.update_project_current_amount

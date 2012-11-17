@@ -1,62 +1,5 @@
-<div id="profile-info" class="section">
-  <%= form_for(@user.profile, 
-               :as => "profile", 
-               :url => update_profile_path, 
-               :remote => true,
-               :html => {
-                "data-prefix" => "profile",
-                :class => "form-horizontal editable", 
-                :id => "profile-form"}) do |f| %>
-    <legend class="editable-icon-container">
-      <%= t("profile.legend.address") %>
-      <%= link_to "", "#", :class => "editable-icon editable-icon-20" %>
-    </legend>
-    <% Profile::FIELDS.each do |field| %>
-      <div class="control-group" id='profile-<%= field %>-field'>
-        <%= f.label field, t("profile.field.%s" % field), :class => "control-label" %>
-        <div class="controls">
-          <%= content_tag :span, @user.profile.send(field), :class => "field-content" %>
-          <%= f.text_field field, :auto_focus => true, :class => "field-input editing" %>
-          <span class="help-inline editing"></span>
-        </div>
-      </div>
-    <% end %>
-    <div class="control-group">
-      <div class="controls">
-        <%= f.submit t("profile.submit"), :class => "editing btn btn-primary" %>
-        <%= f.submit t("profile.cancel"), :class => "editing btn btn-cancel editable-cancel" %>
-      </div>
-    </div>
-  <% end %>
-</div>
-
 <div id="account-info" class="section">
   <legend><%= t("profile.legend.account") %></legend>
-  <%= form_for(@user, 
-               :as => "user", 
-               :url => update_user_fields_path(:action => :update_email),
-               :remote => true,
-               :html => {
-                "data-prefix" => "account",
-                :class => "form-horizontal editable", 
-                :id => "email-form"}) do |f| %>
-    <div class="control-group editable-icon-container" id='account-email-field'>
-      <%= f.label :email, t("profile.account.email"), :class => "control-label" %>
-      <div class="controls">
-        <%= content_tag :span, @user.email, :class => "field-content" %>
-        <%= link_to "", "#", :class => "editable-icon editable-icon-13" %>
-        <%= f.email_field :email, :auto_focus => true, :class => "field-input editing" %>
-        <span class="help-inline editing"></span>
-      </div>
-    </div>
-    <div class="control-group editing">
-      <div class="controls">
-        <%= f.submit t("profile.submit"), :class => "btn btn-primary" %>
-        <%= f.submit t("profile.cancel"), :class => "btn btn-cancel editable-cancel" %>
-      </div>
-    </div>
-  <% end %>
-
   <%= form_for(@user, 
                :as => "user", 
                :url => update_user_fields_path(:action => :update_name),
@@ -78,6 +21,22 @@
       <div class="controls">
         <%= f.submit t("profile.submit"), :class => "btn btn-primary" %>
         <%= f.submit t("profile.cancel"), :class => "btn btn-cancel editable-cancel" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_for(@user, 
+               :as => "user", 
+               :url => update_user_fields_path(:action => :update_email),
+               :remote => true,
+               :html => {
+                "data-prefix" => "account",
+                :class => "form-horizontal editable", 
+                :id => "email-form"}) do |f| %>
+    <div class="control-group" id='account-email-field'>
+      <%= f.label :email, t("profile.account.email"), :class => "control-label" %>
+      <div class="controls">
+        <%= content_tag :span, @user.email, :class => "field-content" %>
       </div>
     </div>
   <% end %>
@@ -119,6 +78,38 @@
       <div class="controls">
         <%= f.submit t("profile.submit"), :class => "btn btn-primary" %>
         <%= f.submit t("profile.cancel"), :class => "btn btn-cancel editable-cancel" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div id="profile-info" class="section">
+  <%= form_for(@user.profile, 
+               :as => "profile", 
+               :url => update_profile_path, 
+               :remote => true,
+               :html => {
+                "data-prefix" => "profile",
+                :class => "form-horizontal editable", 
+                :id => "profile-form"}) do |f| %>
+    <legend class="editable-icon-container">
+      <%= t("profile.legend.address") %>
+      <%= link_to "", "#", :class => "editable-icon editable-icon-20" %>
+    </legend>
+    <% Profile::FIELDS.each do |field| %>
+      <div class="control-group" id='profile-<%= field %>-field'>
+        <%= f.label field, t("profile.field.%s" % field), :class => "control-label" %>
+        <div class="controls">
+          <%= content_tag :span, @user.profile.send(field), :class => "field-content" %>
+          <%= f.text_field field, :auto_focus => true, :class => "field-input editing" %>
+          <span class="help-inline editing"></span>
+        </div>
+      </div>
+    <% end %>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit t("profile.submit"), :class => "editing btn btn-primary" %>
+        <%= f.submit t("profile.cancel"), :class => "editing btn btn-cancel editable-cancel" %>
       </div>
     </div>
   <% end %>

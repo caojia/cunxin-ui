@@ -1,20 +1,21 @@
 zh-CN:
   profile:
     tab:
-      account: "我的账户"
-      projects: "我的项目"
-      donations: "捐助记录"
+      account: "账户设置"
+      projects: "关注项目"
+      donations: "捐助项目"
+      awards: "积分勋章"
 
     field:
       address: "地址："
       zipcode: "邮编："
       mobile: "手机："
-      real_name: "真实姓名："
+      real_name: "姓名："
 
     account:
-      email: "我的邮箱："
+      email: "邮箱："
       name: "昵称："
-      current_password: "当前密码："
+      current_password: "密码："
       password: "设置新密码："
       password_confirmation: "重复新密码："
 
@@ -32,9 +33,9 @@ zh-CN:
       donate: "捐赠"
 
     legend:
-      address: "地址信息"
-      account: "账号信息"
-      bindings: "站外账号设置"
+      address: "基本信息"
+      account: "账户信息"
+      bindings: "绑定账号"
 
     bindings:
       sina:

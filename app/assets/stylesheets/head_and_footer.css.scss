@@ -11,6 +11,7 @@ $logo-height: 40px;
 
     .navbar-inner {
       background: none;
+      filter: none;
       border: 0;
       @include box-shadow(none);
       .nav > li > a {

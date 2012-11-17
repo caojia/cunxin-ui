@@ -61,6 +61,7 @@ class UsersController < ApplicationController
   # NOTE: we only use devise for login/logout in controller
   # 
   def create
+    params[:password_confirmation] = params[:password] if params[:ignore_password_confirmation] == "1"
     @user = User.new(params[:user])
     @is_complete = false
     

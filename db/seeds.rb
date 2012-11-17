@@ -383,5 +383,6 @@ projects = Project.find(:all)
 charity = Charity.find(:first)
 projects.each do |proj|
   proj.charity = charity
+  proj.publish
   proj.save!
 end

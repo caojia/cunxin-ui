@@ -76,6 +76,7 @@ class SigninForm
 $ ->
   $(_signinLink).click (event) ->
     $($(this).data("target")).modal "show"
+    return false
   # check login
   checkLogin(loginCallback, () -> true)
   # bind signin form callbacks

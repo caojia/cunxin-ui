@@ -3,5 +3,5 @@ class Profile < ActiveRecord::Base
 
   attr_protected :id
 
-  FIELDS = ["address", "zipcode", "mobile", "real_name"]
+  FIELDS = ["real_name", "mobile", "address", "zipcode"]
 end

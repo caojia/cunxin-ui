@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_protected :pubished, :published_at
+  attr_protected :published, :published_at
 
   #TODO: add more validations
   validates_presence_of :canonical_name
@@ -51,5 +51,10 @@ class Project < ActiveRecord::Base
     self.current_amount = Payment.sum(:amount,
                                       :conditions =>{ :project_id => self.id, :status => 'finish' } )
     self.save
+  end
+
+  def publish
+    self.published_at = Time.now.utc
+    self.published = true
   end
 end

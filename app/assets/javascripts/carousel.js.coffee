@@ -3,7 +3,7 @@ col3Carousel = ".col3-carousel"
 col4Carousel = ".col4-carousel"
 
 _itemSelector = ".item"
-_interval = 10000
+_interval = 15000
 
 _headCarousel = "#head-carousel"
 _headCarouselButton = "#head-carousel-control-button .carousel-control-button"
