@@ -44,6 +44,16 @@ $project-info-width: 300px;
   letter-spacing: 1px;
   box-shadow: 0 3px 4px rgba(0,0,0,.15);
 
+  .column {
+    width: 45%;
+    &.left {
+      float: left;
+    }
+    &.right {
+      float: right;
+    }
+  }
+
   .desc-content td {
     vertical-align: middle;
     &.col1 {
@@ -80,7 +90,7 @@ $project-info-width: 300px;
     padding-top: 15px;
     h2 {
       font-size: 25px;
-      color: #ccc;
+      color: #eee;
     }
     .desc-title {
       font-size: 14px;
@@ -208,7 +218,7 @@ img.cunxin-thumb-large-place-holder {
 
 .project-h2 {
   color: $darkGreen;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 $related-projects-width: 188px;
@@ -225,3 +235,4 @@ ul.related-projects {
     border: 1px solid #ccc;
   }
 }
+

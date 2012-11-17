@@ -1,9 +1,9 @@
 zh-CN:
   donation:
-    select_donate_amount: "请选择捐助金额"
-    select_payment: "请选择支付方式"
-    payment_bank: "网银支付："
-    payment_platform: "支付平台："
+    select_donate_amount: "捐助金额"
+    select_payment: "支付方式"
+    payment_bank: "网上银行支付："
+    payment_platform: "支付平台支付："
     pay: "确定并支付"
     donate_amount_other: "其他..."
     pay_popup_title: "支付"
@@ -17,6 +17,7 @@ zh-CN:
     thank_note: "感谢您为<span class='headline'>%{project_title}</span>捐助的<span class='amount'>%{amount}</span>"
     success_notice: "您的捐款记录和爱心积分将在确认捐款收到后更新"
     agree_our_service: "同意我们的服务条款"
-    select_anonymous_donate: "请选择是否匿名捐助"
-    anonymous_donate: "匿名捐助"
+    select_anonymous_donate: "匿名捐助"
+    anonymous_donate: "选择匿名捐助"
     choose_other_method: "选择其他支付方式"
+    service_terms: "服务条款"

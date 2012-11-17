@@ -25,13 +25,9 @@ zeroize = (number, length) ->
 
 generateOrderId = () ->
   date = new Date()
-  zeroize(date.getUTCFullYear(), 4) +
-    zeroize(date.getUTCMonth()+1, 2) +
-    zeroize(date.getUTCDate(), 2) +
-    zeroize(date.getUTCHours(), 2) +
-    zeroize(date.getUTCMinutes(), 2) +
-    zeroize(date.getUTCSeconds(), 2) +
-    zeroize(Math.floor(Math.random()*10000000), 7)
+  return sprintf("%04d%02d%02d%02d%02d%02d%07d",
+    date.getUTCFullYear(), date.getUTCMonth()+1, date.getUTCDate(),
+    date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds(), Math.random()*10000000 )
 
 paySubmit = (event) ->
   _loggedIn = false

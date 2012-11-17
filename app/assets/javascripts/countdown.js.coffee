@@ -9,8 +9,8 @@ class CountdownClock
     minutes = Math.floor(timeDiff / (1000*60)) % 60
     hours = Math.floor(timeDiff / (1000*60*60)) % 24
     days = Math.floor(timeDiff / (1000*60*60*24))
-    text = days + "<span>天</span>" +
-      hours + "<span>小时</span>" + minutes + "<span>分</span>" + seconds + "<span>秒</span>"
+    text = sprintf("%02d<span>天</span>%02d<span>时</span>%02d<span>分</span>%02d<span>秒</span>",
+      days, hours, minutes, seconds)
     @element.html(text)
 
   start: () ->

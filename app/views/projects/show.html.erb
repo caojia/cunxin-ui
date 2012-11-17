@@ -56,16 +56,14 @@
 
       <div class="span3 offset1">
         <div class="section first-section">
-          <% unless @payments.blank? %>
-            <div class='donated-users'>
-              <%= content_tag :h2, t('projects.section.donated_users') %>
-              <ul>
-                <% @payments.each do |payment| %>
-                  <li> <%= render :partial => "user_thumb", :locals => { :payment => payment } %> </li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
+          <div class='donated-users'>
+            <%= content_tag :h2, t('projects.section.donated_users') %>
+            <ul>
+              <% @payments.each do |payment| %>
+                <li> <%= render :partial => "user_thumb", :locals => { :payment => payment } %> </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -102,4 +100,7 @@ var jiathis_config={
 }
 </script>
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=89712" charset="utf-8"></script>
-<script type="text/javascript">var targetDate = new Date( <%= (Time.parse("2012-12-30").to_f*1000).floor %>);</script>
+<!-- TODO: Add real finish date -->
+<script type="text/javascript">
+  var targetDate = new Date( <%= (Time.parse("2012-12-30").to_f*1000).floor %>);
+</script>

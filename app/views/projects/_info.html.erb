@@ -7,25 +7,26 @@
 
     <div class="desc-content">
       <%= content_tag :div, t("projects.info.countdown"), :class=>"desc-title" %>
-      <%= content_tag :div, "", :class => "desc-detail countdown" do %> <div id = 'countdown-timer' > </div> <% end %>
+      <%= content_tag :div, "", :class => "desc-detail countdown" do %>
+        <div id = 'countdown-timer' >
+          <%= @time_left.html_safe %>
+        </div>
+      <% end %>
     </div>
 
     <div class="desc-content">
       <%= content_tag :div, t("projects.info.current_amount"), :class=>"desc-title" %>
-      <%= content_tag :div, "￥" + number_with_delimiter(@project.current_amount, :delimiter => ','), :class => "desc-detail amount-text" %>
+      <%= content_tag :div, number_with_delimiter(@project.current_amount, :delimiter => ',') + "元", :class => "desc-detail amount-text" %>
     </div>
 
     <div class="button-content">
-      <div class="followed" id="followed-count-container">
-        <%= t("projects.info.has_followed", :count => @project.followed_users.count).html_safe %>
-      </div>
       <div class="buttons">
         <%= link_to t("projects.info.donate"), donate_path(:project_id => @project.id),
               :id => "project-donate",
               :class => "blue-button donate-button small-button" %>
-        <%= link_to t("projects.info.follow"), follow_path(:id => @project.id), 
+        <%= link_to t("projects.info.follow"), follow_path(:id => @project.id),
               :method => :post,
-              :remote => true, 
+              :remote => true,
               "data-check-following-url" => check_following_path(:id => @project.id),
               :id => "project-follow",
               :class => "green-button small-button" %>

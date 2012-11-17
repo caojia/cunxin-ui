@@ -13,7 +13,7 @@
 
   <div class='desc-content'>
     <%= content_tag :span, t('donation.target_amount'), :class => 'col1' %>
-    <%= content_tag :span, "￥" + number_with_delimiter(@project.target_amount, :delimiter => ","), :class=> 'col2' %>
+    <%= content_tag :span, number_with_delimiter(@project.target_amount, :delimiter => ",") + "元", :class=> 'col2' %>
   </div>
 
   <div class='desc-content project-progress' >

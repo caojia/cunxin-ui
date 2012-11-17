@@ -10,15 +10,15 @@
             <% [10,20,50,100].each do |v| %>
               <li>
                 <%= radio_button_tag :donate_amount, v, @default_amount == v %>
-                <%= label_tag "payment.donate_amount_" + v.to_s, "¥" + v.to_s, :class => "amount-text" %>
+                <%= label_tag "payment.donate_amount_" + v.to_s, v.to_s + "元", :class => "amount-text" %>
               </li>
             <% end %>
             <li>
               <%= radio_button_tag :donate_amount, "other" %>
               <%= label_tag "payment.donate_amount_other", t("donation.donate_amount_other"), :class => "amount-text" %>
               <span class='other-amount-input'>
-                <span>¥</span>
                 <%= text_field_tag :input_amount, "", :disabled => true %>
+                <span>元</span>
               </span>
             </li>
             <div style="clear: both;"> </div>
@@ -81,12 +81,14 @@
               </li>
           </ul>
 
-          <%= hidden_field_tag :project_id, @project.id %>
+          <%= content_tag :h2, t("donation.service_terms") %>
           <div class='agree-service'>
             <%= check_box_tag 'agree_our_service', 'yes', true %>
             <%= label_tag "payment.agree_our_service", t("donation.agree_our_service") %>
           </div>
-          <div><%= submit_tag t("donation.pay"), :id => 'pay-submit', :class => "blue-button small-button" %></div>
+
+          <%= hidden_field_tag :project_id, @project.id %>
+          <div class='donate-button-wrapper'><%= submit_tag t("donation.pay"), :id => 'pay-submit', :class => "blue-button small-button" %></div>
         </div>
       </div>
     <% end %>

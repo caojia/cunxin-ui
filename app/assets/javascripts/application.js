@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require jquery.cookies
 //= require_tree .
+//= require sprintf-0.7-beta1
 
