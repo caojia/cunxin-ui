@@ -193,10 +193,6 @@ img.cunxin-thumb-large-place-holder {
   display: none;
 }
 
-.item [class*="span"] .cunxin-thumb-selected > img {
-  border: 2px solid $lightBlue;
-}
-
 .cunxin-thumb-indicator {
   @include sprites-sprite("thumb-arrow");
   height: sprites-sprite-height("thumb-arrow");

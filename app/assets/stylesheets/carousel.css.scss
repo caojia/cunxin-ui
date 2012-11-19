@@ -162,6 +162,7 @@ a.carousel-control-right {
 @mixin colx-carousel($colx_carousel_height, $colx_carousel_width, $colx_carousel_border)
 {
   height: $colx_carousel_height;
+  $colx_carousel_border_thicker: $colx_carousel_border + 1;
   .item {
     [class*="span"] {
       text-align: center;
@@ -171,8 +172,11 @@ a.carousel-control-right {
         height: $colx_carousel_height - $colx_carousel_border * 2;
         width: $colx_carousel_width - $colx_carousel_border * 2;
         border: $colx_carousel_border solid #ccc;
-        margin-left: -$colx_carousel_border;
-        margin-right: -$colx_carousel_border;
+      }
+      .cunxin-thumb-selected > img {
+        height: $colx_carousel_height - $colx_carousel_border_thicker * 2;
+        width: $colx_carousel_width - $colx_carousel_border_thicker * 2;
+        border: $colx_carousel_border_thicker solid $lightBlue;
       }
       .caption {
         color: white;
