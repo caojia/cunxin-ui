@@ -39,6 +39,10 @@ class Project < ActiveRecord::Base
     @donated_percentage ||= (donated_amount.to_f / target_amount * 100).round
   end
 
+  def thumbnail size="1280"
+    primary_photo.thumb(size) rescue nil
+  end
+
   def thumbnail_large
     primary_photo.thumbnail_large rescue nil
   end

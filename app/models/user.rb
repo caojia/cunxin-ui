@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  DEFAULT_THUMBNAIL_URL = "/images/users/bee-%s.gif"
+  DEFAULT_THUMBNAIL_URL = "/images/users/bee-%s.png"
 
   attr_accessor :agree_pp
   # Setup accessible (or protected) attributes for your model
