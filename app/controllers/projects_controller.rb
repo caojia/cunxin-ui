@@ -2,20 +2,16 @@ class ProjectsController < ApplicationController
   include SinaClient
   before_filter :authenticate_user!, :only => [:follow, :unfollow, :check_following]
 
-  def index
-    @projects = Project.all
-  end
-
   def show
     @project = Project.find(params[:id], :include => [:charity, :photos])
     @photos = @project.photos
     @payments = @project.finished_payments
-    @projects = Project.find(:all, :limit => 5).reject {|proj| proj == @project}
+    @projects = Project.find(:all, :limit => 5, :conditions => {:published => true}).reject {|proj| proj == @project}
     @time_left = get_time_left(@project)
   end
 
   def follow
-    project = Project.find(params[:id].to_i)
+    project = Project.find(params[:id].to_i, :conditions => {:published => true})
     total_followed = 0
     if !project.blank?
       current_user.follow(project) do |user|
@@ -45,7 +41,7 @@ class ProjectsController < ApplicationController
   end
 
   def unfollow
-    project = Project.find(params[:id].to_i)
+    project = Project.find(params[:id].to_i, :conditions => {:published => true})
     if !project.blank?
       current_user.unfollow(project)
     end

@@ -78,4 +78,9 @@ class User < ActiveRecord::Base
     thumbnail.blank? ? (DEFAULT_THUMBNAIL_URL % size) : thumbnail
   end
 
+  # TODO: wtf
+  def recommended_projects limit
+    Project.find(:all, :conditions => {:published => true})
+  end
+
 end

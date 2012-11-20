@@ -2,7 +2,7 @@ class ProfileController < ApplicationController
   PAGE_LIMIT = 10
 
   before_filter :authenticate_user!
-  before_filter :prepare_tabs
+  before_filter :prepare_tabs, :prepare_right
 
   def index
     @user = current_user
@@ -86,5 +86,9 @@ class ProfileController < ApplicationController
       else
         render :json => resource.errors.to_json, :status => :unprocessable_entity
       end
+    end
+
+    def prepare_right
+      @projects = current_user.recommended_projects(limit=5)
     end
 end

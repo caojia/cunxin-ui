@@ -61,4 +61,5 @@ class Project < ActiveRecord::Base
     self.published_at = Time.now.utc
     self.published = true
   end
+
 end

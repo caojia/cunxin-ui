@@ -30,4 +30,16 @@
   legend {
     font-size: 16px;
   }
+
+  .nav-tabs > .active > a,
+  .nav-tabs > .active > a:hover {
+    color: $darkBlue;
+  }
+
+  .nav-tabs > li > a {
+    color: $gray;
+    &:hover {
+      color: $darkBlue;
+    }
+  }
 }

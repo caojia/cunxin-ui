@@ -1,13 +1,17 @@
 <div class="no-head-carousel clearfix">
-  <div id="profile" class="container profile-container">
-    <div class="span8">
-      <%= render :partial => "nav" %>
-      <div class="profile-content bordered-content">
-        <div class="alert hide">
-          <a class="close" data-dismiss="alert">&#215;</a>
-          <%= content_tag :div, "abcd" %>
+  <div id="profile" class="container profile-container container-fluid">
+    <div class="row-fluid">
+      <div class="span8">
+        <%= render :partial => "nav" %>
+        <div class="profile-content bordered-content">
+          <div class="alert hide">
+            <a class="close" data-dismiss="alert">&#215;</a>
+            <%= content_tag :div, "abcd" %>
+          </div>
+          <%= render :partial => @partial %>
         </div>
-        <%= render :partial => @partial %>
+      </div>
+      <div class="span4">
       </div>
     </div>
   </div>

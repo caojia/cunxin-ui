@@ -21,7 +21,7 @@ class DonationController < ApplicationController
     ]
 
   def donate
-    @project = Project.find(params[:project_id], :include => [:charity] )
+    @project = Project.find(params[:project_id], :include => [:charity], :conditions => {:published => true})
     @default_amount = 10
     @payment_target = @@payment_target.dup
 
@@ -39,7 +39,7 @@ class DonationController < ApplicationController
 
   def pay
     @order_id = params[:order_id]
-    @project = Project.find(params[:project_id])
+    @project = Project.find(params[:project_id], :conditions => {:published => true})
     @donate_amount = (params[:donate_amount] != 'other') ? params[:donate_amount] : params[:input_amount]
     @payment_method = params[:payment_method]
 
@@ -52,7 +52,7 @@ class DonationController < ApplicationController
   def success
     @payment = Payment.find(:first, :conditions => {:order_id => params[:order_id]}, :include => [:project] )
     @project = @payment.project
-    @projects = Project.find(:all).reject {|proj| proj == @project}
+    @projects = Project.find(:all, :conditions => {:published => true}).reject {|proj| proj == @project}
   end
 
   def fail
