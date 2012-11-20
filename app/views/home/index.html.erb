@@ -30,7 +30,7 @@
   <div class="container summary-container">
     <div class="summary-item first">
       <div class="num">
-        <%= number_with_delimiter(@summary[:projects_count], :delimiter => ',') %>
+        <%= number_with_delimiter(@summary[:projects_count]) %>
       </div>
       <div class="text">
         <%= t("home.summary.text.projects_count") %>
@@ -38,7 +38,7 @@
     </div>
     <div class="summary-item larger">
       <div class="num">
-        <%= number_with_delimiter(@summary[:amount], :delimiter => ',') %>
+        <%= number_with_delimiter(@summary[:amount]) %>
       </div>
       <div class="text">
         <%= t("home.summary.text.amount") %>
@@ -46,7 +46,7 @@
     </div>
     <div class="summary-item larger">
       <div class="num">
-        <%= number_with_delimiter(@summary[:people_count], :delimiter => ',') %>
+        <%= number_with_delimiter(@summary[:people_count]) %>
       </div>
       <div class="text">
         <%= t("home.summary.text.people_count") %>
@@ -54,7 +54,7 @@
     </div>
     <div class="summary-item last">
       <div class="num">
-        <%= number_with_delimiter(@summary[:charities_count], :delimiter => ',') %>
+        <%= number_with_delimiter(@summary[:charities_count]) %>
       </div>
       <div class="text">
         <%= t("home.summary.text.charities_count") %>

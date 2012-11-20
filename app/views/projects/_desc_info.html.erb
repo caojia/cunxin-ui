@@ -27,7 +27,7 @@
 
       <tr class="desc-content">
         <%= content_tag :td, t("projects.desc_info.target_amount"), :class => "col1" %>
-        <%= content_tag :td, number_with_delimiter(@project.target_amount, :delimiter => ",") + "元", :class => "col2" %>
+        <%= content_tag :td, number_to_currency(@project.target_amount), :class => "col2" %>
       </tr>
 
       <tr class="desc-content" id="followed-count-container">

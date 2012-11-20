@@ -5,8 +5,7 @@
   <%= content_tag :div, payment.user.name %>
   <div>
     <span><%= t("projects.section.donated_amount_label") %></span>
-    <span><%= t("projects.section.donated_amount", 
-                :amount => number_with_delimiter(payment.amount, :delimiter => ',')) %></span>
+    <span><%= number_to_currency(payment.amount) %></span>
   </div>
 </div>
 <div class="clearfix"></div>

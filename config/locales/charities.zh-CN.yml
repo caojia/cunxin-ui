@@ -1,6 +1,6 @@
 zh-CN:
   charities:
     projects_count: "该慈善机构项目数%{projects_count}个"
-    total_donated: "累计捐款%{total_donated}元"
+    total_donated: "累计捐款%{total_donated}"
     project_title: "慈善项目"
     introduction: "慈善机构简介"

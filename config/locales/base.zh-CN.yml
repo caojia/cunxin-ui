@@ -5,3 +5,13 @@ zh-CN:
   date:
     formats:
       default: "%Y年%m月%d日"
+  number:
+    format:
+      delimiter: ","
+    currency:
+      format:
+        unit: "元"
+        separator: "."
+        delimiter: ","
+        precision: 0
+        format: "%n%u"

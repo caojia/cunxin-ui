@@ -9,14 +9,14 @@
       <%= content_tag :div, t("projects.info.countdown"), :class=>"desc-title" %>
       <%= content_tag :div, "", :class => "desc-detail countdown" do %>
         <div id = 'countdown-timer' >
-          <%= @time_left.html_safe %>
+          <%= get_time_left(@project).html_safe %>
         </div>
       <% end %>
     </div>
 
     <div class="desc-content">
       <%= content_tag :div, t("projects.info.current_amount"), :class=>"desc-title" %>
-      <%= content_tag :div, number_with_delimiter(@project.current_amount, :delimiter => ',') + "元", :class => "desc-detail amount-text" %>
+      <%= content_tag :div, number_to_currency(@project.current_amount), :class => "desc-detail amount-text" %>
     </div>
 
     <div class="button-content">

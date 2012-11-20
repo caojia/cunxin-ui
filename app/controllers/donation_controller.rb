@@ -1,4 +1,6 @@
 class DonationController < ApplicationController
+  helper ProjectsHelper
+
   @@payment_target = [
       {:name => 'icbc', :img_url => "/payment/icbc.png", :category => :bank},
       {:name => 'ccb', :img_url => "/payment/ccb.png", :category => :bank},
@@ -109,7 +111,6 @@ class DonationController < ApplicationController
     payment.account = account
     payment.amount = donate_amount
     payment.currency_type = 'RMB'
-    #payment.order_id = "%s%07d" % [ Time.now.strftime("%y%m%d%H%M%S"), SecureRandom.random_number(10000000) ]
     payment.order_id = order_id
     payment.status = 'new'
     payment.anonymous = options[:anonymous] == '1'

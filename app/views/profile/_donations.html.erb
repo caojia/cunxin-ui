@@ -21,7 +21,7 @@
           <%= link_to project.headline, project_path(project) %>
         </td>
         <td class='td15'>
-          <%= "￥" + number_with_delimiter(payment.amount, :delimiter => ",") %>
+          <%= number_to_currency(payment.amount) %>
         </td>
         <td class='td25'>
           <%= payment.created_at.in_time_zone("Beijing").strftime("%Y-%m-%d %H:%M:%S") %>

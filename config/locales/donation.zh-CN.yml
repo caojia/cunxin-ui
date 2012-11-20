@@ -21,3 +21,8 @@ zh-CN:
     anonymous_donate: "选择匿名捐助"
     choose_other_method: "选择其他支付方式"
     service_terms: "服务条款"
+    info:
+      target_amount: "目标金额："
+      current_amount: "已获捐助："
+      countdown: "剩余时间："
+      has_followed: "关注人数："

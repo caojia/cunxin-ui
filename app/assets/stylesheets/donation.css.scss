@@ -75,7 +75,7 @@ div.donate-page {
       }
     }
 
-    .desc-content {
+    .desc-content td {
       padding-top: 5px;
       .col1 {
         padding-right: 5px;
@@ -83,18 +83,8 @@ div.donate-page {
       }
     }
 
-    div.project-progress {
-      .progress {
-        top: 3px;
-        margin-bottom: 1px;
-        div.progress-text-container {
-          line-height: 15px;
-        }
-      }
-      margin-bottom: 5px;
-    }
-
     div.project-desc {
+      padding-top: 5px;
       color: $gray;
       line-height: 24px;
     }

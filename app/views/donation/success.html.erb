@@ -2,8 +2,8 @@
   <%= content_tag(:div,
     t('donation.thank_note',
       :project_title => @project.headline,
-      :amount => "￥" + number_with_delimiter(@payment.amount, :delimiter => ",")).html_safe,
-     :class=>'thank-note') %>
+      :amount => number_to_currency(@payment.amount),
+      :class=>'thank-note') %>
 
   <div>
     <%= content_tag :div, t('donation.success_notice'), :class => 'score-notice' %>

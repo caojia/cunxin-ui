@@ -6,37 +6,32 @@
     <% end %>
   </div>
 
-  <div class='desc-content'>
-    <%= content_tag :span, t('donation.charity'), :class => 'col1' %>
-    <%= content_tag :span, @project.charity.name, :class => 'col2' %>
-  </div>
+  <table>
+    <tr class='desc-content'>
+      <%= content_tag :td, t('donation.info.target_amount'), :class => 'col1' %>
+      <%= content_tag :td, number_to_currency(@project.target_amount), :class=> 'col2' %>
+    </tr>
 
-  <div class='desc-content'>
-    <%= content_tag :span, t('donation.target_amount'), :class => 'col1' %>
-    <%= content_tag :span, number_with_delimiter(@project.target_amount, :delimiter => ",") + "元", :class=> 'col2' %>
-  </div>
+    <tr class='desc-content'>
+      <%= content_tag :td, t('donation.info.current_amount'), :class => 'col1' %>
+      <%= content_tag :td, number_to_currency(@project.current_amount), :class=> 'col2' %>
+    </tr>
 
-  <div class='desc-content project-progress' >
-    <%= content_tag :span, t("donation.progress"), :class=>'col1' %>
-    <span class='col2'>
-      <span class='progress-wrapper'>
-        <span class='progress bar-striped active' style="width: 140px">
-          <div class='bar' style="width: <%= @project.donated_percentage %>%;">
-          </div>
-          <div class='bar bar-success user-bar' style='width: 0;' >
-          </div>
-          <div class='progress-text-container' >
-            <%= @project.donated_percentage %>%
-          </div>
-        </span>
-      </span>
-    </span>
-  </div>
+    <tr class="desc-content">
+      <%= content_tag :td, t("donation.info.countdown"), :class=>"col1" %>
+      <%= content_tag :td, "", :class => "col2" do %>
+        <div id = 'countdown-timer' > <%= get_time_left(@project).html_safe %> </div>
+      <% end %>
+    </tr>
+
+    <tr class="desc-content">
+      <%= content_tag :td, t("donation.info.has_followed"), :class => "col1" %>
+      <%= content_tag :td, number_with_delimiter(@project.followed_users.count), :class => "col2" %>
+    </tr>
+  </table>
 
   <% # TODO: use short_description %>
-  <div class='desc-content'>
-    <%= content_tag :div, truncate(@project.description, :length => 250, :omission => '...'), :class=>'project-desc' %>
-  </div>
+  <%= content_tag :div, truncate(@project.description, :length => 250, :omission => '...'), :class=>'project-desc' %>
 
   <div style="clear: both;"> </div>
 </div>

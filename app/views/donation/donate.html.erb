@@ -10,7 +10,7 @@
             <% [10,20,50,100].each do |v| %>
               <li>
                 <%= radio_button_tag :donate_amount, v, @default_amount == v %>
-                <%= label_tag "payment.donate_amount_" + v.to_s, v.to_s + "元", :class => "amount-text" %>
+                <%= label_tag "payment.donate_amount_" + v.to_s, number_to_currency(v), :class => "amount-text" %>
               </li>
             <% end %>
             <li>
@@ -99,3 +99,7 @@
   <div style="clear: both;"> </div>
 </div>
 <%= render :partial=>'pay_confirm_popup' %>
+<!-- TODO: Add real finish date -->
+<script type="text/javascript">
+  var targetDate = new Date( <%= (Time.parse("2012-12-30").to_f*1000).floor %>);
+</script>

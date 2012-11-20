@@ -7,7 +7,6 @@ class ProjectsController < ApplicationController
     @photos = @project.photos
     @payments = @project.finished_payments
     @projects = Project.find(:all, :limit => 5, :conditions => {:published => true}).reject {|proj| proj == @project}
-    @time_left = get_time_left(@project)
   end
 
   def follow
@@ -52,16 +51,5 @@ class ProjectsController < ApplicationController
   def check_following
     following = current_user.following?(params[:id].to_i)
     render :json => {:is_following => following}.to_json
-  end
-
-  private
-  def get_time_left(project)
-    timeDiff = (Time.parse("2012-12-30") - Time.now).to_i
-    if timeDiff > 0
-      a = [timeDiff / (24*3600), timeDiff / 3600 % 24, timeDiff / 60 % 60, timeDiff % 60 ]
-    else
-      a = [0, 0, 0, 0]
-    end
-    t("projects.info.time_left") % a
   end
 end
