@@ -2,7 +2,7 @@
   <%= content_tag(:div,
     t('donation.thank_note',
       :project_title => @project.headline,
-      :amount => number_to_currency(@payment.amount),
+      :amount => number_to_currency(@payment.amount)).html_safe,
       :class=>'thank-note') %>
 
   <div>
