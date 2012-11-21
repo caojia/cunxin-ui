@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110094842) do
+ActiveRecord::Schema.define(:version => 20121121140832) do
 
   create_table "accounts", :force => true do |t|
     t.string   "payment_method"
@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(:version => 20121110094842) do
     t.datetime "created_at",                                                          :null => false
     t.datetime "updated_at",                                                          :null => false
     t.string   "title_image"
+    t.datetime "finished_at"
   end
 
   add_index "projects", ["canonical_name"], :name => "index_projects_on_canonical_name"

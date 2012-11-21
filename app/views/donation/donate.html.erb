@@ -99,7 +99,6 @@
   <div style="clear: both;"> </div>
 </div>
 <%= render :partial=>'pay_confirm_popup' %>
-<!-- TODO: Add real finish date -->
 <script type="text/javascript">
-  var targetDate = new Date( <%= (Time.parse("2012-12-30").to_f*1000).floor %>);
+  var targetDate = new Date( <%= (@project.finished_at.to_f*1000).floor %>);
 </script>

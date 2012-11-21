@@ -2,6 +2,8 @@ $ = jQuery
 
 _thumbs = ".cunxin-thumb"
 _target = ".cunxin-thumb-large-container"
+_headWrapper = ".head-carousel-wrapper"
+_thumbIndicator = ".cunxin-thumb-indicator"
 _selectedClass = "cunxin-thumb-selected"
 _placeHolderClass = "cunxin-thumb-large-place-holder"
 
@@ -27,6 +29,8 @@ class Thumbnail
         appendTo(target)
       $(thumb).data(_dataThumbLarge, img))
     @thumbs.click(@onclick).first().addClass(_selectedClass)
+    @currentTarget = @thumbs.first()
+    @updateThumbIndicatorPos()
 
   hideCurrent: () => @visibleImg.fadeOut()
 
@@ -40,9 +44,17 @@ class Thumbnail
 
   onclick: (event) =>
     @currentTarget = $(event.currentTarget)
+    @updateThumbIndicatorPos()
     $.when(@hideCurrent(), @showLarge()).done(@switchSelected)
     event.preventDefault()
 
-$ -> 
+  updateThumbIndicatorPos: () =>
+    indicator = $(_thumbIndicator)
+    indicator.animate(
+      {left: (@currentTarget.offset().left-$(_headWrapper).offset().left)+@currentTarget.outerWidth()/2-indicator.outerWidth()/2}
+      , 500
+    )
+
+$ ->
   new Thumbnail(_thumbs)
 

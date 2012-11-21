@@ -1,14 +1,17 @@
-<div id="head-carousel" class="carousel head-carousel">
-  <div class="carousel-inner relative">
-    <div class="active item cunxin-thumb-large-container">
-      <%= image_tag @project.thumbnail("1280"), :alt => @project.headline, :class => "resizeable", "data-image-large" => @project.thumbnail("1600") %>
+<div class="head-carousel-wrapper">
+  <div id="head-carousel" class="carousel head-carousel">
+    <div class="carousel-inner relative">
+      <div class="active item cunxin-thumb-large-container">
+        <%= image_tag @project.thumbnail("1280"), :alt => @project.headline, :class => "resizeable", "data-image-large" => @project.thumbnail("1600") %>
+      </div>
+    </div>
+    <div class="project-info-container-positioner">
+      <div class="project-info-container">
+        <%= render :partial => "info" %>
+      </div>
     </div>
   </div>
-  <div class="project-info-container-positioner">
-    <div class="project-info-container">
-      <%= render :partial => "info" %>
-    </div>
-  </div>
+  <div class="cunxin-thumb-indicator"> </div>
 </div>
 
 <div class="container project-carousel">
@@ -100,7 +103,6 @@ var jiathis_config={
 }
 </script>
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=89712" charset="utf-8"></script>
-<!-- TODO: Add real finish date -->
 <script type="text/javascript">
-  var targetDate = new Date( <%= (Time.parse("2012-12-30").to_f*1000).floor %>);
+  var targetDate = new Date( <%= (@project.finished_at.to_f*1000).floor %>);
 </script>

@@ -193,14 +193,17 @@ img.cunxin-thumb-large-place-holder {
   display: none;
 }
 
-.cunxin-thumb-indicator {
-  @include sprites-sprite("thumb-arrow");
-  height: sprites-sprite-height("thumb-arrow");
-  width: sprites-sprite-width("thumb-arrow");
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  left: 200px;
+div.head-carousel-wrapper {
+  position: relative;
+  .cunxin-thumb-indicator {
+    @include sprites-sprite("thumb-arrow");
+    height: sprites-sprite-height("thumb-arrow");
+    width: sprites-sprite-width("thumb-arrow");
+    display: inline-block;
+    position: absolute;
+    bottom: -3px;
+    left: 200px;
+  }
 }
 
 .jiathis-button-container {

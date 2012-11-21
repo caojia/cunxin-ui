@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
             logger.info "updating sina weibo status"
             begin
               sina_client.statuses.update(
-                t("projects.sina_follow_message", 
+                t("projects.sina_follow_message",
                   :project_name => project.headline,
                   :url => project_path(project, :only_path => false)))
             rescue
