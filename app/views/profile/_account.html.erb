@@ -36,7 +36,21 @@
     <div class="control-group" id='account-email-field'>
       <%= f.label :email, t("profile.account.email"), :class => "control-label" %>
       <div class="controls">
-        <%= content_tag :span, @user.email, :class => "field-content" %>
+        <%= content_tag :span, :class => "field-content" do %>
+          <%= @user.email %>
+          <% if !@user.confirmed? %>
+            <span class="gray">
+              <span>
+                (<%= t("profile.account.email_not_confirmed") %>,
+                <%= link_to t("profile.account.resend_confirmation"), resend_confirmation_path, :remote => true, :method => :post, :id => "resend-confirmation" %>
+                )
+              </span>
+              <span class="hide gray" id="confirmation-resent">
+                (<%= t("profile.account.confirmation_resent") %>)
+              </span>
+            </span>
+          <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>
@@ -116,20 +130,22 @@
 </div>
 
 <div id="oauth-bindings" class="section">
-  <%= form_for @user do %>
+  <%= form_for @user, :html => {:class => "form-horizontal"} do %>
     <legend><%= t("profile.legend.bindings") %></legend>
-    <% if @user.sina_connected? %>
-      <div>
-        <%= t("profile.bindings.sina.is_connected") %>
-        <%= link_to t("profile.bindings.disconnect"), sina_disconnect_path %>
+    <div class="control-group">
+      <label class="control-label"><%= t("profile.bindings.sina.label") %></label>
+      <div class="controls">
+        <div class="sina-connect-status">
+          <% if @user.sina_connected? %>
+            <%= image_tag "sina-logo-24.png" %>
+            <%= link_to t("profile.bindings.disconnect"), sina_disconnect_path %>
+          <% else %>
+            <%= link_to sina_connect_path, :class => "no-decoration" do %>
+              <%= image_tag "sina-logo-24-gray.png" %>
+            <% end %>
+            <%= link_to t("profile.bindings.connect"), sina_connect_path %>
+          <% end %>
+        </div>
       </div>
-    <% else %>
-      <div>
-        <%= t("profile.bindings.sina.not_connected") %>
-        <%= link_to sina_connect_path do %>
-          <%= image_tag "sina24.png" %>
-        <% end %>
-      </div>
-    <% end %>
   <% end %>
 </div>

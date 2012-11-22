@@ -10,6 +10,7 @@ CunxinUi::Application.routes.draw do
   # users
   get "signup", :to => "users#new", :as => :signup
   post "users/bind", :to => "users#bind_account", :as => :bind_user
+  post "users/resend_confirmation", :to => "users#resend_confirmation", :as => :resend_confirmation
   resources :users, :only => [:index, :create, :show]
 
   get "sina/connect", :to => "sina#connect", :as => :sina_connect
@@ -28,7 +29,7 @@ CunxinUi::Application.routes.draw do
   put "profile/:action", :controller => "profile", :as => :update_user_fields
   get "profile/projects", :to => "profile#projects", :as => :projects_profile
   get "profile/donations", :to => "profile#donations", :as => :donations_profile
-  get "profile/awards", :to => "profile#awards", :as => :awards_profile
+  get "profile/rewards", :to => "profile#rewards", :as => :rewards_profile
 
   # charity
   resources :charities, :only => [:show]

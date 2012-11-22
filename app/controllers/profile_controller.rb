@@ -70,7 +70,7 @@ class ProfileController < ApplicationController
         { :name => "account",
           :link => profile_path },
         { :name => "awards",
-          :link => awards_profile_path }
+          :link => rewards_profile_path }
       ]
       @profile_tabs_hash = {}
       @profile_tabs.each do |t| 

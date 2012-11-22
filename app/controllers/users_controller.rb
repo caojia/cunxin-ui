@@ -4,10 +4,11 @@ class UsersController < ApplicationController
   skip_before_filter :reset_sina_user_from_session, :only => [:new, :create, :bind_account, :bind_account_auth_failure]
   skip_before_filter :verify_authenticity_token, :only => [:bind_account]
 
+  before_filter :authenticate_user!, :only => [:resend_confirmation]
 
-  def index
-    authorize! :index, @user, :message => 'Not authorized as an administrator.'
-    @users = User.all
+  def resend_confirmation
+    current_user.resend_confirmation_token
+    render(:json => {:success => true})
   end
 
   def bind_account

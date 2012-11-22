@@ -49,11 +49,12 @@ class Thumbnail
     event.preventDefault()
 
   updateThumbIndicatorPos: () =>
-    indicator = $(_thumbIndicator)
-    indicator.animate(
-      {left: (@currentTarget.offset().left-$(_headWrapper).offset().left)+@currentTarget.outerWidth()/2-indicator.outerWidth()/2}
-      , 500
-    )
+    if @currentTarget.get(0)
+      indicator = $(_thumbIndicator)
+      indicator.animate(
+        {left: (@currentTarget.offset().left-$(_headWrapper).offset().left)+@currentTarget.outerWidth()/2-indicator.outerWidth()/2}
+        , 500
+      )
 
 $ ->
   new Thumbnail(_thumbs)
