@@ -51,7 +51,6 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
     text-align: center;
     float: left;
     padding: 10px 0;
-    font-weight: bold;
     width: 20%;
     border-left: 1px solid #c1c1c1;
     margin-left: -1px;
@@ -77,6 +76,7 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   color: $darkGreen;
   line-height: 1.5em;
   margin-top: 20px;
+  @include text-shadow(1px 1px 0 rgba(0,0,0,0.1));
 }
 
 .cunxin-detail {
@@ -91,9 +91,17 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
     line-height: 1.5em;
   }
   .description {
-    &, p {
+    & {
       text-align: justify;
-      text-indent: 2em;
+    }
+    ul {
+      margin-left: 0;
+    }
+    li {
+      margin-bottom: .5em;
+      text-indent: 0em;
+      list-style-type: circle;
+      list-style-position: outside;
     }
   }
 }
