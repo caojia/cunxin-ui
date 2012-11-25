@@ -3,6 +3,7 @@ $banner-height: $nav-bar-height;
 $logo-height: 40px;
 .nav-bar-wrapper {
   position: relative;
+  z-index: 1000;
 
   .cunxin-nav-bar {
     background-repeat: repeat-x;
@@ -92,4 +93,8 @@ $logo-height: 40px;
 
 .no-head-carousel {
   margin-top: $nav-bar-height;
+}
+
+.nav-scroll-control {
+  min-height: $nav-bar-height + 10px;
 }

@@ -1,8 +1,46 @@
 <div class="aboutus static-page">
-  <div id="head-carousel" class="carousel slide head-carousel">
-    <div class="carousel-inner">
-      <div class="item active">
+  <div id="head-about-carousel" class="nav-scroll-control relative hide">
+    <% 1.upto(6) do |i| %>
+      <div class="item" id="<%= 'about-item-%d' % i %>">
+        <%= image_tag "/images/about/Slide%d.jpg" % i %>
+        <% if i == 6 %>
+          <div class="contact-info">
+            <div id="about-sina-weibo" class="info-item">
+              <div id="contact-cunxin-follow"></div>
+            </div>
+            <div id="about-weixin" class="info-item">
+              <%= image_tag "cunxin-weixin-barcode.jpg", :size => "50x50", 
+                "data-toggle" => "modal",
+                "data-target" => "#cunxin-weixin-larger-container",
+                :class => "enlargeable" %>
+              <div>微信号：<br/>cunxin_cn</div>
+            </div>
+            <div id="about-email" class="info-item">
+              help@cunxin.org
+            </div>
+          </div>
+        <% end %>
       </div>
+    <% end %>
+  </div>
+  <div class="nav-wrapper">
+    <div class="nav-container" id="about-carousel-navs">
+      <a href="#" rel="tooltip" title="上一页" id="prev" class="prev with-tooltip"><div class="control"></div></a>
+      <a href="#" rel="tooltip" title="下一页" id="next" class="next with-tooltip"><div class="control"></div></a>
     </div>
   </div>
+  <div class="modal hide fade" id="cunxin-weixin-larger-container">
+    <%= image_tag "cunxin-weixin-barcode-large.jpg" %>
+    <div class="close-button" data-dismiss="modal"></div>
+  </div>
 </div>
+
+<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=<%= WeiboOAuth2::Config.api_key %>" type="text/javascript" charset="utf-8"></script>
+<%= javascript_tag :defer => "defer" do %>
+WB2.anyWhere(function(W){
+    W.widget.followButton({
+        'id': "contact-cunxin-follow",
+        'nick_name': '寸心网'
+    });
+});
+<% end %>

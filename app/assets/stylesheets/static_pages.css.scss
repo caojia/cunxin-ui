@@ -39,9 +39,118 @@
   }
 }
 
-.aboutus {
-  .aboutus-signup-container {
-    margin: 10px auto;
-    text-align: center;
+body.about {
+  background-image: none;
+  overflow: hidden;
+  #head-about-carousel {
+    .item {
+      position: absolute;
+      width: 1000px;
+    }
+  }
+  $nav-container-width: sprites-sprite-width("circle-right") + sprites-sprite-width("circle-left") + 10px;
+  .nav-wrapper {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    width: $nav-container-width;
+  }
+  .nav-container {
+    position: relative;
+    left: - $nav-container-width / 2;
+  }
+  .next {
+    cursor: pointer;
+    float: left;
+    .control {
+      margin-left: 10px;
+      width: sprites-sprite-width("circle-right");
+      height: sprites-sprite-height("circle-right");
+      @include sprites-sprite("circle-right");
+      &:hover {
+        @include sprites-sprite("circle-right-hover");
+      }
+    }
+  }
+  .prev {
+    cursor: pointer;
+    float: left;
+    .control {
+      width: sprites-sprite-width("circle-left");
+      height: sprites-sprite-height("circle-left");
+      @include sprites-sprite("circle-left");
+      &:hover {
+        @include sprites-sprite("circle-left-hover");
+      }
+    }
+  }
+  #footer {
+    display: none;
+  }
+  /* hide the login nav for now */
+  #login-nav {
+    display: none;
+  }
+}
+
+#cunxin-weixin-larger-container {
+  width: 450px;
+  text-align: center;
+  margin-left: -225px;
+  overflow: visible;
+  .close-button {
+    cursor: pointer;
+    width: sprites-sprite-width("fancy-close");
+    height: sprites-sprite-height("fancy-close");
+    @include sprites-sprite("fancy-close");
+    position: absolute;
+    right: -15px;
+    top: -15px;
+  }
+}
+
+body.contact {
+  background-image: none;
+}
+
+.aboutus, .contact {
+  .item {
+    .contact-info {
+      position: absolute;
+      top: 380px;
+      left: 138px;
+
+      .info-item {
+        width: 252px;
+        min-height: 100px;
+        float: left;
+        text-align: center;
+      }
+
+      #about-sina-weibo {
+        padding-left: 80px;
+        width: 172px;
+        #contact-cunxin-follow {
+          text-align: left;
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+
+      #about-weixin {
+        padding-left: 80px;
+        width: 172px;
+        text-align: left;
+        img {
+          float: left;
+          padding-right: 10px;
+        }
+      }
+
+      #about-email {
+        padding-top: 10px;
+      }
+    }
   }
 }

@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.cookies
-//= require_tree .
+//= require jquery.easing.js
+//= require jquery.scrollpath.js
 //= require sprintf-0.7-beta1
-
+//= require underscore
+//= require_tree .

@@ -11,7 +11,7 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <body>
+  <body class="<%= @body_class %>">
     <div class="nav-bar-wrapper">
       <div class="navbar navbar-inverse navbar-fixed-top cunxin-nav-bar" id="cunxin-nav">
         <div class="navbar-inner">

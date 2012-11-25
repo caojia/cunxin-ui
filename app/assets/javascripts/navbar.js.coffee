@@ -4,7 +4,7 @@ _navbar = "#cunxin-nav"
 _mask = ".mask"
 _hiddenOpacityClass = "opacity0"
 _showOpacityClass = "opacity3"
-_masthead = "#head-carousel"
+_masthead = ".nav-scroll-control"
 
 class NavBar
   constructor: (@navbar, @masthead) -> @mask = @navbar.find(_mask)
