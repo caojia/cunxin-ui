@@ -22,10 +22,12 @@ class Project < ActiveRecord::Base
     return User.find(:all)
   end
 
-  def finished_payments
+  def finished_payments opt={}
     payments = Payment.find(:all,
                             :conditions =>{ :project_id => self.id },
-                            :include => [:user] )
+                            :include => [:user],
+                            :limit => opt[:limit]
+                           )
     return payments
   end
 

@@ -21,19 +21,29 @@
 
     <div class="button-content">
       <div class="buttons">
-        <%= link_to t("projects.info.donate"), donate_path(:project_id => @project.id),
-              :id => "project-donate",
-              :class => "blue-button donate-button small-button" %>
-        <%= link_to t("projects.info.follow"), follow_path(:id => @project.id),
-              :method => :post,
-              :remote => true,
-              "data-check-following-url" => check_following_path(:id => @project.id),
-              :id => "project-follow",
-              :class => "green-button small-button" %>
+        <div class='button green-btn'>
+          <div class='btn-left'>
+            <%= link_to t("projects.info.donate"), donate_path(:project_id => @project.id),
+                  :id => "project-donate",
+                  :class => "no-decoration" %>
+          </div>
+          <div class='btn-right'> </div>
+        </div>
+        <div class='button blue-btn'>
+          <div class='btn-left'>
+            <%= link_to t("projects.info.follow"), follow_path(:id => @project.id),
+                  :method => :post,
+                  :remote => true,
+                  "data-check-following-url" => check_following_path(:id => @project.id),
+                  :id => "project-follow",
+                  :class => "no-decoration" %>
+          </div>
+          <div class='btn-right'> </div>
+        </div>
         <%= link_to t("projects.info.following"), "#",
               :id => "project-following",
               :style => "display: none;",
-              :class => "dark-green-button small-button hidden disabled" %>
+              :class => "no-decoration" %>
       </div>
     </div>
   </div>

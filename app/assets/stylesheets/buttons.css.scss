@@ -1,3 +1,7 @@
+$buttonMarginWidth: 3px;
+$buttonHeight: sprites-sprite-height("green-button");
+$buttonFontSize: 19px;
+
 @mixin button($background-color, $background-hover-color, $border-color)
 {
   display: inline-block;
@@ -63,5 +67,62 @@ input.signin-button {
   @include sprites-sprite("donate-button");
   &:hover {
     @include sprites-sprite("donate-button-hover");
+  }
+}
+
+div.button {
+  display: inline-block;
+  position: relative;
+  height: $buttonHeight;
+  .btn-left {
+    background: green;
+    font-size: $buttonFontSize;
+    margin-right: $buttonMarginWidth;
+    a {
+      color: #F4F4F4;
+      padding: ($buttonHeight - $buttonFontSize)/2 30px-$buttonMarginWidth ($buttonHeight - $buttonFontSize)/2 30px;
+      display: block;
+    }
+  }
+  .btn-right {
+    width: $buttonMarginWidth;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+}
+
+div.button.green-btn {
+  .btn-left {
+    @include sprites-sprite("green-button")
+  }
+  .btn-right {
+    @include sprites-sprite("green-button", false, -(sprites-sprite-width("green-button")-$buttonMarginWidth), 0px)
+  }
+  &.hover {
+    .btn-left {
+      @include sprites-sprite("green-button-hover")
+    }
+    .btn-right {
+      @include sprites-sprite("green-button-hover", false, -(sprites-sprite-width("green-button-hover")-$buttonMarginWidth), 0px)
+    }
+  }
+}
+
+div.button.blue-btn {
+  .btn-left {
+    @include sprites-sprite("blue-button")
+  }
+  .btn-right {
+    @include sprites-sprite("blue-button", false, -(sprites-sprite-width("blue-button")-$buttonMarginWidth), 0px)
+  }
+  &.hover {
+    .btn-left {
+      @include sprites-sprite("blue-button-hover")
+    }
+    .btn-right {
+      @include sprites-sprite("blue-button-hover", false, -(sprites-sprite-width("blue-button-hover")-$buttonMarginWidth), 0px)
+    }
   }
 }

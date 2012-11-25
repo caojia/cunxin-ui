@@ -1,4 +1,4 @@
-// Place all the styles related to the payment controller here.
+// Place all the styles related to the donation controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -32,7 +32,7 @@ div.donate-page {
     border: 1px solid #d4d4d4;
     padding: 10px;
     margin-bottom: 15px;
-    border-radius: 4px;
+    @include border-radius(4px);
     background: white;
 
     h2 {
@@ -56,7 +56,7 @@ div.donate-page {
   div.project-desc-wrapper {
     border: 1px solid #d4d4d4;
     padding: 15px;
-    border-radius: 4px;
+    @include border-radius(4px);
     background: white;
 
     div.project-thumbnail {
@@ -125,12 +125,14 @@ div.donate-page {
       float:left;
       position: relative;
       margin-bottom: 15px;
-      margin-right: 10px;
+      margin-right: 5px;
 
       div.payment-logo {
         display: inline-block;
         border: 1px solid #aaaaaa;
         padding: 1px;
+        width: 123px;
+        height: 30px;
 
         img {
           width: 123px;

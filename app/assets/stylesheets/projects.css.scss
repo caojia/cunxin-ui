@@ -36,7 +36,7 @@ $project-info-width: 300px;
 
 .project-desc-info {
   background: #ddd;
-  border-radius: 2px;
+  @include border-radius(2px);
   padding: 10px 15px;
   font-size: 15px;
   line-height: 31px;

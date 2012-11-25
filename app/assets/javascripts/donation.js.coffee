@@ -14,15 +14,6 @@ chooseOtherMethodSelector = "a#choose-other-method"
 payFailedSelector = "a#pay-failed"
 donateAmountInputSelector = "input[name='input_amount']"
 
-zeroize = (number, length) ->
-  s = String(number)
-  length = 1 if length == null
-  zeros = ''
-  if length > s.length
-    for x in [0...(length-s.length)]
-      zeros += '0'
-  zeros + s
-
 generateOrderId = () ->
   date = new Date()
   return sprintf("%04d%02d%02d%02d%02d%02d%07d",
