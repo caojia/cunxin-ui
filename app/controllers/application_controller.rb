@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+  before_filter :check_accessible
+
   before_filter :reset_sina_user_from_session
 
   def auth_error_callback
@@ -97,6 +99,12 @@ class ApplicationController < ActionController::Base
     end
     alias :authenticate_user_without_recall! :authenticate_user! 
     alias :authenticate_user! :authenticate_user_with_recall!
+
+    def check_accessible
+      if action_name != "about"
+        redirect_to "/about"
+      end
+    end
 
 end
 
