@@ -1,32 +1,25 @@
 <div class="contact container no-head-carousel static-page">
-  <h1>联系我们</h1>
-
-  <div class="section">
-    <h2>官方微博</h2>
-    <div>
-      <div>微博ID: 寸心技术</div>
-      <div id="contact-cunxin-follow"></div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>官方微信</h2>
-    <div>
-      <div>微信号：cunxin_cn</div>
-      <div>
-        <%= image_tag "cunxin-weixin-barcode.jpg", :size => "80x80" %>
+  <div class="item relative" id="<%= 'about-item-%d' % 6 %>">
+    <%= image_tag "/images/about/Slide%d.jpg" % 6 %>
+    <div class="contact-info">
+      <div id="about-sina-weibo" class="info-item">
+        <div id="contact-cunxin-follow"></div>
+      </div>
+      <div id="about-weixin" class="info-item">
+        <%= image_tag "cunxin-weixin-barcode.jpg", :size => "50x50", 
+          "data-toggle" => "modal",
+          "data-target" => "#cunxin-weixin-larger-container",
+          :class => "enlargeable" %>
+        <div>微信号：<br/>cunxin_cn</div>
+      </div>
+      <div id="about-email" class="info-item">
+        help@cunxin.org
       </div>
     </div>
   </div>
-
-  <div class="section">
-    <h2>邮箱</h2>
-    <div>
-      help@cunxin.org
-    </div>
-  </div>
-
-  <div class="section">
+  <div class="modal hide fade" id="cunxin-weixin-larger-container">
+    <%= image_tag "cunxin-weixin-barcode-large.jpg" %>
+    <div class="close-button" data-dismiss="modal"></div>
   </div>
 </div>
 
