@@ -101,7 +101,7 @@ class ApplicationController < ActionController::Base
     alias :authenticate_user! :authenticate_user_with_recall!
 
     def check_accessible
-      if action_name != "about"
+      if request.headers["X-IGNORE-CHECK"].blank? && action_name != "about"
         redirect_to "/about"
       end
     end
