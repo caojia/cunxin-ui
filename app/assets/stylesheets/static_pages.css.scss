@@ -117,39 +117,34 @@ body.contact {
   .item {
     .contact-info {
       position: absolute;
-      top: 380px;
-      left: 138px;
+      top: 272;
+      left: 92px;
 
       .info-item {
-        width: 252px;
+        width: 212px;
         min-height: 100px;
         float: left;
         text-align: center;
       }
 
       #about-sina-weibo {
-        padding-left: 80px;
-        width: 172px;
-        #contact-cunxin-follow {
+        img {
+          padding-bottom: 5px;
+        }
+        .sina-weibo-follow-container {
+          padding-left: 78px;
           text-align: left;
-          a {
-            font-size: 14px;
-          }
         }
       }
 
       #about-weixin {
-        padding-left: 80px;
-        width: 172px;
-        text-align: left;
         img {
-          float: left;
-          padding-right: 10px;
+          padding-bottom: 10px;
         }
       }
 
       #about-email {
-        padding-top: 10px;
+        padding-top: 30px;
       }
     }
   }

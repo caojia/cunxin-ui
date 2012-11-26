@@ -2,18 +2,23 @@
   <div id="head-about-carousel" class="nav-scroll-control relative hide">
     <% 1.upto(6) do |i| %>
       <div class="item" id="<%= 'about-item-%d' % i %>">
-        <%= image_tag "/images/about/Slide%d.jpg" % i %>
+        <%= image_tag "/images/about/slide%d.jpg" % i %>
         <% if i == 6 %>
           <div class="contact-info">
             <div id="about-sina-weibo" class="info-item">
-              <div id="contact-cunxin-follow"></div>
+              <%= link_to "http://www.weibo.com/u/2869358377", :class => "no-decoration", :target => "blank" do %>
+                <%= image_tag "cunxin-weibo-logo.png", :size => "80x80" %>
+              <% end %>
+              <div class="sina-weibo-follow-container">
+                <wb:follow-button uid="2869358377" type="red_1" width="67" height="24" ></wb:follow-button>
+              </div>
             </div>
             <div id="about-weixin" class="info-item">
-              <%= image_tag "cunxin-weixin-barcode.jpg", :size => "50x50", 
+              <%= image_tag "cunxin-weixin-barcode.jpg", :size => "80x80", 
                 "data-toggle" => "modal",
                 "data-target" => "#cunxin-weixin-larger-container",
                 :class => "enlargeable" %>
-              <div>微信号：<br/>cunxin_cn</div>
+              <div>微信号：cunxin_cn</div>
             </div>
             <div id="about-email" class="info-item">
               help@cunxin.org
@@ -35,12 +40,4 @@
   </div>
 </div>
 
-<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=<%= WeiboOAuth2::Config.api_key %>" type="text/javascript" charset="utf-8"></script>
-<%= javascript_tag do %>
-WB2.anyWhere(function(W){
-    W.widget.followButton({
-        'id': "contact-cunxin-follow",
-        'nick_name': '寸心网'
-    });
-});
-<% end %>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>

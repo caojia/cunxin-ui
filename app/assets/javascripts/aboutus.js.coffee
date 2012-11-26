@@ -9,33 +9,33 @@ _interval = 1000
 
 _points = 
   "about-item-1": 
-    "width": 1000
-    "height": 302
+    "width": 800
+    "height": 242
     "left": 0
     "top": 2
   "about-item-2":
-    "width": 1000
-    "height": 249
+    "width": 800
+    "height": 199
     "left": 0
     "top": 4
   "about-item-3":
-    "width": 1000
-    "height": 410
+    "width": 800
+    "height": 368
     "left": 2
     "top": 6
   "about-item-4":
-    "width": 1000
-    "height": 438
+    "width": 800
+    "height": 368
     "left": 4
     "top": 4
   "about-item-5":
-    "width": 1000
-    "height": 470
+    "width": 800
+    "height": 384
     "left": 4
     "top": 2
   "about-item-6":
-    "width": 1000
-    "height": 524
+    "width": 800
+    "height": 400
     "left": 2
     "top": 3
 
