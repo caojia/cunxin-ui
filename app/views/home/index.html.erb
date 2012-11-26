@@ -13,7 +13,7 @@
           <%= image_tag carousel.project.thumbnail("1280"), :alt => carousel.project.headline, :class => "resizeable", "data-image-large" => carousel.project.thumbnail("1600") %>
         <% end %>
         <div class="container head-carousel-float-content">
-          <%= link_to t("home.donate_project"), donate_path(:project_id => carousel.project.id), :class => "view-project-button blue-button hideable" %>
+          <%= link_to "", donate_path(:project_id => carousel.project.id), :class => "view-project-button donation-button hideable" %>
         </div>
       </div>
     <% end %>
