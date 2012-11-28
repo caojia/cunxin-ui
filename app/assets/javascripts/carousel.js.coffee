@@ -87,7 +87,7 @@ class FixedRatio
     @verticalCenteredElement.each (i, node) ->
       $(this).css("top", (height - $(this).height())/2)
 
-class ResizeableImage
+class @ResizeableImage
   constructor: (@element, @thd = _largeResizeableWidth) ->
     @smallSrc = @element.attr("src")
     @largeSrc = @element.data("image-large")

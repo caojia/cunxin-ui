@@ -22,11 +22,16 @@ class Thumbnail
     @visibleImg = @target.find("img:visible")
     target = @target
     @thumbs.each((i, thumb) ->
+      srcs = $(thumb).data(_dataThumbLargeSrc).split(" ")
+      src = srcs[0]
       img = $("<img />").
-        attr("src", $(thumb).data(_dataThumbLargeSrc)).
+        attr("src", src).
         addClass(_placeHolderClass).
         hide().
         appendTo(target)
+      if srcs.length == 2
+        img.data("image-large", srcs[1])
+        new ResizeableImage(img)
       $(thumb).data(_dataThumbLarge, img))
     @thumbs.click(@onclick).first().addClass(_selectedClass)
     @currentTarget = @thumbs.first()

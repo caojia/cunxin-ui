@@ -22,7 +22,7 @@
         :no_title => true,
         :show_caption => false,
         :link_opts_for_item => lambda {|item|
-          ["#", {:class => "cunxin-thumb", "data-cunxin-thumb-large-src" => item.thumbnail_large}] },
+    ["#", {:class => "cunxin-thumb", "data-cunxin-thumb-large-src" => [item.thumb("1280"), item.thumb("1600")].join(" ")}] },
         :items_per_col => 5 } %>
 </div>
 
