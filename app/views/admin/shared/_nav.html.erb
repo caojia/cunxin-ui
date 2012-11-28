@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs">
+  <% %w{projects charities accounts}.each do |tab| %>
+    <% klass = controller_name == tab ? "active" : "" %>
+    <li class="<%= klass %>">
+      <%= link_to tab, send("admin_#{tab}_path") %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,13 @@
+<div class="no-head-carousel clearfix">
+  <div class="container">
+    <h2>Index</h2>
+    <table>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= link_to item[:name], admin_item_path(:id => item[:name], :item_type => item[:name]) %></td>
+        <td>(<%= item[:count] %>)</td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>
