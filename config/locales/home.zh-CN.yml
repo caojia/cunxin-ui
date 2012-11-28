@@ -6,7 +6,7 @@ zh-CN:
     summary: 
       text:
         amount: "累计捐款额"
-        charities_count: "合作慈善机构"
+        charities_count: "合作公益组织"
         people_count: "参与人数"
         projects_count: "项目数"
     view_project: "详 情"
