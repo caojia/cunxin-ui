@@ -1,4 +1,6 @@
-<div class="container no-head-carousel">
+<div class="container no-head-carousel signup-page">
+  <%= content_tag "div", :id => "redirect", "data-login" => root_path do %>
+  <% end %>
   <div class="span12">
     <div class="bordered-content">
       <div class="row-fluid">
@@ -10,11 +12,11 @@
             <%= render :partial => "bind_account" %>
           </div>
         <% else %>
-          <div class="span6">
-            <%= render :partial => "new_form" %>
+          <div class="span6 with-right-border">
+            <%= image_tag "signup-heart.jpg" %>
           </div>
           <div class="span6">
-            <%= render :partial => "login_with_account" %>
+            <%= render :partial => "new_form" %>
           </div>
         <% end %>
       </div>

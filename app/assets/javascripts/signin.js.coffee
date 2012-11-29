@@ -14,6 +14,8 @@ _signinError = ".signin-error-message"
 
 _homeSignupForm = "#home-signup-form"
 
+_redirectElement = "#redirect"
+
 # check login
 checkLogin = (login_cb, logout_cb) ->
   id = $.cookie(_cookieMap.id)
@@ -22,15 +24,20 @@ checkLogin = (login_cb, logout_cb) ->
   else
     logout_cb && logout_cb()
 
+checkRedirect = (type) ->
+  if $(_redirectElement).data(type)
+    document.location = $(_redirectElement).data(type)
+
 loginCallback = (id, name, thumb) ->
   nav = $("#login-nav")
-  if thumb
-    $(".loggedin.user-thumb img", nav).attr("src", thumb).toggleClass("hidden")
-  if name
-    $(".loggedin.user-name a", nav).text(name)
+  if !checkRedirect("login")
+    if thumb
+      $(".loggedin.user-thumb img", nav).attr("src", thumb).toggleClass("hidden")
+    if name
+      $(".loggedin.user-name a", nav).text(name)
 
-  $(".loggedin, .anonymous").toggleClass("hidden")
-  $(_homeSignupForm).hide()
+    $(".loggedin, .anonymous").toggleClass("hidden")
+    $(_homeSignupForm).hide()
 
 showLoginModal = (withText) ->
   _textNode = $(_signinModal).find(_signinText)
