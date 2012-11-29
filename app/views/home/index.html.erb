@@ -79,6 +79,24 @@
   </div>
 </div>
 
+<div class="supports-list container">
+  <h4 class="section-head"><%= t("home.supports.title") %></h4>
+  <div class="col4-carousel">
+    <div class="item row-fluid">
+      <% @supports.each do |item| %>
+        <div class="span3">
+          <%= link_to supports_path(:anchor => item.id) do %>
+            <%= image_tag item.photo.thumb(225) %>
+            <div class="caption">
+              <%= item.photo.name %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <div class="cunxin-charities-container">
   <div class="container">
     <h2><%= t("home.charity_title") %></h2>

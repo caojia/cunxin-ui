@@ -50,4 +50,7 @@ CunxinUi::Application.routes.draw do
   get "faq", :to => "static#faq", :as => :faq
   get "contact", :to => "static#contact", :as => :contact
 
+  # support
+  get "supports", :to => "supports#index", :as => :supports
+
 end

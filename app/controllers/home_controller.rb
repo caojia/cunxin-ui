@@ -8,5 +8,7 @@ class HomeController < ApplicationController
       :people_count => User.count,
       :projects_count => Project.count(:conditions => {:published => true})
     }
+
+    @supports = Support.find(:all, :order => "position ASC", :include => :photo, :limit => 4 )
   end
 end

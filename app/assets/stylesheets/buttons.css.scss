@@ -82,6 +82,9 @@ div.button {
       color: #F4F4F4;
       padding: ($buttonHeight - $buttonFontSize)/2 30px-$buttonMarginWidth ($buttonHeight - $buttonFontSize)/2 30px;
       display: block;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
   .btn-right {
