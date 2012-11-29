@@ -50,4 +50,17 @@
   .sina-connect-status {
     padding-top: 5px;
   }
+
+  .recommended-projects {
+    h4 {
+      margin-top: 65px;
+    }
+    padding: 0 20px;
+    .thumbnail {
+      background-color: white;
+      p {
+        margin-top: 10px;
+      }
+    }
+  }
 }

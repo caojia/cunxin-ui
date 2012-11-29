@@ -4,14 +4,21 @@
       <div class="span8">
         <%= render :partial => "nav" %>
         <div class="profile-content bordered-content">
-          <div class="alert hide">
-            <a class="close" data-dismiss="alert">&#215;</a>
-            <%= content_tag :div, "abcd" %>
-          </div>
           <%= render :partial => @partial %>
         </div>
       </div>
-      <div class="span4">
+      <div class="span3 recommended-projects">
+        <h4 class="section-head recommended-projects-title"><%= t("profile.recommended_projects.title") %></h4>
+        <ul class="thumbnails">
+          <% @projects.each do |project| %>
+            <li class="span12">
+              <%= link_to project_path(project), :class => "thumbnail" do %>
+                <%= image_tag project.thumbnail_small, :size => "188x110" %>
+                <p><%= project.headline %></p>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>

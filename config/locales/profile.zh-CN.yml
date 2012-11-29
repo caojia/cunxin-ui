@@ -53,3 +53,6 @@ zh-CN:
         amount: "捐助金额"
         time: "捐助时间"
 
+    recommended_projects:
+      title: "更多项目..."
+
