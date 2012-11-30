@@ -21,11 +21,11 @@ class PlaceHolder
 
   showPlaceHolder: () =>
     @input.hide()
-    @replaceInput.show()
+    @replaceInput.css("display", "inline-block")
 
   hidePlaceHolder: () =>
     @replaceInput.hide()
-    @input.show()
+    @input.css("display", "inline-block")
     @input.focus()
 
   focusPlaceHolder: () =>
