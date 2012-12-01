@@ -81,18 +81,14 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
 .cunxin-detail {
   margin-top: 40px;
   color: $gray;
-  .span4 {
-    padding: 0 20px 0 10px;
-  }
   .title {
     font-size: 18px;
     color: $darkGreen;
     line-height: 1.5em;
   }
   .description {
-    & {
-      text-align: justify;
-    }
+    padding: 0 30px 0 15px;
+    text-align: justify;
     ul {
       margin-left: 0;
     }

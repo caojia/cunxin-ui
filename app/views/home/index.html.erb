@@ -22,9 +22,9 @@
   <%= link_to ">", "#", :class => "carousel-control-right carousel-control right hideable", "data-target" => "#head-carousel" %>
   <div class="container relative">
     <div class="carousel-nav-dots">
-      <div class="nav-dot nav-dot-active"></div>
+      <span class="nav-dot nav-dot-active"></span>
       <% 1.upto(@carousels.length).each do |i| %>
-        <div class="nav-dot"></div>
+        <span class="nav-dot"></span>
       <% end %>
     </div>
   </div>
@@ -71,24 +71,24 @@
   </div>
 </div>
 
+<div class="supports-list container">
+  <h4 class="section-head"><%= t("home.supports.title") %></h4>
+  <%= image_tag "cunxin-everybody.jpg" %>
+</div>
+
 <div class="cunxin-detail container-fluid container">
   <div class="row-fluid">
     <% 0.upto(2).each do |i| %>
       <div class="span4">
-        <div class="title">
+        <h4 class="section-head">
           <%= t("home.details")[i]["title"] %>
-        </div>
+        </h4>
         <div class="description">
           <%= t("home.details")[i]["description"].html_safe %>
         </div>
       </div>
     <% end %>
   </div>
-</div>
-
-<div class="supports-list container">
-  <h4 class="section-head"><%= t("home.supports.title") %></h4>
-  <%= image_tag "cunxin-everybody.jpg" %>
 </div>
 
 <div class="cunxin-charities-container">

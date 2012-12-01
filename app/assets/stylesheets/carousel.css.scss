@@ -45,7 +45,7 @@ $arrow_height: sprites-sprite-height("left-arrow");
   }
 
   .hideable {
-    visibility: hidden;
+    //visibility: hidden;
     @include opacity(0);
     @include transition-property(opacity);
     @include transition-duration(.5s);
@@ -116,6 +116,7 @@ $arrow_height: sprites-sprite-height("left-arrow");
 }
 
 .carousel-control {
+  display: block;
   position: absolute;
   display: block;
   text-indent: -99999em;

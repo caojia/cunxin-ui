@@ -88,6 +88,11 @@ $container-width: 1002px;
 @import "placeholder";
 @import "supports";
 
+h4.section-head {
+  font-size: 18px;
+  color: $darkGreen;
+}
+
 .section .section-head {
   color: $gray;
   font-weight: normal;
