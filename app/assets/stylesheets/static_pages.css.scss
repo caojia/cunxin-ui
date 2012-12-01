@@ -109,11 +109,7 @@ body.about {
   }
 }
 
-body.contact {
-  background-image: none;
-}
-
-.aboutus, .contact {
+.aboutus {
   .item {
     .contact-info {
       position: absolute;
@@ -147,5 +143,28 @@ body.contact {
         padding-top: 30px;
       }
     }
+  }
+}
+
+.contact {
+  h2 {
+    color: $gray;
+  }
+  .contact-info {
+    width: 600px;
+    margin: auto;
+  }
+  .info-item {
+    text-align: center;
+  }
+  .sina-weibo-follow-container {
+    width: 64px;
+    margin: 10px auto;
+  }
+  .weixin-number-container {
+    margin: 10px auto;
+  }
+  .email-container {
+    margin-top: 50px;
   }
 }

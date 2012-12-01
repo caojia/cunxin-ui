@@ -1,19 +1,29 @@
 <div class="contact container no-head-carousel static-page">
-  <div class="item relative" id="<%= 'about-item-%d' % 6 %>">
-    <%= image_tag "/images/about/slide%d.jpg" % 6 %>
-    <div class="contact-info">
-      <div id="about-sina-weibo" class="info-item">
-        <div id="contact-cunxin-follow"></div>
+  <div class="item relative">
+    <%= image_tag "/images/contact.png" %>
+    <div class="row-fluid contact-info">
+      <div class="span4 info-item">
+        <h2>官方微博</h2>
+        <%= link_to "http://www.weibo.com/u/2869358377", :class => "no-decoration", :target => "blank" do %>
+          <%= image_tag "cunxin-weibo-logo.png", :size => "80x80" %>
+        <% end %>
+        <div class="sina-weibo-follow-container">
+          <wb:follow-button uid="2869358377" type="red_1" width="67" height="24" ></wb:follow-button>
+        </div>
       </div>
-      <div id="about-weixin" class="info-item">
-        <%= image_tag "cunxin-weixin-barcode.jpg", :size => "60x60", 
+      <div class="span4 info-item">
+        <h2>官方微信</h2>
+        <%= image_tag "cunxin-weixin-barcode.jpg", :size => "80x80", 
           "data-toggle" => "modal",
           "data-target" => "#cunxin-weixin-larger-container",
           :class => "enlargeable" %>
-        <div>微信号：<br/>cunxin_cn</div>
+        <div class="weixin-number-container">微信号：cunxin_cn</div>
       </div>
-      <div id="about-email" class="info-item">
-        help@cunxin.org
+      <div class="span4 info-item">
+        <h2>联系我们</h2>
+        <div class="email-container">
+          <%= mail_to "help@cunxin.org" %>
+        </div>
       </div>
     </div>
   </div>
@@ -23,12 +33,4 @@
   </div>
 </div>
 
-<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=<%= WeiboOAuth2::Config.api_key %>" type="text/javascript" charset="utf-8"></script>
-<%= javascript_tag do %>
-WB2.anyWhere(function(W){
-    W.widget.followButton({
-        'id': "contact-cunxin-follow",
-        'nick_name': '寸心技术'
-    });
-});
-<% end %>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
