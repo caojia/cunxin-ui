@@ -145,6 +145,7 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
       padding: 6px;
       width: 222px;
       @include border-radius(5px);
+      font-weight: bold;
     }
 
     input {
