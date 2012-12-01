@@ -1,4 +1,6 @@
 <div class="floating-signup-form home-signup-form-container" id="home-signup-form">
+  <%= link_to "", sina_connect_path, :class => "sina-connect-button" %>
+  <div class="or-seperator"></div>
   <%= form_for User.new, :as => :user, :html => {:class => "home-signup-form"} do |f| %>
     <%= hidden_field_tag "ignore_password_confirmation", "1" %>
     <div>

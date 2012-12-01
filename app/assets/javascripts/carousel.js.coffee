@@ -8,6 +8,9 @@ _interval = 15000
 _headCarousel = "#head-carousel"
 _headCarouselButton = "#head-carousel-control-button .carousel-control-button"
 
+_carouselNavDot = ".carousel-nav-dots .nav-dot"
+_carouselActiveNavDotClass = "nav-dot-active"
+
 _headCarouselInner = "#head-carousel .carousel-inner"
 _headCarouselWidth = 1280
 _headCarouselHeight = 450
@@ -24,10 +27,12 @@ class FadeCarousel
     _length = @items.length
     if _length <= 1
       return
+
     @items.each (i, node) ->
       prev = (_length + i - 1) % _length
       $(_items[prev]).data("next-carousel", $(this))
       $(this).data("prev-carousel", $(_items[prev]))
+      $(this).data("carousel-index", i)
 
     @current = $(@items[0])
     @next = $(@items[0]).data("next-carousel")
@@ -35,9 +40,28 @@ class FadeCarousel
     @element.find(".right").click(@switchNext)
     @element.find(".left").click(@switchPrev)
 
+    @initNavDots()
+
     if @autostart
       @interval = @interval || _interval
       @start()
+
+  initNavDots: () =>
+    @navDots = @element.find(_carouselNavDot)
+    @navDots.each (i, node) ->
+      $(node).data("carousel", i)
+
+    showItem = @showItem
+    @navDots.on("click", () ->
+      showItem($(this).data("carousel"))
+      return false
+    )
+
+    activeCurrent = () =>
+      @navDots.removeClass(_carouselActiveNavDotClass)
+      $(@navDots.get(@current.data("carousel-index"))).addClass(_carouselActiveNavDotClass)
+
+    @element.on("fade-carousel-shown", activeCurrent)
 
   pause: () =>
     if @intervalHandler
@@ -69,10 +93,10 @@ class FadeCarousel
   showItem: (i) =>
     if ("number" == (typeof i))
       @next = $(@items[i])
-      $.when(@hideCurrent, @showNext).done(@switchCompleted)
+      $.when(@hideCurrent(), @showNext()).done(@switchCompleted)
     else
       @next = $(i)
-      $.when(@hideCurrent, @showNext).done(@switchCompleted)
+      $.when(@hideCurrent(), @showNext()).done(@switchCompleted)
 
 class FixedRatio
   constructor: (@element, @width, @height, @verticalCenteredElement) ->

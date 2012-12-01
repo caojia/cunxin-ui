@@ -129,3 +129,13 @@ div.button.blue-btn {
     }
   }
 }
+
+.sina-connect-button {
+  display: inline-block;
+  width: sprites-sprite-width("sina-connect");
+  height: sprites-sprite-height("sina-connect");
+  @include sprites-sprite("sina-connect");
+  &:hover {
+    @include sprites-sprite("sina-connect-hover");
+  }
+}

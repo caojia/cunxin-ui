@@ -20,6 +20,14 @@
   </div>
   <%= link_to "<", "#", :class => "carousel-control-left carousel-control left hideable", "data-target" => "#head-carousel" %>
   <%= link_to ">", "#", :class => "carousel-control-right carousel-control right hideable", "data-target" => "#head-carousel" %>
+  <div class="container relative">
+    <div class="carousel-nav-dots">
+      <div class="nav-dot nav-dot-active"></div>
+      <% 1.upto(@carousels.length).each do |i| %>
+        <div class="nav-dot"></div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="slogon container">

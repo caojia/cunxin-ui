@@ -74,7 +74,27 @@ $arrow_height: sprites-sprite-height("left-arrow");
     .view-project-button {
       position: absolute;
       bottom: 30px;
-      right: 50px;
+      right: -10px;
+    }
+  }
+
+  .carousel-nav-dots {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    .nav-dot {
+      display: inline-block;
+      width: sprites-sprite-width("dot");
+      height: sprites-sprite-height("dot");
+      @include sprites-sprite("dot");
+      cursor: pointer;
+      padding: 0 2px;
+    }
+    .nav-dot:hover, .nav-dot-active {
+      @include sprites-sprite("dot-active");
+      cursor: pointer;
     }
   }
 }
