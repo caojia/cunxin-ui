@@ -1,24 +1,25 @@
 <div class='container no-head-carousel pay-success-page'>
-  <%= content_tag(:div,
-    t('donation.thank_note',
-      :project_title => @project.headline,
-      :amount => number_to_currency(@payment.amount)).html_safe,
-      :class=>'thank-note') %>
-
-  <div>
-    <%= content_tag :div, t('donation.success_notice'), :class => 'score-notice' %>
-  </div>
-
-  <div class='other-projects'>
-    <div class="container project-list-carousel">
-      <%= render :partial => "shared/colx_carousel", :locals => {
-            :items => @projects,
-            :path => "projects",
-            :key => "other_projects",
-            :no_title => false,
-            :show_caption => false,
-            :items_per_col => 5,
-            :link_opts_for_item => lambda {|item| project_path(item) }} %>
+    <div class='image-wrapper'>
+      <%= image_tag "wengweng_1.png" %>
     </div>
-  </div>
+
+    <%= content_tag :h1, t('donation.success.thank_note'), :class =>'thank-note' %>
+
+    <div class='info'>
+      <div class='info-row'>
+        <%= content_tag :div, t('donation.success.project'), :class =>'title' %>
+        <%= content_tag :div, @project.headline, :class => 'value' %>
+      </div>
+      <div class='info-row'>
+        <%= content_tag :div, t('donation.success.amount'), :class =>'title' %>
+        <%= content_tag :div, number_to_currency(@payment.amount), :class => 'value' %>
+      </div>
+      <div style='clear: both'> </div>
+    </div>
+
+  <%= content_tag :div, t('donation.success.notice').html_safe, :class=>'notice' %>
+
 </div>
+<script type="text/javascript">
+  window.setTimeout( function() { location.href=<%= ("\"%s\""%url_for(:controller => :profile, :action => :donations)).html_safe %>; }, 5000);
+</script>
