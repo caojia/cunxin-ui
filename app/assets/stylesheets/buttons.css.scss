@@ -77,6 +77,7 @@ div.button {
   .btn-left {
     background: green;
     font-size: $buttonFontSize;
+    line-height: $buttonFontSize;
     margin-right: $buttonMarginWidth;
     a {
       color: #F4F4F4;

@@ -9,28 +9,21 @@ $project-info-width: 300px;
   .section {
     margin-bottom: 20px;
     padding-top: 10px;
-    border-top: 1px solid #ddd;
+
+    .countdown {
+      span {
+        font-size: 14px;
+      }
+    }
+    .desc-detail {
+      font-size: 30px;
+      line-height: 30px;
+    }
   }
+
   .first-section {
     padding-top: 0px;
     border-top: none;
-  }
-}
-.project-info-container-positioner {
-  position: absolute;
-  height: 100%;
-  left: 50%;
-  top: 0px;
-
-  .project-info-container {
-    position: absolute;
-    height: 100%;
-    top: 0px;
-    right: - $container-width / 2;
-    width: $project-info-width;
-    .project-info {
-      padding-top: $nav-bar-height;
-    }
   }
 }
 
@@ -53,22 +46,11 @@ $project-info-width: 300px;
       float: right;
     }
   }
-
-  .desc-content td {
-    vertical-align: middle;
-    &.col1 {
-      padding-right: 10px;
-      text-align: right;
-    }
-  }
-
 }
 
 .project-info-content {
-  color: $white;
   margin: 10px 20px;
   font-size: 14px;
-  position: absolute;
   bottom: 10px;
 
   .progress {
@@ -83,30 +65,6 @@ $project-info-width: 300px;
     &.col1 {
       padding-right: 10px;
       text-align: right;
-    }
-  }
-
-  .desc-content {
-    padding-top: 15px;
-    h2 {
-      font-size: 25px;
-      color: #eee;
-    }
-    .desc-title {
-      font-size: 14px;
-      line-height: 20px;
-      color: #ccc;
-    }
-    .countdown {
-      span {
-        font-size: 14px;
-      }
-    }
-    .desc-detail {
-      font-size: 30px;
-      line-height: 30px;
-      color: #eee;
-
     }
   }
 
@@ -155,7 +113,6 @@ $project-info-width: 300px;
     margin: 0 10px 0 0;
   }
 }
-
 
 .donated-users {
   margin-bottom: 30px;
