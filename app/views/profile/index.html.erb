@@ -7,13 +7,13 @@
           <%= render :partial => @partial %>
         </div>
       </div>
-      <div class="span3 recommended-projects">
+      <div class="span4 recommended-projects">
         <h4 class="section-head recommended-projects-title"><%= t("profile.recommended_projects.title") %></h4>
         <ul class="thumbnails">
           <% @projects.each do |project| %>
             <li class="span12">
               <%= link_to project_path(project), :class => "thumbnail" do %>
-                <%= image_tag project.thumbnail_small, :size => "188x110" %>
+                <%= image_tag project.thumbnail("270"), :size => "270x158" %>
                 <p><%= project.headline %></p>
               <% end %>
             </li>
