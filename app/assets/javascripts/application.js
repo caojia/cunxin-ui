@@ -16,6 +16,7 @@
 //= require jquery.cookies
 //= require jquery.easing.js
 //= require jquery.masonry.js
+//= require jquery.imagesloaded.js
 //= require jquery.scrollpath.js
 //= require sprintf-0.7-beta1
 //= require underscore
