@@ -1,12 +1,13 @@
 .static-page {
   margin-bottom: 40px;
-  h1 {
-    font-size: 20px;
-  }
   h1, h2 {
     line-height: 2em;
-    color: $darkGreen;
+    color: $darkBlue;
     margin: 1.5em 0 0.5em;
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 20px;
   }
 }
 .terms {
