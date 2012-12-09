@@ -14,11 +14,20 @@
 
   <div class="content">
     <% @supports.each do |support| %>
-      <div class="pic-block" id=<%=support.id%> >
-        <%= image_tag support.photo.thumb("960"), :alt => support.photo.name %>
+      <div class="pic-block" >
+        <%= link_to "#", :class => "show-image-link", :'data-cunxin-thumb-large-src' => support.photo.thumb("960") do %>
+          <%= image_tag support.photo.thumb("960"), :alt => support.photo.name %>
+        <% end %>
         <%= content_tag :div, support.photo.description, :class => "pic-desc" %>
       </div>
     <% end %>
     <div style="clear: both">
+  </div>
+
+  <div class="modal hide fade" id="large-image-modal">
+    <div class="close-button" data-dismiss="modal"></div>
+    <div class="large-image-wrapper">
+      <%= image_tag @supports[0].photo.thumb("960") %>
+    </div>
   </div>
 </div>

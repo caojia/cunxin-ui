@@ -29,4 +29,29 @@
       }
     }
   }
+
+  #large-image-modal {
+    margin-left: -500px;
+    overflow: visible;
+    width: 1000px;
+    max-height: 525px;
+    padding: 25px 0;
+    .close-button {
+      cursor: pointer;
+      width: sprites-sprite-width("fancy-close");
+      height: sprites-sprite-height("fancy-close");
+      @include sprites-sprite("fancy-close");
+      position: absolute;
+      right: -15px;
+      top: -15px;
+    }
+    .large-image-wrapper {
+      max-height: 500px;
+      text-align: center;
+      overflow-y: auto;
+      img {
+        max-width: 950px;
+      }
+    }
+  }
 }
