@@ -7,14 +7,14 @@ _checkFollowingUrlAttr = "check-following-url"
 
 _currentNode = null
 
-_callbacks = 
+_callbacks =
   "beforeSend": () ->
     _currentNode = $(this)
     if _currentNode.hasClass("loading")
       return false
     else
       _loggedIn = false
-      $.requireLogin(() -> 
+      $.requireLogin(() ->
         _loggedIn = true
         _currentNode.addClass("loading"))
       return _loggedIn
@@ -24,7 +24,7 @@ _callbacks =
     $(_followCountSpan).text(resp.total_followed)
 
   "error": (event, resp) ->
-    try 
+    try
       error = $.parseJSON(resp.responseText).error
       showError(error)
     catch error
@@ -60,6 +60,10 @@ $ ->
     on("ajax:complete", _callbacks.complete)
   $.checkLogin(_checkFollowing)
   if "undefined" != (typeof targetDate)
-    countdown = new CountdownClock($("#countdown-timer"), targetDate)
-    countdown.updateText()
-    countdown.start()
+    $('#countdown-timer').countdown({
+      timestamp: targetDate,
+      DaysText: '天',
+      HoursText: '时',
+      MinutesText: '分',
+      SecondsText: '秒'
+    })

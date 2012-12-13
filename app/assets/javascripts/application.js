@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.cookies
+//= require jquery.countdown
 //= require jquery.easing.js
 //= require jquery.masonry.js
 //= require jquery.imagesloaded.js
