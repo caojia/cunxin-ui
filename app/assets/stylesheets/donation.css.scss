@@ -90,6 +90,23 @@ div.donate-page {
       line-height: 24px;
     }
 
+    .countdownHolder {
+      .position {
+        margin-left: 1px;
+        width: 12px;
+        height: 14px;
+        vertical-align: middle;
+        .digit {
+          height: 14px;
+          width: 12px;
+          letter-spacing: 0;
+          line-height: 14px;
+        }
+      }
+      .countDiv {
+        font-size: 14px;
+      }
+    }
   }
 
   ul.donate-amount-select {
