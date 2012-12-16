@@ -15,10 +15,12 @@
   <div class="content">
     <% @supports.each do |support| %>
       <div class="pic-block" >
-        <%= link_to "#", :class => "show-image-link", :'data-cunxin-thumb-large-src' => support.photo.thumb("960") do %>
-          <%= image_tag support.photo.thumb("960"), :alt => support.photo.name %>
-        <% end %>
-        <%= content_tag :div, support.photo.description, :class => "pic-desc" %>
+        <div class="pic-content-wrapper">
+          <%= link_to "#", :class => "show-image-link", :'data-cunxin-thumb-large-src' => support.photo.thumb("960") do %>
+            <%= image_tag support.photo.thumb("960"), :alt => support.photo.name %>
+          <% end %>
+          <%= content_tag :div, support.photo.description, :class => "pic-desc" %>
+        </div>
       </div>
     <% end %>
     <div style="clear: both">
