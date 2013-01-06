@@ -16,4 +16,6 @@ This is UI/Front End repo for Cunxin Project
 * convert 2.jpeg -adaptive-resize 320x240! -channel RGBA -fill "rgba(0,0,0,0.5)" -draw "rectangle 0,210,320,240" 2_1.jpeg
 
 # Deployment
-* use ssh agent forwarding [https://help.github.com/articles/using-ssh-agent-forwarding]
+* merge your changes to production branch and push it to remote
+* add your public key to /home/deploy/.ssh/authorized_keys
+* cap deploy
