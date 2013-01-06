@@ -26,6 +26,7 @@ gem 'therubyracer'
 
 gem "capistrano", :group => :development
 gem "rvm-capistrano", :group => :development
+gem "capistrano-ext", :group => :development
 gem "unicorn"
 
 gem "httparty"

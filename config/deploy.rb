@@ -2,7 +2,8 @@ require 'rvm/capistrano'
 require 'bundler/capistrano'
 
 set :application, "cunxin-ui"
-set :repository,  "git@github.com:willamette/cunxin-ui.git"
+set :repository,  "/repos/cunxin-ui"
+set :local_repository, "ssh://cunxin.org/repos/cunxin-ui"
 
 set :scm, :git
 
@@ -11,15 +12,14 @@ set :rvm_ruby_string, 'ruby-1.9.3-p0'
 
 load "deploy/assets"
 
-role :web, "ec2-50-112-16-118.us-west-2.compute.amazonaws.com"
-role :app, "ec2-50-112-16-118.us-west-2.compute.amazonaws.com"
-role :db,  "ec2-50-112-16-118.us-west-2.compute.amazonaws.com", :primary => true
+role :web, "42.121.118.38"
+role :app, "42.121.118.38"
+role :db,  "42.121.118.38", :primary => true
 
 set :keep_releases,  3
 set :deploy_via, :remote_cache
 set :user, :deploy
-set :branch, :develop
-ssh_options[:forward_agent] = true
+set :branch, :production
 default_run_options[:pty] = true
 
 after "deploy:restart", "deploy:cleanup"
