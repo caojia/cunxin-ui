@@ -69,14 +69,23 @@
 
         <div class="section first-section button-content">
           <div class="buttons">
-            <div class='button blue-btn'>
-              <div class='btn-left'>
-                <%= link_to t("projects.info.donate"), donate_path(:project_id => @project.id),
-                      :id => "project-donate",
-                      :class => "no-decoration" %>
+            <% if Time.now <= @project.finished_at %>
+              <div class='button blue-btn'>
+                <div class='btn-left'>
+                  <%= link_to t("projects.info.donate"), donate_path(:project_id => @project.id),
+                        :id => "project-donate",
+                        :class => "no-decoration" %>
+                </div>
+                <div class='btn-right'> </div>
               </div>
-              <div class='btn-right'> </div>
-            </div>
+            <% else %>
+              <div class='button blue-btn disabled'>
+                <div class='btn-left'>
+                  <%= content_tag :div, t("projects.info.donate"), :class => "btn-content"%>
+                </div>
+                <div class='btn-right'> </div>
+              </div>
+            <% end %>
             <div class='button green-btn'>
               <div class='btn-left'>
                 <%= link_to t("projects.info.follow"), follow_path(:id => @project.id),

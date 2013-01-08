@@ -217,6 +217,18 @@ div.pay-confirm-modal {
   }
 }
 
+div.donate-expired-page {
+  text-align: center;
+  .note {
+    width: 500px;
+    padding-left: 40px;
+    margin: 0 auto;
+    color: $lightBlue;
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: bold;
+  }
+}
 
 div.pay-success-page {
   text-align: center;

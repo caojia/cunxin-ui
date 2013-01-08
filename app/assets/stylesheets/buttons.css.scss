@@ -79,7 +79,7 @@ div.button {
     font-size: $buttonFontSize;
     line-height: $buttonFontSize;
     margin-right: $buttonMarginWidth;
-    a {
+    a, div.btn-content {
       color: #F4F4F4;
       padding: ($buttonHeight - $buttonFontSize)/2 30px-$buttonMarginWidth ($buttonHeight - $buttonFontSize)/2 30px;
       display: block;
@@ -127,6 +127,23 @@ div.button.blue-btn {
     }
     .btn-right {
       @include sprites-sprite("blue-button-hover", false, -(sprites-sprite-width("blue-button-hover")-$buttonMarginWidth), 0px)
+    }
+  }
+}
+
+div.button.dark-blue-btn {
+  .btn-left {
+    @include sprites-sprite("dark-blue-button")
+  }
+  .btn-right {
+    @include sprites-sprite("dark-blue-button", false, -(sprites-sprite-width("dark-blue-button")-$buttonMarginWidth), 0px)
+  }
+  &.hover {
+    .btn-left {
+      @include sprites-sprite("dark-blue-button-hover")
+    }
+    .btn-right {
+      @include sprites-sprite("dark-blue-button-hover", false, -(sprites-sprite-width("dark-blue-button-hover")-$buttonMarginWidth), 0px)
     }
   }
 }
