@@ -55,4 +55,7 @@ CunxinUi::Application.configure do
   WeiboOAuth2::Config.redirect_uri = "http://dev.cunxin.org:3000/sina/callback"
   WeiboOAuth2::Config.api_key = "3407029519"
   WeiboOAuth2::Config.api_secret = "c20ae31fccf01dca850d040edb5c20d7"
+
+  PHOTOS_PATH = File.join(Rails.root, "public")
+
 end

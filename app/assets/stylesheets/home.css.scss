@@ -50,7 +50,7 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   .summary-item {
     text-align: center;
     float: left;
-    padding: 10px 0;
+    padding: 6px 0;
     width: 20%;
     border-left: 1px solid #c1c1c1;
     margin-left: -1px;
@@ -64,14 +64,14 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
     }
   }
   .num {
-    font: 60px/60px "LeagueGothicRegular", sans-serif;
+    font: 56px/56px "LeagueGothicRegular", sans-serif;
     color: $darkBlue;
   }
 }
 
 .slogon {
   text-align: center;
-  font-size: 30px;
+  font-size: 28px;
   color: $darkGreen;
   line-height: 1.5em;
   margin-top: 20px;
@@ -154,4 +154,11 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   width: sprites-sprite-width("or-seperator");
   height: sprites-sprite-height("or-seperator");
   @include sprites-sprite("or-seperator");
+  margin-bottom: 10px;
+}
+
+.cunxin-detail {
+  h4.section-head {
+    font-weight: bold;
+  }
 }
