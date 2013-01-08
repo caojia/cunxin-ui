@@ -37,7 +37,7 @@ class Admin::ItemsController < ApplicationController
 
   def update
     @item = @klass.find(params[:id])
-    if @item.update_attribute(params[@klass.to_s.tableize.singularize])
+    if @item.update_attributes(params[@klass.to_s.tableize.singularize])
       flash[:success] = "Update #{@klass.to_s} successfully, id=#{@item.id}"
       redirect_to :action => :show, :item_type => params[:item_type]
     else
