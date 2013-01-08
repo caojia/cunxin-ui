@@ -1,6 +1,15 @@
-<p><%= @resource.name %>, 您好!</p>
+<p> Hi ：<%= @resource.name %></p>
 
-<p>您可以通过一下链接认证您的邮箱:</p>
-
+<p>感谢您注册寸心网，开启您的爱心之旅。 </p>
+<p>请点击下面的链接验证您的email：</p>
 <%- url = confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) -%>
 <p><%= link_to url, url %></p>
+
+<p>
+---------<br/>
+寸心网，一个专业的公益网络募捐平台<br/>
+http://www.cunxin.org<br/>
+官方微博：寸心网<br/>
+官方微信：cunxin_cn<br/>
+</p>
+

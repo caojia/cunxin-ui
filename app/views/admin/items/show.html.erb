@@ -1,0 +1,20 @@
+<div class="no-head-carousel clearfix">
+  <div class="container">
+    <h3>
+      <%= link_to "Index", admin_items_path %> >> 
+      <%= @klass.to_s %>
+    </h3>
+    <table>
+    <% @items.each do |item| %>
+      <tr>
+        <td>
+          <%= item.id %> (<%= link_to "edit", edit_admin_item_path(item.id, :item_type => params[:item_type]) %>)
+        </td>
+      </tr>
+    <% end %>
+      <tr>
+        <td><%= link_to "new", new_admin_item_path(:item_type => params[:item_type]) %></td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns:wb="http://open.weibo.com/wb">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title><%= content_for?(:title) ? yield(:title) : t("app.name") %></title>
+    <meta name="description" content=""/>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%#= javascript_include_tag "http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=#{WeiboOAuth2::Config.api_key}" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body class="<%= @body_class %>">
+    <div class="nav-bar-wrapper">
+      <div class="navbar navbar-inverse navbar-fixed-top cunxin-nav-bar" id="cunxin-nav">
+        <div class="navbar-inner">
+          <div class="mask opacity0"> </div>
+          <div class="container">
+            <%= render 'layouts/navigation' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="main" role="main">
+      <div class="container no-head-carousel admin-page">
+        <%= render :partial => "admin/shared/nav" %>
+        <%= yield %>
+      </div>
+      <%= render :partial => "shared/signin_modal" %>
+    </div> <!--! end of #main -->
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

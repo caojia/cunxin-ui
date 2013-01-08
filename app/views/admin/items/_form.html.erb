@@ -1,0 +1,26 @@
+<%= form_for @item, :url => url, :html => {:class => "form-horizontal"} do |f| %>
+  <% @item.errors.full_messages.each do |e| %>
+    <div class="control-group warning">
+      <div class="message"><%= e %></div>
+    </div>
+  <% end %>
+  <%= hidden_field_tag :id, params[:id] %>
+  <%= hidden_field_tag :item_type, params[:item_type] %>
+  <% (@klass.columns.reject {|x| %w(created_at updated_at id).include?(x.name.to_s)}).each do |column| %>
+    <div class="control-group">
+      <label class="control-label"><%= column.name %></label>
+      <div class="controls">
+        <% if column.type == :text %>
+          <%= f.text_area column.name.to_sym, :class => "input-xxlarge" %>
+        <% else %>
+          <%= f.text_field column.name.to_sym, :class => "input-xxlarge" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <div class="controls">
+      <%= submit_tag "submit", :class => "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

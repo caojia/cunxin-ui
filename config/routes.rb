@@ -53,4 +53,11 @@ CunxinUi::Application.routes.draw do
   # support
   get "supports", :to => "supports#index", :as => :supports
 
+  authenticated :user,  lambda {|u| u.roles_name.include? "admin"} do
+    namespace :admin do 
+      resources :items
+      get "/", :to => "items#index"
+    end
+  end
+
 end

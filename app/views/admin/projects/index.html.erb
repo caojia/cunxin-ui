@@ -1,0 +1,17 @@
+<%= link_to "Create new project", new_admin_project_path, :class => "btn" %>
+<table class="table table-striped" style="margin-top: 10px;">
+  <tr>
+    <% %w(# title published).each do |header| %>
+      <th><%= header %></th>
+    <% end %>
+  </tr>
+  <% @projects.each do |project| %>
+    <tr>
+      <td><%= project.id %></td>
+      <td><%= link_to(project.headline, project_path(project.id), :target => "blank") %></td>
+      <td><%= project.published ? 
+        "published at #{project.published_at.strftime '%Y-%m-%d %H:%M:%S'}" :
+        link_to("publish", admin_publish_project_path(project.id), :remote => true, :class => "btn") %></td>
+    </tr>
+  <% end %>
+</table>
