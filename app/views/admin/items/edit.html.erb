@@ -4,6 +4,6 @@
       <%= link_to "Index", admin_items_path %> >> 
       <%= @klass.to_s %> (<%= @item.id %>)
     </h3>
-    <%= render :partial => "form", :locals => {:url => new_admin_item_path(:item_type => params[:item_type])} %>
+    <%= render :partial => "form", :locals => {:url => admin_item_path(:item_type => params[:item_type])} %>
   </div>
 </div>
