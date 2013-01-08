@@ -38,8 +38,8 @@ paySubmit = (event) ->
       if Number(amount) == 0 || Number(amount) == NaN
         alert("请输入捐助金额")
         return false
-      if Number(amount) > 10000
-        alert("单次捐助金额最多10,000元")
+      if Number(amount) > 100000
+        alert("单次捐助金额最多100,000元")
         return false
     $('#order_id').val(orderId=generateOrderId())
     $('#pay-succeed').attr('href', '/donation/success?order_id='+orderId)
@@ -93,6 +93,9 @@ payFailedClick = (event) ->
 donateAmountInputKeyUp = (event) ->
   f = $(event.target)
   f.val(f.val().replace(/[^0-9]/g,''))
+  if (f.val() > 100000)
+    f.val(f.val().substring(0,5))
+    alert("单次捐助金额不超过100,000元")
 
 $ ->
   $(amountRadioSelector).change(checkDonateAmount)
