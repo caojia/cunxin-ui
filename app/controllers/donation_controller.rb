@@ -24,6 +24,11 @@ class DonationController < ApplicationController
 
   def donate
     @project = Project.find(params[:project_id], :include => [:charity], :conditions => {:published => true})
+    if @project.finished_at < Time.now() 
+      render :expired
+      return
+    end
+
     @default_amount = 10
     @payment_target = @@payment_target.dup
 

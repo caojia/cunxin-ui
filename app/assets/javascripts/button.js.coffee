@@ -6,10 +6,12 @@ class Button
     @node.on("mouseenter", @onMouseEnter).on("mouseleave", @onMouseLeave)
 
   onMouseEnter: () =>
-    @node.addClass("hover")
+    if (!@node.hasClass("disabled"))
+      @node.addClass("hover")
 
   onMouseLeave: () =>
-    @node.removeClass("hover")
+    if (!@node.hasClass("disabled"))
+      @node.removeClass("hover")
 
 $ ->
   $(".button").each((n) ->

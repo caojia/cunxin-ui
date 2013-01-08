@@ -1,0 +1,11 @@
+<div class='container no-head-carousel donate-expired-page'>
+    <div class='image-wrapper'>
+      <%= image_tag "wengweng_1.png" %>
+    </div>
+
+    <%= content_tag :div, t('donation.expired.note').html_safe, :class =>'note' %>
+
+</div>
+<script type="text/javascript">
+  window.setTimeout( function() { location.href=<%= ("\"%s\""%url_for(:controller => :home)).html_safe %>; }, 5000);
+</script>
