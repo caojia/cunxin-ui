@@ -11,4 +11,10 @@ class Devise::ConfirmationsController < DeviseController
       redirect_to root_path
     end 
   end
+
+  private
+    # The path used after confirmation.
+    def after_confirmation_path_for(resource_name, resource)
+      after_sign_in_path_for(resource)
+    end 
 end
