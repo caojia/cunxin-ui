@@ -6,8 +6,6 @@ class Photo < ActiveRecord::Base
 
   has_many :project_photos
 
-  PHOTOS_PATH = File.join(Rails.root, "public")
-
   def thumb size
     filename = thumbnail_large
     unless filename =~ /^https?:\/\//
