@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
-  before_filter :check_accessible
+  #before_filter :check_accessible
 
   before_filter :reset_sina_user_from_session
 
