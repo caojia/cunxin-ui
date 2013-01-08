@@ -191,16 +191,31 @@ div.donate-page {
 }
 
 div.pay-confirm-modal {
+  width: 415px;
+  border: 1px solid $darkBlue;
+  div.modal-header {
+    height: 28px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: $darkBlue;
+  }
   div.info {
+    height: 56px;
+    font-family: "'黑体',arial,sans-serif";
     background: url("notice.png") no-repeat;
-    padding-left: 30px;
-    font-size: 18px;
+    padding: 4px 0 0 90px;
+    font-size: 16px;
+    margin: 14px 28px 30px;
     line-height: 24px;
   }
   div.notice {
-    margin-top: 10px;
+    margin: 0;
+    line-height: 20px;
+    padding-left: 28px;
   }
-  .modal-footer{
+  div.buttons {
+    margin: 15px 15px 30px;
+    text-align: center;
     a {
       margin-left: 10px;
     }

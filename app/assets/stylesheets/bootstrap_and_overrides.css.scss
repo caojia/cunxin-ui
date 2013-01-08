@@ -50,3 +50,7 @@ $span2_4_width: (100% - (4 * $span2_4_margin_left)) / 5;
     width: $span2_4_width;
   }
 }
+
+.modal-backdrop, .modal-backdrop.fade.in {
+  @include opacity(0.25);
+}
