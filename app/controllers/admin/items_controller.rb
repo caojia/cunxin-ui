@@ -24,7 +24,7 @@ class Admin::ItemsController < ApplicationController
     @item = @klass.new(params[@klass.to_s.tableize.singularize])
     if @item.save
       flash[:success] = "Create #{@klass.to_s} successfully, id=#{@item.id}"
-      redirect_to :action => :show, :item_type => params[:item_type]
+      redirect_to :action => :show, :id => params[:item_type], :item_type => params[:item_type]
     else
       flash[:error] = "Error occurs during #{@klass.to_s} creation"
       render :action => :new
