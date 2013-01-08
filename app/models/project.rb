@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_protected :published, :published_at
+  attr_protected :id#, :published, :published_at
 
   #TODO: add more validations
   validates_presence_of :canonical_name
