@@ -21,7 +21,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    @item = @klass.new(params[:item])
+    @item = @klass.new(params[@klass.to_s.tableize.singularize])
     if @item.save
       flash[:success] = "Create #{@klass.to_s} successfully, id=#{@item.id}"
       redirect_to :action => :show, :item_type => params[:item_type]
@@ -37,7 +37,7 @@ class Admin::ItemsController < ApplicationController
 
   def update
     @item = @klass.find(params[:id])
-    if @item.save
+    if @item.update_attribute(params[@klass.to_s.tableize.singularize])
       flash[:success] = "Update #{@klass.to_s} successfully, id=#{@item.id}"
       redirect_to :action => :show, :item_type => params[:item_type]
     else
