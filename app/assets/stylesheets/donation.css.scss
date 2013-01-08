@@ -5,16 +5,6 @@
 div.donate-page {
   padding-bottom: 65px;
 
-  div.page-left {
-    float: left;
-    width: 670px;
-  }
-
-  div.page-right {
-    float: right;
-    width: 300px;
-  }
-
   h1 {
     font-size: 25px;
     color: $darkBlue;
@@ -55,7 +45,7 @@ div.donate-page {
 
   div.project-desc-wrapper {
     border: 1px solid #d4d4d4;
-    padding: 15px;
+    padding: 10px;
     @include border-radius(4px);
     background: white;
 

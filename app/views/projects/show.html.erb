@@ -24,7 +24,7 @@
 <div class="project-description-content">
   <div class="container container-fluid">
     <div class="row-fluid">
-      <div class="span8">
+      <div class="page-left">
         <%= content_tag :h2, @project.headline, :class => "project-h2" %>
         <div class="jiathis-button-container">
           <!-- JiaThis Button BEGIN -->
@@ -52,7 +52,7 @@
         <% end %>
       </div>
 
-      <div class="span3 offset1">
+      <div class="page-right">
         <div class="section">
           <%= content_tag :h2, t("projects.info.current_amount") %>
           <%= content_tag :div, number_to_currency(@project.current_amount), :class => "desc-detail amount-text" %>
