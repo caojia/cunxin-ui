@@ -69,8 +69,8 @@ class ProfileController < ApplicationController
           :link => donations_profile_path },
         { :name => "account",
           :link => profile_path },
-        { :name => "awards",
-          :link => rewards_profile_path }
+        #{ :name => "awards",
+          #:link => rewards_profile_path }
       ]
       @profile_tabs_hash = {}
       @profile_tabs.each do |t| 
