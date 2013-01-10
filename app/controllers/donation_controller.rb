@@ -128,13 +128,13 @@ class DonationController < ApplicationController
     options = {
       :account => payment.account.target_account,
       :amount => payment.amount,
-      :email => payment.account.email,
+      #:email => payment.account.email,
       :currency_type => payment.currency_type,
       :order_id => payment.order_id,
       :subject => payment.project.headline,
       :body => payment.project.headline,
-      :return_url => "http://cunxin.org/payment/return/" + payment.account.payment_method,
-      :notify_url => "http://cunxin.org/payment/notify/" + payment.account.payment_method,
+      #:return_url => "http://www.cunxin.org/donation/return/" + payment.account.payment_method,
+      :notify_url => "http://www.cunxin.org/donation/notify/" + payment.account.payment_method,
       :verify_type => payment.account.verify_type,
       :key => payment.account.key,
     }
