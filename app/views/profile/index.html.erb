@@ -1,13 +1,13 @@
 <div class="no-head-carousel clearfix">
   <div id="profile" class="container profile-container container-fluid">
     <div class="row-fluid">
-      <div class="span8">
+      <div class="page-left">
         <%= render :partial => "nav" %>
         <div class="profile-content bordered-content">
           <%= render :partial => @partial %>
         </div>
       </div>
-      <div class="span4 recommended-projects">
+      <div class="page-right recommended-projects">
         <h4 class="section-head recommended-projects-title"><%= t("profile.recommended_projects.title") %></h4>
         <ul class="thumbnails">
           <% @projects.each do |project| %>

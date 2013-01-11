@@ -140,7 +140,7 @@ $ ->
   $(col3Carousel).carousel "pause"
   $(col4Carousel).carousel "pause"
 
-  _carousel = new FadeCarousel($(_headCarousel), true, _interval)
+  _carousel = new FadeCarousel($(_headCarousel), false, _interval)
   $(_homeInputBox).on("keydown", () ->
     _carousel.pause()
     _carousel.start()
