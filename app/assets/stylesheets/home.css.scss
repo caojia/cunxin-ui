@@ -154,7 +154,7 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   width: sprites-sprite-width("or-seperator");
   height: sprites-sprite-height("or-seperator");
   @include sprites-sprite("or-seperator");
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .cunxin-detail {
@@ -162,3 +162,9 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
     font-weight: bold;
   }
 }
+
+.home-sina-connect-container {
+  display: block;
+  text-align: center;
+}
+
