@@ -1,7 +1,7 @@
 $ = jQuery
 
 _followLink = "#project-follow"
-_followCountSpan = "#followed-count-container .num"
+_followCountDiv = "#followed-count-container div.desc-detail.amount-text"
 _followingButton = "#project-following"
 _checkFollowingUrlAttr = "check-following-url"
 
@@ -21,7 +21,7 @@ _callbacks =
 
   "success": (event, resp) ->
     showInfo(resp.info)
-    $(_followCountSpan).text(resp.total_followed)
+    $(_followCountDiv).text(resp.total_followed)
 
   "error": (event, resp) ->
     try

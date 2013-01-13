@@ -53,20 +53,6 @@
       </div>
 
       <div class="page-right">
-        <div class="section">
-          <%= content_tag :h2, t("projects.info.current_amount") %>
-          <%= content_tag :div, number_to_currency(@project.current_amount), :class => "desc-detail amount-text" %>
-        </div>
-
-        <div class="section">
-          <%= content_tag :h2, t("projects.info.countdown") %>
-          <%= content_tag :div, "", :class => "desc-detail countdown" do %>
-            <div id = 'countdown-timer' >
-              <%= get_time_left(@project).html_safe %>
-            </div>
-          <% end %>
-        </div>
-
         <div class="section first-section button-content">
           <div class="buttons">
             <% if Time.now <= @project.finished_at %>
@@ -102,6 +88,35 @@
                   :style => "display: none;",
                   :class => "dark-green-button small-button hidden disabled" %>
           </div>
+        </div>
+
+        <div class="section">
+          <%= content_tag :h2, t("projects.info.target_amount") %>
+          <%= content_tag :div, number_to_currency(@project.target_amount), :class => "desc-detail amount-text" %>
+        </div>
+
+        <div class="section">
+          <%= content_tag :h2, t("projects.info.current_amount") %>
+          <%= content_tag :div, number_to_currency(@project.current_amount), :class => "desc-detail amount-text" %>
+        </div>
+
+        <div class="section">
+          <%= content_tag :h2, t("projects.info.countdown") %>
+          <%= content_tag :div, "", :class => "desc-detail countdown" do %>
+            <div id = 'countdown-timer' >
+              <%= get_time_left(@project).html_safe %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="section">
+          <%= content_tag :h2, t("projects.info.donate_user_count") %>
+          <%= content_tag :div, @project.followed_users.count, :class => "desc-detail amount-text" %>
+        </div>
+
+        <div class="section" id="followed-count-container">
+          <%= content_tag :h2, t("projects.info.has_followed") %>
+          <%= content_tag :div, @project.followed_users.count, :class => "desc-detail amount-text"%>
         </div>
 
         <div class="section">

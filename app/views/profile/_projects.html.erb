@@ -1,4 +1,3 @@
-<h3><%= t("profile.tab.projects") %></h3>
 <% if @projects.empty? %>
   <div class="text-info"><%= t("profile.projects.not_following") %></div>
 <% else %>
@@ -18,7 +17,7 @@
         <td class='td40'>
           <%= link_to project.headline, project_path(project) %>
         </td>
-        <td class='td15'>
+        <td class='td15 text-center'>
           <%= t("profile.projects.following") %>
         </td>
         <td class='td25'>

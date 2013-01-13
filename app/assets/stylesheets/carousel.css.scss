@@ -6,7 +6,7 @@ $col5_carousel_width: 188px;
 $col5_carousel_height: 110px;
 $col5_carousel_border: 2px;
 $head_carousel_width: 100%;
-$head_carousel_height: 450px;
+$head_carousel_height: 550px;
 $head_description_height: 300px;
 $head_description_width: 150px;
 $arrow_height: sprites-sprite-height("left-arrow");
@@ -22,7 +22,6 @@ $arrow_height: sprites-sprite-height("left-arrow");
   margin-right: auto;
 
   border-bottom: 1px solid $gray;
-  @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
 
   .carousel-inner {
     width: 100%;
