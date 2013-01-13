@@ -26,13 +26,8 @@
       </tr>
 
       <tr class="desc-content">
-        <%= content_tag :td, t("projects.desc_info.target_amount"), :class => "col1" %>
-        <%= content_tag :td, number_to_currency(@project.target_amount), :class => "col2" %>
-      </tr>
-
-      <tr class="desc-content" id="followed-count-container">
-        <%= content_tag :td, t("projects.info.has_followed"), :class => "col1" %>
-        <%= content_tag :td, @project.followed_users.count, :class => "col2 num" %>
+        <%= content_tag :td, t("projects.desc_info.finished_at"), :class => "col1" %>
+        <%= content_tag :td, l(@project.finished_at.to_date), :class => "col2" %>
       </tr>
     </table>
   </div>

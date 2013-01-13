@@ -25,6 +25,9 @@
     th {
       text-align: center;
     }
+    td.text-center {
+      text-align: center;
+    }
   }
 
   legend {
@@ -62,6 +65,12 @@
       p {
         margin-top: 10px;
       }
+    }
+  }
+
+  ul.thumbnails {
+    li {
+      margin-left: 0px;
     }
   }
 }

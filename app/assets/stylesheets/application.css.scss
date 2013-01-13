@@ -92,6 +92,7 @@ $container-width: 1002px;
 
 h4.section-head {
   font-size: 18px;
+  font-weight: bold;
   color: $darkGreen;
 }
 
@@ -188,3 +189,7 @@ a.no-decoration {
   float: right;
   width: 280px;
 }
+
+//.num {
+    //font: 56px/56px "LeagueGothicRegular", sans-serif;
+//}

@@ -3,20 +3,21 @@ zh-CN:
     info:
       progress: "项目进度："
       has_followed: "关注人数："
+      donate_user_count: "捐助人数："
       donate: "捐 助"
       follow: "关 注"
       following: "已关注"
       follow_thanks: "感谢您关注该项目！"
+      target_amount: "目标金额："
       current_amount: "已获捐助："
       countdown: "剩余时间："
       time_left: "%02d<span>天</span>%02d<span>时</span>%02d<span>分</span>%02d<span>秒</span>"
 
     desc_info:
-      charity: "公益组织："
-      location: "所在城市："
+      charity: "执行公益组织："
       published_at: "发起时间："
+      finished_at: "截止时间："
       target: "受捐对象："
-      target_amount: "目标金额："
       status: "项目状态："
 
 

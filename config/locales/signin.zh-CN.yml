@@ -2,7 +2,7 @@ zh-CN:
   signin:
     title: "登录寸心"
     email: "登录邮箱"
-    password: "登陆密码"
+    password: "登录密码"
     remember_me: "下次自动登录"
     submit: "登录寸心"
     link: "登录"

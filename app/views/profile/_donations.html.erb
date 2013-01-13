@@ -1,4 +1,3 @@
-<h3><%= t("profile.tab.donations") %></h3>
 <% if @donations_count == 0 %>
   <div class="text-info"><%= t("profile.donations.no_donations") %></div>
 <% end %>
@@ -20,7 +19,7 @@
         <td class='td40'>
           <%= link_to project.headline, project_path(project) %>
         </td>
-        <td class='td15'>
+        <td class='td15 text-center'>
           <%= number_to_currency(payment.amount) %>
         </td>
         <td class='td25'>

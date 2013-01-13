@@ -10,7 +10,7 @@ zh-CN:
     agree_pp: "我已阅读并同意<a href='/terms' target='_blank'>使用条款</a>"
 
     oauth:
-      hint: "你也可以通过站外账号进行登陆："
+      hint: "你也可以通过站外账号进行登录："
 
     complete:
       title: "%{name}，欢迎来到寸心网"

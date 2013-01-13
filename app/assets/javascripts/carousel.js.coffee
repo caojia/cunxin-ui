@@ -13,7 +13,7 @@ _carouselActiveNavDotClass = "nav-dot-active"
 
 _headCarouselInner = "#head-carousel .carousel-inner"
 _headCarouselWidth = 1280
-_headCarouselHeight = 450
+_headCarouselHeight = 550
 _verticalCentered = "#head-carousel .carousel-control, #head-carousel .home-signup-form-container"
 
 _largeResizeableWidth = 1440
