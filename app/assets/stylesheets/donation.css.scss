@@ -227,9 +227,9 @@ div.donate-expired-page {
     padding-left: 40px;
     margin: 0 auto;
     color: $lightBlue;
-    font-size: 40px;
+    font-size: 30px;
     line-height: 50px;
-    font-weight: bold;
+    font-weight: normal;
   }
 }
 
@@ -238,35 +238,34 @@ div.pay-success-page {
 
   h1.thank-note {
     padding-left: 40px;
-    margin-bottom: 45px;
+    margin-bottom: 50px;
     color: #333;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: normal;
   }
 
   div.info {
-    margin-bottom: 20px;
+    margin-bottom: 54px;
     div.info-row {
+      margin-bottom: 19px;
       div.title {
-        margin-bottom: 25px;
         width: 50%;
-        font-size: 36px;
+        font-size: 30px;
         color: #333;
         line-height: 46px;
         text-align: right;
         vertical-align: top;
-        font-weight: bold;
+        font-weight: normal;
         float: left;
       }
       div.value {
-        margin-bottom: 25px;
         width: 33%;
-        font-size: 34px;
-        color: $lightBlue;
+        font-size: 30px;
+        color: #00A0E9;
         line-height: 46px;
         text-align: left;
         vertical-align: top;
-        font-weight: bold;
+        font-weight: normal;
         float: left;
       }
     }
@@ -274,12 +273,14 @@ div.pay-success-page {
 
   div.notice {
     padding-left: 60px;
-    font-size: 24px;
-    line-height: 60px;
+    font-size: 22px;
+    line-height: 36px;
     margin-bottom: 30px;
-    span {
-      font-weight: bold;
-      color: $lightBlue;
+    span.score {
+      color: #F01A3C;
+    }
+    span.report {
+      color: #00A0E9;
     }
   }
 }
