@@ -36,6 +36,7 @@ class SinaController < ApplicationController
           user.thumbnail_updated_at = Time.now.utc
           user.save
 
+          user.remember_me!
           sign_in(user)
           redirect_to root_path
         else
