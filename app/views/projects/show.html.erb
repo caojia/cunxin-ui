@@ -30,10 +30,10 @@
           <!-- JiaThis Button BEGIN -->
           <div class="jiathis_style_24x24">
             <span class="jiathis_txt">分享到：</span>
-            <%= link_to "#", :remote => true, :class => "loggedin hidden" do %>
-              <%= image_tag "sina-logo-s24.png", :class => "jiathis_txt jticon", :style => "padding-right: 4px;" %>
-            <% end %>
-            <a class="jiathis_button_tsina anonymous"></a>
+            <%#= link_to "#", :remote => true, :class => "loggedin hidden" do %>
+              <%#= image_tag "sina-logo-s24.png", :class => "jiathis_txt jticon", :style => "padding-right: 4px;" %>
+            <%# end %>
+            <a class="jiathis_button_tsina"></a>
             <a class="jiathis_button_renren"></a>
             <a class="jiathis_button_douban"></a>
             <a class="jiathis_button_tqq"></a>
@@ -152,7 +152,7 @@ var jiathis_config={
     siteNum: 10,
     sm:"kaixin001,renren,tsohu,t163,douban,tieba,msn,qq,youdao,qingsina",
     summary: <%= @project.headline.to_json.html_safe %>,
-    title:"#寸心公益#",
+    title:"#寸心#",
     ralateuid:{
         "tsina":"2989934492"
     },
@@ -165,4 +165,4 @@ var jiathis_config={
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=89712" charset="utf-8"></script>
 <script type="text/javascript">
   var targetDate = new Date( <%= (@project.finished_at.to_f*1000).floor %>);
-</script>
+/script>
