@@ -1,3 +1,4 @@
+# encoding:utf-8
 module Billing
   module AliPay
     class Helper
@@ -26,7 +27,6 @@ module Billing
       end
 
       def host
-        #"http://www.alipay.com/cooperate/gateway.do"
         "https://mapi.alipay.com/gateway.do"
       end
 
@@ -42,10 +42,10 @@ module Billing
           :"_input_charset" => 'utf-8',
           :service => "create_direct_pay_by_user",
           :payment_type => "4",
-          :subject => 'Donation'
+          :subject => options[:subject]
         }
-        #params[:body] = options[:body] if options[:body]
-        #params[:return_url] = options[:return_url] if options[:return_url]
+        params[:body] = options[:body] if options[:body]
+        params[:return_url] = options[:return_url] if options[:return_url]
         if options[:bank]
           params[:paymethod] = 'bankPay'
           params[:defaultbank] = @@bank_name_match[options[:bank]]
@@ -59,8 +59,8 @@ module Billing
       def sign_params(params, key)
         raw_query_string = params.map {|key, value| "#{key}=#{value}" }.sort.join("&")
         p raw_query_string
-        p raw_query_string+key
-        sign = Digest::MD5.hexdigest(raw_query_string + key)
+        p CGI.unescape(raw_query_string+key)
+        sign = Digest::MD5.hexdigest(CGI.unescape(raw_query_string) + key)
         p sign
         params[:sign] = sign
         params[:sign_type] = 'MD5'

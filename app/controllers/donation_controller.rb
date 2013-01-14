@@ -54,6 +54,8 @@ class DonationController < ApplicationController
     @payment = generate_payment(@order_id, @project, @account, @donate_amount, @payment_method, :anonymous => params[:anonymous])
 
     @pay = generate_payment_params(@payment, @payment_method)
+
+    render :layout => false
   end
 
   def success
@@ -67,6 +69,7 @@ class DonationController < ApplicationController
   end
 
   def notify
+    p params
     case params[:payment_type].downcase
     when 'alipay'
       alipay_notify
