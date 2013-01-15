@@ -55,13 +55,14 @@
                 <div style="clear: both;"> </div>
               </ul>
             <% end %>
+
             <div style="clear: both;"> </div>
             <% unless @payment_target.find_all{|h| h[:category] == :platform }.blank? %>
               <%= content_tag :h3, t("donation.payment_platform") %>
               <ul class='payment-select'>
                 <% @payment_target.find_all{|h| h[:category] == :platform }.each do |h| %>
-                  <li>
-                    <%= radio_button_tag :payment_method, h[:name] %>
+                  <li class='select'>
+                    <%= radio_button_tag :payment_method, h[:name], true %>
                     <div class='payment-logo'>
                       <%= image_tag h[:img_url] %>
                     </div>
@@ -99,6 +100,7 @@
   <div style="clear: both;"> </div>
 </div>
 <%= render :partial=>'pay_confirm_popup' %>
+<%= render :partial=>'pay_hint_popup' %>
 <script type="text/javascript">
   var targetDate = new Date( <%= (@project.finished_at.to_f*1000).floor %>);
 </script>

@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   has_many :user_projects
   has_many :followed_projects, :through => :user_projects, :conditions => ["user_projects.is_deleted = ?", false], :source => :project
+  has_many :payments
   has_one :sina_oauth_user
   has_one :profile
 

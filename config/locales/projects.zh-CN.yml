@@ -12,6 +12,7 @@ zh-CN:
       current_amount: "已获捐助："
       countdown: "剩余时间："
       time_left: "%02d<span>天</span>%02d<span>时</span>%02d<span>分</span>%02d<span>秒</span>"
+      people_count: "人"
 
     desc_info:
       charity: "执行公益组织："

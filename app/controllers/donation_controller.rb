@@ -2,23 +2,23 @@ class DonationController < ApplicationController
   helper ProjectsHelper
 
   @@payment_target = [
-      {:name => 'icbc', :img_url => "/payment/icbc.png", :category => :bank},
-      {:name => 'ccb', :img_url => "/payment/ccb.png", :category => :bank},
-      {:name => 'cmb', :img_url => "/payment/cmb.png", :category => :bank},
-      {:name => 'bcom', :img_url => "/payment/bcom.png", :category => :bank},
-      {:name => 'abc', :img_url => "/payment/abc.png", :category => :bank},
-      {:name => 'gdb', :img_url => "/payment/gdb.png", :category => :bank},
-      {:name => 'cib', :img_url => "/payment/cib.png", :category => :bank},
-      {:name => 'ceb', :img_url => "/payment/ceb.png", :category => :bank},
-      {:name => 'post', :img_url => "/payment/post.png", :category => :bank},
-      {:name => 'citic', :img_url => "/payment/citic.png", :category => :bank},
-      {:name => 'spdb', :img_url => "/payment/spdb.png", :category => :bank},
-      {:name => 'boc', :img_url => "/payment/boc.png", :category => :bank},
-      {:name => 'sdb', :img_url => "/payment/sdb.png", :category => :bank},
-      {:name => 'cmbc', :img_url => "/payment/cmbc.png", :category => :bank},
-      {:name => 'bob', :img_url => "/payment/bob.png", :category => :bank},
-      {:name => 'pab', :img_url => "/payment/pab.png", :category => :bank},
-      {:name => 'hzb', :img_url => "/payment/hzb.png", :category => :bank},
+      #{:name => 'icbc', :img_url => "/payment/icbc.png", :category => :bank},
+      #{:name => 'ccb', :img_url => "/payment/ccb.png", :category => :bank},
+      #{:name => 'cmb', :img_url => "/payment/cmb.png", :category => :bank},
+      #{:name => 'bcom', :img_url => "/payment/bcom.png", :category => :bank},
+      #{:name => 'abc', :img_url => "/payment/abc.png", :category => :bank},
+      #{:name => 'gdb', :img_url => "/payment/gdb.png", :category => :bank},
+      #{:name => 'cib', :img_url => "/payment/cib.png", :category => :bank},
+      #{:name => 'ceb', :img_url => "/payment/ceb.png", :category => :bank},
+      #{:name => 'post', :img_url => "/payment/post.png", :category => :bank},
+      #{:name => 'citic', :img_url => "/payment/citic.png", :category => :bank},
+      #{:name => 'spdb', :img_url => "/payment/spdb.png", :category => :bank},
+      #{:name => 'boc', :img_url => "/payment/boc.png", :category => :bank},
+      #{:name => 'sdb', :img_url => "/payment/sdb.png", :category => :bank},
+      #{:name => 'cmbc', :img_url => "/payment/cmbc.png", :category => :bank},
+      #{:name => 'bob', :img_url => "/payment/bob.png", :category => :bank},
+      #{:name => 'pab', :img_url => "/payment/pab.png", :category => :bank},
+      #{:name => 'hzb', :img_url => "/payment/hzb.png", :category => :bank},
       {:name => "alipay", :img_url => "/payment/alipay.gif", :category => :platform}
     ]
 
@@ -32,16 +32,16 @@ class DonationController < ApplicationController
     @default_amount = 10
     @payment_target = @@payment_target.dup
 
-    last_payment = Payment.find(
-      :first,
-      :include => [:account],
-      :conditions => {:user_id => current_user.id},
-      :order => 'created_at DESC' ) unless current_user.blank?
-
-    unless last_payment.blank?
-      @default_payment = @payment_target.find {|h| h[:name] == last_payment.select_payment_method }
-      @payment_target.delete_if {|h| h[:name] == @default_payment[:name] } unless @default_payment.blank?
-    end
+    #last_payment = Payment.find(
+      #:first,
+      #:include => [:account],
+      #:conditions => {:user_id => current_user.id},
+      #:order => 'created_at DESC' ) unless current_user.blank?
+#
+    #unless last_payment.blank?
+      #@default_payment = @payment_target.find {|h| h[:name] == last_payment.select_payment_method }
+      #@payment_target.delete_if {|h| h[:name] == @default_payment[:name] } unless @default_payment.blank?
+    #end
   end
 
   def pay

@@ -1,19 +1,23 @@
 <div class="modal pay-confirm-modal hide" id="pay-confirm-modal">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3><%= t("donation.pay_popup_title") %></h3>
   </div>
 
   <div class="modal-body">
     <div class='info'>
-      <%= t("donation.pay_confirm_info").html_safe %>
+      <%= t("donation.pay_confirm_info") %>
     </div>
     <div class='notice'>
-      <%= t("donation.pay_confirm_notice").html_safe %>
+      <%= t("donation.pay_confirm_notice") %>
     </div>
-    <div class="buttons">
-      <%= link_to t("donation.pay_succeed"), {:controller => 'donation', :action => 'success'} , { :id => "pay-succeed", :class => "blue-button small-button" } %>
-      <%= link_to t("donation.pay_failed"), '#', { :id => "pay-failed", :class => "blue-button small-button" } %>
+    <div id='hint' class='hint hide'>
+      <%= t("donation.pay_notice").html_safe %>
     </div>
   </div>
 
+  <div class="modal-footer">
+    <%= link_to t("donation.pay_succeed"), {:controller => 'donation', :action => 'success'} , { :id => "pay-succeed", :class => "blue-button small-button" } %>
+    <%= link_to t("donation.pay_failed"), '#', { :id => "pay-failed", :class => "green-button small-button" } %>
+  </div>
 </div>

@@ -111,12 +111,18 @@
 
         <div class="section">
           <%= content_tag :h2, t("projects.info.donate_user_count") %>
-          <%= content_tag :div, @project.followed_users.count, :class => "desc-detail amount-text" %>
+          <div>
+            <%= content_tag :span, @project.donated_users.count, :class => "desc-detail amount-text blue" %>
+            <%= content_tag :span, t("projects.info.people_count") %>
+          </div>
         </div>
 
         <div class="section" id="followed-count-container">
           <%= content_tag :h2, t("projects.info.has_followed") %>
-          <%= content_tag :div, @project.followed_users.count, :class => "desc-detail amount-text"%>
+          <div>
+            <%= content_tag :span, @project.followed_users.count, :class => "desc-detail amount-text blue"%>
+            <%= content_tag :span, t("projects.info.people_count") %>
+          </div>
         </div>
 
         <div class="section">
