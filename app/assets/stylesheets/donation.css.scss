@@ -185,40 +185,42 @@ div.donate-page {
   input#pay-submit{
     margin-left: 25px;
   }
-
 }
 
 div.pay-confirm-modal {
-  width: 415px;
-  border: 1px solid $darkBlue;
-  div.modal-header {
-    height: 28px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    background-color: $darkBlue;
-  }
   div.info {
-    height: 54px;
-    font-family: "'黑体',arial,sans-serif";
     background: url("wenwen-dance.png") no-repeat;
-    padding: 26px 0 37px 119px;
-    font-size: 19px;
-    margin: 4px 28px 17px;
-    line-height: 33px;
+    padding-left: 125px;
+    padding-top: 50px;
+    font-size: 22px;
+    line-height: 24px;
+    height: 70px;
+    margin-left: 30px;
   }
   div.notice {
-    margin: 0;
-    line-height: 20px;
-    padding-left: 28px;
+    margin-top: 10px;
+    padding-left: 63px;
   }
-  div.buttons {
-    margin: 15px 15px 30px;
-    text-align: center;
+  .modal-footer{
     a {
       margin-left: 10px;
     }
   }
 }
+
+div.pay-hint-modal {
+  div.hint {
+    margin: 5px 50px 0 53px;
+    ul {
+      list-style-type: disc;
+      width: 390px;
+      li {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
 
 div.donate-expired-page {
   text-align: center;

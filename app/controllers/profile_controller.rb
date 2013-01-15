@@ -25,11 +25,13 @@ class ProfileController < ApplicationController
     @page = params[:page] ? params[:page].to_i : 1
 
     @donations_count = Payment.count(
-                             :conditions => {:user_id => current_user.id} # TODO: Remove unfinished
+                             :conditions => {:user_id => current_user.id,
+                               :status => Payment::STATUS_FINISH }
                         )
     @max_page = ( @donations_count+PAGE_LIMIT-1) / PAGE_LIMIT
     @payments = Payment.find(:all,
-                             :conditions => {:user_id => current_user.id}, # TODO: Remove unfinished
+                             :conditions => {:user_id => current_user.id,
+                               :status => Payment::STATUS_FINISH},
                              :include => [:project],
                              :order => "created_at DESC",
                              :limit => PAGE_LIMIT,

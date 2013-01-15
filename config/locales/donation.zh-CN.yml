@@ -7,10 +7,19 @@ zh-CN:
     pay: "确定并支付"
     donate_amount_other: "其他..."
     pay_popup_title: "支付"
-    pay_confirm_info: "请您在新打开的页面上<br/>完成支付。"
-    pay_confirm_notice: "付款完成前请不要关闭此窗口<br/>完成付款后请根据您的情况点击下面的按钮："
+    pay_hint_title: "支付遇到问题"
+    pay_confirm_info: "请您在新打开的页面上进行支付"
+    pay_confirm_notice: "付款完成前请不要关闭此窗口,付款后请点击下面按钮"
     pay_succeed: "支付成功"
-    pay_failed: "支付失败，重选支付方式"
+    pay_failed: "支付遇到问题"
+    pay_notice: "<ul>
+    <li><div>支付宝或网银提示余额不足</div>
+    <div> 建议您更换余额充足的网银，或是先关注一下项目，待存入充足金额后再进行捐赠。</div>
+    <li><div>支付宝或网银页面显示错误或者空白</div>
+    <div> 网银和支付宝对不同浏览器的兼容性有限，可能导致无法正常支付，建议您使用IE浏览器。</div>
+    <li> <div>网上银行已扣款，寸心没有显示捐款成功</div>
+    <div> 可能由于银行的数据没有即时传输，请不要担心，稍后刷新页面查看。如较长时间仍显示未付款，可联系寸心客服(help@cunxin.org)为您解决。</div></li>
+    </ul>"
     progress: "项目进度:"
     target_amount: "目标金额:"
     charity: "慈善机构:"

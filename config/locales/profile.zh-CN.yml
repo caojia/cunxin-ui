@@ -33,7 +33,7 @@ zh-CN:
         operation: "操作"
       following: "关注中"
       unfollow: "取消关注"
-      donate: "捐赠"
+      donate: "捐助"
 
     legend:
       address: "基本信息"

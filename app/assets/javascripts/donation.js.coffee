@@ -88,6 +88,7 @@ chooseOtherMethodClick = (event) ->
 
 payFailedClick = (event) ->
   $('#pay-confirm-modal').modal('hide')
+  $('#pay-hint-modal').modal('show')
   false
 
 donateAmountInputKeyUp = (event) ->

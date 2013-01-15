@@ -8,6 +8,8 @@ class Project < ActiveRecord::Base
 
   has_many :user_projects
   has_many :followed_users, :through => :user_projects, :source => :user, :conditions => ["user_projects.is_deleted = ?", false]
+  # Add finished status
+  has_many :finished_payments, :class_name => Payment, :conditions => {}, :order => "created_at DESC"
 
   belongs_to :charity
 
@@ -19,15 +21,18 @@ class Project < ActiveRecord::Base
 
   def donated_users
     # TODO: use real donated users
-    return User.find(:all)
+    return User.find(:all,
+                     :include => [:payments],
+                     :conditions => ["payments.project_id = ? AND payments.status = ?", self.id, Payment::STATUS_FINISH],
+                     :group => "users.id")
   end
 
-  def finished_payments opt={}
+  def recent_finished_payments opt={}
     payments = Payment.find(:all,
-                            :conditions =>{ :project_id => self.id },
+                            :conditions =>{ :project_id => self.id, :status => Payment::STATUS_FINISH },
                             :include => [:user],
-                            :limit => opt[:limit]
-                           )
+                            :limit => opt[:limit],
+                            :order => 'created_at DESC')
     return payments
   end
 

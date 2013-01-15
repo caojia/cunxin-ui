@@ -25,6 +25,9 @@ $project-info-width: 300px;
       }
     }
     .desc-detail {
+      &.amount-text.blue {
+        color: $darkBlue;
+      }
       font-size: 30px;
       line-height: 30px;
     }
