@@ -51,8 +51,8 @@ zh-CN:
       failure: '因为 %{reason}，所以您无法从 %{kind}获得授权.'
     mailer:
       confirmation_instructions:
-        subject: '[寸心网] 邮箱验证'
+        subject: '【寸心网】邮箱验证'
       reset_password_instructions:
-        subject: '[寸心网] 重置密码信息'
+        subject: '【寸心网】重置密码信息'
       unlock_instructions:
         subject: '解锁信息'
