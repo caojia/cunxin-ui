@@ -15,7 +15,7 @@ class ProfileController < ApplicationController
     @partial = "projects"
 
     # TODO: pagination
-    @projects = current_user.followed_projects 
+    @followed_projects = current_user.followed_projects
     render :action => :index
   end
 
