@@ -1,8 +1,16 @@
 <div class='user-thumb-photo float-left'>
-  <%= image_tag payment.user.thumbnail_url, :title => payment.user.name, :alt => payment.user.name %>
+  <% if payment.anonymous %>
+    <%= image_tag ProjectsController::DEFAULT_THUMBNAIL_URL, :title => t("projects.user_thumb.anonymous_donate"), :alt => t("projects.user_thumb.anonymous_donate") %>
+  <% else %>
+    <%= image_tag payment.user.thumbnail_url, :title => payment.user.name, :alt => payment.user.name %>
+  <% end %>
 </div>
 <div class='user-thumb-text float-left'>
-  <%= content_tag :div, payment.user.name %>
+  <% if payment.anonymous %>
+    <%= content_tag :div, t("projects.user_thumb.anonymous_donate") %>
+  <% else %>
+    <%= content_tag :div, payment.user.name %>
+  <% end %>
   <div>
     <span><%= t("projects.section.donated_amount_label") %></span>
     <span><%= number_to_currency(payment.amount) %></span>
