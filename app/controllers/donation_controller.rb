@@ -69,7 +69,6 @@ class DonationController < ApplicationController
   end
 
   def notify
-    p params
     case params[:payment_type].downcase
     when 'alipay'
       alipay_notify
@@ -80,11 +79,10 @@ class DonationController < ApplicationController
 
   def alipay_notify
     Notification.create(:payment_method => 'alipay', :detail => request.raw_post)
-
-    ali_notify = Billing::Alipay::Notify.new(request.raw_post)
-    payment = Payment.find(:first, :conditions=>{:order_id => ali_notify.out_trade_no} )
-
+    payment = Payment.find(:first, :conditions=>{:order_id => params[:out_trade_no]}, :include => [:account]  )
     if payment
+      ali_notify = Billing::Alipay::Notify.new(request.raw_post, :key => payment.account.key)
+      ali_notify.acknowledge # check sign
       case ali_notify.trade_status
       when 'TRADE_FINISHED'
         payment.status = Payment::STATUS_FINISH
@@ -94,6 +92,8 @@ class DonationController < ApplicationController
       payment.save
       payment.project.update_project_current_amount
       render :text => 'success'
+    else
+      render :text => 'fail'
     end
   end
 
