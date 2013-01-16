@@ -6,4 +6,8 @@ class SinaOauthUser < OauthUser
     u.nil? ? new(:oauth_uid => uid.to_s) : u
   end
 
+  def sina_link
+    "http://www.weibo.com/u/#{oauth_uid}"
+  end
+
 end
