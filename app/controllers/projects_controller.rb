@@ -2,10 +2,12 @@ class ProjectsController < ApplicationController
   include SinaClient
   before_filter :authenticate_user!, :only => [:follow, :unfollow, :check_following]
 
+  DEFAULT_THUMBNAIL_URL = "/images/users/bee-36x36.png"
+
   def show
     @project = Project.find(params[:id], :include => [:charity, :photos])
     @photos = @project.photos
-    @payments = @project.finished_payments(:limit => 10)
+    @payments = @project.recent_finished_payments(:limit => 10)
     @projects = Project.find(:all, :limit => 5, :conditions => {:published => true}).reject {|proj| proj == @project}
   end
 

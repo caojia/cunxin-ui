@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   has_many :user_projects
   has_many :followed_users, :through => :user_projects, :source => :user, :conditions => ["user_projects.is_deleted = ?", false]
   # Add finished status
-  has_many :finished_payments, :class_name => Payment, :conditions => {}, :order => "created_at DESC"
+  has_many :finished_payments, :class_name => Payment, :conditions => {:status => Payment::STATUS_FINISH}, :order => "created_at DESC"
 
   belongs_to :charity
 
