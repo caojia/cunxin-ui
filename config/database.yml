@@ -25,6 +25,7 @@ production:
   host: localhost
   username: cunxin
   password: App0110
+  wait_timeout: 2147483
 
 cucumber:
   <<: *test
