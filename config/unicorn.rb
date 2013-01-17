@@ -10,7 +10,7 @@ stderr_path "#{shared_path}/log/unicorn.log"
 stdout_path "#{shared_path}/log/unicorn.log"
 
 listen 2012
-worker_processes 2
+worker_processes 6
 timeout 60
 preload_app true
 
