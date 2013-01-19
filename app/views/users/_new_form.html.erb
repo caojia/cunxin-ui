@@ -10,6 +10,7 @@
   <% end -%>
 
   <%= (hidden_field_tag :sina_id, @sina_user_id) if @sina_user_id %>
+  <%= hidden_field_tag "ignore_password_confirmation", "1" %>
 
   <div class="control-group" id="signup-name-field">
     <%= f.label :name, t("signup.name"), :class => "control-label" %>
@@ -31,14 +32,6 @@
     <%= f.label :password, t("signup.password"), :class => "control-label" %>
     <div class="controls">
       <%= f.password_field :password, :class => "signup-input" %>
-      <span class="help-inline"></span>
-    </div>
-  </div>
-
-  <div class="control-group" id="signup-password-confirmation-field">
-    <%= f.label :password_confirmation, t("signup.password_confirmation"), :class => "control-label" %>
-    <div class="controls">
-      <%= f.password_field :password_confirmation, :class => "signup-input" %>
       <span class="help-inline"></span>
     </div>
   </div>
