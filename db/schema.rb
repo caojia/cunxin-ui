@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207150026) do
+ActiveRecord::Schema.define(:version => 20130122155157) do
 
   create_table "accounts", :force => true do |t|
     t.string   "payment_method"
@@ -196,6 +196,8 @@ ActiveRecord::Schema.define(:version => 20121207150026) do
     t.string   "name"
     t.string   "weibo_url"
     t.string   "blessing"
+    t.string   "location"
+    t.string   "career"
   end
 
   create_table "user_projects", :force => true do |t|
