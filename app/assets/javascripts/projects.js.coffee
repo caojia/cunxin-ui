@@ -39,9 +39,9 @@ showError = (error) -> alert(error)
 _setFollowingState = (isFollowing) ->
   if isFollowing
     $(_followLink).parents(".button").hide().addClass("hidden")
-    $(_followingButton).show().removeClass("hidden")
+    $(_followingButton).parents(".button").show().removeClass("hidden")
   else
-    $(_followingButton).hide().addClass("hidden")
+    $(_followingButton).parents(".button").hide().addClass("hidden")
     $(_followLink).parents(".button").show().removeClass("hidden")
 
 _checkFollowing = () ->

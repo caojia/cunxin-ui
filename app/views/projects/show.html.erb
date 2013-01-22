@@ -65,7 +65,7 @@
                 <div class='btn-right'> </div>
               </div>
             <% else %>
-              <div class='button blue-btn disabled'>
+              <div class='button disabled'>
                 <div class='btn-left'>
                   <%= content_tag :div, t("projects.info.donate"), :class => "btn-content"%>
                 </div>
@@ -83,10 +83,14 @@
               </div>
               <div class='btn-right'> </div>
             </div>
-            <%= link_to t("projects.info.following"), "#",
-                  :id => "project-following",
-                  :style => "display: none;",
-                  :class => "dark-green-button small-button hidden disabled" %>
+            <div class='button disabled hidden' style='display: none;'>
+              <div class='btn-left'>
+                <%= content_tag :div, t("projects.info.following"),
+                      :id => "project-following",
+                      :class => "btn-content" %>
+              </div>
+              <div class='btn-right'> </div>
+            </div>
           </div>
         </div>
 

@@ -148,6 +148,15 @@ div.button.dark-blue-btn {
   }
 }
 
+div.button.disabled {
+  .btn-left {
+    @include sprites-sprite("disabled-button")
+  }
+  .btn-right {
+    @include sprites-sprite("disabled-button", false, -(sprites-sprite-width("dark-blue-button")-$buttonMarginWidth), 0px)
+  }
+}
+
 .sina-connect-button {
   display: inline-block;
   width: sprites-sprite-width("sina-connect");
