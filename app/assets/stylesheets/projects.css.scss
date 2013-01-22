@@ -58,12 +58,13 @@ $project-info-width: 300px;
   box-shadow: 0 3px 4px rgba(0,0,0,.15);
 
   .column {
-    width: 45%;
     &.left {
       float: left;
+      width: 55%;
     }
     &.right {
       float: right;
+      width: 40%;
     }
   }
 }
