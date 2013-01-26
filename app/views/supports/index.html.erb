@@ -17,9 +17,25 @@
       <div class="pic-block" >
         <div class="pic-content-wrapper">
           <%= link_to "#", :class => "show-image-link", :'data-cunxin-thumb-large-src' => support.photo.thumb("960") do %>
-            <%= image_tag support.photo.thumb("960"), :alt => support.photo.name %>
+            <%= image_tag support.photo.thumb("280"), :alt => support.photo.name %>
           <% end %>
-          <%= content_tag :div, support.photo.description, :class => "pic-desc" %>
+          <div class='pic-desc'>
+            <% if support.weibo_url.nil? %>
+              <%= content_tag :div, support.name, :class => "name-tag" %>
+            <% else %>
+              <div class="name-tag"%>
+                <%= link_to support.name, support.weibo_url, :target => "_blank" %>
+              </div>
+            <% end %>
+            <div class='detail-desc'>
+              <% unless support.career.nil? %>
+                <%= t("supports.career", :career => support.career) %> <br>
+              <% end %>
+              <% unless support.location.nil? %>
+                <%= t("supports.location", :location => support.location) %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
