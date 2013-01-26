@@ -20,7 +20,7 @@
             <%= image_tag support.photo.thumb("280"), :alt => support.photo.name %>
           <% end %>
           <div class='pic-desc'>
-            <% if support.weibo_url.nil? %>
+            <% if support.weibo_url.blank? %>
               <%= content_tag :div, support.name, :class => "name-tag" %>
             <% else %>
               <div class="name-tag"%>
@@ -28,10 +28,10 @@
               </div>
             <% end %>
             <div class='detail-desc'>
-              <% unless support.career.nil? %>
+              <% unless support.career.blank? %>
                 <%= t("supports.career", :career => support.career) %> <br>
               <% end %>
-              <% unless support.location.nil? %>
+              <% unless support.location.blank? %>
                 <%= t("supports.location", :location => support.location) %>
               <% end %>
             </div>
