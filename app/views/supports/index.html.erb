@@ -23,7 +23,7 @@
             <% if support.weibo_url.blank? %>
               <%= content_tag :div, support.name, :class => "name-tag" %>
             <% else %>
-              <div class="name-tag"%>
+              <div class="name-tag">
                 <%= link_to support.name, support.weibo_url, :target => "_blank" %>
               </div>
             <% end %>

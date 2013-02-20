@@ -18,7 +18,10 @@ $ ->
   )
   $(_contentItemLink).click(
     (event) ->
-      $(_largeImage).attr({src: $(event.currentTarget).data("cunxin-thumb-large-src")})
+      $(_largeImage)
+        .hide()
+        .attr({src: $(event.currentTarget).data("cunxin-thumb-large-src")})
+        .show()
       $(_largeImageModal).modal("show")
       false
   )
