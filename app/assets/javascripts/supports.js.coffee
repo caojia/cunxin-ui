@@ -20,6 +20,7 @@ $ ->
     (event) ->
       $(_largeImage)
         .hide()
+      $(_largeImage)
         .attr({src: $(event.currentTarget).data("cunxin-thumb-large-src")})
         .show()
       $(_largeImageModal).modal("show")
