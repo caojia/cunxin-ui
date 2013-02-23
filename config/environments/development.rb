@@ -58,4 +58,5 @@ CunxinUi::Application.configure do
 
   PHOTOS_PATH = File.join(Rails.root, "public")
 
+  ASSET_HOST = "http://localhost:3000"
 end

@@ -155,10 +155,11 @@ var jiathis_config={
     url: document.location.href,
     siteNum: 10,
     sm:"kaixin001,renren,tsohu,t163,douban,tieba,msn,qq,youdao,qingsina",
-    summary: <%= @project.headline.to_json.html_safe %>,
-    title:"#寸心#",
+    summary: <%= "我在寸心网关注了“#{@project.headline}”".to_json.html_safe %>,
+    title:"",
+    pic: <%= "#{ASSET_HOST}#{image_path(@project.thumbnail("1280"))}".to_json.html_safe %>,
     ralateuid:{
-        "tsina":"2989934492"
+        "tsina":"2869358377"
     },
     appkey:{
         "tsina": <%= WeiboOAuth2::Config.api_key.to_json.html_safe %>
