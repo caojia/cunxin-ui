@@ -22,8 +22,14 @@
       </div>
     <% end %>
   </div>
-  <%= link_to "<", "#", :class => "carousel-control-left carousel-control left hideable", "data-target" => "#head-carousel" %>
-  <%= link_to ">", "#", :class => "carousel-control-right carousel-control right hideable", "data-target" => "#head-carousel" %>
+  <%= link_to "#", :class => "carousel-control left hideable", "data-target" => "#head-carousel" do %>
+    <span class="carousel-control-left">
+    </span>
+  <% end %>
+  <%= link_to "#", :class => "carousel-control right hideable", "data-target" => "#head-carousel" do %>
+    <span class="carousel-control-right">
+    </span>
+  <% end %>
   <div class="container relative">
     <div class="carousel-nav-dots">
       <span class="nav-dot nav-dot-active"></span>

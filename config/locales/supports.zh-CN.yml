@@ -2,4 +2,4 @@ zh-CN:
   supports:
     support_us: "支持我们"
     career: "职业：%{career}"
-    location: "拍摄地点：%{location}"
+    location: "地点：%{location}"

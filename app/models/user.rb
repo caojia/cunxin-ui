@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
   end
 
   def thumbnail_url size="36x36"
-    thumbnail.blank? ? (DEFAULT_THUMBNAIL_URL % size) : thumbnail
+    (thumbnail.blank? || !sina_connected?) ? (DEFAULT_THUMBNAIL_URL % size) : thumbnail
   end
 
   # TODO: wtf

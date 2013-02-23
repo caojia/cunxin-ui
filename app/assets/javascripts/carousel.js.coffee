@@ -109,7 +109,7 @@ class FixedRatio
     @element.height(height)
 
     @verticalCenteredElement.each (i, node) ->
-      $(this).css("top", (height - $(this).height())/2)
+      $(this).css("top", (height - $(this).outerHeight())/2)
 
 class @ResizeableImage
   constructor: (@element, @thd = _largeResizeableWidth) ->
