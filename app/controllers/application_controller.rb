@@ -69,6 +69,10 @@ class ApplicationController < ActionController::Base
         user = args.last
       end
       remember_expires_at = user.remember_expires_at rescue nil
+      if user.remember_expired? && remember_expires_at
+        user.forget_me!
+        remember_expires_at = nil
+      end
       cookies[:_cunxin_name] = {
         :value => user.name, 
         :expires => remember_expires_at }
