@@ -7,7 +7,7 @@
         <%= image_tag payment.user.thumbnail_url, :title => payment.user.name, :alt => payment.user.name %>
       <% end %>
     <% else %>
-      <%= image_tag payment.user.thumbnail_url, :title => payment.user.name, :alt => payment.user.name %>
+      <%= image_tag payment.user.thumbnail_url("64x64"), :title => payment.user.name, :alt => payment.user.name %>
     <% end %>
   <% end %>
 </div>
