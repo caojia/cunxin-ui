@@ -69,4 +69,8 @@ class Project < ActiveRecord::Base
     self.published = true
   end
 
+  def closed?
+    (Time.now > finished_at || current_amount >= target_amount)
+  end
+
 end

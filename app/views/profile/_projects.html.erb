@@ -4,7 +4,6 @@
   <table class="table table-striped followed-projects">
     <tr>
       <th colspan=2><%= t("profile.projects.header.project") %></th>
-      <th><%= t("profile.projects.header.status") %></th>
       <th><%= t("profile.projects.header.operation") %></th>
     </tr>
     <% @followed_projects.each do |project| %>
@@ -17,15 +16,18 @@
         <td class='td40'>
           <%= link_to project.headline, project_path(project) %>
         </td>
-        <td class='td15 text-center'>
-          <%= t("profile.projects.following") %>
-        </td>
-        <td class='td25'>
-          <div>
-            <%= link_to t("profile.projects.donate"), donate_path(:project_id => project.id), :class => "super-small-button blue-button" %>
+        <td class='td40'>
+          <div style="text-align: center;">
+            <% if !project.closed? %>
+              <%= link_to t("profile.projects.donate"), donate_path(:project_id => project.id), :class => "super-small-button blue-button button-small-w4" %>
+            <% else %>
+              <div class="super-small-button dark-gray-button button-small-w4">
+                <%= t("profile.projects.donate") %>
+              </div>
+            <% end %>
             <%= link_to t("profile.projects.unfollow"), 
                   unfollow_path(project), 
-                  :class => "btn btn-small unfollow-project", 
+                  :class => "super-small-button gray-button unfollow-project button-small-w4", 
                   :remote => true, 
                   :method => :post %>
           </div>

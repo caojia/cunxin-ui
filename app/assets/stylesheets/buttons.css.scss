@@ -2,20 +2,20 @@ $buttonMarginWidth: 3px;
 $buttonHeight: sprites-sprite-height("green-button");
 $buttonFontSize: 19px;
 
-@mixin button($background-color, $background-hover-color, $border-color)
+@mixin button($background-color, $background-hover-color, $border-color, $text-color)
 {
   display: inline-block;
   background-color: $background-color;
   font-size: 20px;
   padding: 10px 30px;
-  color: #F4F4F4;
+  color: $text-color;
   border: 1px solid $border-color;
   @include background-origin(border-box);
   @include border-radius(8px);
   @include box-shadow(inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.25), inset -999px 0 0 $background-color);
   &:hover {
     text-decoration: none;
-    color: #F4F4F4;
+    color: $text-color;
     background-color: $background-hover-color;
     @include box-shadow(inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.25), inset -999px 0 0 $background-hover-color);
     outline: none;
@@ -23,21 +23,29 @@ $buttonFontSize: 19px;
 }
 
 .blue-button {
-  @include button($darkBlue, $darkBlue * 1.2, $darkBlue * 0.8);
+  @include button($darkBlue, $darkBlue * 1.2, $darkBlue * 0.8, #F4F4F4);
 }
 
 .green-button {
-  @include button($darkGreen, $darkGreen * 1.1, $darkGreen * 0.8);
+  @include button($darkGreen, $darkGreen * 1.1, $darkGreen * 0.8, #F4F4F4);
+}
+
+.gray-button {
+  @include button(#F5F5F5, #E6E6E6, #E6E6E6, #666666);
+}
+
+.dark-gray-button {
+  @include button(#999999, #999999, #666666, #F4F4F4);
 }
 
 $darkDarkBlue: $darkBlue * 0.8;
 .dark-blue-button {
-  @include button($darkDarkBlue, $darkDarkBlue, $darkDarkBlue * 0.8);
+  @include button($darkDarkBlue, $darkDarkBlue, $darkDarkBlue * 0.8, #F4F4F4);
 }
 
 $darkDarkGreen: #228D00;
 .dark-green-button {
-  @include button($darkDarkGreen, $darkDarkGreen, $darkDarkGreen * 0.8);
+  @include button($darkDarkGreen, $darkDarkGreen, $darkDarkGreen * 0.8, #F4F4F4);
   color: $white * 0.9;
   &:hover {
     color: $white * 0.9;
@@ -54,6 +62,11 @@ $darkDarkGreen: #228D00;
   font-size: 13px;
   padding: 2px 15px;
   @include border-radius(3px);
+}
+
+// button with 4 character
+.button-small-w4 {
+  width: 54px;
 }
 
 input.signin-button {

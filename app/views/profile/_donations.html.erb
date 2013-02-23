@@ -28,24 +28,4 @@
       </tr>
     <% end %>
   </table>
-  <div class='pagination pagination-right'>
-    <ul>
-      <% if @page != 1 %>
-        <li> <%= link_to "«", {} %>: </li>
-      <% end %>
-      <% ([1, @page-2].max..[@page+2, @max_page].min).each do |page| %>
-        <% if page == @page %>
-          <li class='disabled'>
-            <%= content_tag :span, page %>
-          </li>
-        <% else %>
-          <li> <%= link_to page, {:page => page} %> </li>
-        <% end %>
-      <% end %>
-      <% if @page != @max_page %>
-        <li> <%= link_to "»", {:page => @max_page} %>: </li>
-      <% end %>
-      </li>
-    </ul>
-  </div>
 <% end %>

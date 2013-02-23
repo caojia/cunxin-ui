@@ -55,7 +55,7 @@
       <div class="page-right">
         <div class="section first-section button-content">
           <div class="buttons">
-            <% if Time.now <= @project.finished_at %>
+            <% if !@project.closed? %>
               <%= button_link "blue-btn" do %>
                 <% link_to t("projects.info.donate"), donate_path(:project_id => @project.id),
                     :id => "project-donate",
