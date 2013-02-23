@@ -10,6 +10,7 @@ $head_carousel_height: 550px;
 $head_description_height: 300px;
 $head_description_width: 150px;
 $arrow_height: sprites-sprite-height("left-arrow");
+$arrow_padding: 50px;
 
 .head-carousel {
   width: 100%;
@@ -40,7 +41,7 @@ $arrow_height: sprites-sprite-height("left-arrow");
   }
 
   .carousel-control {
-    top: ($head_carousel_height - $arrow_height) / 2;
+    top: ($head_carousel_height - $arrow_height) / 2 - $arrow_padding;
   }
 
   .hideable {
@@ -115,7 +116,6 @@ $arrow_height: sprites-sprite-height("left-arrow");
 }
 
 .carousel-control {
-  display: block;
   position: absolute;
   display: block;
   text-indent: -99999em;
@@ -123,28 +123,34 @@ $arrow_height: sprites-sprite-height("left-arrow");
   right: auto;
   border: none;
   margin-top: 0;
-}
-a.carousel-control-left {
-  @include sprites-sprite("left-arrow");
-  width: sprites-sprite-width("left-arrow");
-  height: sprites-sprite-height("left-arrow");
-  left: 10px;
-
-  &:hover, &.hover {
+  background: none;
+  cursor: pointer;
+  padding: $arrow_padding;
+  .carousel-control-left {
+    @include sprites-sprite("left-arrow");
+    width: sprites-sprite-width("left-arrow");
+    height: sprites-sprite-height("left-arrow");
+    left: 10px;
+    position: absolute;
+    display: block;
+    text-indent: -99999em;
+  }
+  &:hover .carousel-control-left, &.hover .carousel-control-left {
     @include sprites-sprite("left-arrow-hover");
   }
-}
-a.carousel-control-right {
-  @include sprites-sprite("right-arrow");
-  width: sprites-sprite-width("right-arrow");
-  height: sprites-sprite-height("right-arrow");
-  right: 10px;
-
-  &:hover, &.hover {
+  .carousel-control-right {
+    @include sprites-sprite("right-arrow");
+    width: sprites-sprite-width("right-arrow");
+    height: sprites-sprite-height("right-arrow");
+    right: 10px;
+    position: absolute;
+    display: block;
+    text-indent: -99999em;
+  }
+  &:hover .carousel-control-right, &.hover .carousel-control-right {
     @include sprites-sprite("right-arrow-hover");
   }
 }
-
 .col3-carousel {
   height: $col3_carousel_height;
   .item {
