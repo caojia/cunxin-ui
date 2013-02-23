@@ -75,8 +75,8 @@ CunxinUi::Application.configure do
     domain: "cunxin.org",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["MAIL_USER"],
-    password: ENV["MAIL_PASSWORD"]
+    user_name: "noreply@cunxin.org",
+    password: "cunxin1"
   }
 
 
