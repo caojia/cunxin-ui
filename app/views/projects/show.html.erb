@@ -56,14 +56,11 @@
         <div class="section first-section button-content">
           <div class="buttons">
             <% if Time.now <= @project.finished_at %>
-              <div class='button blue-btn'>
-                <div class='btn-left'>
-                  <%= link_to t("projects.info.donate"), donate_path(:project_id => @project.id),
-                        :id => "project-donate",
-                        :class => "no-decoration" %>
-                </div>
-                <div class='btn-right'> </div>
-              </div>
+              <%= button_link "blue-btn" do %>
+                <% link_to t("projects.info.donate"), donate_path(:project_id => @project.id),
+                    :id => "project-donate",
+                    :class => "no-decoration" %>
+              <% end %>
             <% else %>
               <div class='button disabled'>
                 <div class='btn-left'>
@@ -72,17 +69,14 @@
                 <div class='btn-right'> </div>
               </div>
             <% end %>
-            <div class='button green-btn'>
-              <div class='btn-left'>
-                <%= link_to t("projects.info.follow"), follow_path(:id => @project.id),
-                      :method => :post,
-                      :remote => true,
-                      "data-check-following-url" => check_following_path(:id => @project.id),
-                      :id => "project-follow",
-                      :class => "no-decoration" %>
-              </div>
-              <div class='btn-right'> </div>
-            </div>
+            <%= button_link "green-btn" do %>
+              <% link_to t("projects.info.follow"), follow_path(:id => @project.id),
+                    :method => :post,
+                    :remote => true,
+                    "data-check-following-url" => check_following_path(:id => @project.id),
+                    :id => "project-follow",
+                    :class => "no-decoration" %>
+            <% end %>
             <div class='button disabled hidden' style='display: none;'>
               <div class='btn-left'>
                 <%= content_tag :div, t("projects.info.following"),

@@ -30,7 +30,6 @@ class UsersController < ApplicationController
       current_user.thumbnail_updated_at = Time.now.utc
       @sina_oauth_user = SinaOauthUser.find(Base64.decode64(params[:sina_id]))
 
-      logger.info "before save sina oauth"
       if current_user.save_and_set_oauth(@sina_oauth_user)
         expire_session_data_after_sign_in!
         reset_oauth_user_from_session("sina")
