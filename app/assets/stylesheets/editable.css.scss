@@ -4,6 +4,7 @@
   }
 
   .editable-icon {
+    vertical-align: middle;
     display: inline-block;
   }
 
@@ -15,24 +16,24 @@
 }
 
 .editable-icon-20 {
-  @include sprites-sprite("edit-icon-20");
-  width: sprites-sprite-width("edit-icon-20");
-  height: sprites-sprite-height("edit-icon-20");
+  @include sprites-sprite("edit-pencil-20");
+  width: sprites-sprite-width("edit-pencil-20");
+  height: sprites-sprite-height("edit-pencil-20");
   margin-left: 3px;
   &:hover {
-    @include sprites-sprite("edit-icon-20-hover");
+    @include sprites-sprite("edit-pencil-20");
   }
 }
 
 .editable-icon-13 {
-  @include sprites-sprite("edit-icon-13");
-  width: sprites-sprite-width("edit-icon-13");
-  height: sprites-sprite-height("edit-icon-13");
+  @include sprites-sprite("edit-pencil-13");
+  width: sprites-sprite-width("edit-pencil-13");
+  height: sprites-sprite-height("edit-pencil-13");
   margin-left: 3px;
   position: relative;
   top: 3px;
   &:hover {
-    @include sprites-sprite("edit-icon-13-hover");
+    @include sprites-sprite("edit-pencil-13");
   }
 }
 

@@ -65,12 +65,12 @@ class ProfileController < ApplicationController
   protected
     def prepare_tabs
       @profile_tabs = [
+        { :name => "account",
+          :link => profile_path },
         { :name => "projects",
           :link => projects_profile_path },
         { :name => "donations",
           :link => donations_profile_path },
-        { :name => "account",
-          :link => profile_path },
         #{ :name => "awards",
           #:link => rewards_profile_path }
       ]
