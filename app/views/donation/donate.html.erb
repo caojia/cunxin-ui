@@ -1,5 +1,7 @@
 <div class='container no-head-carousel donate-page ' >
-  <%= content_tag :h1, @project.headline %>
+  <%= content_tag :h1 do %>
+    <%= link_to @project.headline, project_path(@project) %>
+  <% end %>
   <div class='page-left'>
     <%= form_tag( {:action => "pay"}, :method => :post, :id => 'donate-form', :target => :blank) do %>
       <input name='order_id' type='hidden' id='order_id', val='' />
@@ -85,7 +87,7 @@
           <%= content_tag :h2, t("donation.service_terms") %>
           <div class='agree-service'>
             <%= check_box_tag 'agree_our_service', 'yes', true %>
-            <%= label_tag "payment.agree_our_service", t("donation.agree_our_service") %>
+            <%= label_tag "payment.agree_our_service", t("donation.agree_our_service").html_safe %>
           </div>
 
           <%= hidden_field_tag :project_id, @project.id %>
