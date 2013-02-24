@@ -94,7 +94,15 @@
         <%= f.submit t("profile.cancel"), :class => "super-small-button gray-button editable-cancel" %>
       </div>
     </div>
-  <% end %>
+    <% if @user.point > 0 %>
+      <div class="control-group">
+        <label class="control-label"><%= t("profile.account.points") %></label>
+        <div class="controls">
+          <span class="field-content"> <%= @user.point %> </span>
+        </div>
+      </div>
+    <% end %>
+<% end %>
 </div>
 
 <div id="profile-info" class="section">

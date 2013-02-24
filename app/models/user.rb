@@ -47,7 +47,9 @@ class User < ActiveRecord::Base
       uq.followed_at = Time.now.utc
       yield(self) if block_given?
     end
-    uq.save
+    if uq.save
+      Point.record_event(id, project.id, "SUPPORT")
+    end
   end
 
   def unfollow project
@@ -82,6 +84,10 @@ class User < ActiveRecord::Base
   # TODO: wtf
   def recommended_projects limit
     Project.find(:all, :conditions => {:published => true})
+  end
+
+  def point
+    @point ||= (Point.get_points(self.id)["result"]["points"].to_i rescue 0)
   end
 
 end

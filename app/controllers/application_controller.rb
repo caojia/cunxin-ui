@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+  after_filter :check_logged_in
+
   #before_filter :check_accessible
 
   before_filter :reset_sina_user_from_session
@@ -107,6 +109,13 @@ class ApplicationController < ActionController::Base
     def check_accessible
       if request.headers["X-IGNORE-CHECK"].blank? && action_name != "about" && Rails.env != "development"
         redirect_to "/about"
+      end
+    end
+
+    def check_logged_in
+      if !current_user.nil? && (!session[:last_logged_in] || session[:last_logged_in] < Time.now.utc - 1.day)
+        session[:last_logged_in] = Time.now.utc
+        Point.record_event current_user.id, nil, "LOGIN"
       end
     end
 
