@@ -30,3 +30,5 @@ gem "capistrano-ext", :group => :development
 gem "unicorn"
 
 gem "httparty"
+
+gem "exception_notification"
