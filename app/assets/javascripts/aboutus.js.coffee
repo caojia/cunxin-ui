@@ -93,6 +93,6 @@ class AboutPagePath
     $.fn.scrollPath("scrollTo", @ids[@current], _interval, "easeInOutSine")
 
 
-$ -> 
-  new AboutPagePath($(_aboutWrapper), _points, $(_next), $(_prev))
+#$ -> 
+# new AboutPagePath($(_aboutWrapper), _points, $(_next), $(_prev))
 

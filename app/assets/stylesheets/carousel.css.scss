@@ -151,6 +151,7 @@ $arrow_padding: 50px;
     @include sprites-sprite("right-arrow-hover");
   }
 }
+
 .col3-carousel {
   height: $col3_carousel_height;
   .item {
