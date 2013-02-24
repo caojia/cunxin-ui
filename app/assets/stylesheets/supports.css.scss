@@ -6,17 +6,22 @@ body.noscroll {
 .support-page {
   .header {
     margin-top: 48px;
-    margin-bottom: 50px;
-    .support-btn-wrapper {
-      position: absolute;
-      bottom: 60px;
-      left: 450px;
+    margin-bottom: 30px;
+    img {
+      border: 1px solid gray;
+      width: 1000px;
+      height: 430px;
     }
   }
 
   div.content {
     border: solid 1px #ccc;
+    min-height: 100px;
     margin: 0 0 50px;
+    img.loading {
+      margin-left: 488px;
+      margin-top: 35px;
+    }
     .pic-block {
       width: 302px;
       margin: 0 9px 15px;
