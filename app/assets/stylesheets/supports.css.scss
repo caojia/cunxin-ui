@@ -1,5 +1,11 @@
+body.noscroll {
+  margin-right: 15px;
+  overflow: hidden !important;
+}
+
 .support-page {
   .header {
+    margin-top: 48px;
     margin-bottom: 50px;
     .support-btn-wrapper {
       position: absolute;
@@ -52,11 +58,8 @@
 
   #large-image-modal {
     margin-left: -500px;
-    margin-top: 0;
-    overflow: visible;
     width: 1000px;
-    max-height: 700px;
-    top: 30px;
+    overflow: visible;
     padding: 25px 0;
     .close-button {
       cursor: pointer;
@@ -72,7 +75,6 @@
       overflow-y: auto;
       img {
         max-width: 960px;
-        max-height: 720px;
       }
     }
   }

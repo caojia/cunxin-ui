@@ -9,12 +9,33 @@ _largeImage = "#large-image-modal img"
 _largeImageSrc = "cunxin-thumb-large-src"
 
 $ ->
+  _body = $("body")
+  $(_largeImageModal).on('hide',
+    () ->
+      _body.removeClass("noscroll")
+  )
   $(_contentContainer).imagesLoaded(
     () ->
       $(_contentItems).fadeIn()
       $(_contentContainer).masonry( {
         width: 300,
         itemSelector: _contentItems })
+  )
+  $(_contentContainer).infinitescroll({
+      navSelector: '#page-nav',
+      nextSelector: '#page-nav a',
+      itemSelector: '.pic-block',
+      loading: {
+        finishedMsg: 'No more pages'
+      },
+    },
+    (newElements) ->
+      newElems = $(newElements)
+      newElems.imagesLoaded(
+        () ->
+          newElems.fadeIn()
+          $(_contentContainer).masonry( 'appended', newElems, true)
+      )
   )
   $(_contentItemLink).click(
     (event) ->
@@ -23,6 +44,7 @@ $ ->
       $(_largeImage)
         .attr({src: $(event.currentTarget).data("cunxin-thumb-large-src")})
         .show()
+      _body.addClass("noscroll")
       $(_largeImageModal).modal("show")
       false
   )
