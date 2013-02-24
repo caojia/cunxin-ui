@@ -7,6 +7,7 @@ _contentItemLink = ".support-page .pic-block a.show-image-link"
 _largeImageModal = "#large-image-modal"
 _largeImage = "#large-image-modal img"
 _largeImageSrc = "cunxin-thumb-large-src"
+_loadingIndicator = ".support-page div.content img.loading"
 
 $ ->
   _body = $("body")
@@ -33,6 +34,7 @@ $ ->
       newElems = $(newElements)
       newElems.imagesLoaded(
         () ->
+          $(_loadingIndicator).hide()
           newElems.fadeIn()
           $(_contentContainer).masonry( 'appended', newElems, true)
       )
