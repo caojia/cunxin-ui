@@ -25,7 +25,7 @@ zh-CN:
     charity: "慈善机构:"
     thank_note: "感谢您为<span class='headline'>%{project_title}</span>捐助的<span class='amount'>%{amount}</span>"
     success_notice: "您的捐款记录和爱心积分将在确认捐款收到后更新"
-    agree_our_service: "同意我们的<a href='/terms'>服务条款</a>"
+    agree_our_service: "同意我们的<a href='/terms'>使用条款</a>"
     select_anonymous_donate: "匿名捐助"
     anonymous_donate: "选择匿名捐助"
     choose_other_method: "选择其他支付方式"
