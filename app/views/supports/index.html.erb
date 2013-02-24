@@ -1,20 +1,11 @@
 <div class='support-page container'>
   <div class='header relative'>
     <%= image_tag "home.jpg", "data-image-large" => image_path("home-1600.jpg"), :class => "resizeable" %>
-    <div class='support-btn-wrapper'>
-      <div class='button blue-btn'>
-        <div class="btn-left">
-          <%= link_to t("supports.support_us"), "#" %>
-        </div>
-        <div class="btn-right">
-        </div>
-      </div>
-    </div>
   </div>
 
   <div class="content">
     <% @supports.each do |support| %>
-      <div class="pic-block" >
+      <div class="pic-block">
         <div class="pic-content-wrapper">
           <%= link_to "#", :class => "show-image-link", :'data-cunxin-thumb-large-src' => support.photo.thumb("960") do %>
             <%= image_tag support.photo.thumb("280"), :alt => support.photo.name %>
@@ -41,11 +32,16 @@
     <% end %>
     <div style="clear: both">
   </div>
+  <div id='page-nav' style='display: none'>
+    <%= link_to "", :action =>"index", :page => (@page||1)+1 %>
+  </div>
 
   <div class="modal hide fade" id="large-image-modal">
     <div class="close-button" data-dismiss="modal"></div>
     <div class="large-image-wrapper">
-      <%= image_tag @supports[0].photo.thumb("960") %>
+      <% unless @supports.blank? %>
+        <%= image_tag @supports[0].photo.thumb("960") %>
+      <% end %>
     </div>
   </div>
 </div>
