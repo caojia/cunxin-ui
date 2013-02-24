@@ -4,12 +4,34 @@
       <%= link_to "Index", admin_items_path %> >> 
       <%= @klass.to_s %>
     </h3>
-    <table>
+    <% columns = @klass.columns.reject {|x| %w{created_at updated_at id}.include?(x.name.to_s)} %>
+    <table class="table table-striped">
+      <% if columns.length < 8 %>
+        <tr>
+          <th>ID</th>
+          <% columns.each do |column| %>
+            <th><%= column.name %></th>
+          <% end %>
+          <th><th>
+        </tr>
+      <% end %>
     <% @items.each do |item| %>
       <tr>
-        <td>
-          <%= item.id %> (<%= link_to "edit", edit_admin_item_path(item.id, :item_type => params[:item_type]) %>)
-        </td>
+        <% if columns.length < 8 %>
+          <td>
+            <%= item.id %>
+          </td>
+          <% columns.each do |column| %>
+            <td>
+              <%= item.send column.name.to_sym %>
+            </td>
+          <% end %>
+          <td><%= link_to "edit", edit_admin_item_path(item.id, :item_type => params[:item_type]) %></td>
+        <% else %>
+          <td>
+            <%= item.id %> (<%= link_to "edit", edit_admin_item_path(item.id, :item_type => params[:item_type]) %>)
+          </td>
+        <% end %>
       </tr>
     <% end %>
       <tr>
