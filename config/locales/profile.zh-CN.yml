@@ -21,6 +21,7 @@ zh-CN:
       email_not_confirmed: "未验证"
       resend_confirmation: "重新验证"
       confirmation_resent: "验证邮件已发送，请进入您的邮箱进行确认"
+      points: "积分"
 
     submit: "更新"
     cancel: "取消"

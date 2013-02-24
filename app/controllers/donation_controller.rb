@@ -89,8 +89,10 @@ class DonationController < ApplicationController
       when 'WAIT_BUYER_PAY'
         payment.status = Payment::STATUS_PENDING
       end
-      payment.save
-      payment.project.update_project_current_amount
+      if payment.save
+        payment.project.update_project_current_amount
+        Point.record_event(payment.user_id, payment.project_id, "DONATION", {:amount => [payment.amount.to_i]}) rescue nil
+      end
       render :text => 'success'
     else
       render :text => 'fail'
