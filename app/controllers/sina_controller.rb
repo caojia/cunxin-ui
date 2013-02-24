@@ -58,7 +58,7 @@ class SinaController < ApplicationController
       end
     rescue
       # TODO: add more info
-      raise $!
+      redirect_to root_path
     end
   end
 
