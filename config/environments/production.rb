@@ -81,7 +81,7 @@ CunxinUi::Application.configure do
 
   config.middleware.use ExceptionNotifier, 
     :email_prefix => "[ERROR]",
-    :sender_address => "exception@cunxin.org",
+    :sender_address => "noreply@cunxin.org",
     :exception_recipients => ["caojia@cunxin.org"]
 
 
