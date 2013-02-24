@@ -37,7 +37,7 @@ $ ->
           $(_contentContainer).masonry( 'appended', newElems, true)
       )
   )
-  $(_contentItemLink).click(
+  $(_contentContainer).on("click", _contentItemLink,
     (event) ->
       $(_largeImage)
         .hide()
