@@ -83,7 +83,7 @@
 
 		// Creating the markup inside the container
 		$.each(['Days','Hours','Minutes','Seconds'],function(i){
-			$('<span class="count'+this+'">').html(
+			$('<span class="count'+this+'"></span>').html(
 				'<span class="position"><span class="digit static">0</span></span>' +
 				'<span class="position"><span class="digit static">0</span></span>'
 			).appendTo(elem);
@@ -109,7 +109,7 @@
 		
 		position.data('digit', number);
 		
-		var replacement = $('<span>',{
+		var replacement = $('<span></span>',{
 			'class':'digit',
 			css:{
 				top:'-2.1em',
