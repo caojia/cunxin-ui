@@ -33,8 +33,10 @@
     <% if Rails.env == "production" %>
       <div class="hide">
         <script type="text/javascript">
-          var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-          document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5639ffaa76515a712a45b9bc9a8566c8' type='text/javascript'%3E%3C/script%3E"));
+          $(document).ready(function() {
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5639ffaa76515a712a45b9bc9a8566c8' type='text/javascript'%3E%3C/script%3E"));
+          })
         </script>
       </div>
     <% end %>
