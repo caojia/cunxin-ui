@@ -46,14 +46,16 @@ $arrow_padding: 50px;
 
   .hideable {
     //visibility: hidden;
-    @include opacity(0);
-    @include transition-property(opacity);
-    @include transition-duration(.5s);
+    display: none;
+    //@include opacity(0);
+    //@include transition-property(opacity);
+    //@include transition-duration(.5s);
   }
 
   &:hover .hideable {
-    @include opacity(1);
-    visibility: visible;
+    //@include opacity(1);
+    //visibility: visible;
+    display: block;
   }
 
   .head-carousel-float-content {
