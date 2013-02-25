@@ -31,10 +31,10 @@
 
       <div class="control-group">
         <div class="controls">
-          <label class="checkbox">
+          <div class="checkbox">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me, I18n.t("signin.remember_me") %>
-          </label>
+          </div>
           <%= f.submit I18n.t("signin.submit"), :class => "signin-button green-button small-button" %>
           <%= link_to sina_connect_path do %>
             <%= image_tag "sina30.png" %>
