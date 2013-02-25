@@ -30,6 +30,10 @@ $logo-height: 40px;
       padding: ($banner-height - $logo-height)/2 0;
     }
 
+    .nav .user-thumb {
+      width: 36px;
+    }
+
     .nav .user-thumb span {
       line-height: $banner-height - 2px;
       img {
