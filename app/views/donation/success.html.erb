@@ -14,11 +14,14 @@
         <%= content_tag :div, t('donation.success.amount'), :class =>'title' %>
         <%= content_tag :div, number_to_currency(@payment.amount), :class => 'value' %>
       </div>
+      <div class='info-row'>
+      </div>
       <div style='clear: both'> </div>
     </div>
 
   <%= content_tag :div, t('donation.success.notice').html_safe, :class=>'notice' %>
 
+  <%= content_tag :div, t('donation.success.redirect_notice'), :class=>'redirect-notice' %>
 </div>
 <script type="text/javascript">
   window.setTimeout( function() { location.href=<%= ("\"%s\""%url_for(:controller => :profile, :action => :donations)).html_safe %>; }, 5000);

@@ -39,6 +39,7 @@ zh-CN:
       thank_note: "感谢您的捐赠！"
       project: "捐赠项目："
       amount: "捐赠金额："
-      notice: "您的<span class='score'>爱心积分</span>将在确认捐款收到后更新<br>请留意您的邮箱，接受我们的<span class='report'>反馈报告</span>"
+      notice: "您的<span class='score'>爱心积分</span>将在确认捐款收到后更新<br><span class='report'>项目反馈报告</span>将在项目成功后发送到您的注册邮箱<br>欢迎关注寸心的微博和微信获取最新的公益动态"
+      redirect_notice: "本页面将于5秒之后自动跳转"
     expired:
       note: "该项目募捐金额已满，<br/>或者捐助截止时间已到。<br/>感谢您的支持！"
