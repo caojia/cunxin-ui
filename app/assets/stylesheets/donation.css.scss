@@ -252,7 +252,7 @@ div.pay-success-page {
       margin-bottom: 19px;
       div.title {
         width: 50%;
-        font-size: 30px;
+        font-size: 22px;
         color: #333;
         line-height: 46px;
         text-align: right;
@@ -262,7 +262,7 @@ div.pay-success-page {
       }
       div.value {
         width: 33%;
-        font-size: 30px;
+        font-size: 22px;
         color: #00A0E9;
         line-height: 46px;
         text-align: left;
@@ -284,5 +284,11 @@ div.pay-success-page {
     span.report {
       color: #00A0E9;
     }
+  }
+  div.redirect-notice {
+    padding-left: 30px;
+    font-size: 17px;
+    line-height: 36px;
+    margin-bottom: 30px;
   }
 }
