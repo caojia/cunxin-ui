@@ -48,6 +48,8 @@ class SinaController < ApplicationController
               current_user.thumbnail = sina_user.profile_image_url
               current_user.thumbnail_updated_at = Time.now.utc
               current_user.save_and_set_oauth(sina_oauth_user)
+            else
+              flash[:weibo_already_connected] = true
             end
             redirect_to profile_path
           else

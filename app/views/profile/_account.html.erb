@@ -140,6 +140,11 @@
 <div id="oauth-bindings" class="section">
   <%= form_for @user, :html => {:class => "form-horizontal"} do %>
     <legend><%= t("profile.legend.bindings") %></legend>
+    <% if flash[:weibo_already_connected] || params[:weibo_already_connected]%>
+      <div class="alert">
+        <%= t("profile.bindings.sina.already_connected_error") %>
+      </div>
+    <% end %>
     <div class="control-group">
       <label class="control-label"><%= t("profile.bindings.sina.label") %></label>
       <div class="controls">
