@@ -6,6 +6,10 @@ class UsersController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:resend_confirmation]
 
+  def index
+    redirect_to signup_url
+  end
+
   def resend_confirmation
     current_user.resend_confirmation_token
     render(:json => {:success => true})
