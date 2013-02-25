@@ -64,7 +64,7 @@ CunxinUi::Application.configure do
   config.action_mailer.default_url_options = { :host => 'cunxin.org' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true #TODO: should send out the email
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
@@ -81,7 +81,7 @@ CunxinUi::Application.configure do
 
   config.middleware.use ExceptionNotifier, 
     :email_prefix => "[ERROR]",
-    :sender_address => "noreply@cunxin.org",
+    :sender_address => "exception@cunxin.org",
     :exception_recipients => ["caojia@cunxin.org"]
 
 
