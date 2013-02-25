@@ -59,11 +59,3 @@ $ ->
     on("ajax:error", _callbacks.error).
     on("ajax:complete", _callbacks.complete)
   $.checkLogin(_checkFollowing)
-  if "undefined" != (typeof targetDate)
-    $('#countdown-timer').countdown({
-      timestamp: targetDate,
-      DaysText: '天',
-      HoursText: '时',
-      MinutesText: '分',
-      SecondsText: '秒'
-    })

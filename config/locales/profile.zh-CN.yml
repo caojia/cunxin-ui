@@ -44,6 +44,7 @@ zh-CN:
     bindings:
       sina:
         label: "绑定新浪微博："
+        already_connected_error: "对不起，您的新浪微博已绑定其他账号"
       connect: "绑定"
       disconnect: "取消绑定"
 

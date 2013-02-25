@@ -155,9 +155,10 @@ var jiathis_config={
     url: document.location.href,
     siteNum: 10,
     sm:"kaixin001,renren,tsohu,t163,douban,tieba,msn,qq,youdao,qingsina",
-    summary: <%= "我在寸心网关注了“#{@project.headline}”".to_json.html_safe %>,
+    summary: "我分享了寸心网“<%= @project.headline %>”。关注@寸心网，关注微公益。以我们每个人的微薄之力，让这片土地上，每一个生命都受到尊重，每一份爱心都不被挥霍，让公益变成每个人生活的一部分、每个人引以为豪的事情。",
     title:"",
     pic: <%= "#{ASSET_HOST}#{image_path(@project.thumbnail("1280"))}".to_json.html_safe %>,
+    searchPic: false,
     ralateuid:{
         "tsina":"2869358377"
     },
@@ -170,4 +171,11 @@ var jiathis_config={
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=89712" charset="utf-8"></script>
 <script type="text/javascript">
   var targetDate = new Date( <%= (@project.finished_at.to_f*1000).floor %>);
+  $('#countdown-timer').countdown({
+    timestamp: targetDate,
+    DaysText: '天',
+    HoursText: '时',
+    MinutesText: '分',
+    SecondsText: '秒'
+  });
 </script>
