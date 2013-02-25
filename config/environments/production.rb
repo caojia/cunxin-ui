@@ -82,7 +82,7 @@ CunxinUi::Application.configure do
   config.middleware.use ExceptionNotifier, 
     :email_prefix => "[ERROR]",
     :sender_address => "exception@cunxin.org",
-    :exception_recipients => ["caojia@cunxin.org"]
+    :exception_recipients => ["it@cunxin.org"]
 
 
   WeiboOAuth2::Config.redirect_uri = "http://cunxin.org/sina/callback"
