@@ -105,5 +105,12 @@
 <%= render :partial=>'pay_hint_popup' %>
 <script type="text/javascript">
   var targetDate = new Date( <%= (@project.finished_at.to_f*1000).floor %>);
+  $('#countdown-timer').countdown({
+    timestamp: targetDate,
+    DaysText: '天',
+    HoursText: '时',
+    MinutesText: '分',
+    SecondsText: '秒'
+  });
 </script>
 
