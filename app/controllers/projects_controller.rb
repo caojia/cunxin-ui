@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id], :include => [:charity, :photos])
+    @status_display = t("projects.status."+@project.status?.to_s)
     @photos = @project.photos
     @payments = @project.recent_finished_payments(:limit => 10)
     @projects = Project.find(:all, :limit => 5, :conditions => {:published => true}).reject {|proj| proj == @project}
