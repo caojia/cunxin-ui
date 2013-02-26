@@ -16,6 +16,10 @@
   }
 }
 .faq {
+  h4 {
+    margin-top: 1.5em;
+    color: $darkGreen;
+  }
   .qsection {
     margin-bottom: 10px;
     .question {
@@ -27,6 +31,12 @@
       }
     }
     .question-open {
+    }
+    .answer {
+      text-indent: 2em;
+      p:last {
+        margin-bottom: 0;
+      }
     }
   }
 }
