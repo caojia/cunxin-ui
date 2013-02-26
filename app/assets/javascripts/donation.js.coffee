@@ -33,6 +33,9 @@ paySubmit = (event) ->
     if f.find("input[name='payment_method']:checked").size() == 0
       alert("请选择支付方式")
       return false
+    if f.find("input[name='agree_our_service']:checked").size() == 0
+      alert("请仔细阅读并同意我们的使用条款")
+      return false
     if $(f.find("input[name='donate_amount']:checked")[0]).val() == 'other'
       amount = $(f.find("input[name='input_amount']")[0]).val()
       if Number(amount) == 0 || Number(amount) == NaN

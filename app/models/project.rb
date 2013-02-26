@@ -73,4 +73,13 @@ class Project < ActiveRecord::Base
     (Time.now > finished_at || current_amount >= target_amount)
   end
 
+  def status?
+    if Time.now.utc < self.start_date
+      :not_start
+    elsif closed?
+      :finished
+    else
+      :running
+    end
+  end
 end
