@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   include SinaClient
   before_filter :authenticate_user!, :only => [:follow, :unfollow, :check_following]
 
-  DEFAULT_THUMBNAIL_URL = "/images/users/bee-36x36.png"
+  DEFAULT_THUMBNAIL_URL = "/images/users/bee-64x64.png"
 
   def show
     @project = Project.find(params[:id], :include => [:charity, :photos])
