@@ -5,9 +5,11 @@ _contentItems = ".pic-block"
 _contentWrapper = ".pic-block .pic-content-wrapper"
 _contentItemLink = ".support-page .pic-block a.show-image-link"
 _largeImageModal = "#large-image-modal"
-_largeImage = "#large-image-modal img"
+_largeImage = "#large-image-modal img.large-image"
 _largeImageSrc = "cunxin-thumb-large-src"
 _loadingIndicator = ".support-page div.content img.loading"
+_largeImageWrapper = "#large-image-modal .large-image-wrapper"
+_modalLoadingIndicator = "#large-image-modal img.loading"
 
 $ ->
   _body = $("body")
@@ -41,11 +43,16 @@ $ ->
   )
   $(_contentContainer).on("click", _contentItemLink,
     (event) ->
-      $(_largeImage)
-        .hide()
-      $(_largeImage)
-        .attr({src: $(event.currentTarget).data("cunxin-thumb-large-src")})
-        .show()
+      $(_largeImage).remove()
+      $(_modalLoadingIndicator).show()
+      img =
+        $("<img class='large-image'/>")
+          .attr({src: $(event.currentTarget).data("cunxin-thumb-large-src")})
+          .load(
+            () ->
+              $(_modalLoadingIndicator).hide()
+              $(_largeImageWrapper).append(img)
+          )
       _body.addClass("noscroll")
       $(_largeImageModal).modal("show")
       false
