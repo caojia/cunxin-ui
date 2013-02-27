@@ -5,12 +5,23 @@ body.noscroll {
 
 .support-page {
   .header {
-    margin-top: 48px;
-    margin-bottom: 30px;
+    margin-top: $banner-height;
     img {
-      border: 1px solid gray;
       width: 1000px;
-      height: 430px;
+    }
+  }
+
+  .slogan-download {
+    margin: 25px 0;
+    font-size: 18px;
+
+    .title {
+      margin-right: 20px;
+      font-weight: bold;
+      color: $darkGreen;
+    }
+    a {
+      margin-right: 10px;
     }
   }
 
