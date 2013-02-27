@@ -44,7 +44,8 @@ $ ->
   $(_contentContainer).on("click", _contentItemLink,
     (event) ->
       $(_largeImage).remove()
-      $(_modalLoadingIndicator).show()
+      winH = $(window).height()
+      $(_modalLoadingIndicator).css({"margin-top": Math.max(winH*0.4, 100)-24 + "px"}).show()
       img =
         $("<img class='large-image'/>")
           .attr({src: $(event.currentTarget).data("cunxin-thumb-large-src")})
@@ -54,7 +55,6 @@ $ ->
               $(_largeImageWrapper).append(img)
           )
       _body.addClass("noscroll")
-      winH = $(window).height()
       $(_largeImageModal).css({height: Math.max(winH*0.8, 200) + "px", "margin-top": (-winH*0.4-25)+"px"}).modal("show")
       false
   )
