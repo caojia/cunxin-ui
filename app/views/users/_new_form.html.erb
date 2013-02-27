@@ -49,7 +49,9 @@
   <div class="control-group">
     <div class="controls">
       <%= f.submit t("signup.%ssubmit" % (@is_complete ? "complete." : "")), :class => "signup-button blue-button small-button" %>
-      <%= link_to image_tag("sina30.png"), sina_connect_path %>
+      <% if @sina_user_id.blank? %>
+        <%= link_to image_tag("sina30.png"), sina_connect_path %>
+      <% end %>
     </div>
   </div>
 
