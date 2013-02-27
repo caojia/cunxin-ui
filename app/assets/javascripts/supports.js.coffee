@@ -54,7 +54,8 @@ $ ->
               $(_largeImageWrapper).append(img)
           )
       _body.addClass("noscroll")
-      $(_largeImageModal).modal("show")
+      winH = $(window).height()
+      $(_largeImageModal).css({height: Math.max(winH*0.7, 200) + "px", "margin-top": (-winH*0.35)+"px"}).modal("show")
       false
   )
   $(_contentWrapper).hover(
