@@ -80,6 +80,7 @@ class DonationController < ApplicationController
   def alipay_notify
     Notification.create(:payment_method => 'alipay', :detail => request.raw_post)
     payment = Payment.find(:first, :conditions=>{:order_id => params[:out_trade_no]}, :include => [:account]  )
+    old_payment_status = payment.status
     if payment
       ali_notify = Billing::Alipay::Notify.new(request.raw_post, :key => payment.account.key)
       ali_notify.acknowledge # check sign
@@ -92,6 +93,14 @@ class DonationController < ApplicationController
       if payment.save
         payment.project.update_project_current_amount
         Point.record_event(payment.user_id, payment.project_id, "DONATION", {:amount => [payment.amount.to_i]}) rescue nil
+        begin
+          if old_payment_status != payment.status && Payment::STATUS_FINISH == payment.status
+            mail = Mailer.donation_success(payment)
+            mail.deliver!
+          end
+        rescue
+          logger.info $!
+        end
       end
       render :text => 'success'
     else
