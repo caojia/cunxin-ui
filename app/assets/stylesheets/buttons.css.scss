@@ -97,6 +97,8 @@ div.button {
       color: #F4F4F4;
       padding: ($buttonHeight - $buttonFontSize)/2 30px-$buttonMarginWidth ($buttonHeight - $buttonFontSize)/2 30px;
       display: block;
+      min-width: 57px;
+      text-align: center;
       &:hover {
         text-decoration: none;
       }

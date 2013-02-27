@@ -7,7 +7,7 @@ zh-CN:
       text:
         amount: "累计捐款额"
         charities_count: "合作公益组织"
-        people_count: "参与人数"
+        people_count: "注册人数"
         projects_count: "项目数"
     view_project: "详 情"
     donate_project: "捐 助"

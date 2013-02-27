@@ -39,5 +39,5 @@ zh-CN:
 
     status:
       not_start: "未启动"
-      running: "募捐中"
-      finished: "募捐结束"
+      running: "募集中"
+      finished: "募集结束"
