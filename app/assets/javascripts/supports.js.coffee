@@ -21,7 +21,7 @@ $ ->
     () ->
       $(_contentItems).fadeIn()
       $(_contentContainer).masonry( {
-        width: 300,
+        columnWidth: 320,
         itemSelector: _contentItems })
   )
   $(_contentContainer).infinitescroll({
