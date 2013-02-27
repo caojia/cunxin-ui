@@ -14,11 +14,11 @@ zh-CN:
     pay_failed: "支付遇到问题"
     pay_notice: "<ul>
     <li><div>支付宝或网银提示余额不足</div>
-    <div> 建议您更换余额充足的网银，或是先关注一下项目，待存入充足金额后再进行捐赠。</div>
+    <div> 建议您更换一个支付宝或网银账户；或是先关注我们的项目，待支付宝或者网银余额充足后再进行捐款。</div>
     <li><div>支付宝或网银页面显示错误或者空白</div>
     <div> 网银和支付宝对不同浏览器的兼容性有限，可能导致无法正常支付，建议您使用IE浏览器。</div>
     <li> <div>网上银行已扣款，寸心没有显示捐款成功</div>
-    <div> 可能由于银行的数据没有即时传输，请不要担心，稍后刷新页面查看。如较长时间仍显示未付款，可联系寸心客服(help@cunxin.org)为您解决。</div></li>
+    <div> 可能由于银行的数据没有即时传输，请不要担心，稍后刷新页面查看。如较长时间仍显示未支付成功，请联系寸心客服邮箱：help@cunxin.org。</div></li>
     </ul>"
     progress: "项目进度:"
     target_amount: "目标金额:"
@@ -39,7 +39,7 @@ zh-CN:
       thank_note: "感谢您的捐赠！"
       project: "捐赠项目："
       amount: "捐赠金额："
-      notice: "您的<span class='score'>爱心积分</span>将在确认捐款收到后更新<br><span class='report'>项目反馈报告</span>将在项目成功后发送到您的注册邮箱<br>欢迎关注寸心的微博和微信获取最新的公益动态"
+      notice: "您的<span class='score'>爱心积分</span>将在确认捐款收到后更新<br>您的<span class='report'>项目反馈报告</span>将在项目捐助完成后发送到您的注册邮箱<br>欢迎关注寸心的微博“寸心网”和官方微信“cunxin_cn”与我们互动"
       redirect_notice: "本页面将于5秒之后自动跳转"
     expired:
       note: "该项目募捐金额已满，<br/>或者捐助截止时间已到。<br/>感谢您的支持！"

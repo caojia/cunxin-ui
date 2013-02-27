@@ -3,3 +3,7 @@ zh-CN:
     support_us: "支持我们"
     career: "职业：%{career}"
     location: "地点：%{location}"
+    slogan:
+      download: "点击下载寸心Slogan："
+      dark: "亮黑版"
+      light: "淡灰版"
