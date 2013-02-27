@@ -64,9 +64,9 @@ body.noscroll {
   #large-image-modal {
     margin-left: -500px;
     width: 1000px;
+    height: 70%;
     overflow: visible;
     padding: 25px 0;
-    min-height: 300px;
     img.loading {
       margin-top: 130px;
     }
@@ -80,6 +80,7 @@ body.noscroll {
       top: -15px;
     }
     .large-image-wrapper {
+      height: 100%;
       text-align: center;
       overflow-y: auto;
       img.large-image {
