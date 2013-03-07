@@ -11,10 +11,11 @@
         <div class="row-fluid item <%= first ? 'active' : '' %>">
           <% group.each do |item| %>
             <div class="<%= klass_for_col(items_per_col) %>">
-              <%= link_to *link_opts_for_item.call(item) do %>
+              <% link_html_opt = (defined? link_title_opts_for_item) ? {:title => link_title_opts_for_item.call(item) } : {} %>
+              <%= link_to *link_opts_for_item.call(item), link_html_opt do %>
                 <%= image_tag item.thumbnail_small %>
                 <% if show_caption %>
-                  <div class="caption">
+                  <div class="caption">=> lambda { |item| item.headline }
                     <%= item.name %>
                   </div>
                 <% end %>

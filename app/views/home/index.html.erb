@@ -47,9 +47,9 @@
 <div id="head-summary" class="head-summary-tall relative">
   <div class="container summary-container">
     <div class="summary-item first">
-      <div class="num">
+      <a class="num" href='#projects-list'>
         <%= number_with_delimiter(@summary[:projects_count]) %>
-      </div>
+      </a>
       <div class="text">
         <%= t("home.summary.text.projects_count") %>
       </div>
@@ -71,14 +71,25 @@
       </div>
     </div>
     <div class="summary-item last">
-      <div class="num">
+      <a class="num" href='#charities-list'>
         <%= number_with_delimiter(@summary[:charities_count]) %>
-      </div>
+      </a>
       <div class="text">
         <%= t("home.summary.text.charities_count") %>
       </div>
     </div>
   </div>
+</div>
+
+<div id = 'projects-list'>
+  <%= render :partial => "shared/colx_carousel", 
+    :locals => {:path => "home",
+      :items_per_col => 4,
+      :items => @projects,
+      :key => "project",
+      :link_opts_for_item => lambda { |item| project_path(item) },
+      :show_caption => false,
+      :link_title_opts_for_item => lambda { |item| item.headline }} %>
 </div>
 
 <div class="supports-list container">
@@ -103,7 +114,7 @@
   </div>
 </div>
 
-<div class="cunxin-charities-container">
+<div id="charities-list" class="cunxin-charities-container">
   <div class="container">
     <h4 class="section-head"><%= t("home.charity_title") %></h4>
     <% t("home.charity_links").each do |item| %>

@@ -4,11 +4,13 @@ class HomeController < ApplicationController
 
     @carousels.reject! {|c| c.project.closed?}
 
+    @projects = Project.find(:all, :conditions => {:published => true})
+
     @summary = {
       :amount => Payment.sum(:amount, :conditions => {:status => Payment::STATUS_FINISH}).to_i,
       :charities_count => t("home.charity_links").length,
       :people_count => User.count,
-      :projects_count => Project.count(:conditions => {:published => true})
+      :projects_count => @projects.count
     }
 
     #@supports = Support.find(:all, :order => "position ASC", :include => :photo, :limit => 4 )
