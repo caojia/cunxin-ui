@@ -37,7 +37,7 @@ zh-CN:
         </ul>"
 
     charity_links:
-      - title: "瓷娃娃关怀协会"
+      - title: "瓷娃娃罕见病关爱中心"
         link: "http://www.chinadolls.org.cn/"
         image: "/images/charities/ciwawa.gif"
         hover_image: "/images/charities/ciwawa-hover.gif"
@@ -57,6 +57,10 @@ zh-CN:
         link: "http://www.bigappetite.org/"
         image: "/images/charities/dawei.gif"
         hover_image: "/images/charities/dawei-hover.gif"
+      - title: "中国乡村儿童大病医保公益基金"
+        link: "http://www.bigappetite.org/"
+        image: "/images/charities/dbyb.gif"
+        hover_image: "/images/charities/dbyb-hover.gif"
 
     signup:
       title: "免费注册"
