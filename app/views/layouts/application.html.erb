@@ -2,9 +2,11 @@
 <html xmlns:wb="http://open.weibo.com/wb">
   <head>
     <meta charset="utf-8"/>
+    <!--
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    -->
     <title><%= content_for?(:title) ? yield(:title) : t("app.name") %></title>
-    <meta name="description" content=""/>
+    <meta name="description" content="<%= @meta_description %>"/>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%#= javascript_include_tag "http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=#{WeiboOAuth2::Config.api_key}" %>

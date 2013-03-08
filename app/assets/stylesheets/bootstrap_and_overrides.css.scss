@@ -1,6 +1,7 @@
 @import "bootstrap";
 body { 
   background: image-url("bgnoise.png") repeat;
+  min-width: 1024px;
 }
 .content {
   background-color: #eee;

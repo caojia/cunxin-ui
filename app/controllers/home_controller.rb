@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_filter :set_meta
   def index
     @carousels = Carousel.find(:all, :order => "position ASC", :include => :project)
 
@@ -15,4 +16,9 @@ class HomeController < ApplicationController
 
     #@supports = Support.find(:all, :order => "position ASC", :include => :photo, :limit => 4 )
   end
+
+  private
+    def set_meta
+      @meta_description = t("home.slogon.item1")
+    end
 end
