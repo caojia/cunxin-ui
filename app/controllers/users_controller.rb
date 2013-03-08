@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   skip_before_filter :reset_sina_user_from_session, :only => [:new, :create, :bind_account, :bind_account_auth_failure]
   skip_before_filter :verify_authenticity_token, :only => [:bind_account]
 
-  before_filter :authenticate_user!, :only => [:resend_confirmation]
+  before_filter :authenticate_user!, :only => [:resend_confirmation, :signup_success]
 
   def index
     redirect_to signup_url
@@ -86,13 +86,17 @@ class UsersController < ApplicationController
       reset_oauth_user_from_session("sina")
       sign_in(@user)
 
-      redirect_to root_path
+      redirect_to signup_success_url
     else
       @user.clean_up_passwords
       #TODO: show error messages
       render :action => :new
     end
 
+  end
+
+  def signup_success
+    @user = current_user
   end
 
   def show
