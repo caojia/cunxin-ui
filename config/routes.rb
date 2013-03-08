@@ -5,6 +5,7 @@ CunxinUi::Application.routes.draw do
   root :to => "home#index"
 
   get "users/sign_in", :to => "home#index"
+  get "signup_success", :to => "users#signup_success", :as => :signup_success
   devise_for :users, :only => [:sessions, :passwords, :confirmations]
 
   # users

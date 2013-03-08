@@ -1,0 +1,17 @@
+<div class="container no-head-carousel" style="padding-top: 40px; text-align: center;">
+  <div class="alert alert-success" style="width: 600px; margin: 0 auto; text-align: left;">
+    <p>亲爱的<%= @user.name %>，</p>
+    <p style='text-indent: 2em'>恭喜您, 注册已成功！</p>
+    <p style='text-indent: 2em'>
+    我们已经向您的邮箱发送验证邮件，请注意查收；如果五分钟内未收到邮件，请检查您的垃圾箱；并把noreply@cunxin.org加入您的通讯录，以确保能够继续接受来自寸心的最新消息。
+    </p>
+    <p style='text-indent: 2em;'>
+    本页面将在10秒后自动跳转到首页，您也可以直接<%= link_to "点击这里", root_path %>回到首页
+    </p>
+  </div>
+</div>
+<script>
+setTimeout(function() {
+  document.location = "/";
+}, 10000);
+</script>
