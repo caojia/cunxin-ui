@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id], :include => [:charity, :photos])
+    @meta_description = @project.short_description
     @status_display = t("projects.status."+@project.status?.to_s)
     @photos = @project.photos
     @payments = @project.recent_finished_payments(:limit => 10)
