@@ -92,11 +92,20 @@
       :link_title_opts_for_item => lambda { |item| item.headline }} %>
 </div>
 
-<div class="supports-list container">
+<div class="supports-list container cunxin-detail">
   <h4 class="section-head"><%= t("home.supports.title") %></h4>
-  <%= link_to :controller => :supports, :action => :index do %>
-    <%= image_tag "cunxin-everybody.jpg" %>
-  <% end %>
+  <%= content_tag :div, t("home.supports.text"), :class => "supports-text" %>
+  <%= render :partial => "shared/colx_carousel", 
+    :locals => {:path => "home",
+      :items_per_col => 4,
+      :items => @supports,
+      :key => "supports",
+      :no_title => true,
+      :link_opts_for_item => lambda { |item|  },
+      :show_caption => false,
+      :link_opts_for_item => lambda { |item| url_for :controller => "supports", :action => "index" },
+      :image_url_opts_for_item => lambda { |item| item.photo.thumbnail_small } } %>
+  <%= link_to t("home.supports.more"), :controller => :supports, :action => :index %>
 </div>
 
 <div class="cunxin-detail container-fluid container">
