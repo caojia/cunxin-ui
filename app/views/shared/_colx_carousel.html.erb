@@ -1,4 +1,5 @@
 <% link_opts_for_item ||= lambda { |item| ["#"] } %>
+<% image_url_opts_for_item ||= lambda { |item| item.thumbnail_small } %>
 <% key_s = key.pluralize %>
 <div id="<%= key_s %>" class="container">
   <% unless no_title ||= false %>
@@ -13,7 +14,7 @@
             <div class="<%= klass_for_col(items_per_col) %>">
               <% link_html_opt = (defined? link_title_opts_for_item) ? {:title => link_title_opts_for_item.call(item) } : {} %>
               <%= link_to *link_opts_for_item.call(item), link_html_opt do %>
-                <%= image_tag item.thumbnail_small %>
+                <%= image_tag image_url_opts_for_item.call(item) %>
                 <% if show_caption %>
                   <div class="caption">=> lambda { |item| item.headline }
                     <%= item.name %>

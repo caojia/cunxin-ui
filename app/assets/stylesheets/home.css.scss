@@ -78,6 +78,11 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   @include text-shadow(1px 1px 0 rgba(0,0,0,0.1));
 }
 
+.supports-list.cunxin-detail .supports-text {
+  margin-bottom: 10px;
+}
+
+
 .cunxin-detail {
   margin-top: 40px;
   color: $gray;
