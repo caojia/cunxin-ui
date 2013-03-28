@@ -47,7 +47,7 @@
 <div id="head-summary" class="head-summary-tall relative">
   <div class="container summary-container">
     <div class="summary-item first">
-      <a class="num" href='#projects-list'>
+      <a class="num" href='#projects'>
         <%= number_with_delimiter(@summary[:projects_count]) %>
       </a>
       <div class="text">
@@ -81,16 +81,14 @@
   </div>
 </div>
 
-<div id = 'projects-list'>
-  <%= render :partial => "shared/colx_carousel", 
-    :locals => {:path => "home",
-      :items_per_col => 4,
-      :items => @projects,
-      :key => "project",
-      :link_opts_for_item => lambda { |item| project_path(item) },
-      :show_caption => false,
-      :link_title_opts_for_item => lambda { |item| item.headline }} %>
-</div>
+<%= render :partial => "project_carousel",
+      :locals => {:path => "home",
+        :items_per_col => 4,
+        :items => @projects,
+        :key => "project",
+        :show_caption => true,
+        :link_opts_for_item => lambda { |item| project_path(item) },
+        :link_title_opts_for_item => lambda { |item| item.headline }} %>
 
 <div class="supports-list container cunxin-detail">
   <h4 class="section-head"><%= t("home.supports.title") %></h4>

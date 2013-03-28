@@ -166,3 +166,66 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   text-align: center;
 }
 
+.col4-carousel.project-carousel {
+  height: auto;
+
+  .item .span3 {
+    height: auto;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background: white;
+    text-align: left;
+
+    .project-thumb img {
+      border: none;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .project-data {
+      div.detail {
+        width: 100px;
+        float: left;
+        padding: 5px 0;
+        margin-right: 5px;
+        font-size: 12px;
+        color: $gray;
+      }
+    }
+
+    .project-title {
+      padding-bottom: 20px;
+      height: 40px;
+      a {
+        line-height: 20px;
+        text-decoration: none;
+      }
+    }
+
+    .project-description {
+      height: 54px;
+      margin-bottom: 10px;
+      font-size: 12px;
+      line-height: 18px;
+      overflow: hidden;
+    }
+
+    .project-status div.status-detail {
+      font-size: 12px;
+      line-height: 16px;
+      width: 80px;
+      float: left;
+      &.last {
+        width: 50px;
+        float: right;
+      }
+      div.highlight {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+

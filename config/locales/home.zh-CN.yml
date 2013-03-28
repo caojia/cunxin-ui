@@ -17,6 +17,14 @@ zh-CN:
       item1: "寸心，一个专业的公益网络募捐平台"
       item2: "爱，从不渺小！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Love Is Never Tiny!"
 
+    project:
+      donate_people: "捐助人数：%{people_count}"
+      notice_people: "关注人数：%{people_count}"
+      target_amount: "目标金额"
+      current_amount: "已捐金额"
+      left_time: "剩余时间"
+      left_days: "%{day}天"
+
     details:
       - title: "我们为何发起寸心？"
         description: "<ul>
