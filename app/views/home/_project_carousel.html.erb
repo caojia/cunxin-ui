@@ -1,0 +1,67 @@
+<% link_opts_for_item ||= lambda { |item| ["#"] } %>
+<% image_url_opts_for_item ||= lambda { |item| item.thumbnail_small } %>
+<% key_s = key.pluralize %>
+<div id="<%= key_s %>" class="container">
+  <% unless no_title ||= false %>
+    <h4 class="section-head"><%= t("%s.%s_title" % [path, key]) %></h4>
+  <% end %>
+  <div id="<%= key_s %>-carousel" class="carousel slide col<%= items_per_col %>-carousel project-carousel">
+    <% first = true %>
+    <div class="carousel-inner">
+      <% items.in_groups_of(items_per_col, false) do |group| %>
+        <div class="row-fluid item <%= first ? 'active' : '' %>">
+          <% group.each do |item| %>
+            <% link_html_opt = (defined? link_title_opts_for_item) ? {:title => link_title_opts_for_item.call(item) } : {} %>
+            <div class="<%= klass_for_col(items_per_col) %>">
+              <div class="project-thumb">
+                <%= link_to *link_opts_for_item.call(item), link_html_opt do %>
+                  <%= image_tag image_url_opts_for_item.call(item), :class => 'thumbnail' %>
+                <% end %>
+              </div>
+              <div class="project-data">
+                <%= content_tag :div,
+                  t("home.project.donate_people", :people_count => number_with_delimiter(item.donated_users.count)).html_safe, :class => "detail" %>
+                <%= content_tag :div,
+                  t("home.project.notice_people", :people_count => number_with_delimiter(item.followed_users.count)).html_safe, :class => "detail" %>
+                <div style="clear: both;"> </div>
+              </div>
+              <div class="project-title">
+                <%= link_to item.headline, *link_opts_for_item.call(item) %>
+              </div>
+              <%= content_tag :div, truncate(item.short_description, :length => 110), :class => "project-description" %>
+              <div class='desc-content project-progress' >
+                <span class='progress-wrapper'>
+                  <span class='progress bar-striped active' style="width: 210px">
+                    <div class='bar' style="width: <%= item.donated_percentage %>%;">
+                    </div>
+                    <div class='bar bar-success user-bar' style='width: 0;' >
+                    </div>
+                  </span>
+                </span>
+              </div>
+              <div class="project-status">
+                <div class="status-detail">
+                  <div class="highlight"> <%= number_to_currency(item.target_amount) %> </div>
+                  <%= t("home.project.target_amount") %>
+                </div>
+                <div class="status-detail">
+                  <div class="highlight"> <%= number_to_currency(item.current_amount) %> </div>
+                  <%= t("home.project.current_amount") %>
+                </div>
+                <div class="status-detail last">
+                  <div class="highlight"> <%= t("home.project.left_days", :day => [((item.finished_at-Time.now.utc)/3600/24).ceil, 0].max) %> </div>
+                  <%= t("home.project.left_time") %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <% first = false %>
+      <% end %>
+    </div>
+    <% if items.length > items_per_col %>
+      <%= link_to "<", "#", :class => "carousel-control-left carousel-control left", "data-slide" => "prev", "data-target" => "#%s-carousel" % key_s %>
+      <%= link_to ">", "#", :class => "carousel-control-right carousel-control right", "data-slide" => "next", "data-target" => "#%s-carousel" % key_s %>
+    <% end %>
+  </div>
+</div>

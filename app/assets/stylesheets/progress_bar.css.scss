@@ -1,12 +1,17 @@
 .progress-wrapper {
   display: inline-block;
-  height: 15px;
+  height: 12px;
   position: relative;
   top: 2px;
 
   .progress {
     display: inline-block;
+    border-radius: 6px;
     height: 100%;
+
+    .bar {
+      border-radius: 6px;
+    }
 
     .progress-text-container {
       top: 0px;
