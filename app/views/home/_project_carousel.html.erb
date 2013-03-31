@@ -20,9 +20,9 @@
               </div>
               <div class="project-data">
                 <%= content_tag :div,
-                  t("home.project.donate_people", :people_count => number_with_delimiter(10000)).html_safe, :class => "detail" %>
+                  t("home.project.donate_people", :people_count => number_with_delimiter(item.donated_users.count)).html_safe, :class => "detail" %>
                 <%= content_tag :div,
-                  t("home.project.notice_people", :people_count => number_with_delimiter(20000)).html_safe, :class => "detail" %>
+                  t("home.project.notice_people", :people_count => number_with_delimiter(item.followed_users.count)).html_safe, :class => "detail" %>
                 <div style="clear: both;"> </div>
               </div>
               <div class="project-title">

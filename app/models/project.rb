@@ -20,7 +20,6 @@ class Project < ActiveRecord::Base
   has_one :primary_photo, :through => :primary_project_photo, :source => :photo
 
   def donated_users
-    # TODO: use real donated users
     return User.find(:all,
                      :include => [:payments],
                      :conditions => ["payments.project_id = ? AND payments.status = ?", self.id, Payment::STATUS_FINISH],
