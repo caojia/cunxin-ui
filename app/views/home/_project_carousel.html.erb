@@ -28,7 +28,7 @@
               <div class="project-title">
                 <%= link_to item.headline, *link_opts_for_item.call(item) %>
               </div>
-              <%= content_tag :div, truncate(item.description, :length => 110), :class => "project-description" %>
+              <%= content_tag :div, truncate(item.short_description, :length => 110), :class => "project-description" %>
               <div class='desc-content project-progress' >
                 <span class='progress-wrapper'>
                   <span class='progress bar-striped active' style="width: 210px">
