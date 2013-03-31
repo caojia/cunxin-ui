@@ -166,6 +166,16 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   text-align: center;
 }
 
+
+.supports-list .carousel .item .span3 {
+  .img-wrapper {
+    overflow: hidden;
+    img {
+      height: auto;
+    }
+  }
+}
+
 .col4-carousel.project-carousel {
   height: auto;
 
