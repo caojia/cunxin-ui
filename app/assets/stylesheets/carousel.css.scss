@@ -197,15 +197,26 @@ $arrow_padding: 50px;
       text-align: center;
       height: $colx_carousel_height;
       position: relative;
-      img {
+      a {
+        display: block;
+      }
+      .img-wrapper {
+        border: $colx_carousel_border solid #ccc;
         height: $colx_carousel_height - $colx_carousel_border * 2;
         width: $colx_carousel_width - $colx_carousel_border * 2;
-        border: $colx_carousel_border solid #ccc;
+        img {
+          height: $colx_carousel_height - $colx_carousel_border * 2;
+          width: $colx_carousel_width - $colx_carousel_border * 2;
+        }
       }
-      .cunxin-thumb-selected > img {
+      .cunxin-thumb-selected >.img-wrapper {
+        border: $colx_carousel_border_thicker solid $lightBlue;
         height: $colx_carousel_height - $colx_carousel_border_thicker * 2;
         width: $colx_carousel_width - $colx_carousel_border_thicker * 2;
-        border: $colx_carousel_border_thicker solid $lightBlue;
+        >img {
+          height: $colx_carousel_height - $colx_carousel_border_thicker * 2;
+          width: $colx_carousel_width - $colx_carousel_border_thicker * 2;
+        }
       }
       .caption {
         color: white;
