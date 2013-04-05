@@ -1,5 +1,5 @@
 <div class="aboutus static-page">
-  <div id="head-about-carousel" class="carousel slide about-carousel">
+  <div id="head-about-carousel" class="carousel slide about-carousel" data-interval=false >
     <div class="carousel-inner">
       <% 1.upto(5) do |i| %>
         <div class="item <%= i == 1 ? 'active' : '' %>" id="<%= 'about-item-%d' % i %>">
