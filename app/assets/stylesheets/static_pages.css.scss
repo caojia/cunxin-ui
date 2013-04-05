@@ -47,7 +47,7 @@ body.contact {
 
 body.about {
   background-image: none;
-  $nav-container-width: sprites-sprite-width("circle-right") + sprites-sprite-width("circle-left") + sprites-sprite-width("circle-home") + 20px;
+  $nav-container-width: sprites-sprite-width("circle-right") + sprites-sprite-width("circle-left") + 20px;
   .about-carousel {
     width: 100%;
     height: 450px;
