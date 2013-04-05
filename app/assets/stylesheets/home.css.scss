@@ -205,11 +205,20 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
     }
 
     .project-title {
-      padding-bottom: 20px;
       height: 40px;
-      a {
-        line-height: 20px;
+      line-height: 20px;
+
+      a.title {
         text-decoration: none;
+        display: block;
+        float: left;
+      }
+      div.status {
+        float: right;
+        background-color: $darkGreen;
+        color: $white;
+        padding: 0 3px;
+        border-radius: 2px;
       }
     }
 
@@ -219,6 +228,10 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
       font-size: 12px;
       line-height: 18px;
       overflow: hidden;
+    }
+
+    .project-progress .progress-wrapper .progress {
+      margin-bottom: 25px;
     }
 
     .project-status div.status-detail {
@@ -234,6 +247,7 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
         font-weight: bold;
         font-size: 14px;
         margin-bottom: 4px;
+        color: $darkGreen;
       }
     }
   }

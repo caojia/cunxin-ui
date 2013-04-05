@@ -197,9 +197,6 @@ $arrow_padding: 50px;
       text-align: center;
       height: $colx_carousel_height;
       position: relative;
-      a {
-        display: block;
-      }
       .img-wrapper {
         border: $colx_carousel_border solid #ccc;
         height: $colx_carousel_height - $colx_carousel_border * 2;

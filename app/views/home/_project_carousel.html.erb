@@ -26,7 +26,8 @@
                 <div style="clear: both;"> </div>
               </div>
               <div class="project-title">
-                <%= link_to item.headline, *link_opts_for_item.call(item) %>
+                <%= link_to item.headline, *link_opts_for_item.call(item), :class => "title" %>
+                <%= content_tag :div, t("home.project.status." + item.status?.to_s), :class => "status" %>
               </div>
               <%= content_tag :div, truncate(item.short_description, :length => 110), :class => "project-description" %>
               <div class='desc-content project-progress' >
