@@ -24,6 +24,10 @@ zh-CN:
       current_amount: "已捐金额"
       left_time: "剩余时间"
       left_days: "%{day}天"
+      status:
+        not_start: "预热中"
+        finished: "已结束"
+        running: "募集中"
 
     details:
       - title: "我们为何发起寸心？"
