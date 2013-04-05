@@ -40,7 +40,7 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
 }
 
 .head-summary-tall {
-  margin: 8px 0 20px;
+  margin: 8px 0 33px;
   .summary-container {
     background: image-url("summary-bg.gif") repeat;
     border: 1px solid #e9e9e9;
@@ -78,13 +78,18 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   @include text-shadow(1px 1px 0 rgba(0,0,0,0.1));
 }
 
-.supports-list.cunxin-detail .supports-text {
-  margin-bottom: 10px;
+.supports-list.cunxin-detail {
+  .supports-text {
+    margin-bottom: 10px;
+  }
+  a.more-link {
+    float: right;
+    padding-right: 13px;
+  }
 }
 
 
 .cunxin-detail {
-  margin-top: 40px;
   color: $gray;
   .title {
     font-size: 18px;
@@ -110,10 +115,6 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   padding: 20px 0 30px;
   border-top: 1px solid #ccc;
   background-color: white;
-}
-
-.supports-list {
-  margin-bottom: 50px;
 }
 
 .charity_link {
@@ -178,6 +179,7 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
 
 .col4-carousel.project-carousel {
   height: auto;
+  margin-bottom: 33px;
 
   .item .span3 {
     height: auto;

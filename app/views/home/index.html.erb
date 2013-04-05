@@ -103,7 +103,7 @@
       :show_caption => false,
       :link_opts_for_item => lambda { |item| url_for :controller => "supports", :action => "index" },
       :image_url_opts_for_item => lambda { |item| item.photo.thumbnail_small } } %>
-  <%= link_to t("home.supports.more"), :controller => :supports, :action => :index %>
+      <%= link_to t("home.supports.more"), {:controller => :supports, :action => :index}, {:class => "more-link"} %>
 </div>
 
 <div class="cunxin-detail container-fluid container">
