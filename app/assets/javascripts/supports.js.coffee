@@ -29,10 +29,11 @@ $ ->
       nextSelector: '#page-nav a',
       itemSelector: '.pic-block',
       loading: {
-        finishedMsg: 'No more pages'
-      },
+        selector: "div.content img.loading"
+      }
     },
     (newElements) ->
+      $(_loadingIndicator).show()
       newElems = $(newElements)
       newElems.imagesLoaded(
         () ->
