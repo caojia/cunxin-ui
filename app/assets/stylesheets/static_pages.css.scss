@@ -11,6 +11,16 @@
   }
 }
 .terms {
+  ul.bullet-point-list {
+    padding-left: 2em;
+    li {
+      list-style-position: outside;
+      list-style-type: circle;
+      p {
+        text-indent: 0;
+      }
+    }
+  }
   p {
     text-indent: 2em;
   }
