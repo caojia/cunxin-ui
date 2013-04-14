@@ -117,11 +117,9 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
   background-color: white;
 }
 
-.charity_link {
-  padding-right: 5px;
-  img {
-    border-bottom: 1px solid #ccc;
-  }
+.charity-link {
+  padding-right: 20px;
+  line-height: 85px;
 }
 
 .home-signup-form-container {

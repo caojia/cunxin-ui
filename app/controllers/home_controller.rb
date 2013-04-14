@@ -14,7 +14,9 @@ class HomeController < ApplicationController
       :projects_count => @projects.count
     }
 
-    @supports = Support.find([50, 53, 75, 40], :order => "position ASC", :include => :photo, :limit => 4 )
+    @supports = (
+      Support.find([50, 53, 75, 40], :order => "position ASC", :include => :photo, :limit => 4 ) rescue []
+    )
   end
 
   private
