@@ -50,6 +50,10 @@ zh-CN:
         </ul>"
 
     charity_links:
+      - title: "中国乡村儿童大病医保公益基金"
+        link: "http://www.dbyb.org"
+        image: "/images/charities/dbyb.gif"
+        hover_image: "/images/charities/dbyb-hover.gif"
       - title: "瓷娃娃罕见病关爱中心"
         link: "http://www.chinadolls.org.cn/"
         image: "/images/charities/ciwawa.gif"
@@ -70,10 +74,6 @@ zh-CN:
         link: "http://www.xueyou.org/"
         image: "/images/charities/xueyou.gif"
         hover_image: "/images/charities/xueyou-hover.gif"
-      - title: "中国乡村儿童大病医保公益基金"
-        link: "http://www.dbyb.org"
-        image: "/images/charities/dbyb.gif"
-        hover_image: "/images/charities/dbyb-hover.gif"
       - title: "海星儿童基金会"
         link: "http://weibo.com/u/2490750422"
         image: "/images/charities/haixing.gif"
