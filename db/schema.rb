@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122155157) do
+ActiveRecord::Schema.define(:version => 20130420161758) do
 
   create_table "accounts", :force => true do |t|
     t.string   "payment_method"
@@ -130,6 +130,18 @@ ActiveRecord::Schema.define(:version => 20130122155157) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "project_news", :force => true do |t|
+    t.integer  "project_id",                  :null => false
+    t.string   "news",                        :null => false
+    t.datetime "published_at"
+    t.integer  "position",     :default => 1, :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "project_news", ["position", "published_at"], :name => "index_project_news_on_position_and_published_at"
+  add_index "project_news", ["published_at"], :name => "index_project_news_on_published_at"
 
   create_table "project_photos", :force => true do |t|
     t.integer  "project_id"

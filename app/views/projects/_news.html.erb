@@ -1,0 +1,16 @@
+<% if @news.count > 0 %>
+  <div id="project-news">
+    <ul class="project-news-ul">
+      <% @news.each do |news| %>
+        <li>
+          <div>
+            <%= news.news %>
+            <div>
+              <%= time_ago_in_words(news.published_at) %><%= I18n.t("ago") %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

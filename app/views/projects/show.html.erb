@@ -47,6 +47,8 @@
 
         <%= render :partial => "desc_info" %>
 
+        <%= render :partial => "news" %>
+
         <%= content_tag :div, :class => 'description' do %>
           <%= @project.description.html_safe %>
         <% end %>

@@ -1,5 +1,5 @@
 class Admin::ItemsController < ApplicationController
-  ITEMS = %w(project carousel photo project_photo support account charities)
+  ITEMS = %w(project carousel photo project_photo support account charities project_news)
 
   before_filter :set_klass, :except => :index
 
