@@ -1,12 +1,16 @@
 <div class="share-comment-container">
-  <%= content_tag :div, t("home.yaan.title"), :class => "share-title" %>
+  <div class="share-title" >
+    <%= button_link "blue-btn" do %>
+      <% link_to t("home.yaan.title"), "#", :onclick => "jQuery('#weibo-share').click(); return false;" %>
+    <% end %>
+  </div>
   <div class="jiathis-button-container">
     <!-- JiaThis Button BEGIN -->
     <div class="jiathis_style_24x24">
       <%#= link_to "#", :remote => true, :class => "loggedin hidden" do %>
         <%#= image_tag "sina-logo-s24.png", :class => "jiathis_txt jticon", :style => "padding-right: 4px;" %>
       <%# end %>
-      <a class="jiathis_button_tsina"></a>
+      <a class="jiathis_button_tsina" id='weibo-share'></a>
       <a class="jiathis_button_renren"></a>
       <a class="jiathis_button_douban"></a>
       <a class="jiathis_button_tqq"></a>
