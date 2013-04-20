@@ -1,26 +1,24 @@
-<div class="container relative">
-  <div class="share-comment-container">
-    <%= content_tag :div, t("home.yaan.title"), :class => "share-title" %>
-    <div class="jiathis-button-container">
-      <!-- JiaThis Button BEGIN -->
-      <div class="jiathis_style_24x24">
-        <%#= link_to "#", :remote => true, :class => "loggedin hidden" do %>
-          <%#= image_tag "sina-logo-s24.png", :class => "jiathis_txt jticon", :style => "padding-right: 4px;" %>
-        <%# end %>
-        <a class="jiathis_button_tsina"></a>
-        <a class="jiathis_button_renren"></a>
-        <a class="jiathis_button_douban"></a>
-        <a class="jiathis_button_tqq"></a>
-        <a class="jiathis_button_qzone"></a>
-        <a href="http://www.jiathis.com/share?uid=89712" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-        <a class="jiathis_counter_style"></a>
-      </div>
-      <!-- JiaThis Button END -->
-      <div class="clearfix"></div>
+<div class="share-comment-container">
+  <%= content_tag :div, t("home.yaan.title"), :class => "share-title" %>
+  <div class="jiathis-button-container">
+    <!-- JiaThis Button BEGIN -->
+    <div class="jiathis_style_24x24">
+      <%#= link_to "#", :remote => true, :class => "loggedin hidden" do %>
+        <%#= image_tag "sina-logo-s24.png", :class => "jiathis_txt jticon", :style => "padding-right: 4px;" %>
+      <%# end %>
+      <a class="jiathis_button_tsina"></a>
+      <a class="jiathis_button_renren"></a>
+      <a class="jiathis_button_douban"></a>
+      <a class="jiathis_button_tqq"></a>
+      <a class="jiathis_button_qzone"></a>
+      <a href="http://www.jiathis.com/share?uid=89712" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+      <a class="jiathis_counter_style"></a>
     </div>
+    <!-- JiaThis Button END -->
+    <div class="clearfix"></div>
   </div>
-
 </div>
+
 <%= image_tag "yaan.jpg", "data-image-large" => image_path("yaan.jpg"), :class => "resizeable" %>
 
 <script type="text/javascript" >

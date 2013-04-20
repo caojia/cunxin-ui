@@ -26,10 +26,10 @@ $arrow_padding: 50px;
 
   .carousel-inner {
     width: 100%;
-    height: $head_carousel_height;
+    //height: $head_carousel_height;
     .item {
       width: 100%;
-      height: $head_carousel_height;
+      //height: $head_carousel_height;
       position: absolute;
       top: 0;
       left: 0;
@@ -41,7 +41,7 @@ $arrow_padding: 50px;
   }
 
   .carousel-control {
-    top: ($head_carousel_height - $arrow_height) / 2 - $arrow_padding;
+    //top: ($head_carousel_height - $arrow_height) / 2 - $arrow_padding;
   }
 
   .hideable {
