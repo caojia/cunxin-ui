@@ -2,7 +2,7 @@
   <!-- Carousel Items -->
   <div class="carousel-inner">
     <div class="item active">
-      <%= image_tag "yaan.jpg", "data-image-large" => image_path("yaan.jpg"), :class => "resizeable" %>
+      <%= render :partial => "yaan" %>
     </div>
     <div class="item">
       <div class="container relative">
@@ -25,6 +25,7 @@
       </div>
     <% end %>
   </div>
+
   <%= link_to "#", :class => "carousel-control left hideable", "data-target" => "#head-carousel" do %>
     <span class="carousel-control-left">
     </span>

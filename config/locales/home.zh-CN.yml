@@ -13,6 +13,12 @@ zh-CN:
         projects_count: "项目数"
     view_project: "详 情"
     donate_project: "捐 助"
+    weibo: "转发微博"
+
+    yaan:
+      title: "祈福"
+      default_share_text: "#四川雅安地震# 地震无情人有情，我们与灾区同胞在一起。登录@寸心网，为雅安祈福，扩散你的爱。雅安，加油！雅安，平安！"
+      share_title: "祈福"
 
     slogon:
       item1: "寸心，一个专业的公益网络募捐平台"

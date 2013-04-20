@@ -154,6 +154,21 @@ $head_summary_height: sprites-sprite-height("gray-bg-60");
 
 }
 
+.share-comment-container {
+  position: absolute;
+  right: -150px;
+  top: 639px;
+  width: 250px;
+  padding: 20px 0 0;
+
+  .share-title {
+    color: $white;
+    padding: 5px 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
 .or-seperator {
   width: sprites-sprite-width("or-seperator");
   height: sprites-sprite-height("or-seperator");
