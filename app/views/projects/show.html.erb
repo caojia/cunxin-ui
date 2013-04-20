@@ -50,6 +50,8 @@
         <%= content_tag :div, :class => 'description' do %>
           <%= @project.description.html_safe %>
         <% end %>
+
+        <div class="ds-thread"></div>
       </div>
 
       <div class="page-right">
@@ -138,6 +140,20 @@
     </div>
   </div>
 </div>
+
+<!-- Duoshuo Comment BEGIN -->
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"cunxin"};
+  (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END -->
 
 <div class="container project-carousel">
   <%= render :partial => "shared/colx_carousel", :locals => {
