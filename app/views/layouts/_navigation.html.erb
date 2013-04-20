@@ -5,8 +5,7 @@
   <li>
     <%= link_to t("browse.home"), root_path %> </li>
 
-  <li> <%= link_to t("browse.projects"),
-        url_for(:action => 'index', :controller => 'home', :anchor => "projects") %> </li>
+    <li> <%= link_to t("browse.projects"), root_path(:anchor => "projects") %> </li>
 </ul>
 
 <ul class="nav pull-right" id="login-nav">

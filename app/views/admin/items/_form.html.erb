@@ -1,3 +1,6 @@
+<%= content_for :head do %>
+  <%= javascript_include_tag "/js/ckeditor/ckeditor.js" %>
+<% end %>
 <%= form_for @item, :url => url, :html => {:class => "form-horizontal"} do |f| %>
   <% @item.errors.full_messages.each do |e| %>
     <div class="control-group warning">
@@ -11,7 +14,7 @@
       <label class="control-label"><%= column.name %></label>
       <div class="controls">
         <% if column.type == :text %>
-          <%= f.text_area column.name.to_sym, :class => "input-xxlarge" %>
+          <%= f.text_area column.name.to_sym, :class => "input-xxlarge ckeditor" %>
         <% else %>
           <%= f.text_field column.name.to_sym, :class => "input-xxlarge" %>
         <% end %>
