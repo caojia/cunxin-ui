@@ -21,9 +21,17 @@ class NavBar
     else
       this.showBG()
 
+  hashChange: () =>
+    hash = "#" + location.hash.replace(/[^A-Za-z0-9_\-]/g, "")
+    if !_.isEmpty(hash)
+      $(window).scrollTop($(hash).offset().top - @navbar.outerHeight())
+
   bindEvents: () =>
-    $(window).on("scroll", this.update).on("resize", this.update)
+    $(window).on("scroll", this.update).on("resize", this.update).hashchange(this.hashChange)
+    $(window).load(
+      () -> $(window).hashchange()
+    )
     return this
 
-$ -> 
+$ ->
   (new NavBar($(_navbar), $(_masthead))).bindEvents().update()

@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery-migrate-1.2.0.js
+//= require jquery.ba-hashchange.js
 //= require jquery.cookies
 //= require jquery.countdown
 //= require jquery.easing.js
